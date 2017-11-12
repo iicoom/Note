@@ -58,3 +58,27 @@ point.hasOwnProperty('toString') //false
 
 point.__proto__.hasOwnProperty('toString') //true
 //x,y都是实力对象的自身属性，以为定义在this变量上，而toString是原型对象的属性定义在Point类上
+
+/*Class表达式*/
+const MyClass = class Me {
+    getClassName(){
+        return Me.name;
+    }
+}
+
+//上边定义了一个类，类的名字是MyClass而不是Me,Me仅可以在Class内部的代码使用
+let inst = new MyClass()
+inst.getClassName() //Me
+
+//立即执行Class
+let person = new class {
+    constuctor(name) {
+        this.name = name;
+    }
+
+    sayName() {
+        console.log(this.name)
+    }
+}("张三");
+
+person.sayName(); //'张三'
