@@ -36,4 +36,5 @@ const finalConfig = {...productionConfig, ...functionalConfig}
                      ^^^
 
 SyntaxError: Unexpected token ...
+ 这个是ES7的提案，将rest参数、扩展运算符（...）引入对象
 **********************************************************/
