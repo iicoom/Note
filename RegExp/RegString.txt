@@ -1,0 +1,28 @@
+匹配字符串  替换is为IS
+\bis\b
+
+He is a good boy.
+
+This is a test.
+
+Where are you?
+
+Display is also a moun.
+
+isn't it?
+
+What is you name?
+
+
+匹配首尾有特征的字符串  去掉http协议的jpg文件的协议头
+http:\/\/.+\.jpg
+分组 http:(\/\/.+\.jpg)   $1 表示后边括号里的内容
+
+http://img.host.com.images/fadfad.jpg
+
+https://img.host.com.images/fadfad.jpg
+
+http://img.host.com.images/fadfad.png
+
+https://img.host.com.images/fadfad.png
+
