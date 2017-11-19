@@ -1,0 +1,14 @@
+* 范围类
+* [a-z]表示从a 到z的任意字符 包含a和z本身
+* [a-zA-Z]连写
+
+'a1b2n3n4c5'.replace(/[a-z]/g, 'Q')
+"Q1Q2Q3Q4Q5"
+
+'a1b2n3n4c5KKJAKJDFJ'.replace(/[a-zA-Z]/g, 'Q')
+"Q1Q2Q3Q4Q5QQQQQQQQQ"
+
+'2016-09-12'.replace(/[0-9]/g,'A')
+"AAAA-AA-AA"
+'2016-09-12'.replace(/[0-9-]/g,'A')
+"AAAAAAAAAA"

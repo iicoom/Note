@@ -1,0 +1,18 @@
+* ^ 不在中括号里 表示以XXX开始
+* $ 以xxx结束
+* \b 单词边界
+* \B 非单词边界 
+
+'@123@abc@'.replace(/@./g, 'Q')
+"Q23Qbc@"
+'@123@abc@'.replace(/^@./g, 'Q')
+"Q23@abc@"
+'@123@abc@'.replace(/.@/g, 'Q')
+"@12QabQ"
+'@123@abc@'.replace(/.@$/g, 'Q')
+"@123@abQ"
+
+"@123
+@456
+@678
+".replace(/^@\d/gm, 'X')
