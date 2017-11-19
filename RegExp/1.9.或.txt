@@ -1,0 +1,20 @@
+* 使用 | 可以达到或的效果
+
+'ByronCasper'.replace(/Byron|Casper/, 'X')
+"XCasper"
+'ByronCasper'.replace(/Byron|Casper/g, 'X')
+"XX"
+'ByronCasper'.replace(/Byr(on|Ca)sper/g, 'X')
+"ByronCasper"
+'ByronsperByrCasper'.replace(/Byr(on|Ca)sper/g, 'X')
+"XX"
+
+origin: (request) => {
+    const origin = request.get('Origin');
+    if (origin && (/(\.yunfarm\.cn)($|:[0-9]*$)/.test(origin)
+        || (/(localhost)($|:[0-9]*$)/.test(origin))
+        || (/(127\.0\.0\.1)($|:[0-9]*$)/.test(origin)))) {
+        return origin;
+    }
+    return 'https://m.yunfarm.cn';
+}
