@@ -1,0 +1,11 @@
+* test() 方法
+* 检测参数中是否存在匹配正则表达式模式的字符串
+
+var reg = /(\.yunfarm\.cn)($|:[0-9]*$)/
+undefined
+reg.test('https://m.yunfarm.cn')
+true
+reg.test('https://m.yunfarm.cn:3000')
+true
+reg.test('https://m.yunfarm.cn:a')
+false
