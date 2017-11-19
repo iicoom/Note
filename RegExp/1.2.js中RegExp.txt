@@ -1,0 +1,36 @@
+'He is a boy. This is a dog. Where is she?'
+
+规则1 至匹配第一个出现的符合规则的
+var reg = /\bis\b/;
+
+'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
+"He IS a boy. This is a dog. Where is she?"
+
+规则2 全局匹配符合规则的 g-global
+var reg = /\bis\b/g
+
+'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
+"He IS a boy. This IS a dog. Where IS she?"
+
+
+构造函数的形式
+var reg = new RegExp('\\bis\\b')
+undefined
+'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
+"He IS a boy. This is a dog. Where is she?"
+
+全局匹配的写法
+var reg = new RegExp('\\bis\\b','g')
+undefined
+'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
+"He IS a boy. This IS a dog. Where IS she?"
+
+修饰符
+g: global 全文搜索，不添加的话，搜索到第一个匹配
+i: ignore case 忽略大小写，默认大小写敏感
+m: multiple lines多行搜索
+
+'He is a boy. Is he?'.replace(/\bis\b/g, '0')
+"He 0 a boy. Is he?"
+'He is a boy. Is he?'.replace(/\bis\b/gi, '0')
+"He 0 a boy. 0 he?"
