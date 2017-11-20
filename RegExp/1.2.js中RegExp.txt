@@ -33,6 +33,11 @@ mongoose查询：condition.name = { $regex: reg };
 { name: { $regex: /acme.*corp/, $options: 'i', $nin: [ 'acmeblahcorp' ] } }
 MongoDB https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
 
+another one：
+
+var v = "bl";
+var re =new RegExp("^\\d+" + v + "$","gim"); // re为/^\d+bl$/gim
+
 修饰符
 g: global 全文搜索，不添加的话，搜索到第一个匹配
 i: ignore case 忽略大小写，默认大小写敏感
