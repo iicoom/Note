@@ -12,8 +12,9 @@ var reg = /\bis\b/g
 'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
 "He IS a boy. This IS a dog. Where IS she?"
 
-
-构造函数的形式
+****************
+**构造函数的形式**
+****************
 var reg = new RegExp('\\bis\\b')
 undefined
 'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
@@ -24,6 +25,13 @@ var reg = new RegExp('\\bis\\b','g')
 undefined
 'He is a boy. This is a dog. Where is she?'.replace(reg, 'IS')
 "He IS a boy. This IS a dog. Where IS she?"
+
+构造函数的形式可以传入变量 应用在数据库模糊查询
+const reg = new RegExp(ctx.request.query.name, 'i');
+mongoose查询：condition.name = { $regex: reg };
+{ name: { $regex: /acme.*corp/i, $nin: [ 'acmeblahcorp' ] } }
+{ name: { $regex: /acme.*corp/, $options: 'i', $nin: [ 'acmeblahcorp' ] } }
+MongoDB https://docs.mongodb.com/manual/reference/operator/query/regex/index.html
 
 修饰符
 g: global 全文搜索，不添加的话，搜索到第一个匹配
