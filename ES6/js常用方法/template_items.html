@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var ctx = {"category_type":"container","category_code":"CCY000051","name":"金猪飞起来","desc":"666","priority":1,"template_items":[{"field":"asd","name":"哈哈哈","type":"string","priority":2,"desc":"晴天小霹雳","unit_name":"哦哦哦","is_display":true,"is_required":false,"max":10,"min":1,"max_length":6,"mix_length":1}]};
+		
+		var string1 = '[{"field":"asd","name":"哈哈哈","type":"string","priority":2,"desc":"晴天小霹雳","unit_name":"哦哦哦","is_display":true,"is_required":false,"max":10,"min":1,"max_length":6,"mix_length":1}]';
+
+
+		//var ctx4 = JSON.parse(ctx1);
+
+		// string的slice最灵活可以有负参数，split，substring，substr
+		var string2 = 'abcdefg';
+		var ctx3 = string2.slice(2,-2);
+		console.log(ctx3);
+
+		var string3 = "abc,abcd,aaa";
+
+		var arr = string3.split(",");
+		console.log(arr);
+
+		arr.forEach(function(templateItem){
+			console.log(templateItem)
+		});
+
+		var arr1 = ctx.template_items;
+		arr1.forEach(function(templateItem){
+			console.log(templateItem)
+		});
+
+
+
+
+
+	</script>
+</body>
+</html>
