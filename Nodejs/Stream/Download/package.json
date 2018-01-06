@@ -1,0 +1,24 @@
+{
+  "name": "download",
+  "version": "1.0.0",
+  "description": "下你丫的",
+  "main": "factory.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iicoom/Download.git"
+  },
+  "author": "mxj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iicoom/Download/issues"
+  },
+  "homepage": "https://github.com/iicoom/Download#readme",
+  "dependencies": {
+    "json-format": "^1.0.1",
+    "request": "^2.83.0",
+    "superagent": "^3.8.2"
+  }
+}
