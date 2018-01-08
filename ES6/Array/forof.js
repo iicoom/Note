@@ -17,3 +17,12 @@ function addProp (){
 	}
 }
 addProp ()
+
+/*
+=>
+obj.a = 1
+obj.b = 2
+{ a: '1', b: '3' }
+{ a: '2', b: '3' }
+*/
+//for in 操作对象的，for in 、forEach操作数组
