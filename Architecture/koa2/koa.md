@@ -31,3 +31,31 @@ app.use(async ctx => {
   console.log(ctx.db);
 });
 ```
+
+Error Handling
+## app.on
+```
+app.on('error', (err, ctx) => {
+  log.error('server error', err, ctx)
+});
+```
+
+## API
+Context specific methods and accessors.
+
+ctx.req
+Node's request object.
+
+ctx.res
+Node's response object.
+
+ctx.request
+A koa Request object.
+
+ctx.response
+A koa Response object.
+
+ctx.state
+The recommended namespace for passing information through middleware and to your frontend views.
+
+
