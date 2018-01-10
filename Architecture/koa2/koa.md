@@ -41,6 +41,39 @@ app.on('error', (err, ctx) => {
 ```
 
 ## API
+koa的ctx对象
+```
+{ 
+  request:
+   { method: 'GET',
+     url: '/',
+     header:
+      { host: 'localhost:3004',
+        connection: 'keep-alive',
+        'cache-control': 'no-cache',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
+        'postman-token': '7978a45f-0565-eaef-4a6a-f30c244d943a',
+        accept: '*/*',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en,zh-CN;q=0.9,zh;q=0.8' } },
+  response:
+   { status: 404,
+     message: 'Not Found',
+     header:
+      { 'x-dns-prefetch-control': 'off',
+        'x-frame-options': 'SAMEORIGIN',
+        'x-download-options': 'noopen',
+        'x-content-type-options': 'nosniff',
+        'x-xss-protection': '1; mode=block',
+        'access-control-allow-origin': 'https://m.yunfarm.cn',
+        'access-control-allow-methods': 'GET,HEAD,PUT,POST,DELETE' } },
+  app: { subdomainOffset: 2, proxy: false, env: 'development' },
+  originalUrl: '/',
+  req: '<original node req>',
+  res: '<original node res>',
+  socket: '<original node socket>' 
+}
+```
 Context specific methods and accessors.
 
 ctx.req
@@ -57,5 +90,7 @@ A koa Response object.
 
 ctx.state
 The recommended namespace for passing information through middleware and to your frontend views.
+
+
 
 
