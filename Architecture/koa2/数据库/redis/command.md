@@ -1,7 +1,7 @@
 ## 启动服务
 cd 到redis安装目录中 执行 redis-server
 
-## 连接服务器
+## 连接服务器登录
 ### 无密码连接
 如果全局安装的 执行redis-cli
 显示下面信息 连接成功
@@ -62,7 +62,7 @@ mem_allocator:jemalloc-4.0.3
 可以查看到 config_file:/usr/local/redis32/redis.conf 配置文件的位置
 
 ## redis.conf
-
+[redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
 ## key 命令
 1. keys pattern  拿出数据库中匹配的键的值
