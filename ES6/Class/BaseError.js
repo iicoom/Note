@@ -34,8 +34,13 @@ class AlreadyExistsError extends BaseError {
   }
 }
 
+let berror = new BaseError('BaseError', 'system', 'stack')
+console.log(berror)
+console.log(typeof berror)
 let aerror = new AlreadyExistsError('custom','name')
 console.log(aerror)
+// BaseError { code: 'BaseError', resource: 'system', filed: 'stack' }
+// object
 // AlreadyExistsError { code: 'already_exists', resource: 'custom', filed: 'name' }
 
 
