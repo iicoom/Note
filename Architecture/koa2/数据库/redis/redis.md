@@ -1,4 +1,5 @@
-[ioredis-github](https://github.com/luin/ioredis)
+[NodeRedis](https://github.com/NodeRedis/node_redis)
+
 
 ## 常用命令
 1. await redis.multi().hmget(ctoken, ['mobile', 'captcha']).execAsync();

@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "objectid": "^3.2.1"
+    "bluebird": "^3.5.1",
+    "objectid": "^3.2.1",
+    "redis": "^2.8.0"
   }
 }
