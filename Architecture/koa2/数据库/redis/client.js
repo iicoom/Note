@@ -38,15 +38,23 @@ const ctoken = '5a571794895754e248000001';
 const code = '123456';
 const mobile = '18231088765';
 
-client.multi()
-        .hset(ctoken, 'captcha', code)
-        .hset(ctoken, 'mobile', mobile)
-        .expire(ctoken, 10 * 60)    // 过期时间10分钟
-        .execAsync();
+// client.multi()
+//         .hset(ctoken, 'captcha', code)
+//         .hset(ctoken, 'mobile', mobile)
+//         .expire(ctoken, 10 * 60)    // 过期时间10分钟
+//         .execAsync();
 // key是ctoken ，field是captcha，value是code
 
+
+const times = client.multi().incr(ctoken).execAsync();
+
+// (async () => {
+// 	const value = await client.multi().hmget(ctoken, ['mobile', 'captcha']).execAsync();
+// 	console.log(value);
+// })();
+
 (async () => {
-	const value = await client.multi().hmget(ctoken, ['mobile', 'captcha']).execAsync();
+	const value = await client.multi().get(ctoken).execAsync();
 	console.log(value);
 })();
 

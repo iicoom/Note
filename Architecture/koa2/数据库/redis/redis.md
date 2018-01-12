@@ -10,4 +10,8 @@
                     .expire(ctoken, extend_param.expire * 60)
                     .execAsync();
 
-3. 
+3. await redis.multi().get(key).execAsync();
+
+4. await redis.multi().incr(key).execAsync();
+
+5. redis.expire(key, rule.expire);

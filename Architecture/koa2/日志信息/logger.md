@@ -3,6 +3,7 @@
 * error
 * mobile
 ···
+作用记录一些关键性的操作，及操作状态结果
 
 ## middleware/index
 ### accessLogger()
