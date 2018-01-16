@@ -15,3 +15,5 @@
 4. await redis.multi().incr(key).execAsync();
 
 5. redis.expire(key, rule.expire);
+
+6. redis.sadd(key,token);
