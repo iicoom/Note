@@ -65,6 +65,23 @@ mem_allocator:jemalloc-4.0.3
 ```
 可以查看到 config_file:/usr/local/redis32/redis.conf 配置文件的位置
 
+## Redis Select
+redis默认有db0~db15之多。
+Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值。
+```
+127.0.0.1:6379> select 5
+OK
+127.0.0.1:6379[5]> keys *
+1) "queue:job:1"
+2) "queue:jobs:inactive"
+3) "queue:job:types"
+4) "queue:job:2"
+5) "queue:ids"
+6) "queue:jobs"
+7) "queue:order/line-0:jobs"
+8) "queue:jobs:order/line-0:inactive"
+```
+
 ## redis.conf
 [redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
