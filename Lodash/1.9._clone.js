@@ -18,3 +18,20 @@ var base_params = {
 
 var params = _.clone(base_params);
 console.log(params)
+
+// =>
+/*
+{ service: '',
+  version: '1.0',
+  request_time: '',
+  partner_id: '',
+  _input_charset: '',
+  sign: '',
+  sign_type: '',
+  sign_version: '1.0',
+  encrypt_version: '1.0',
+  notify_url: '',
+  return_url: '',
+  memo: '' 
+}
+*/
