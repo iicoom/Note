@@ -63,9 +63,14 @@ app.post('/job', function (req, res) {
 
     }).on('progress', function(progress, data){
       console.log('\r  job #' + job.id + ' ' + progress + '% complete with data ', data );
-
+      res.json({
+	    jobId: job.id
+	  });
     });
-  res.send('POST request to the homepage');
+
+  	res.json({
+	    jobId: job.id
+	});
 });
 
 
