@@ -20,6 +20,30 @@ Math.random().toString(6)
 Math.random().toString(8)
 "0.52476751434366465"
 
+Math.random()
+// 0-1
+Math.random()*6  // 0-6
+//3.1832189209607633
+
+//parseInt(string, radix);
+parseInt(83 + Math.random() * 6)
+// 85
+
+//parseFloat() 函数可解析一个字符串，并返回一个浮点数。
+parseFloat('-123.5')
+//-123.5
+
+parseFloat('He was 40')
+//NaN
+parseFloat('40 years')
+//40
+parseFloat('34 45 66')
+//34
+parseFloat('10.33')
+//10.33
+parseFloat('10.33').toFixed(1)
+//"10.3"
+
 /*************************
     Math.pow(base, exponent) 
     ***************************/
