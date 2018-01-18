@@ -21,6 +21,18 @@ for (var i = 0; i < orderLineNum; i++) {
 }
 ```
 
-## router('/job')
-创建抢购订单
+## router.post('/job')
+创建抢购job
+会返回job id
+
+## router.get('/job/:id')
+获取到job相关信息
+
+## router.post('/order')
+创建订单
+
+## router.put('/:orderId/pay'）
+支付订单
+
+## 消费
 

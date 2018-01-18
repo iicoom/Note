@@ -83,3 +83,10 @@ Math.floor(-3.14)
 Math.floor(3.14)
 3
 
+
+/*************************
+    Math.abs()
+    ***************************/
+
+var lineIndex = Math.abs(hashCode('' + mobile)) % orderLineNum;
+
