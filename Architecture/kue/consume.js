@@ -23,6 +23,9 @@ const jobs = kue.createQueue({
   }
 });
 
+// const interval = 5 * 1000; // 工作卡住5s主动获取
+// jobs.watchStuckJobs(interval);
+
 const logger = log.getLogger();
 logger.level = 'debug';
 
@@ -33,7 +36,7 @@ const checkTaskProceed = async (key) => {
   return new Promise((resolve, reject) => {
     redis.getAsync(key)
         .then(data => {
-          logger.info(`checkTaskProceed::getAsync::${key}::${data}`);
+          logger.debug(`checkTaskProceed::getAsync::${key}::${data}`);
           if (data) {
             return resolve(true);
           } else {
@@ -51,22 +54,22 @@ const checkTaskProceed = async (key) => {
  * 购买羊消费（订单的状态）
  */
 jobs.process('task_consume_buySheep', 2, async(job, done) => {
-  logger.info('===task_consume_buySheep===');
-  logger.info(job.data);
+  logger.debug('===task_consume_buySheep===');
+  logger.debug(job.data);
   const taskKey = `task_consume_buySheep:${digest(JSON.stringify(job.data))}`;
   try {
     const isProceed = await checkTaskProceed(taskKey);
-    logger.info('task_consume_buySheep：：isProceed', isProceed);
+    logger.debug('task_consume_buySheep：：isProceed', isProceed);
     if (isProceed) {
       return done(JSON.stringify({isProceed: isProceed}));
     }
     const result = await finishOrderPayReward(job.data.orderId);
-    logger.info('===task_consume_buySheep===result===');
-    logger.info(result);
+    logger.debug('===task_consume_buySheep===result===');
+    logger.debug(result);
     done(null, JSON.stringify(result));
     job.remove((err) => {
       if (err) throw err;
-      logger.info('removed completed task_consume_buySheep #%d', job.id);
+      logger.debug('removed completed task_consume_buySheep #%d', job.id);
     });
   } catch (err) {
     logger.error('===task_consume_buySheep===err===');

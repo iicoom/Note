@@ -22,17 +22,29 @@ for (var i = 0; i < orderLineNum; i++) {
 ```
 
 ## router.post('/job')
-创建抢购job
-会返回job id
+### 排队
+### 会返回job id
 
 ## router.get('/job/:id')
-获取到job相关信息
+### 获取到job相关信息
+```
+"user_id": "uid",
+"batch_id": "batch_id",
+"sheep_num": "sheep_num",
+"presentInfo": {}
+```
 
 ## router.post('/order')
-创建订单
+### 创建订单
+1. 是否有未支付订单
+2. 是否超过了购买数量限制
+3. 占，更新数据库剩余数量
 
 ## router.put('/:orderId/pay'）
 支付订单
 
 ## 消费
+
+
+
 
