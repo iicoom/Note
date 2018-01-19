@@ -201,6 +201,34 @@ redis> LRANGE mylist 0 -1
 2) "world"
 ```
 
+### ZRANGE key start stop [WITHSCORES]
+```
+127.0.0.1:6379[5]> type queue:jobs:order/line-0:inactive
+zset
+
+127.0.0.1:6379[5]> zrange queue:jobs:order/line-0:inactive 0 -1
+ 1) "01|1"
+ 2) "01|2"
+ 3) "01|3"
+ 4) "01|4"
+ 5) "01|5"
+ 6) "01|6"
+ 7) "01|7"
+ 8) "01|8"
+ 9) "01|9"
+10) "02|10"
+11) "02|11"
+12) "02|12"
+13) "02|13"
+14) "02|14"
+15) "02|15"
+16) "02|16"
+17) "02|17"
+18) "02|18"
+19) "02|19"
+20) "02|20"
+21) "02|21"
+```
 
 [官网-事务处理](http://www.redis.cn/topics/transactions.html)
 ## 事务处理
