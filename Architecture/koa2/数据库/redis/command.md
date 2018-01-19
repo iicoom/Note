@@ -1,5 +1,7 @@
 > Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, HyperLogLogs, Bitmaps. http://redis.io
 
+> Redis命令十分丰富，包括的命令组有Cluster、Connection、Geo、Hashes、HyperLogLog、Keys、Lists、Pub/Sub、Scripting、Server、Sets、Sorted Sets、Strings、Transactions一共14个redis命令组两百多个redis命令，Redis中文命令大全。
+
 [github](https://github.com/NodeRedis/node_redis)
 
 ## 启动服务
@@ -86,6 +88,12 @@ OK
 [redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
 ## key 命令
+
+0. TYPE key
+127.0.0.1:6379[5]> type queue:job:14
+hash
+返回key所存储的value的数据结构类型，它可以返回string, list, set, zset 和 hash等不同的类型。
+
 1. keys pattern  拿出数据库中匹配的键的值
 如： keys *
 =>
@@ -107,35 +115,120 @@ OK
 "{\"cookie\":{\"httpOnly\":true,\"path\":\"/\",\"overwrite\":true,\"signed\":true,\"maxage\":86400000},\"user-agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36\"}"
 ```
 
-## HSET key field value
-设置 key 指定的哈希集中指定字段的值。
+3. HGET key field
+返回 key 指定的哈希集中该字段所关联的值
+```
+127.0.0.1:6379[5]> hget queue:job:14 data
+"{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
+```
 
-如果 key 指定的哈希集不存在，会创建一个新的哈希集并与 key 关联。
+4. hgetall key
+返回 key 指定的哈希集中所有的字段和值。返回值中，每个字段名的下一个是它的值，所以返回值的长度是哈希集大小的两倍
+```
+127.0.0.1:6379[5]> hgetall queue:job:14
+ 1) "updated_at"
+ 2) "1516260211991"
+ 3) "backoff"
+ 4) "true"
+ 5) "ttl"
+ 6) "5000"
+ 7) "type"
+ 8) "order/line-0"
+ 9) "promote_at"
+10) "1516260211990"
+11) "priority"
+12) "0"
+13) "state"
+14) "inactive"
+15) "data"
+16) "{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
+17) "created_at"
+18) "1516260211990"
+19) "max_attempts"
+20) "3"
+127.0.0.1:6379[5]>
+```
 
-如果字段在哈希集中存在，它将被重写。
-redis> HSET myhash field1 "Hello"
+### List
+1. LLEN key
+返回存储在 key 里的list的长度。 如果 key 不存在，那么就被看作是空list，并且返回长度为 0。 当存储在 key 里的值不是一个list的话，会返回error。
+```
+127.0.0.1:6379[5]> llen queue:order/line-0:jobs
+(integer) 21
+```
+
+2. LPOP key
+移除并且返回 key 对应的 list 的第一个元素。
+
+3. LRANGE key start stop
+返回存储在 key 的列表里指定范围内的元素。 start 和 end 偏移量都是基于0的下标，即list的第一个元素下标是0（list的表头），第二个元素下标是1，以此类推。
+
+偏移量也可以是负数，表示偏移量是从list尾部开始计数。 例如， -1 表示列表的最后一个元素，-2 是倒数第二个，以此类推。
+```
+127.0.0.1:6379[5]> lrange queue:order/line-0:jobs 0 -1
+ 1) "1"
+ 2) "1"
+ 3) "1"
+ 4) "1"
+ 5) "1"
+ 6) "1"
+ 7) "1"
+ 8) "1"
+ 9) "1"
+10) "1"
+11) "1"
+12) "1"
+13) "1"
+14) "1"
+15) "1"
+16) "1"
+17) "1"
+18) "1"
+19) "1"
+20) "1"
+21) "1"
+```
+
+5. LPUSH key value [value ...]
+将所有指定的值插入到存于 key 的列表的头部。如果 key 不存在，那么在进行 push 操作前会创建一个空列表。 如果 key 对应的值不是一个 list 的话，那么会返回一个错误。
+```
+redis> LPUSH mylist "world"
 (integer) 1
-
-```
-client.hmset(["key", "test keys 1", "test val 1", "test keys 2", "test val 2"], function (err, res) {});
-// Works the same as
-client.hmset("key", ["test keys 1", "test val 1", "test keys 2", "test val 2"], function (err, res) {});
-// Or
-client.hmset("key", "test keys 1", "test val 1", "test keys 2", "test val 2", function (err, res) {});
+redis> LPUSH mylist "hello"
+(integer) 2
+redis> LRANGE mylist 0 -1
+1) "hello"
+2) "world"
 ```
 
-## HSGET key field value
-CLI:
+### ZRANGE key start stop [WITHSCORES]
 ```
-127.0.0.1:6379> get 5a571794895754e248000001
-(error) WRONGTYPE Operation against a key holding the wrong kind of value
-127.0.0.1:6379> hget 5a571794895754e248000001 captcha
-"123456"
-127.0.0.1:6379> hget 5a571794895754e248000001 mobile
-"18231088765"
-127.0.0.1:6379>
-```
+127.0.0.1:6379[5]> type queue:jobs:order/line-0:inactive
+zset
 
+127.0.0.1:6379[5]> zrange queue:jobs:order/line-0:inactive 0 -1
+ 1) "01|1"
+ 2) "01|2"
+ 3) "01|3"
+ 4) "01|4"
+ 5) "01|5"
+ 6) "01|6"
+ 7) "01|7"
+ 8) "01|8"
+ 9) "01|9"
+10) "02|10"
+11) "02|11"
+12) "02|12"
+13) "02|13"
+14) "02|14"
+15) "02|15"
+16) "02|16"
+17) "02|17"
+18) "02|18"
+19) "02|19"
+20) "02|20"
+21) "02|21"
+```
 
 [官网-事务处理](http://www.redis.cn/topics/transactions.html)
 ## 事务处理
