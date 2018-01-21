@@ -1,5 +1,6 @@
 var kue = require('kue');
 var redis = require('./redisService');
+var q = require('q');
 
 var express = require('express');
 // var nodeExcel = require('excel-export');
@@ -13,7 +14,7 @@ const config = {
         };
 
 // 消息队列
-const jobs = kue.createQueue({
+const queue = kue.createQueue({
   prefix: 'task_consume',
   redis: {
     db: config.taskConsumeDB,
@@ -31,50 +32,65 @@ logger.level = 'debug';
 
 logger.debug(config);
 
-// 任务是否进行中检验
-const checkTaskProceed = async (key) => {
-  return new Promise((resolve, reject) => {
-    redis.getAsync(key)
-        .then(data => {
-          logger.debug(`checkTaskProceed::getAsync::${key}::${data}`);
-          if (data) {
-            return resolve(true);
-          } else {
-            redis.multi().incr(key).expire(key, 12 * 60 * 60 * 1000).execAsync()
-              .then(data => {
-                logger.info(`checkTaskProceed::incr::${key}::${data}`);
-                resolve(data > 1);
-              });
-          }
-        });
-  });
+var checkQueueState = function (key, cb) {
+    return redis.getObject(key, function(err, data) {
+        if (err) {
+            return cb(err);
+        }
+        cb(null, data)
+    });
 };
 
-/**
- * 购买羊消费（订单的状态）
- */
-jobs.process('task_consume_buySheep', 2, async(job, done) => {
-  logger.debug('===task_consume_buySheep===');
-  logger.debug(job.data);
-  const taskKey = `task_consume_buySheep:${digest(JSON.stringify(job.data))}`;
-  try {
-    const isProceed = await checkTaskProceed(taskKey);
-    logger.debug('task_consume_buySheep：：isProceed', isProceed);
-    if (isProceed) {
-      return done(JSON.stringify({isProceed: isProceed}));
-    }
-    const result = await finishOrderPayReward(job.data.orderId);
-    logger.debug('===task_consume_buySheep===result===');
-    logger.debug(result);
-    done(null, JSON.stringify(result));
-    job.remove((err) => {
-      if (err) throw err;
-      logger.debug('removed completed task_consume_buySheep #%d', job.id);
-    });
-  } catch (err) {
-    logger.error('===task_consume_buySheep===err===');
-    logger.error(err);
-    done(JSON.stringify(err));
-    await killTaskProceed(taskKey);
-  }
-});
+
+(function(){
+  logger.debug('order/line-0')
+  logger.debug(queue)
+  queue.process('order/line-0', function(job, done) {
+  console.log('order/line-0', job.id);
+  logger.debug('order/line-0')
+  var key = job.id + "::" + job.data.batch_id;
+
+  q.nfcall(checkQueueState, key)
+    .then(function (data) {
+      if (data && data.state === 'finish') {
+          console.log('====job=='+ job.id +'==state::>', job.state());
+          console.log('====job=='+ job.id +'==result::>', job.result);
+          return done(null, data.result)
+      }
+      // 创建订单
+      createOrder(job.data, function (err, order) {
+          var result = null;
+          if (err) {
+              logger.error(err);
+              if (isResultError(err) || isInternalError(err)) {
+                  result = {
+                      errcode: err.errcode,
+                      errmsg: err.errmsg
+                  };
+              } else if (isUserDefinedError(err)) {
+                  result = {
+                      errcode: err.code,
+                      errmsg: err.message
+                  };
+              } else {
+                  result = {
+                      errcode: '400001',
+                      errmsg: '服务器忙，请稍后再试'
+                  };
+              }
+          } else {
+              result = {orderId: order._id}
+          }
+          q.nfcall(redis.setObject, key, {state: 'finish', result: result}, 24 * 3600)
+              .then(function () {
+                  done(null, result);
+              });
+      })
+    })
+})
+})()
+
+function createOrder(orderInfo) {
+  logger.debug('creating oder...')
+  return job.id;
+}

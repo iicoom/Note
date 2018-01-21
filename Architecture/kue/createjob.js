@@ -3,7 +3,6 @@ var Job = kue.Job;
 
 var express = require('express');
 // var nodeExcel = require('excel-export');
-var router = express.Router();
 var app = express();
 var Q = require('q');
 
@@ -63,9 +62,9 @@ app.post('/job', function (req, res) {
   // 根据hashCode重算通道
 	// var lineIndex = Math.abs(hashCode('' + mobile)) % orderLineNum;
 	// var lineIndex = Math.abs(hashCode('' + Date.now())) % orderLineNum;
-  var line = orderLines[0];
+  //var line = orderLines[0];
 
-  const job = queue.create(line, {
+  const job = queue.create('order/line-0', {
                 user_id: 'uid',
                 batch_id: 'batch_id',
                 sheep_num: 'sheep_num',
