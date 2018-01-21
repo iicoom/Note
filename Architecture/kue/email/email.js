@@ -3,6 +3,9 @@ var kue = require('kue')
 var express = require('express');
 
 var app = express();
+const log = require('../log');
+const logger = log.getLogger();
+logger.level = 'debug';
 
 
 app.post('/job', function (req, res) {
@@ -10,21 +13,24 @@ app.post('/job', function (req, res) {
 		 title: 'welcome email for tj'
 	  , to: 'tj@learnboost.com'
 	  , template: 'welcome-email'
-	}).priority('high').attempts(5).save( funciton(err) {
-		if( !err ) console.log( job.id );
-		res.send({jobId: job.id}) 
-	})
-}
+	}).attempts(3).backoff(true).ttl(5 * 1000).save(function(err) {
+      if (err)  throw new Error( 'bad things happen' );
+      res.send({jobId: job.id})   
+  });
+});
 
 queue.process('email', function(job, done){
+  //console.log(job);
+  logger.debug('====================================job================');
+  logger.debug(job.data);
   email(job.data.to, done);
 });
 
 function email(address, done) {
-  if(!isValidEmail(address)) {
-    //done('invalid to address') is possible but discouraged
-    return done(new Error('invalid to address'));
-  }
+  // if(!isValidEmail(address)) {
+  //   //done('invalid to address') is possible but discouraged
+  //   return done(new Error('invalid to address'));
+  // }
   // email send stuff...
   done();
 }
