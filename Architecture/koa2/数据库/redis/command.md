@@ -125,27 +125,37 @@ hash
 4. hgetall key
 返回 key 指定的哈希集中所有的字段和值。返回值中，每个字段名的下一个是它的值，所以返回值的长度是哈希集大小的两倍
 ```
-127.0.0.1:6379[5]> hgetall queue:job:14
- 1) "updated_at"
- 2) "1516260211991"
- 3) "backoff"
- 4) "true"
- 5) "ttl"
- 6) "5000"
- 7) "type"
- 8) "order/line-0"
- 9) "promote_at"
-10) "1516260211990"
-11) "priority"
-12) "0"
-13) "state"
-14) "inactive"
-15) "data"
-16) "{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
-17) "created_at"
-18) "1516260211990"
-19) "max_attempts"
-20) "3"
+127.0.0.1:6379[5]> hgetall q:job:2
+ 1) "type"
+ 2) "order/line-0"
+ 3) "promote_at"
+ 4) "1516591572310"
+ 5) "priority"
+ 6) "0"
+ 7) "state"
+ 8) "failed"
+ 9) "error"
+10) "TTL exceeded"
+11) "ttl"
+12) "5000"
+13) "data"
+14) "{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
+15) "started_at"
+16) "1516591584774"
+17) "attempts"
+18) "3"
+19) "created_at"
+20) "1516591572310"
+21) "failed_at"
+22) "1516591589788"
+23) "workerId"
+24) "kue:MXJdeMacBook-Pro.local:25730:order/line-0:1"
+25) "max_attempts"
+26) "3"
+27) "backoff"
+28) "true"
+29) "updated_at"
+30) "1516591589788"
 127.0.0.1:6379[5]>
 ```
 
@@ -158,6 +168,19 @@ OK
 127.0.0.1:6379[5]> dbsize
 (integer) 0
 127.0.0.1:6379[5]>
+```
+
+### Set
+```
+SADD myset "Hello"
+(integer) 1
+
+返回集合存储的key的基数 (集合元素的数量).
+127.0.0.1:6379[5]> scard q:job:types
+(integer) 1
+
+127.0.0.1:6379[5]> smembers q:job:types
+1) "order/line-0"
 ```
 
 ### List
@@ -176,28 +199,10 @@ OK
 
 偏移量也可以是负数，表示偏移量是从list尾部开始计数。 例如， -1 表示列表的最后一个元素，-2 是倒数第二个，以此类推。
 ```
-127.0.0.1:6379[5]> lrange queue:order/line-0:jobs 0 -1
- 1) "1"
- 2) "1"
- 3) "1"
- 4) "1"
- 5) "1"
- 6) "1"
- 7) "1"
- 8) "1"
- 9) "1"
-10) "1"
-11) "1"
-12) "1"
-13) "1"
-14) "1"
-15) "1"
-16) "1"
-17) "1"
-18) "1"
-19) "1"
-20) "1"
-21) "1"
+127.0.0.1:6379[5]> lrange q:job:2:log 0 -1
+1) "TTL exceeded"
+2) "TTL exceeded"
+3) "TTL exceeded"
 ```
 
 5. LPUSH key value [value ...]
