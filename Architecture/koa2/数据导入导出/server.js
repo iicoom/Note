@@ -25,7 +25,9 @@ app.post('/importSheep', function (req, res, next) {
         return ranchUtil.doResult(res, ranchUtil.generateErr(ErrorCode.Flock_ErrorParams, "请上传excle文件"));
     }
     items.shift(); //推断items就是Excel中的数据数组
+    console.log('batchId:',batchId);
     console.log('items 内容:',items);
+    res.send({ data: items})
 });
 
 

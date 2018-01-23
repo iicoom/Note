@@ -8,7 +8,7 @@
 <body>
 	<form action="" id="form">
 		<input type="file" value="导入数据" id="uploadFileBtn" onchange="test()">
-		<button type="button" onclick="wrap()">提交</button>
+		<button type="button" onclick="wrap()">导入数据</button>
 	</form>
 <script type="text/javascript">
     var form = document.getElementById('form');
@@ -52,7 +52,7 @@
 
     function wrap (){
     	var fileList = document.getElementById('uploadFileBtn').files;
-	    importSheeps(fileList[0], 'batchId', function (err, data) {
+	    importSheeps(fileList[0], '20180123-nimei', function (err, data) {
 		    
 		    if (!err) {
 		        commonService.warningModal("羊只导入完成！", 'success');
@@ -73,7 +73,7 @@
             formData.append('file', file);
             console.log(formData);
             // 向接口发送请求
-            axios.post('http://localhost:3000/importSheep',formData)
+            axios.post(`http://localhost:3000/importSheep?batchId=${batchId}`,formData)
               .then(function (response) {
                 //console.log(response);
                 cb && cb(null,response);
