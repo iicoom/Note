@@ -3,6 +3,7 @@ var app = express();
 
 var formidable = require("formidable");
 var xlsx = require('node-xlsx');
+var nodeExcel = require('excel-export');
 
 app.post('/importSheep', function (req, res, next) {
 	var form = new formidable.IncomingForm();
@@ -29,6 +30,58 @@ app.post('/importSheep', function (req, res, next) {
     console.log('items 内容:',items);
     res.send({ data: items})
 });
+
+app.get('/:batchId/export', function(req, res) {
+  var conf = {};
+  //  conf.stylesXmlFile = 'styles.xml';
+  conf.cols = [{
+      caption: '订单编号',
+      type: 'string',
+      width: 25
+  }, {
+      caption: '交易流水号',
+      type: 'string',
+      width: 30
+  }, {
+      caption: '下单时间',
+      type: 'string',
+      width: 15
+  }, {
+      caption: '交易金额',
+      type: 'number',
+      width: 10
+  }, {
+      caption: '订单状态',
+      type: 'string',
+      width: 10
+  }, {
+      caption: '订单类型',
+      type: 'string',
+      width: 10
+  }, {
+      caption: '客户姓名',
+      type: 'string',
+      width: 10
+  }, {
+      caption: '身份证号',
+      type: 'string',
+      width: 25
+  }, {
+      caption: '联系电话',
+      type: 'number',
+      width: 15
+  }];
+  conf.rows = [
+    ["20180122163015757","551e45eb6c5ac465b3cf5f0c",1516609815167,1000,"支付完成","nimei","9508","13102419890202072X","13522689508"],
+    ["20180122163015757","551e45eb6c5ac465b3cf5f0c",1516609815167,1000,"支付完成","nimei","9508","13102419890202072X","13522689508"]
+  ]
+ 
+  var result = nodeExcel.execute(conf);
+  res.setHeader('Content-Type', 'application/vnd.openxmlformats');
+  res.setHeader("Content-Disposition", "attachment; filename=" + "Report.xlsx");
+  res.end(result, 'binary');
+
+})
 
 
 var server = app.listen(3000, function () {
