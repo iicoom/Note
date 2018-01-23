@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document-excelFile</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
 	<form action="" id="form">
@@ -72,18 +73,27 @@
             formData.append('file', file);
             console.log(formData);
             // 向接口发送请求
-            $http.post('api/sheep/importSheep?batchId='+batchId,formData,{
-                transformRequest: angular.identity,
-                headers:{'Content-Type': undefined}
-            }).success(function(data){
-                $rootScope.$emit('common.loading',false);
-                cb && cb(null,data);
-            }).error(function(err){
-                $rootScope.$emit('common.loading',false);
+            axios.post('http://localhost:3000/importSheep',formData)
+              .then(function (response) {
+                //console.log(response);
+                cb && cb(null,response);
+              })
+              .catch(function (error) {
+                //console.log(error);
                 cb && cb(err);
-            });
+              });
+
+            // $http.post('api/sheep/importSheep?batchId='+batchId,formData,{
+            //     transformRequest: angular.identity,
+            //     headers:{'Content-Type': undefined}
+            // }).success(function(data){
+            //     $rootScope.$emit('common.loading',false);
+            //     cb && cb(null,data);
+            // }).error(function(err){
+            //     $rootScope.$emit('common.loading',false);
+            //     cb && cb(err);
+            // });
         }
-        cb()
     };
 </script>
 </body>
