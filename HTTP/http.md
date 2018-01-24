@@ -29,3 +29,8 @@ Android的长连接是由每个应用各自维护的，但是Google也推出了�
 SMS(Push)方式：服务器又新内容时，发送一条类似短信的信令给客户端，客户端收到后从服务器中下载新内容，也就是SMS的推送方式。
 
 苹果的推送系统和GoogleC2DM（Cloud to Device Messaging）推送系统其实都是在系统级别维护一个TCP/IP长连接，都是基于第二种的方式进行推送的。该方案可以解决由轮询带来的性能问题，但是还是会消耗手机的电池。iOS平台的推送服务之所以工作的很好，是因为每一台手机仅仅保持一个与服务器之间的连接，事实上GoogleC2DM也是这么工作的。
+
+## 从一个http请求可以获取到的信息
+1. 客户端IP 登录的时候用到
+2. 客户端req.headers["user-agent"] 于cloud_ranch routes webcontrl
+3. clientVersion = req.query.version;用于升级
