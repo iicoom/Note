@@ -65,4 +65,36 @@ mysql> show databases;
 15 rows in set (0.00 sec)
 ```
 
+## select db
+```
+mysql> use member;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql>
+
+mysql> show tables;
++------------------------+
+| Tables_in_member       |
++------------------------+
+| activity               |
+| activity_number        |
+| member                 |
+| member_reward          |
+| member_task            |
+| prize                  |
+| prize_line             |
+| reward                 |
+| reward_history         |
+| sign                   |
+| sign_record            |
+| statistics             |
+| task                   |
+| task_class             |
+| win_prize_record       |
++------------------------+
+25 rows in set (0.00 sec)
+```
+
 

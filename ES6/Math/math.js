@@ -90,3 +90,11 @@ Math.floor(3.14)
 
 var lineIndex = Math.abs(hashCode('' + mobile)) % orderLineNum;
 
+
+/*************************
+    Math.max()
+    ***************************/
+Math.max(10, 20);   //  20
+Math.max(-10, -20); // -10
+Math.max(-10, 20);  //  20
+
