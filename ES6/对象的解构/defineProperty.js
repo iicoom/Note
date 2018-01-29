@@ -53,6 +53,7 @@ const dynamicWrapper = (app, models, component) => dynamic({
   component,
 });
 
+// 第二个参数models需要传， 并且在routes中正确的connect，页面才能拿到接口数据
 
 // nav data
 export const getNavData = app => [
