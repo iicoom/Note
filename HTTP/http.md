@@ -34,3 +34,10 @@ SMS(Push)方式：服务器又新内容时，发送一条类似短信的信令�
 1. 客户端IP 登录的时候用到
 2. 客户端req.headers["user-agent"] 于cloud_ranch routes webcontrl
 3. clientVersion = req.query.version;用于升级
+
+
+## http状态码
+[常用对照表](http://tool.oschina.net/commons?type=5)
+405 请求行中指定的 请求方法 不能被用于请求相应的资源。鉴于 PUT，DELETE方法会对服务器上的资源进行写操作，因而绝大部分的网页服务器都不支持或者在默认配置下不允许上述请求方法，对于此类请求均会返回405错误
+
+504 错误是（网关超时）Nginx 服务器作为网关或代理，但是没有及时从上游服务器收到请求。
