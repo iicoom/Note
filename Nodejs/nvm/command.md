@@ -8,3 +8,8 @@
 * nvm install <version> [arch] : The version can be a node.js version or "latest" for the latest stable version.
 * nvm uninstall <version>      : The version must be a specific version.
 
+
+## npm
+### npm cache clean --force
+即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
+
