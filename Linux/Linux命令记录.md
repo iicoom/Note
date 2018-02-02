@@ -7,6 +7,10 @@ Linux命令记录.md
 
 ## who
 查看最近登录的用户
+➜  ~ who
+mxj      console  Jan 29 09:47
+mxj      ttys000  Jan 31 17:50
+mxj      ttys002  Jan 31 15:49
 
 ## locate filename
 定位文件路径
@@ -24,3 +28,6 @@ cp [选项] 源文件或目录 目标文件或目录
 - l 不作拷贝，只是链接文件。
 
 cp -r myAntPro/. antdPro
+
+## tail
+sodu tail -50f file
