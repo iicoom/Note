@@ -27,6 +27,9 @@ The reducers may handle this action by resetting isFetching. Additionally, some 
 { type: 'FETCH_POSTS_FAILURE', error: 'Oops' }
 { type: 'FETCH_POSTS_SUCCESS', response: { ... } }
 
-## Synchronous Action Creators
+## Async Flow
+Without middleware, Redux store only supports synchronous data flow. This is what you get by default with createStore().
+
+
 
 
