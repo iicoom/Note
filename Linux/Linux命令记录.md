@@ -31,3 +31,6 @@ cp -r myAntPro/. antdPro
 
 ## tail
 sodu tail -50f file
+
+## 安装包
+apt-get
