@@ -32,5 +32,24 @@ cp -r myAntPro/. antdPro
 ## tail
 sodu tail -50f file
 
+## 包管理
+> rpm包和deb包是两种Linux系统下最常见的安装包格式，在安装一些软件或服务的时候免不了要和它们打交道。rpm包主要应用在RedHat系列包括 Fedora等发行版的Linux系统上，deb包主要应用于Debian系列包括现在比较流行的Ubuntu等发行版上。 
+
+yum可以用于运作rpm包，例如在Fedora系统上对某个软件的管理：
+安装：yum install <package_name> 
+卸载：yum remove <package_name> 
+更新：yum update <package_name> 
+
+apt-get可以用于运作deb包，例如在Ubuntu系统上对某个软件的管理：
+安装：apt-get install <package_name> 
+卸载：apt-get remove <package_name> 
+更新：apt-get update <package_name>
+
 ## 安装包
 apt-get
+
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+apt-get clean
+apt-get update 
+apt-get upgrade
