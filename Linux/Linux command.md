@@ -45,6 +45,51 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 ```
 
 ## ps
+Linux作为Unix的衍生操作系统，Linux内建有查看当前进程的工具ps。ps命令能够给出当前系统中进程的快照.
+man ps 查看手册
+
+```
+[xiaomao@iZ258wvzn92Z ~]$ ps
+  PID TTY          TIME CMD
+ 8875 pts/1    00:00:00 bash
+ 9728 pts/1    00:00:00 ps
+
+ ```
+结果默认会显示4列信息。
+
+PID: 运行着的命令(CMD)的进程编号
+TTY: 命令所运行的位置（终端）
+TIME: 运行着的该命令所占用的CPU处理时间
+CMD: 该进程所运行的命令
+
+使用 -a 参数。-a 代表 all。同时加上x参数会显示没有控制终端的进程。
+```
+PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:02 /sbin/init
+    2 ?        S      0:00 [kthreadd]
+    3 ?        S      0:20 [migration/0]
+    4 ?        S      4:05 [ksoftirqd/0]
+    5 ?        S      0:00 [migration/0]
+    6 ?        S      0:28 [watchdog/0]
+    7 ?        S      0:20 [migration/1]
+21184 ?        Sl     4:53 node /mnt/projects/cloud-ranch-v2/index.js
+21266 ?        Sl     8:51 node /mnt/projects/msg_center/index.js
+23755 ?        Sl    45:25 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
+23829 ?        Ssl    7:40 node /mnt/projects/sina_pay/bin/development.js
+24191 ?        Sl    18:22 node /mnt/projects/ranch_api/bin/development.js
+26931 ?        Ssl    3:21 PM2 v2.4.6: God Daemon (/mnt/pm2)
+27753 ?        Ssl    0:00 /usr/local/bin/node /usr/local/lib/node_modules/npm/node_modules/update-notifier/ch
+29881 ?        S      0:00 /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql --pid-file=/var/lib/mysql/iZ2
+31266 ?        Ss     0:00 sshd: xiaoming [priv]
+31268 ?        S      0:00 sshd: xiaoming@pts/4
+31269 pts/4    Ss+    0:00 -bash
+31451 ?        Ssl   31:25 node /mnt/projects/contract/bin/functional.js
+31472 ?        Ssl   21:59 node /mnt/projects/pay_center/bin/www
+31612 ?        Sl     0:34 node /mnt/projects/ucenter_v2/index.js
+```
+
+在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
+ps -u pungki
 
 ## mxj@ubuntu:~/project$ sudo -s
 
