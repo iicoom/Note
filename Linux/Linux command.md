@@ -91,6 +91,10 @@ PID TTY      STAT   TIME COMMAND
 在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
 ps -u pungki
 
+## grep
+（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
+
+
 ## mxj@ubuntu:~/project$ sudo -s
 
 ## who
