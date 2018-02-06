@@ -53,3 +53,16 @@ rm -rf /var/lib/apt/lists/*
 apt-get clean
 apt-get update 
 apt-get upgrade
+
+## the following signatures were invalid expkeysig ed444ff07d8d0bf6 kali linux repository
+```
+wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
+apt install ./kali-archive-keyring_2018.1_all.deb
+apt-get update
+```
+
+## 查看网络信息
+iwconfig
+必须确保你在使用USB无线网卡，虚拟机只能挂载USB无线网卡
+启动虚拟机，在kali linux中打开终端，输入
+airmon-ng
