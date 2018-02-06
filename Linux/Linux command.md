@@ -1,7 +1,50 @@
 Linux命令记录.md
 
-## Yum
-（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。
+## 查看Linux服务器的CPU情况
+```
+CPU核数
+cat /proc/cpuinfo | grep "cpu cores" | uniq 
+
+CPU个数
+[xiaomao@iZ258wvzn92Z ~]$ cat /proc/cpuinfo | grep "processor" | wc
+      2       6      28
+
+物理CPU个数*核数 = 逻辑CPU个数
+```
+
+[xiaomao@iZ258wvzn92Z proc]$ cat cpuinfo | grep "cpu cores"
+cpu cores	: 2
+cpu cores	: 2
+[xiaomao@iZ258wvzn92Z proc]$ cat cpuinfo | grep "cpu cores" | uniq
+cpu cores	: 2
+
+## 查看内存使用情况
+```
+[xiaomao@iZ258wvzn92Z ~]$ free -m
+             total       used       free     shared    buffers     cached
+Mem:          3832       3417        415          0        107        336
+-/+ buffers/cache:       2973        859
+Swap:            0          0          0
+
+m指使用M字节显示内存使用情况
+```
+
+## 查看硬盘使用情况
+```
+[xiaomao@iZ258wvzn92Z ~]$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/vda1       20641404 12585284   7007596  65% /
+tmpfs            1962340        0   1962340   0% /dev/shm
+/dev/vdb        41284928 22044560  17143216  57% /mnt
+
+[xiaomao@iZ258wvzn92Z ~]$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        20G   13G  6.7G  65% /
+tmpfs           1.9G     0  1.9G   0% /dev/shm
+/dev/vdb         40G   22G   17G  57% /mnt
+```
+
+## ps
 
 ## mxj@ubuntu:~/project$ sudo -s
 
@@ -45,8 +88,10 @@ apt-get可以用于运作deb包，例如在Ubuntu系统上对某个软件的管�
 卸载：apt-get remove <package_name> 
 更新：apt-get update <package_name>
 
-## 安装包
-apt-get
+### Yum
+（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。
+
+### apt-get
 
 apt-get clean
 rm -rf /var/lib/apt/lists/*
