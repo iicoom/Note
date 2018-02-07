@@ -43,8 +43,70 @@ Switched to branch master
 $ git merge --no-ff release-1.2
 Merge made <a href="http://www.wuseyun.com/htmldata/tag/11/by.html">by</a> recursive.
 (Summary of changes)
+
 $ git tag -a 1.2
+```
+
+现在我们真正的完成了，这个release分支将被删除，因为我们不再需要它了。
+```
+$ git branch -d release-1.2
+Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch release-1.2 (was ff452fe).
 ```
 
 
 ## Hotfix
+可以基于master分支，必须合并回develop和master分支。
+分支名约定：hotfix-*
+
+热修复分支与发布分支很相似，他们都为新的生产环境发布做准备，尽管这是未经计划的。他们来自当生成环境验证缺陷必须马上修复，热修复分支可以基于master分支上,对应于线上版本的tag创建。
+
+其本质是团队成员（在develop分支上）的工作可以继续，而另一个人准备生产环境的快速修复。
+
+hotfix branch(修补bug分支)是从Master分支上面分出来的。例如，1.2版本是当前生产环境的版本并且有bug。但是开发分支（develop）变化还不稳定。我们需要分出来一个修补bug分支（hotfix branch）来解决这种情况。
+
+```
+$ git checkout -b hotfix-1.2.1 master
+Switched to a new branch "hotfix-1.2.1"
+$ ./bump-version.sh 1.2.1
+Files modified suc<a href="http://www.wuseyun.com/htmldata/tag/11/CES.html">CES</a>sfully, version bumped to 1.2.1.
+$ git commit -a -m "Bumped version number to 1.2.1"
+[hotfix-1.2.1 41e61bb] Bumped version number to 1.2.1
+1 files changed, 1 insertions(+), 1 deletions(-)
+```
+分支关闭的时侯不要忘了更新版本号(bump The version)
+
+然后，修复bug，一次提交或者多次分开提交。
+$ git commit -m "Fixed severe production problem"
+[hotfix-1.2.1 abbe5d6] Fixed severe production problem
+5 files changed, 32 insertions(+), 17 deletions(-)
+
+完成一个hotfix分支
+
+完成一个bugfix之后，需要把butfix合并到master和develop分支去，这样就可以保证修复的这个bug也包含到下一个发行版中。这一点和完成release分支很相似。
+
+首先，更新master并对release打上tag：
+```
+$ git checkout master
+Switched to branch master
+$ git merge --no-ff hotfix-1.2.1
+Merge made <a href="http://www.wuseyun.com/htmldata/tag/11/by.html">by</a> recursive.
+(Summary of changes)
+$ git tag -a 1.2.1
+```
+
+编辑：你可能也会想使用 -sor-u 参数来对你的tag进行加密
+
+下一步，把bugfix添加到develop分支中：
+```
+$ git checkout develop
+Switched to branch develop
+$ git merge --no-ff hotfix-1.2.1
+Merge made <a href="http://www.wuseyun.com/htmldata/tag/11/by.html">by</a> recursive.
+(Summary of changes)
+```
+
+规则的一个例外是： 如果一个release分支已经存在，那么应该把hotfix合并到这个release分支，而不是合并到develop分支。当release分支完成后， 将bugfix分支合并回release分支也会使得bugfix被合并到develop分支。（如果在develop分支的工作急需这个bugfix，等不到release分支的完成，那你也可以把bugfix合并到develop分支）
+
+
+
+
