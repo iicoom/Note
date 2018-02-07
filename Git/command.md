@@ -20,3 +20,22 @@ git config --global user.email johndoe@example.com
 
 3. 在当前git仓库配置用户信息
 去掉--global
+
+## 分支操作
+### 查看分支
+```
+git branch
+
+  HEAD
+  develop
+  feature/new_feature
+  hotfix/hotfix-1.0.1
+* master
+```
+
+### 删除分支
+```
+git branch -d HEAD
+
+Deleted branch HEAD (was 8ba8409).
+```
