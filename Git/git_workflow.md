@@ -107,6 +107,10 @@ Merge made <a href="http://www.wuseyun.com/htmldata/tag/11/by.html">by</a> recur
 
 规则的一个例外是： 如果一个release分支已经存在，那么应该把hotfix合并到这个release分支，而不是合并到develop分支。当release分支完成后， 将bugfix分支合并回release分支也会使得bugfix被合并到develop分支。（如果在develop分支的工作急需这个bugfix，等不到release分支的完成，那你也可以把bugfix合并到develop分支）
 
-
+最后，删除临时分支：
+```
+$ git branch -d hotfix-1.2.1
+Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hotfix-1.2.1 (was abbe5d6).
+```
 
 
