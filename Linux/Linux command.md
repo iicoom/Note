@@ -94,6 +94,68 @@ ps -u pungki
 ## grep
 （global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 
+## 查看Linux的系统平均负载
+1. uptime - Tell how long the system has been running.
+
+[xiaomao@iZ258wvzn92Z ~]$ uptime
+ 14:01:07 up 213 days,  1:45,  4 users,  load average: 1.03, 1.01, 1.00
+
+2. w - Show who is logged on and what they are doing.
+
+[xiaomao@iZ258wvzn92Z ~]$ w
+ 14:05:48 up 213 days,  1:50,  4 users,  load average: 1.00, 1.02, 1.00
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+flt      pts/1    121.69.73.122    13:44   19:49   0.03s  0.03s -bash
+litan    pts/2    121.69.73.122    11:28   16:20   0.01s  0.01s -bash
+xiaoming pts/4    121.69.73.122    13:45   17:00   0.02s  0.02s -bash
+xiaomao  pts/5    121.69.73.122    14:00    0.00s  0.00s  0.00s w
+
+
+3. top - display Linux tasks
+The  top program provides a dynamic real-time view of a running system.  It can display sys-
+       tem summary information as well as a list of tasks currently being managed by the Linux ker-
+       nel.
+[xiaomao@iZ258wvzn92Z ~]$ top
+top - 14:13:33 up 213 days,  1:57,  4 users,  load average: 1.01, 1.00, 1.00
+Tasks: 131 total,   2 running, 129 sleeping,   0 stopped,   0 zombie
+Cpu(s): 39.9%us, 11.8%sy,  0.0%ni, 45.7%id,  0.0%wa,  0.0%hi,  2.7%si,  0.0%st
+Mem:   3924684k total,  3574520k used,   350164k free,   113704k buffers
+Swap:        0k total,        0k used,        0k free,   355504k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+17390 root      20   0 1301m 151m  13m R 100.1  4.0   1589:17 node /mnt/proje
+  130 root      20   0 36092 1392 1148 S  6.0  0.0  18776:19 plymouthd
+ 1228 root      20   0  931m  31m 4008 S  0.3  0.8   1578:34 PM2 v2.4.6: God
+ 1596 root      20   0  184m  37m  848 S  0.3  1.0 632:08.93 redis-server
+ 1604 root      20   0 7131m 122m 7784 S  0.3  3.2 955:25.21 mongod
+ 4702 flt       20   0 98328 1772  804 S  0.3  0.0   0:00.04 sshd
+17938 root      20   0 1295m 118m 6524 S  0.3  3.1  14:03.21 node /mnt/proje
+23829 root      20   0 1288m 105m 4268 S  0.3  2.7   8:46.88 node /mnt/proje
+32613 xiaoming  20   0 3701m 500m 7204 S  0.3 13.1   9:37.71 java
+    1 root      20   0 19232  380   88 S  0.0  0.0   0:02.47 init
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd
+
+
+## uname
+       Print certain system information.  With no OPTION, same as -s.
+
+       -a, --all
+              print all information, in the following order, except omit -p and -i if unknown:
+
+       -s, --kernel-name
+              print the kernel name
+
+       -n, --nodename
+              print the network node hostname
+
+       -r, --kernel-release
+              print the kernel release
+
+       -v, --kernel-version
+              print the kernel version
+
+       -m, --machine
+
 
 ## mxj@ubuntu:~/project$ sudo -s
 
