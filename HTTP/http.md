@@ -1,3 +1,79 @@
+[HTTP 协议入门](http://www.ruanyifeng.com/blog/2016/08/http.html)
+## http协议
+### 请求头、响应头信息
+下面是一个1.0版的HTTP请求的例子。
+```
+GET / HTTP/1.0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5)
+Accept: */*
+```
+客户端请求的时候，可以使用Accept字段声明自己可以接受哪些数据格式。
+Accept: */*
+
+服务器的回应如下。
+```
+HTTP/1.0 200 OK 
+Content-Type: text/plain
+Content-Length: 137582
+Expires: Thu, 05 Dec 1997 16:00:00 GMT
+Last-Modified: Wed, 5 August 1996 15:55:28 GMT
+Server: Apache 0.84
+
+<html>
+  <body>Hello World</body>
+</html>
+```
+下面是一些常见的Content-Type字段的值。
+text/plain
+text/html
+text/css
+image/jpeg
+image/png
+image/svg+xml
+audio/mp4
+video/mp4
+application/javascript
+application/pdf
+application/zip
+application/atom+xml
+
+### antd request封装
+```
+export default function request(url, options) {
+  const defaultOptions = {
+    // credentials: 'include',
+  };
+  const newOptions = { ...defaultOptions, ...options };
+  if (!newOptions.data) {
+    newOptions.headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
+      ...newOptions.headers,
+    };
+  }
+  newOptions.headers = {
+    Authorization: `token ${getToken()}`,
+    ...newOptions.headers,
+  };
+  console.log(newOptions)
+}
+```
+
+{method: "GET", params: {…}, headers: {…}}
+headers
+:
+{Authorization: "token TnH1plIiC6rVdtt12ja40pY17ZMx7eRE", Accept: "application/json", Content-Type: "application/json; charset=utf-8"}
+method
+:
+"GET"
+params
+:
+{pageSize: 15, createTime: undefined, user_id: undefined, orderState: undefined, page: undefined, …}
+__proto__
+:
+Object
+
+
 [【Web基础】HTTP长连接和短连接以及推送技术原理](http://blog.csdn.net/freewaywalker/article/details/50067757)
 ## HTTP长连接和短连接
 1. HTTP协议与TCP/IP协议的关系
