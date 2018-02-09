@@ -14,6 +14,9 @@ console.log("======Date.parse('2017-12-15T08:30:50.913Z')========")
 console.log( Date.parse('2017-12-15T08:30:50.913Z'))
 // => 1513326650913
 
+Date.parse(2017-12-15)
+631152000000
+
 console.log("======moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')========")
 console.log( moment(Date.now()).format('YYYY-MM-DD HH:mm:ss') )
 moment(record.create_at).format('YYYY-MM-DD HH:mm:ss')
