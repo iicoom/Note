@@ -177,7 +177,39 @@ lspci is a utility for displaying information about PCI buses in the system and 
 ## 查看网络配置
 /etc/systemconfig/network-scripts/
 
- 
+## ifconfig iwconfig
+
+^C[xiaomao@iZ258wvzn92Z ~]$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:16:3E:12:0A:5B
+          inet addr:10.174.9.148  Bcast:10.174.15.255  Mask:255.255.248.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:282063 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1068739 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:22668936 (21.6 MiB)  TX bytes:81949766 (78.1 MiB)
+
+eth1      Link encap:Ethernet  HWaddr 00:16:3E:12:02:16
+          inet addr:101.201.197.163  Bcast:101.201.199.255  Mask:255.255.252.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:503627951 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:497871622 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:35930506319 (33.4 GiB)  TX bytes:47841588101 (44.5 GiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:383570931753 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:383570931753 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:19262647018875 (17.5 TiB)  TX bytes:19262647018875 (17.5 TiB)
+
+[xiaomao@iZ258wvzn92Z ~]$ iwconfig
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+eth1      no wireless extensions.
 
 
 ## mxj@ubuntu:~/project$ sudo -s

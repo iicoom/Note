@@ -74,6 +74,15 @@ __proto__
 :
 Object
 
+对params的处理
+```
+if (params) {
+    console.log('request-params');
+    _url = `${url}?${stringify(params, { skipNulls: true })}`;
+    console.log(_url);
+  }
+```
+//m.yunfarm.cn/cloud_ranch/v2/api/order/appointment?pageSize=15&size=15
 
 [【Web基础】HTTP长连接和短连接以及推送技术原理](http://blog.csdn.net/freewaywalker/article/details/50067757)
 ## HTTP长连接和短连接
