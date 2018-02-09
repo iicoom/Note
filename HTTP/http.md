@@ -58,6 +58,7 @@ export default function request(url, options) {
   console.log(newOptions)
 }
 ```
+//console.log(newOptions) =>
 
 {method: "GET", params: {…}, headers: {…}}
 headers
