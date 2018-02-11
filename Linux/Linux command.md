@@ -221,6 +221,13 @@ mxj      console  Jan 29 09:47
 mxj      ttys000  Jan 31 17:50
 mxj      ttys002  Jan 31 15:49
 
+## finger
+```
+Login    Name                 TTY  Idle  Login  Time   Office  Phone
+mxj      MXJ                 *con  7:37  日    09:19
+mxj      MXJ                  s00        日    16:57
+```
+
 ## locate filename
 定位文件路径
 
