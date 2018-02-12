@@ -1,3 +1,36 @@
+## 启动数据库
+mongodb/bin/mongod
+[官网启动server](http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/)
+
+## CLI
+### 链接数据库
+mongodb bin/mongo
+
+### show dbs
+> show dbs
+Express-api  0.000GB
+admin        0.000GB
+comments     0.000GB
+koa-test     0.000GB
+local        0.000GB
+nodedb       0.000GB
+
+### use db
+> use koa-test
+switched to db koa-test
+
+### show tables
+> show tables
+accounts
+categories
+categoryitems
+msgtpls
+users
+
+### 表操作
+> db.users.find()
+
+
 ## Operators
 
 ### Comparison Query Operators
