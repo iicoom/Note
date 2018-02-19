@@ -27,3 +27,7 @@ MITM攻击，即中间人攻击(Man-in-the-middle-attacks，简称:MITM攻击)�
 * alt + 鼠标  点选拖拽多行
 * shift + delete 删除行
 * ctrl + D 复制此行到下一行
+
+## Verbose mode
+https://www.computerhope.com/jargon/v/verbose-mode.htm
+A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded. 
