@@ -30,4 +30,12 @@ MITM攻击，即中间人攻击(Man-in-the-middle-attacks，简称:MITM攻击)�
 
 ## Verbose mode
 https://www.computerhope.com/jargon/v/verbose-mode.htm
-A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded. 
+A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded.
+
+## React Native
+See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
+  sudo sysctl -w kern.maxfiles=5242880
+  sudo sysctl -w kern.maxfilesperproc=524288
+
+调整运行内存
+kern.maxfiles: 12288 -> 5242880 
