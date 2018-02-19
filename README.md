@@ -39,3 +39,11 @@ See https://git.io/v5vcn for more information, either install watchman or run th
 
 调整运行内存
 kern.maxfiles: 12288 -> 5242880 
+
+### yarn start
+To view your app with live reloading, point the Expo app to this QR code.
+You'll find the QR scanner on the Projects tab of the app.
+
+### yarn run ios
+* 需要有localhost 开启
+* simulator 设置 Hardware下设置尺寸或不同设备
