@@ -3,6 +3,9 @@ something important
 
 “i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
 
+## xx-net
+https://www.cnblogs.com/bagexiaowenti/p/8151537.html
+
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
 ### 签到打卡
@@ -44,6 +47,22 @@ kern.maxfiles: 12288 -> 5242880
 To view your app with live reloading, point the Expo app to this QR code.
 You'll find the QR scanner on the Projects tab of the app.
 
-### yarn run ios
+### yarn run ios == npm run ios
 * 需要有localhost 开启
 * simulator 设置 Hardware下设置尺寸或不同设备
+
+### AppRegistry
+AppRegistry is the JS entry point to running all React Native apps. App root components should register themselves with AppRegistry.registerComponent, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking AppRegistry.runApplication.
+
+#### Ejecting from Create React Native App
+"Ejecting" is the process of setting up your own custom builds for your CRNA app. It can be necessary to do if you have needs that aren't covered by CRNA, but please note that aside from the use of version control systems (git, hg, etc.) it is not reversible.
+
+#### CRNA
+create-react-native-app，简称CRNA，用来快速创建react native的app。项目地址如下：
+https://github.com/react-community/create-react-native-app
+```
+$ npm install -g create-react-native-app
+$ create-react-native-app my-app
+$ cd my-app/
+$ npm start
+```
