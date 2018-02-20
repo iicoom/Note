@@ -66,3 +66,14 @@ $ create-react-native-app my-app
 $ cd my-app/
 $ npm start
 ```
+
+### The Basics
+#### Layout with Flexbox
+A component can specify the layout of its children using the flexbox algorithm. Flexbox is designed to provide a consistent layout on different screen sizes.
+
+#### TextInput
+#### Handling Touches
+Users interact with mobile apps mainly through touch.
+the one component you will most likely be interested in is the basic Button.
+
+
