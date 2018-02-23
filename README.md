@@ -43,6 +43,17 @@ See https://git.io/v5vcn for more information, either install watchman or run th
 调整运行内存
 kern.maxfiles: 12288 -> 5242880 
 
+### 必备的组件
+* APP引导页
+* 下拉刷新，顶部图像放大
+* tabBAr
+* 轮番图
+* sidebar
+* map
+* Camera
+* 支付类的组件
+
+
 ### yarn start
 To view your app with live reloading, point the Expo app to this QR code.
 You'll find the QR scanner on the Projects tab of the app.
