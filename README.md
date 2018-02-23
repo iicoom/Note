@@ -1,7 +1,11 @@
 ## Note
 something important
 
-“i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
+### 常见装逼词汇
+* “i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
+
+* SaaS是Software-as-a-Service（软件即服务）的简称
+SaaS有什么特别之处呢？其实在云计算还没有盛行的时代，我们已经接触到了一些SaaS的应用，通过浏览器我们可以使用Google、百度等搜索系统，可以使用E-mail，我们不需要在自己的电脑中安装搜索系统或者邮箱系统。典型的例子，我们在电脑上使用的Word、Excel、PowerPoint等办公软件，这些都是需要在本地安装才能使用的；而在GoogleDocs（DOC、XLS、ODT、ODS、RTF、CSV和PPT等）、MicrosoftOfficeOnline（WordOnline、ExcelOnline、PowerPointOnline和OneNoteOnline）网站上，无需在本机安装，打开浏览器，注册帐号，可以随时随地通过网络来使用这些软件编辑、保存、阅读自己的文档。对于用户只需要自由自在地使用，不需要自己去升级软件、维护软件等操作。
 
 ## xx-net
 https://www.cnblogs.com/bagexiaowenti/p/8151537.html
@@ -52,6 +56,9 @@ kern.maxfiles: 12288 -> 5242880
 * map
 * Camera
 * 支付类的组件
+* 图案解锁
+* 悬浮按钮
+* 列表Item添加侧滑功能
 
 
 ### yarn start
