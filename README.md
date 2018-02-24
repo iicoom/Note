@@ -7,8 +7,10 @@ something important
 * SaaS是Software-as-a-Service（软件即服务）的简称
 SaaS有什么特别之处呢？其实在云计算还没有盛行的时代，我们已经接触到了一些SaaS的应用，通过浏览器我们可以使用Google、百度等搜索系统，可以使用E-mail，我们不需要在自己的电脑中安装搜索系统或者邮箱系统。典型的例子，我们在电脑上使用的Word、Excel、PowerPoint等办公软件，这些都是需要在本地安装才能使用的；而在GoogleDocs（DOC、XLS、ODT、ODS、RTF、CSV和PPT等）、MicrosoftOfficeOnline（WordOnline、ExcelOnline、PowerPointOnline和OneNoteOnline）网站上，无需在本机安装，打开浏览器，注册帐号，可以随时随地通过网络来使用这些软件编辑、保存、阅读自己的文档。对于用户只需要自由自在地使用，不需要自己去升级软件、维护软件等操作。
 
-## xx-net
-https://www.cnblogs.com/bagexiaowenti/p/8151537.html
+* IPO 首次公开募股（Initial Public Offerings，简称IPO）是指一家企业或公司 （股份有限公司）第一次将它的股份向公众出售（首次公开发行，指股份公司首次向社会公众公开招股的发行方式）。通常，上市公司的股份是根据相应证监会出具的招股书或登记声明中约定的条款通过经纪商或做市商进行销售。一般来说，一旦首次公开上市完成后，这家公司就可以申请到证券交易所或报价系统挂牌交易,有限责任公司在申请IPO之前，应先变更为股份有限公司。
+
+* OCR （Optical Character Recognition，光学字符识别）是指电子设备（例如扫描仪或数码相机）检查纸上打印的字符，通过检测暗、亮的模式确定其形状，然后用字符识别方法将形状翻译成计算机文字的过程；即，针对印刷体字符，采用光学的方式将纸质文档中的文字转换成为黑白点阵的图像文件，并通过识别软件将图像中的文字转换成文本格式，供文字处理软件进一步编辑加工的技术。
+
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
