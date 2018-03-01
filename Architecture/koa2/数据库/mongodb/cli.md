@@ -30,6 +30,12 @@ users
 ### 表操作
 > db.users.find()
 
+#### id查询
+```
+> db.users.find({"_id" : ObjectId("5a93e047765b59282e21e872")})
+{ "_id" : ObjectId("5a93e047765b59282e21e872"), "update_at" : ISODate("2018-02-26T10:24:07.376Z"), "create_at" : ISODate("2018-02-26T10:24:07.376Z"), "username" : "as@qq.com", "password" : "feca52c6f90bdc90f3b1e157acb36975dd1efa3660aaedf01763d3882230cc07", "salt" : "rOqh5Mo7WSQZXVUs7zbfJODW", "modify_mobile" : false, "is_set_pay_password" : false, "is_binding_verify" : false, "is_real_name" : false, "is_activate" : false, "need_upgrade" : false, "verified" : false, "__v" : 0 }
+```
+
 
 ## Operators
 
@@ -43,4 +49,14 @@ $lt		Matches values that are less than a specified value.
 $lte	Matches values that are less than or equal to a specified value.
 $ne		Matches all values that are not equal to a specified value.
 $nin	Matches none of the values specified in an array.
+```
+
+## robo 3t GUI
+1. _id查询
+```
+db.getCollection('users').find({ "_id" : ObjectId("54af3b6a48e6cd1c1be333e8") })
+```
+2. Oprator
+```
+db.getCollection('jifens').find({ uid: {'$in': [ '54df318e1c701cc40b708d89', '54df318e1c701cc40b708d89' ]} })
 ```
