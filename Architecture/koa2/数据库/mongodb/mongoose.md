@@ -1,4 +1,4 @@
-## Operators
+## Query 
 ### Comparison Query Operators
 
 Name	Description
@@ -79,7 +79,60 @@ qFindUsers({ _id: { $in: userids } });
 
 ```
 
-## 查
+更新操作
+Then, the following update() operation will set the sale field value to true where the tags field holds an array with at least one element matching either "appliances" or "school".
+```
+db.inventory.update(
+                     { tags: { $in: ["appliances", "school"] } },
+                     { $set: { sale:true } }
+                   )
+```
+
+### Logical Query Operators
+Name	Description
+$and	Joins query clauses with a logical AND returns all documents that match the conditions of both clauses.
+$not	Inverts the effect of a query expression and returns documents that do not match the query expression.
+$nor	Joins query clauses with a logical NOR returns all documents that fail to match both clauses.
+$or	Joins query clauses with a logical OR returns all documents that match the conditions of either clause.
+
+```
+db.inventory.find( { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )
+```
+This query will select all documents in the inventory collection where:
+
+the price field value is not equal to 1.99 and
+the price field exists.
+等同于
+```
+db.inventory.find( { price: { $ne: 1.99, $exists: true } } )
+```
+
+多条件
+```
+db.inventory.find( {
+    $and : [
+        { $or : [ { price : 0.99 }, { price : 1.99 } ] },
+        { $or : [ { sale : true }, { qty : { $lt : 20 } } ] }
+    ]
+} )
+```
+This query will select all documents where:
+
+the price field value equals 0.99 or 1.99, and
+the sale field value is equal to true or the qty field value is less than 20.
+This query cannot be constructed using an implicit AND operation, because it uses the $or operator more than once.
+
+### Evaluation Query Operators
+Name	Description
+$expr	Allows use of aggregation expressions within the query language.
+$jsonSchema	Validate documents against the given JSON Schema.
+$mod	Performs a modulo operation on the value of a field and selects documents with a specified result.
+$regex	Selects documents where values match a specified regular expression.
+$text	Performs text search.
+$where	Matches documents that satisfy a JavaScript expression.
+
+
+
 ### aggregation 集合体
 Aggregate constructor used for building aggregation pipelines. Do not instantiate this class directly, use Model.aggregate() instead.
 
@@ -95,3 +148,62 @@ q.nfcall(sheepService.aggregate,
 	]
 )
 ```
+
+## Update
+### Field Update Operators
+Name	Description
+$currentDate	Sets the value of a field to current date, either as a Date or a Timestamp.
+$inc	Increments the value of the field by the specified amount.
+$min	Only updates the field if the specified value is less than the existing field value.
+$max	Only updates the field if the specified value is greater than the existing field value.
+$mul	Multiplies the value of the field by the specified amount.
+$rename	Renames a field.
+$set	Sets the value of a field in a document.
+$setOnInsert	Sets the value of a field if an update results in an insert of a document. Has no effect on update operations that modify existing documents.
+$unset	Removes the specified field from a document.
+
+#### $inc
+The $inc operator accepts positive and negative values.
+
+Consider a collection products with the following document:
+
+```
+{
+  _id: 1,
+  sku: "abc123",
+  quantity: 10,
+  metrics: {
+    orders: 2,
+    ratings: 3.5
+  }
+}
+```
+The following update() operation uses the $inc operator to decrease the quantity field by 2 (i.e. increase by -2) and increase the "metrics.orders" field by 1:
+
+```
+db.products.update(
+   { sku: "abc123" },
+   { $inc: { quantity: -2, "metrics.orders": 1 } }
+)
+```
+=>
+```
+{
+   "_id" : 1,
+   "sku" : "abc123",
+   "quantity" : 8,
+   "metrics" : {
+      "orders" : 3,
+      "ratings" : 3.5
+   }
+}
+```
+
+
+
+
+
+
+
+
+
