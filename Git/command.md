@@ -157,6 +157,26 @@ git branch -D feature/exchange
 Deleted remote-tracking branch origin/feature/cli_fuck (was f51e08c).
 ```
 
+### 查看当前分支状态
+```
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+➜  Note git:(feature/cli_fuck) ✗ git add -A
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  modified:   Git/command.md
+
+commit:
+➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
+[feature/cli_fuck 42c4d8d] just a fuck feature
+ 1 file changed, 55 insertions(+)
 
 
 
