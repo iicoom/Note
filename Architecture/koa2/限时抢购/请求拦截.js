@@ -48,3 +48,5 @@ exports.requestLimit = function(){
         //}
     }
 };
+
+// 检查session中的last_time和请求上的作比较

@@ -54,9 +54,15 @@ $nin	Matches none of the values specified in an array.
 ## robo 3t GUI
 1. _id查询
 ```
+find
 db.getCollection('users').find({ "_id" : ObjectId("54af3b6a48e6cd1c1be333e8") })
+
+remove
+db.getCollection('batches').remove({"batch_code" : "030503"})
+
 ```
 2. Oprator
 ```
 db.getCollection('jifens').find({ uid: {'$in': [ '54df318e1c701cc40b708d89', '54df318e1c701cc40b708d89' ]} })
 ```
+

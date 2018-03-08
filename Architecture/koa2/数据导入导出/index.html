@@ -52,14 +52,12 @@
 
     function wrap (){
     	var fileList = document.getElementById('uploadFileBtn').files;
-	    importSheeps(fileList[0], '20180123-nimei', function (err, data) {
+	    importSheeps(fileList[0], '5a7a61ab8ccedb942f2179b9', function (err, data) {
 		    
 		    if (!err) {
-		        commonService.warningModal("羊只导入完成！", 'success');
-		        $scope.$close(data);
-		        //$scope.searchSheep();
+		        alert("羊只导入完成！", 'success');
 		    } else {
-		        commonService.warningModal(err.errmsg);
+		        alert(err.errmsg);
 		    }
 		    return
 		});
@@ -73,14 +71,14 @@
             formData.append('file', file);
             console.log(formData);
             // 向接口发送请求
-            axios.post(`http://localhost:3000/importSheep?batchId=${batchId}`,formData)
+            axios.post(`http://localhost:8070/api/sheep/importSheep?batchId=${batchId}`,formData)
               .then(function (response) {
                 //console.log(response);
                 cb && cb(null,response);
               })
               .catch(function (error) {
                 //console.log(error);
-                cb && cb(err);
+                cb && cb(error);
               });
 
             // $http.post('api/sheep/importSheep?batchId='+batchId,formData,{

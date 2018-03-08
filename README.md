@@ -23,11 +23,12 @@ WebSocket最大特点就是，服务器可以主动向客户端推送信息，�
 SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。通过SMTP协议所指定的服务器,就可以把E-mail寄到收信人的服务器上了，整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器，用来发送或中转发出的电子邮件。
 
 * PWA
-Progressive Web Apps are just great web sites that can behave 
+(Progressive Web Apps) are just great web sites that can behave 
 like native apps—or, perhaps, Progressive Web Apps are just great apps, 
 powered by Web technologies and delivered with Web infrastructure.
-
 用人话说是这样的：PWA是基于最新WEB技术的应用，它可以拥有原生应用那样的行为，甚至能比原生应用更牛叉。
+
+* p2p （互联网金融点对点借贷平台）P2P是英文person-to-person（或peer-to-peer）的缩写，意即个人对个人(伙伴对伙伴)。又称点对点网络借款，是一种将小额资金聚集起来借贷给有资金需求人群的一种民间小额借贷模式。属于互联网金融（ITFIN）产品的一种。属于民间小额借贷，借助互联网、移动互联网技术的网络信贷平台及相关理财行为、金融服务。
 
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
