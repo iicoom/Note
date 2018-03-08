@@ -60,6 +60,9 @@ db.getCollection('users').find({ "_id" : ObjectId("54af3b6a48e6cd1c1be333e8") })
 remove
 db.getCollection('batches').remove({"batch_code" : "030503"})
 
+update
+db.getCollection('users').update({"mobile":"18231088178"},{$set:{"username":"嘿嘿嘿"}})
+
 ```
 2. Oprator
 ```
