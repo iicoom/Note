@@ -25,4 +25,16 @@ moment(record.create_at).format('YYYY-MM-DD HH:mm:ss')
 
 console.log("======moment(1513326650913).format('YYYY-MM-DD')========")
 console.log( moment(1513326650913).format('YYYY-MM-DD') )
+
+/* Chrome 控制台可以用moment */
+new Date('2018-01-05').getTime()  // 默认是 08:00:00
+1515110400000
+
+
+moment(1513326650913).format('YYYY-MM-DD HH-mm-ss')
+"2017-12-15 16-30-50"
+moment(1513326650913).format('YYYY-MM-DD HH:mm:ss')
+"2017-12-15 16:30:50"
+moment(1515110400000).format('YYYY-MM-DD HH:mm:ss')
+"2018-01-05 08:00:00"
   

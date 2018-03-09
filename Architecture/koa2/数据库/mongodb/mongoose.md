@@ -147,6 +147,26 @@ q.nfcall(sheepService.aggregate,
 		}
 	]
 )
+
+
+sheepService.aggregate,[{$match:{user_id:userId,batch_id:{$nin:idArrys},is_presenting:false}},{$group:{_id:"$batch_id",sheepNum:{$sum:1},sheepStatus:{$addToSet:"$sheep_status"}}}])
+
+Sheep.aggregate([
+  {
+    $match:{
+      user_id: userId,
+      batch_id: { $nin:idArrys },
+      is_presenting: false
+    }
+  },
+  {
+    $group:{
+      _id: "$batch_id",
+      sheepNum: {$sum:1},
+      sheepStatus:{$addToSet:"$sheep_status"}
+    }
+  }
+]);
 ```
 
 ## Update
