@@ -137,18 +137,9 @@ RSA.prototype.verify = function(text, sign, charset) {
 module.exports = RSA;
 
 var rsa = new RSA({
-    public_key: path.join(__dirname, '../../../certs/weibopay/test/rsa_public.pem'),
-    sign_private_key: path.join(__dirname, '../../../certs/weibopay/test/rsa_sign_private.pem'),
-    sign_public_key: path.join(__dirname, '../../../certs/weibopay/test/rsa_sign_public.pem'),
+    public_key: path.join(__dirname, '../key/rsa_public.pem'),
+    sign_private_key: path.join(__dirname, '../key/rsa_sign_private.pem'),
+    sign_public_key: path.join(__dirname, '../key/rsa_sign_public.pem'),
     _charset: 'UTF-8'
 });
 
-// var str = '你好，中国。Hello, World.';
-
-// var sign = rsa.sign(str);
-// console.log(sign);
-// console.log(rsa.verify(str, sign));
-
-// var str = "_input_charset=UTF-8&available_balance=995.36&balance=995.36&bonus=0.09^12.52^12.52&partner_id=200004595271&response_code=APPLY_SUCCESS&response_message=提交成功&response_time=20160223170547";
-// var sign = "0NIU8tmp8s+MeFwiFijiWCs7RD3daW5c7XkBJI0D9yVcXQnNxNFUG6XbE6lwXIiu84dJsAChwXtooqyaJYOQ2vH0ceR4wd8+Wqjb09Vgz7fC9Sh9abkfgaI7Aup4JSRaza459RrSZx+2/AnxHMjK6J1N6I6zcabtik97oKFuvOo=";
-// console.log(rsa.verify(str, sign)); // false
