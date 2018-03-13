@@ -33,6 +33,10 @@ powered by Web technologies and delivered with Web infrastructure.
 * DevOps（英文Development和Operations的组合）是一组过程、方法与系统的统称，用于促进开发（应用程序/软件工程）、技术运营和质量保障（QA）部门之间的沟通、协作与整合。它的出现是由于软件行业日益清晰地认识到：为了按时交付软件产品和服务，开发和运营工作必须紧密合作。
 可以把DevOps看作开发（软件工程）、技术运营和质量保障（QA）三者的交集。
 
+* MITM Fluxion is the future of MITM WPA attacks攻击，即中间人攻击(Man-in-the-middle-attacks，简称:MITM攻击)。
+
+* Verbose mode [link](https://www.computerhope.com/jargon/v/verbose-mode.htm)
+A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded.
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
@@ -47,10 +51,8 @@ powered by Web technologies and delivered with Web infrastructure.
 划分等级特权
 
 ## 如何扩增用户数
-### 用户邀请好友得奖励
+### 用户邀请好友注册
 
-## Fluxion is the future of MITM WPA attacks
-MITM攻击，即中间人攻击(Man-in-the-middle-attacks，简称:MITM攻击)。
 
 ## PyCharm
 * shift + enter 下一行
@@ -59,11 +61,9 @@ MITM攻击，即中间人攻击(Man-in-the-middle-attacks，简称:MITM攻击)�
 * shift + delete 删除行
 * ctrl + D 复制此行到下一行
 
-## Verbose mode
-https://www.computerhope.com/jargon/v/verbose-mode.htm
-A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded.
 
 ## React Native
+### 启动
 See https://git.io/v5vcn for more information, either install watchman or run the following snippet:
   sudo sysctl -w kern.maxfiles=5242880
   sudo sysctl -w kern.maxfilesperproc=524288
@@ -83,6 +83,8 @@ kern.maxfiles: 12288 -> 5242880
 * 图案解锁
 * 悬浮按钮
 * 列表Item添加侧滑功能
+
+* 一键分享 https://www.cnblogs.com/vipstone/p/7884997.html
 
 
 ### yarn start
