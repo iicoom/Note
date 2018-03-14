@@ -84,6 +84,19 @@ OK
 8) "queue:jobs:order/line-0:inactive"
 ```
 
+```
+// 消息队列
+var queue = kue.createQueue({
+    prefix: 'queue',
+    redis: {
+        db: 5,
+        port: rcc.port,
+        host: rcc.host,
+        auth: rcc.auth_pass
+    }
+});
+```
+
 ## redis.conf
 [redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
