@@ -1,0 +1,1 @@
+[用JavaScript写一个区块链](https://zhuanlan.zhihu.com/p/34522746)
