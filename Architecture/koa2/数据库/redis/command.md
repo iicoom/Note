@@ -84,6 +84,19 @@ OK
 8) "queue:jobs:order/line-0:inactive"
 ```
 
+```
+// 消息队列
+var queue = kue.createQueue({
+    prefix: 'queue',
+    redis: {
+        db: 5,
+        port: rcc.port,
+        host: rcc.host,
+        auth: rcc.auth_pass
+    }
+});
+```
+
 ## redis.conf
 [redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
@@ -91,6 +104,9 @@ OK
 
 0. TYPE key
 127.0.0.1:6379[5]> type queue:job:14
+hash
+
+127.0.0.1:6379[5]> type "queue:job:14"
 hash
 返回key所存储的value的数据结构类型，它可以返回string, list, set, zset 和 hash等不同的类型。
 
@@ -113,6 +129,12 @@ hash
 ```
 101.201.197.163:6379> get sid:-_D4KmjM7bd79KpH1ECoMWrViyu6CQ_z
 "{\"cookie\":{\"httpOnly\":true,\"path\":\"/\",\"overwrite\":true,\"signed\":true,\"maxage\":86400000},\"user-agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36\"}"
+
+
+127.0.0.1:6379[5]> type "queue:ids"
+string
+127.0.0.1:6379[5]> get "queue:ids"
+"8"
 ```
 
 3. HGET key field
@@ -218,6 +240,7 @@ redis> LRANGE mylist 0 -1
 ```
 
 ### ZRANGE key start stop [WITHSCORES]
+Zset:有序的set，在集合的基础上进行延伸有序，其K是sring  V是一个键值对，这个键值对是分数score：V，并默认从小到大排序
 ```
 127.0.0.1:6379[5]> type queue:jobs:order/line-0:inactive
 zset

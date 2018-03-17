@@ -1,4 +1,5 @@
 ## kue创建队列
+[官方文档](https://www.npmjs.com/package/kue)
 ```
 // 消息队列
 var queue = kue.createQueue({
@@ -46,6 +47,40 @@ return res.json({
             });
 
 ```
+
+返回的job信息：
+```
+{
+    "jobInfo": {
+        "id": 8,
+        "type": "[order_line]",
+        "data": {
+            "user_id": "123456",
+            "sheep_num": "2"
+        },
+        "priority": 0,
+        "progress": 0,
+        "state": "inactive",
+        "created_at": 1520997584730,
+        "promote_at": 1520997584730,
+        "ttl": 5000,
+        "attempts": {
+            "made": 0,
+            "remaining": 3,
+            "max": 3
+        }
+    }
+}
+```
+
+### Job TTL
+Job producers can set an expiry value for the time their job can live in active state, so that if workers didn't reply in timely fashion, Kue will fail it with TTL exceeded error message preventing that job from being stuck in active state and spoiling concurrency.
+```
+queue.create('email', {title: 'email job with TTL'}).ttl(milliseconds).save();
+```
+
+## 查询job
+
 
 ## order_create
 自动监听队列，创建订单，此阶段为那个排队过程
