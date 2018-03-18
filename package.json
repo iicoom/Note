@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/iicoom/Note/issues"
   },
-  "homepage": "https://github.com/iicoom/Note#readme"
+  "homepage": "https://github.com/iicoom/Note#readme",
+  "dependencies": {
+    "lie": "^3.3.0"
+  }
 }
