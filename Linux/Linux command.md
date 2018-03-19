@@ -287,6 +287,8 @@ airmon-ng
 ### tail
 sodu tail -50f file
 
+tail -n +20 filename 是从文件第二十行开始显示 而不是显示前面二十行
+tail -500n file
 
 
 
