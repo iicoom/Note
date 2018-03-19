@@ -245,9 +245,6 @@ cp [选项] 源文件或目录 目标文件或目录
 
 cp -r myAntPro/. antdPro
 
-## tail
-sodu tail -50f file
-
 ## 包管理
 > rpm包和deb包是两种Linux系统下最常见的安装包格式，在安装一些软件或服务的时候免不了要和它们打交道。rpm包主要应用在RedHat系列包括 Fedora等发行版的Linux系统上，deb包主要应用于Debian系列包括现在比较流行的Ubuntu等发行版上。 
 
@@ -284,3 +281,15 @@ iwconfig
 必须确保你在使用USB无线网卡，虚拟机只能挂载USB无线网卡
 启动虚拟机，在kali linux中打开终端，输入
 airmon-ng
+
+
+## 文本操作
+### tail
+sodu tail -50f file
+
+
+
+
+
+
+
