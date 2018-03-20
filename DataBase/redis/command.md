@@ -69,7 +69,7 @@ mem_allocator:jemalloc-4.0.3
 
 ## Redis Select
 redis默认有db0~db15之多。
-Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值。
+Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值。默认库为0
 ```
 127.0.0.1:6379> select 5
 OK
