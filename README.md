@@ -4,6 +4,11 @@ something important
 ### 常见装逼词汇
 * “i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
 
+* e.g. 
+(=exempli gratia)例如
+adv.
+举例来说（等于for example）
+
 * SaaS是Software-as-a-Service（软件即服务）的简称
 SaaS有什么特别之处呢？其实在云计算还没有盛行的时代，我们已经接触到了一些SaaS的应用，通过浏览器我们可以使用Google、百度等搜索系统，可以使用E-mail，我们不需要在自己的电脑中安装搜索系统或者邮箱系统。典型的例子，我们在电脑上使用的Word、Excel、PowerPoint等办公软件，这些都是需要在本地安装才能使用的；而在GoogleDocs（DOC、XLS、ODT、ODS、RTF、CSV和PPT等）、MicrosoftOfficeOnline（WordOnline、ExcelOnline、PowerPointOnline和OneNoteOnline）网站上，无需在本机安装，打开浏览器，注册帐号，可以随时随地通过网络来使用这些软件编辑、保存、阅读自己的文档。对于用户只需要自由自在地使用，不需要自己去升级软件、维护软件等操作。
 [如何理解云计算？IaaS、PaaS和SaaS](http://www.chinacloud.cn/show.aspx?id=19758&cid=18)
@@ -38,6 +43,27 @@ powered by Web technologies and delivered with Web infrastructure.
 
 * Verbose mode [link](https://www.computerhope.com/jargon/v/verbose-mode.htm)
 A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded.
+
+* cron
+读音英 ['krɔ:n]/美 ['krɒn] 计划任务，是任务在约定的时间执行已经计划好的工作，这是表面的意思。在Linux中，我们经常用到 cron 服务器来完成这项工作。cron服务器可以根据配置文件约定的时间来执行特定的作务。
+crontab文件的格式：M H D m d cmd.
+M: 分钟（0-59）。
+H：小时（0-23）。
+D：天（1-31）。
+m: 月（1-12）。
+d: 一星期内的天（0~7，0和7均为星期天）。
+cmd: 要执行的命令。
+[在线生成器](http://cron.qqe2.com/)
+*    *    *    *    *    *
+┬    ┬    ┬    ┬    ┬    ┬
+│    │    │    │    │    │
+│    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+│    │    │    │    └───── month (1 - 12)
+│    │    │    └────────── day of month (1 - 31)
+│    │    └─────────────── hour (0 - 23)
+│    └──────────────────── minute (0 - 59)
+└───────────────────────── second (0 - 59, OPTIONAL)
+
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
