@@ -41,8 +41,23 @@ moment(1515110400000).format('YYYY-MM-DD HH:mm:ss')
 // 不写03竟然是12点
 new Date('2018-3-19').getTime()
 1521388800000
+new Date('2018-03-19').getTime()
+1521417600000
+moment(1521417600000).format('YYYY-MM-DD HH:mm:ss')
+"2018-03-19 08:00:00"
+moment(1521417600000).format('YYYY-MM-DD hh:mm:ss')
+"2018-03-19 08:00:00"
+
+// 大于12点的就他妈不一样了。。。！！！
 moment(1521388800000).format('YYYY-MM-DD hh:mm:ss')
 "2018-03-19 12:00:00"
+moment(1521388800000).format('YYYY-MM-DD HH:mm:ss')
+"2018-03-19 00:00:00"
+
+moment(1521712085299).format('YYYY-MM-DD hh:mm:ss')
+"2018-03-22 05:48:05"
+moment(1521712085299).format('YYYY-MM-DD HH:mm:ss')
+"2018-03-22 17:48:05"
 
 
   
