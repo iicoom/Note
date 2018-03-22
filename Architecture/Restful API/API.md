@@ -1,3 +1,127 @@
+> “REST就是Representational State Transfer的缩写呀，翻译为中文就是‘表述性状态转移’”
+
+* GET（SELECT）：从服务器取出资源（一项或多项）。
+* POST（CREATE）：在服务器新建一个资源。
+* PUT（UPDATE）：在服务器更新资源（客户端提供改变后的完整资源）。
+* PATCH（UPDATE）：在服务器更新资源（客户端提供改变的属性）。
+* DELETE（DELETE）：从服务器删除资源。
+
+* GET /zoos：列出所有动物园
+* POST /zoos：新建一个动物园
+* GET /zoos/ID：获取某个指定动物园的信息
+* PUT /zoos/ID：更新某个指定动物园的信息（提供该动物园的全部信息）
+* PATCH /zoos/ID：更新某个指定动物园的信息（提供该动物园的部分信息）
+* DELETE /zoos/ID：删除某个动物园
+* GET /zoos/ID/animals：列出某个指定动物园的所有动物
+* DELETE /zoos/ID/animals/ID：删除某个指定动物园的指定动物
+
+* 200 OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
+* 201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。
+* 202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）
+* 204 NO CONTENT - [DELETE]：用户删除数据成功。
+* 400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
+* 401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。
+* 403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。
+* 404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
+* 406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
+* 410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。
+* 422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。
+* 500 INTERNAL SERVER ERROR - ：服务器发生错误，用户将无法判断发出的请求是否成功。
+
+
+[如何给老婆解释什么是RESTful](https://zhuanlan.zhihu.com/p/30396391)
+## Level 1 - 面向资源
+```
+/orders
+
+{
+    "addOrder": {
+        "orderName": "latte"
+    }
+}
+```
+订单是一种资源，我们可以理解为是咖啡厅专门管理订单的人，他可以帮我们处理所有有关订单的操作，包括新增订单、修改订单、取消订单等操作”
+“接着还是会返回订单的编号给我们”
+```
+{
+    "orderId": "123456"
+}
+```
+“下面，我们还是要查询会员卡余额，这次请求的资源变成了cards”
+```
+/cards
+
+{
+    "queryBalance": {
+        "cardId": "886333"
+    }
+}
+```
+“接下来是取消订单”
+```
+/orders
+
+{
+    "deleteOrder": {
+        "orderId": "123456"
+    }
+}
+```
+
+## Level 2 - 打上标签
+都在请求上面写上大大的‘POST’，表示这是一笔新增资源的请求”
+
+“其他种类的请求，比如查询类的，用‘GET’表示，删除类的，用‘DELETE’表示”
+“还有修改类的，修改分为两种，第一种，如果这个修改，无论发送多少次，最后一次修改后的资源，总是和第一次修改后的一样，比如将拿铁改为猫屎，那么用‘PUT’表示；第二种，如果这个修改，每次修改都会让这个资源和前一次的不一样，比如是加一杯咖啡，那么这种请求用‘PATCH’或者‘POST’表示”
+```
+POST /orders
+
+{
+    "orderName": "latte"
+}
+```
+"请求的内容简洁多啦，不用告诉店员是addOrder，看到POST就知道是新增"
+
+“接着是查询会员卡余额，这次也简化了很多”
+```
+GET /cards
+
+{
+    "cardId": "886333"
+}
+“这个请求我们还可以进一步优化为这样”
+
+GET /cards/886333
+```
+“没错，接着，取消订单”
+```
+DELETE /orders/123456
+```
+
+## Level 3 - 完美服务
+顾客下了单之后，不仅给他们返回订单的编号，还给顾客返回所有可以对这个订单做的操作，比如告诉用户如何删除订单
+```
+POST /orders
+
+{
+    "orderName": "latte"
+}
+```
+“但是这次返回时多了些内容”
+```
+{
+    "orderId": "123456",
+    "link": {
+        "rel": "cancel",
+        "url": "/order/123456"
+    }
+}
+```
+“这次返回时多了一项link信息，里面包含了一个rel属性和url属性，rel是relationship的意思，这里的关系是cancel，url则告诉你如何执行这个cancel操作，接着你就可以这样子来取消订单啦”
+```
+DELETE /orders/123456
+```
+
 [知乎](https://zhuanlan.zhihu.com/p/26216336)
 ## 如何使用koa2+es6/7打造高质量Restful API
 ### 耦合模式
