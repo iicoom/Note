@@ -1,30 +1,30 @@
 const moment = require('moment');
 
-console.log('======new Date()========')
-console.log( new Date() )
-// => 2017-12-15T08:30:50.913Z
 
-console.log('======Date.now()========')
-console.log( Date.now() )
+/**********************************************
+	Supported ISO 8601 strings  "create_at" : ISODate("2018-02-25T13:31:09.645Z"),
+***************************************************/
 
-console.log(new Date().getTime())
-// => 1513907599685
-
-console.log("======Date.parse('2017-12-15T08:30:50.913Z')========")
 console.log( Date.parse('2017-12-15T08:30:50.913Z'))
 // => 1513326650913
+
+// 浏览器控制台
+new Date()
+// Fri Mar 23 2018 09:47:52 GMT+0800 (CST)
+console.log(new Date().getTime())
+// => 1513907599685
 
 Date.parse(2017-12-15)
 631152000000
 
-console.log("======moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')========")
-console.log( moment(Date.now()).format('YYYY-MM-DD HH:mm:ss') )
-moment(record.create_at).format('YYYY-MM-DD HH:mm:ss')
-// 2017-12-15T08:30:50.913Z =>
-// 2018-02-01 10:16:24
+Date.now()
+// 1521769579275
+moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
+"2018-03-23 09:46:01"
+moment('2018-02-25T13:31:09.645Z').format('YYYY-MM-DD HH:mm:ss')
+"2018-02-25 21:31:09"
 
-console.log("======moment(1513326650913).format('YYYY-MM-DD')========")
-console.log( moment(1513326650913).format('YYYY-MM-DD') )
+
 
 /* Chrome 控制台可以用moment */
 new Date('2018-01-05').getTime()  // 默认是 08:00:00
