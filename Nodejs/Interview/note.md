@@ -1,3 +1,16 @@
+> Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.
+
+1. Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
+2. Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。
+3. Node.js 的包管理器 npm，是全球最大的开源库生态系统。
+
+个人感觉称 Node 为 JavaScript runtime 也不是很准确，因为 JavaScript 除了 ECMAScript 还包括了其在浏览器端的实现 BOM、DOM，这些在 Node 中是不存在的，叫 ERE 会更贴切一些，但是 Node 因为运行在服务器端，虽然缺失的 BOM、DOM，但是多了很多针对服务器编程常用的封装，我们来简单了解一下 Node 的组成
+1. ECMAScript 解释器
+2. npm—— node package manager
+3. CommonJS module system：NodeJS 诞生在 JavaScript 没有官方模块系统的年代，只能自己做一个规范并且内置实现（最新的 8.5 4. 已经开始支持 ES6 modules）
+4. debugger：方便开发者进行代码调试
+5. fs、Stream、http、util 等常用内置模块
+
 * 什么是错误优先的回调函数？
 * 如何避免回调地狱？
 * 如何用Node来监听80端口？
@@ -10,6 +23,8 @@
 * 你最喜欢的HTTP框架，并说明原因？
 
 ### 什么是错误优先的回调函数？
+Node.js 约定，回调函数的第一个参数，必须是错误对象err（如果没有错误，该参数就是 null）？原因是执行分成两段，在这两段之间抛出的错误，程序无法捕捉，只能当作参数，传入第二段。
+
 错误优先的回调函数用于传递错误和数据。第一个参数始终应该是一个错误对象， 用于检查程序是否发生了错误。其余的参数用于传递数据
 ```
 fs.readFile(filePath, function(err, data) { 
@@ -83,6 +98,38 @@ thunk
 有很多针对模型的底层单元测试
 但你需要测试模型间如何交互时，需要减少集成测试
 解析：本文主要考察被面试者的在测试方面的经验。
+
+### 事件驱动编程风格
+#### 典型的阻塞式I/O编程，对数据库的查询
+```
+result = query('SELECT * FROM posts WHERE id = 1');
+do_something_with(result)
+```
+当前的线程或进程要一直等待查询结果
+
+#### 时间驱动的查询方式
+```
+先定义查询完成的回调函数
+query_finished = function(result) {
+	do_something_with(result);
+}
+query('SELECT * FROM posts WHERE id = 1', query_finished);
+```
+查询事件结束后，会调用query_finished
+
+#### 闭包
+闭包是函数，特殊的是他可以继承并访问他自身声明的那个作用域里的变量
+就如查询I/O操作事件完成，调用的query_finished
+```
+(function() {
+	var clickCount = 0;
+	$('#myBtn').click(funciton() {
+		clickCount ++;
+		alert('balbala')
+		})
+})
+```
+闭包的作用是可以避免全局变量的污染，闭包可以维护状态变量
 
 
 
