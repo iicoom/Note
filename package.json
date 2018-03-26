@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/iicoom/Note#readme",
   "dependencies": {
-    "lie": "^3.3.0"
+    "lie": "^3.3.0",
+    "node-mysql": "^0.4.2"
   }
 }

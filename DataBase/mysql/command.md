@@ -209,6 +209,32 @@ mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
 
+## CRUD
+### create database
+
+CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name;
+去掉{}和[]
+
+```
+mysql> CREATE SCHEMA IF NOT EXISTS Nodejs;
+```
+
+### create table
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+
+```
+mysql> create table user(
+    -> id INT PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(16) NOT NULL,
+    -> create_date TIMESTAMP NULL DEFAULT now()
+    -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Query OK, 0 rows affected (0.02 sec)
+```
+
+
 ## node-mysql
 [用Nodejs连接MySQL](http://blog.fens.me/nodejs-mysql-intro/)
 
