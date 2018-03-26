@@ -15,10 +15,111 @@
 索引：使用索引可快速访问数据库表中的特定信息。索引是对数据库表中一列或多列的值进行排序的一种结构。类似于书籍的目录。
 参照完整性: 参照的完整性要求关系中不允许引用不存在的实体。与实体完整性是关系模型必须满足的完整性约束条件，目的是保证数据的一致性。
 
+## 安装mysql
+### Mac
+[Mac 安装 MySQL](https://blog.csdn.net/catstarxcode/article/details/78940385)
+
+### 登录连接数据库
+```
+mysql -u root -p 
+```
+输入密码
+
+### 修改用户登录密码
+前提是知道旧密码
+mysqladmin -u root password "newpass"
+
+5.7后的版本不适用，可用下面方法
+alter user 'root'@'localhost' identified by 'newpass';
+
+
+### 重置root密码
+作者：Xianan Zhang
+链接：https://www.zhihu.com/question/41158204/answer/226950881
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+My mysql version is 5.7.16, For those who hasn't solved the problem:  
+1. Stop MYSQL Server  
+2. Open terminal and enter: cd /usr/local/mysql/bin/   
+3. Enter: sudo su  , then enter your mac password
+4. Enter: sudo /usr/local/mysql/bin/mysqld_safe --skip-grant-tables  
+5. Open a new terminal tab and enter: sudo /usr/local/mysql/bin/mysql -u root  
+6. Enter: UPDATE mysql.user SET authentication_string=PASSWORD('YOUR NEW MYSQL PASSWORD') WHERE User='root'; 7. Enter: FLUSH PRIVILEGES;  
+8. Enter: \q  
+Hope this might help you, it took me almost half a day to find the solution, and it works just fine to me.
+
+### 环境变量的执行顺序
+Mac系统的环境变量，加载顺序为：
+/etc/profile
+/etc/paths
+~/.bash_profile
+~/.bash_login
+~/.profile
+~/.bashrc
+当然/etc/profile和/etc/paths是系统级别的，系统启动就会加载，后面几个是当前用户级的环境变量。后面3个按照从前往后的顺序读取，如果/.bash_profile文件存在，则后面的几个文件就会被忽略不读了，如果/.bash_profile文件不存在，才会以此类推读取后面的文件。~/.bashrc没有上述规则，它是bash shell打开的时候载入的。
+
+### 添加环境变量
+```
+vim ~/.bash_profile
+
+添加
+export PATH=${PATH}:/usr/local/mysql/bin
+
+保存退出后执行
+source .bash_profile
+```
+
+### 上述不起作用可直接添加到 ~/.zshrc中
+```
+vim ~/.zshrc
+
+export PATH=${PATH}:/usr/local/mysql/bin
+保存退出 重启terminal生效
+```
+
+
 ## 检查MySQL服务器是否启动
 ```
 [xiaomao@iZ258wvzn92Z /]$ ps -ef | grep mysqld
 
+```
+
+## 查看mysql版本
+### 已连接到数据库
+```
+mysql> status;
+--------------
+mysql  Ver 14.14 Distrib 5.7.21, for macos10.13 (x86_64) using  EditLine wrapper
+
+Connection id:		63
+Current database:
+Current user:		root@localhost
+SSL:			Not in use
+Current pager:		less
+Using outfile:		''
+Using delimiter:	;
+Server version:		5.7.21
+Protocol version:	10
+Connection:		Localhost via UNIX socket
+Server characterset:	latin1
+Db     characterset:	latin1
+Client characterset:	utf8
+Conn.  characterset:	utf8
+UNIX socket:		/tmp/mysql.sock
+Uptime:			1 hour 10 min 21 sec
+
+Threads: 1  Questions: 84  Slow queries: 0  Opens: 104  Flush tables: 1  Open tables: 99  Queries per second avg: 0.019
+--------------
+```
+### 未连接到数据库
+```
+➜  ~ mysqladmin --version
+mysqladmin  Ver 8.42 Distrib 5.7.21, for macos10.13 on x86_64
+
+或
+➜  ~ mysql -V
+mysql  Ver 14.14 Distrib 5.7.21, for macos10.13 (x86_64) using  EditLine wrapper
 ```
 
 ## 命令行连接MySQL
@@ -40,7 +141,7 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 ```
 
-## show dbs;
+## 查看数据库;
 ```
 mysql> show databases;
 +--------------------+
