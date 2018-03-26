@@ -78,7 +78,6 @@ export PATH=${PATH}:/usr/local/mysql/bin
 保存退出 重启terminal生效
 ```
 
-
 ## 检查MySQL服务器是否启动
 ```
 [xiaomao@iZ258wvzn92Z /]$ ps -ef | grep mysqld
@@ -209,6 +208,9 @@ mysql> select * from sign;
 | 13e39fe0821f4777bffa42a5f6012ac4 | 580988313254200b3205edcb |     1 |          1 |           1 | 2017-04-06 18:31:59 | 2017-04-06 18:31:58 | 2017-04-06 18:31:58 |
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
+
+## node-mysql
+[用Nodejs连接MySQL](http://blog.fens.me/nodejs-mysql-intro/)
 
 
 
