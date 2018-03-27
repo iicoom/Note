@@ -80,6 +80,13 @@ TLS包含三个基本阶段：
 
 * crud 是指在做计算处理时的增加(Create)、读取查询(Retrieve)、更新(Update)和删除(Delete)几个单词的首字母简写。crud主要被用在描述软件系统中数据库或者持久层的基本操作功能。
 
+* .NET 就是微软用来实现XML，Web Services，SOA（面向服务的体系结构service-oriented architecture）和敏捷性的技术。对技术人员，想真正了解什么是.NET，必须先了解.NET技术出现的原因和它想解决的问题，必须先了解为什么他们需要XML,Web Services 和 SOA。
+
+* Web Service 是基于网络的、分布式的模块化组件，它执行特定的任务，遵守具体的技术规范，这些规范使得Web Service能与其他兼容的组件进行交互操作(这他娘什么玩意儿)。Web Services 主要利用 HTTP 和 SOAP 协议使业务数据在 Web 上传输，SOAP通过 HTTP 调用业务对象执行远程功能调用，Web 用户能够使用 SOAP 和 HTTP通过 Web 调用的方法来调用远程对象的。
+
+* BSD (Berkeley Software Distribution，伯克利软件套件)是Unix的衍生系统，在1977至1995年间由加州大学伯克利分校开发和发布的。历史上， BSD曾经被认为是UNIX的一支——"BSD UNIX", 因为它和AT&T UNIX操作系统共享基础代码和设计。在20世纪80年代，衍生出了许多变形的UNIX授权软件。
+
+
 
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
