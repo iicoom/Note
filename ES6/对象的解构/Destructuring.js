@@ -53,3 +53,16 @@ return { left, right, top, bottom };
 // 调用时只选择需要的数据
 const { left, right } = processInput(input);
 
+
+
+({ a, b } = { a: 10, b: 20 });
+console.log(a); // 10
+console.log(b); // 20
+
+
+// Stage 3 proposal
+({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
+console.log(a); // 10
+console.log(b); // 20
+console.log(rest); //{c: 30, d: 40}
+
