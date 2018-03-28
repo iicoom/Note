@@ -90,6 +90,8 @@ TLS包含三个基本阶段：
 
 * CA 认证 电子商务认证授权机构（CA, Certificate Authority），也称为电子商务认证中心，是负责发放和管理数字证书的权威机构，并作为电子商务交易中受信任的第三方，承担公钥体系中公钥的合法性检验的责任。
 
+* Solaris (读作 /se'laris:/ 或者 /so'le:ris/ 或者 '梭拉瑞斯'或者"ソラリス" )是Sun Microsystems研发的计算机操作系统。它被认为是UNIX操作系统的衍生版本之一。 目前Solaris属于混合开源软件。2005年6月14日，Sun公司将正在开发中的Solaris 11的源代码以CDDL许可开放，这一开放版本就是OpenSolaris。
+
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
 ### 签到打卡
