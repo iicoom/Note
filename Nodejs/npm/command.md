@@ -35,6 +35,9 @@ request                2.83.0  2.85.0  2.85.0  Server
 uuid                    3.1.0   3.2.1   3.2.1  Server
 xss                     0.3.3   0.3.7   0.3.7  Server
 
+* npm install --global gulp-cli 全局安装
+* npm rm --global gulp 移除
+
 ### 安装原理
 
 安装之前，npm install会先检查，node_modules目录之中是否已经存在指定模块。如果存在，就不再重新安装了，即使远程仓库已经有了一个新版本，也是如此。
