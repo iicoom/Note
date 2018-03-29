@@ -8,8 +8,19 @@
 * nvm install <version> [arch] : The version can be a node.js version or "latest" for the latest stable version.
 * nvm uninstall <version>      : The version must be a specific version.
 
+➜  ranch_api git:(develop) ✗ nvm list
+       v0.12.14
+        v6.11.0
+         v8.1.3
+         v8.6.0
+->       v9.2.0
+default -> node (-> v9.2.0)
+node -> stable (-> v9.2.0) (default)
+stable -> 9.2 (-> v9.2.0) (default)
+iojs -> N/A (default)
+lts/* -> lts/carbon (-> N/A)
+lts/argon -> v4.8.7 (-> N/A)
+lts/boron -> v6.12.3 (-> N/A)
+lts/carbon -> v8.9.4 (-> N/A)
 
-## npm
-### npm cache clean --force
-即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
-
+* nvm use version

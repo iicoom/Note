@@ -1,4 +1,7 @@
 ## npm
+* npm init 初始化一个package.json文件
+* npm cache clean --force 即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
+* npm -v 查看版本
 * npm install package
 * npm install package --save
 * npm i package --save-dev
@@ -59,5 +62,14 @@ npm update <packageName>
 
 
 ## yarn
-* yarn
-* yarn add 
+* yarn --version
+* yarn 安装全部依赖
+* yarn init
+* yarn add [package]
+* yarn add [package]@[version]
+* yarn add [package]@[tag]
+
+* yarn upgrade [package]
+* yarn upgrade [package]@[version]
+* yarn upgrade [package]@[tag]
+* yarn remove [package]
