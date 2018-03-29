@@ -91,6 +91,15 @@ PID TTY      STAT   TIME COMMAND
 在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
 ps -u pungki
 
+## w 查看当前登录用户 在做什么
+[xiaomao@iZ258wvzn92Z task_consume]$ w
+ 17:57:44 up 262 days,  5:41,  4 users,  load average: 1.03, 2.40, 5.53
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+xiaoming pts/1    121.69.73.122    09:56    5.00s  0.16s  0.16s -bash
+flt      pts/2    121.69.73.122    15:18    1:24m  0.02s  0.02s -bash
+xiaomao  pts/4    121.69.73.122    Wed15    0.00s  0.03s  0.00s w
+litan    pts/0    121.69.73.122    15:43    1.00s  0.14s  0.14s -bash
+
 ## grep
 （global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 
