@@ -1,6 +1,6 @@
 {
   "name": "note",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "something important",
   "main": "index.js",
   "scripts": {
