@@ -205,6 +205,18 @@ SADD myset "Hello"
 1) "order/line-0"
 ```
 
+### SMEMBERS key
+```
+redis> SADD myset "Hello"
+(integer) 1
+redis> SADD myset "World"
+(integer) 1
+redis> SMEMBERS myset
+1) "World"
+2) "Hello"
+redis> 
+```
+
 ### List
 1. LLEN key
 返回存储在 key 里的list的长度。 如果 key 不存在，那么就被看作是空list，并且返回长度为 0。 当存储在 key 里的值不是一个list的话，会返回error。
@@ -269,6 +281,7 @@ zset
 21) "02|21"
 ```
 
+
 [官网-事务处理](http://www.redis.cn/topics/transactions.html)
 ## 事务处理
 > MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。事务可以一次执行多个命令， 并且带有以下两个重要的保证：
@@ -278,7 +291,9 @@ zset
 事务是一个原子操作：事务中的命令要么全部被执行，要么全部都不执行。
 
 ### MULTI 
-标记一个事务块的开始。 随后的指令将在执行EXEC时作为一个原子执行。
+MULTI 命令用于开启一个事务，它总是返回 OK 。 MULTI 执行之后， 客户端可以继续向服务器发送任意多条命令， 这些命令不会立即被执行， 而是被放到一个队列中， 当 EXEC命令被调用时， 所有队列中的命令才会被执行。
+
+另一方面， 通过调用 DISCARD ， 客户端可以清空事务队列， 并放弃执行事务。
 返回值
 
 simple-string-reply: 始终为OK
