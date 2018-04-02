@@ -117,5 +117,7 @@ Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hot
 ### 开发前master和develop是保持一致的
 ### 然后为下一个版本做准备
 例如：从develop上checkout出feature
+1. 选定到develop上 点击Git工作流，首先按默认设置初始化
+2. 再次点击 选择推荐动作 选择 建立新的功能
 
 
