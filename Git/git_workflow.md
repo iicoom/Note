@@ -113,4 +113,9 @@ $ git branch -d hotfix-1.2.1
 Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hotfix-1.2.1 (was abbe5d6).
 ```
 
+## 使用图形工具的工作流
+### 开发前master和develop是保持一致的
+### 然后为下一个版本做准备
+例如：从develop上checkout出feature
+
 
