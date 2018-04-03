@@ -310,6 +310,37 @@ tail -500n file
 ## 目录操作
 $ mkdir easy_mongo && cd easy_mongo
 
+### touch
+➜  ~ touch wtf.txt
+
+### xargs
+命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，
+xargs能够处理管道或者stdin并将其转换成特定命令的命令参数
+
+➜  ~ cat wtf.txt
+112455
+safajfa
+rsafajfa
+ruuafajfa
+ruuuu
+aaaaaf112455
+safajfa
+ruuuu
+aaaaaf
+
+➜  ~ cat wtf.txt | xargs
+112455 safajfa rsafajfa ruuafajfa ruuuu aaaaaf112455 safajfa ruuuu aaaaaf
+
+
+-n选项多行输出：
+➜  ~ cat wtf.txt | xargs -n3
+112455 safajfa rsafajfa
+ruuafajfa ruuuu aaaaaf112455
+safajfa ruuuu aaaaaf
+
+
+
+
 
 
 
