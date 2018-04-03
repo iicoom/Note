@@ -92,6 +92,14 @@ TLS包含三个基本阶段：
 
 * Solaris (读作 /se'laris:/ 或者 /so'le:ris/ 或者 '梭拉瑞斯'或者"ソラリス" )是Sun Microsystems研发的计算机操作系统。它被认为是UNIX操作系统的衍生版本之一。 目前Solaris属于混合开源软件。2005年6月14日，Sun公司将正在开发中的Solaris 11的源代码以CDDL许可开放，这一开放版本就是OpenSolaris。
 
+* Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
+
+* SDK 是Software Development Kit的缩写，中文意思是“软件开发工具包”。这是一个覆盖面相当广泛的名词，可以这么说：辅助开发某一类软件的相关文档、范例和工具的集合都可以叫做“SDK”。SDK是一系列文件的组合，它为软件的开发提供一个平台(它为软件开发使用各种API提供便利)。
+
+* JDK (Java Development Kit,Java开发工具包)是Sun Microsystems针对Java开发员的产品。自从Java推出以来，JDK已经成为使用最广泛的Java SDK（Software development kit）。可以认为jdk只是sdk的一种(子集)，因为它是开发java程序的一个平台，开发其他程序的sdk可以没有jdk。
+
+
+
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
 ### 签到打卡
