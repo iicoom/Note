@@ -120,8 +120,9 @@ Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hot
 1. 选定到develop上 点击Git工作流，首先按默认设置初始化
 2. 再次点击 选择推荐动作 选择 建立新的功能
 3. 然后就在feature上开发，直到开发完成
-4. 合并feature到develop 在develop上修改下package.json version(此次发布的版本) 先提交一下
-5. 此时在develop上 Git工作流中建立一个release 填入版本
+4. 开发完成在feature分支即可完成（Git工作流中完成功能）,即可自动跳转到并合并到develop上。
+5. 在develop上修改下package.json version(此次发布的版本) 先提交一下
+5. 此时在develop上 Git工作流中建立一个release 填入版本 确定后自动跳到release
 6. 在release分支上 点 Git工作流 完成当前发布 下一步跳到打标签的页面 留下标签信息作为记录
 7. 确定后 会自动合并当前release到master，并且从master上把最新代码push到develop上以供下次开发新的feature
 
