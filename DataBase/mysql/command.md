@@ -165,6 +165,37 @@ mysql> show databases;
 15 rows in set (0.00 sec)
 ```
 
+## create database
+```
+mysql> create database Java;
+Query OK, 1 row affected (0.01 sec)
+```
+
+### create user
+```
+mysql> create user 'springuser'@'localhost' identified by 'admin';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant all on Java.* to 'springuser'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+```
+
+### create table
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+
+```
+mysql> create table user(
+    -> id INT PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(16) NOT NULL,
+    -> create_date TIMESTAMP NULL DEFAULT now()
+    -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Query OK, 0 rows affected (0.02 sec)
+```
+
+
 ## select db
 ```
 mysql> use member;
@@ -209,30 +240,7 @@ mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
 
-## CRUD
-### create database
 
-CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name;
-去掉{}和[]
-
-```
-mysql> CREATE SCHEMA IF NOT EXISTS Nodejs;
-```
-
-### create table
-CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-    (create_definition,...)
-    [table_options]
-    [partition_options]
-
-```
-mysql> create table user(
-    -> id INT PRIMARY KEY AUTO_INCREMENT,
-    -> name VARCHAR(16) NOT NULL,
-    -> create_date TIMESTAMP NULL DEFAULT now()
-    -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-Query OK, 0 rows affected (0.02 sec)
-```
 
 
 ## node-mysql
