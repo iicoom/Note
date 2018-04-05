@@ -228,7 +228,7 @@ mysql> show tables;
 25 rows in set (0.00 sec)
 ```
 
-## 查询数据
+### 查询数据
 ```
 mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
@@ -240,7 +240,26 @@ mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
 
+### count
+```
+mysql> select * from user;
++----+---------------------------------+--------+
+| id | email                           | name   |
++----+---------------------------------+--------+
+|  1 | someemail@someemailprovider.com | First  |
+|  2 | fuck@nimei.com                  | Second |
+|  3 | luckin@nimei.com                | Second |
++----+---------------------------------+--------+
+3 rows in set (0.00 sec)
 
+mysql> select count(name) from user where name='Second';
++-------------+
+| count(name) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.01 sec)
+```
 
 
 ## node-mysql
