@@ -94,6 +94,91 @@ char 数据类型可以储存任何字符；
 
 
 ## Java面向对象
+### Java 封装
+封装的优点
+1. 良好的封装能够减少耦合。
+
+2. 类内部的结构可以自由修改。
+
+3. 可以对成员变量进行更精确的控制。
+
+4. 隐藏信息，实现细节。
+
+* 修改属性的可见性来限制对属性的访问（一般限制为private），例如：
+```
+public class Person {
+    private String name;
+    private int age;
+}
+```
+这段代码中，将 name 和 age 属性设置为私有的，只能本类才能访问，其他类都访问不了，如此就对信息进行了隐藏。
+
+* 对每个值属性提供对外的公共方法访问，也就是创建一对赋取值方法，用于对私有属性的访问，例如：
+```
+public class Person{
+    private String name;
+    private int age;
+​
+    public int getAge(){
+      return age;
+    }
+​
+    public String getName(){
+      return name;
+    }
+​
+    public void setAge(int age){
+      this.age = age;
+    }
+​
+    public void setName(String name){
+      this.name = name;
+    }
+}
+```
+采用 this 关键字是为了解决实例变量（private String name）和局部变量（setName(String name)中的name变量）之间发生的同名的冲突。
+
+* 实例
+```
+/* 文件名: EncapTest.java */
+public class EncapTest{
+ 
+   private String name;
+   private String idNum;
+   private int age;
+ 
+   public int getAge(){
+      return age;
+   }
+ 
+   public String getName(){
+      return name;
+   }
+ 
+   public String getIdNum(){
+      return idNum;
+   }
+ 
+   public void setAge( int newAge){
+      age = newAge;
+   }
+ 
+   public void setName(String newName){
+      name = newName;
+   }
+ 
+   public void setIdNum( String newId){
+      idNum = newId;
+   }
+}
+```
+以上实例中public方法是外部类访问该类成员变量的入口。
+
+通常情况下，这些方法被称为getter和setter方法。
+
+因此，任何要访问类中私有成员变量的类都要通过这些getter和setter方法。
+
+
 ### Java 包(package)
 为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间。
 包的作用
