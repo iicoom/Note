@@ -179,7 +179,7 @@ commit:
  1 file changed, 55 insertions(+)
 ```
 
-### 切换分支，合并分支
+### 切换分支，合并分支，解决冲突
 ```
 ➜  Note git:(master) ✗ git merge feature/cli_fuck
 出现冲突提示：
@@ -255,6 +255,43 @@ commit:
 [feature/cli_fuck 42c4d8d] just a fuck feature
  1 file changed, 55 insertions(+)
 >>>>>>> feature/cli_fuck
+```
+
+## 提交相关操作
+### git log
+```
+commit 9c899f2a3ff4e3fae10683b8ed20932eba3e71e2 (HEAD -> master, origin/master, origin/HEAD)
+Author: Leo <asdfpeng@qq.com>
+Date:   Sun Apr 8 18:28:51 2018 +0800
+
+    statistic
+
+commit f26aca9fbaa39b34374e930246f2b51b0a3d4f46
+Author: Leo <asdfpeng@qq.com>
+Date:   Mon Apr 2 13:57:58 2018 +0800
+
+    token
+
+commit 60f7c3c3d8be21f5510d86187906753cb02d5ec6
+Author: Leo <asdfpeng@qq.com>
+Date:   Fri Mar 30 11:06:29 2018 +0800
+
+    statistics
+```
+按q退出
+
+### stage files
+git add .
+或
+git add -A
+
+### commit
+git commit -m "comments"
+
+### git checkout .
+丢弃文件修改
+
+
 
 
 
