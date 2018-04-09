@@ -25,6 +25,10 @@ mysql -u root -p
 ```
 输入密码
 
+或者：
+➜  ~ mysql -uroot -padmin
+mysql: [Warning] Using a password on the command line interface can be insecure.
+
 ### 修改用户登录密码
 前提是知道旧密码
 mysqladmin -u root password "newpass"
@@ -194,7 +198,34 @@ mysql> create table user(
     -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 Query OK, 0 rows affected (0.02 sec)
 ```
+查看表结构：
+```
+mysql> desc user;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(11)      | NO   | PRI | NULL    |       |
+| email | varchar(255) | YES  |     | NULL    |       |
+| name  | varchar(255) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+```
 
+例子：
+```
+mysql> create table student(
+	-> id int not null auto_increment,
+	-> name varchar(20) not null,
+	-> age int not null,
+	-> primary key(id);
+	)
+```
+
+### insert data
+```
+insert into student (name, age) values ("zhangsan", 20);
+insert into student (name, age) values ("lisi", 21);
+insert into student (name, age) values ("wangwu", 22);
+```
 
 ## select db
 ```

@@ -60,4 +60,12 @@ moment(1521712085299).format('YYYY-MM-DD HH:mm:ss')
 "2018-03-22 17:48:05"
 
 
+// 拿到本月初的时间及时间戳
+moment().startOf('month').toDate()
+Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
+
+moment().startOf('month').toDate().getTime()
+1522512000000
+
+
   

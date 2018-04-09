@@ -112,6 +112,8 @@ TLS包含三个基本阶段：
 可能有一系列可读写属性。
 可能有一系列的"getter"或"setter"方法。
 
+* JDBC API是一个Java API可以访问任何类型的数据库的数据，尤其是存储在关系数据库中的数据。 JDBC的工作原理与Java在各种平台一样，如Windows，Mac OS和各种版本的UNIX系统。
+
 
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
