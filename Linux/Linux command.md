@@ -1,8 +1,49 @@
 Linux命令记录.md
 
-## 查看Linux服务器的CPU情况
+## 查看版本信息
 ```
-CPU核数
+[root@cache /]# lsb_release -a
+LSB Version:  :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
+Distributor ID: CentOS
+Description:  CentOS release 6.9 (Final)
+Release:  6.9
+Codename: Final
+
+或者：
+
+[root@cache /]# cat /proc/version
+Linux version 2.6.32-358.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Feb 22 00:31:26 UTC 
+```
+
+## 查看Linux服务器的CPU情况
+### （Linux查看cpu相关信息，包括型号、主频、内核信息等）
+```
+[root@cache /]# cat /proc/version
+Linux version 2.6.32-358.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Feb 22 00:31:26 UTC 2013
+[root@cache /]# cat /proc/cpuinfo
+processor : 0
+vendor_id : GenuineIntel
+cpu family  : 6
+model   : 26
+model name  : Intel(R) Xeon(R) CPU           L5520  @ 2.27GHz
+stepping  : 5
+cpu MHz   : 2266.747
+cache size  : 8192 KB
+fpu   : yes
+fpu_exception : yes
+cpuid level : 11
+wp    : yes
+flags   : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc up arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf unfair_spinlock pni ssse3 cx16 sse4_1 sse4_2 popcnt hypervisor lahf_lm ida dts
+bogomips  : 4533.49
+clflush size  : 64
+cache_alignment : 64
+address sizes : 40 bits physical, 48 bits virtual
+power management:
+
+```
+
+### CPU核数
+```
 cat /proc/cpuinfo | grep "cpu cores" | uniq 
 
 CPU个数
@@ -10,13 +51,12 @@ CPU个数
       2       6      28
 
 物理CPU个数*核数 = 逻辑CPU个数
-```
-
 [xiaomao@iZ258wvzn92Z proc]$ cat cpuinfo | grep "cpu cores"
 cpu cores	: 2
 cpu cores	: 2
 [xiaomao@iZ258wvzn92Z proc]$ cat cpuinfo | grep "cpu cores" | uniq
 cpu cores	: 2
+```
 
 ## 查看内存使用情况
 ```
@@ -120,7 +160,7 @@ xiaoming pts/4    121.69.73.122    13:45   17:00   0.02s  0.02s -bash
 xiaomao  pts/5    121.69.73.122    14:00    0.00s  0.00s  0.00s w
 
 
-3. top - display Linux tasks
+3. top - display Linux tasks 实时动态
 The  top program provides a dynamic real-time view of a running system.  It can display sys-
        tem summary information as well as a list of tasks currently being managed by the Linux ker-
        nel.
@@ -297,6 +337,50 @@ wget https://www.baidu.com/
 
 wget -S -O - https://www.baidu.com/
 会将请求的数据，输出到屏幕
+```
+
+## 用户安装目录
+* npm 全局安装的目录
+```
+[root@cache /]# ls
+bin  boot  cgroup  dev  edata  etc  home  lib  lib64  lost+found  media  misc  mnt  net  opt  proc  root  sbin  selinux  srv  sys  tmp  usr  var
+[root@cache /]# cd usr
+[root@cache usr]# ls
+bin  etc  FastDFS  games  include  lib  lib64  libevent-2.0.21-stable  libexec  local  sbin  share  src  tmp
+[root@cache usr]# cd local
+[root@cache local]# ls
+bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
+[root@cache local]# cd lib
+[root@cache lib]# ls
+libfastcommon.so  libfastcommon.so.1  libfdfsclient.so  libfdfsclient.so.1  node_modules
+[root@cache lib]# ls node_modules
+npm  pm2
+```
+
+* n 和node安装目录
+```
+[root@cache /]# cd usr/local
+[root@cache local]# ls
+bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
+[root@cache local]# ls bin
+fdfs_appender_test   fdfs_crc32          fdfs_file_info  fdfs_test      fdfs_upload_appender  npm  pm2-dev      redis-benchmark   redis-cli       restart.sh
+fdfs_appender_test1  fdfs_delete_file    fdfs_monitor    fdfs_test1     fdfs_upload_file      npx  pm2-docker   redis-check-aof   redis-sentinel  stop.sh
+fdfs_append_file     fdfs_download_file  fdfs_storaged   fdfs_trackerd  node                  pm2  pm2-runtime  redis-check-dump  redis-server
+[root@cache local]# ls node
+ls: 无法访问node: 没有那个文件或目录
+[root@cache local]# cd ..
+[root@cache usr]# ls
+bin  etc  FastDFS  games  include  lib  lib64  libevent-2.0.21-stable  libexec  local  sbin  share  src  tmp
+[root@cache usr]# cd local
+[root@cache local]# ls
+bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
+[root@cache local]# ls n
+versions
+[root@cache local]# ls n/versions
+io  node
+[root@cache local]# ls n/versions/io
+[root@cache local]# ls n/versions/node
+6.11.0  8.11.1  8.6.0  9.10.1
 ```
 
 
