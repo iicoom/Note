@@ -383,20 +383,39 @@ io  node
 6.11.0  8.11.1  8.6.0  9.10.1
 ```
 
+## 切换用户角色
+### sudo 命令  
+xzm@ubuntu:~$  sudo
 
-## 文本操作
+这样输入当前管理员用户密码就可以得到超级用户的权限。但默认的情况下5分钟root权限就失效了。
+
+### 真正切换角色
+```
+xzm@ubuntu:~$  su
+
+输入root用户的密码即可。
+su "king" 或者 exit回到用户权限s
+
+[root@iZ258wvzn92Z etc]# exit
+logout
+[xiaomao@iZ258wvzn92Z ~]$
+
+或者：
+sudo -i
+xzm@ubuntu:~$  sudo -i
+
+通过这种方法输入当前用户的密码就可以进到root用户。
+```
+
+## 文本/文件操作
 ### tail
 sodu tail -50f file
 
 tail -n +20 filename 是从文件第二十行开始显示 而不是显示前面二十行
 tail -500n file
 
-## 目录操作
-$ mkdir easy_mongo && cd easy_mongo
-
 ### touch
 ➜  ~ touch wtf.txt
-
 ### xargs
 命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，
 xargs能够处理管道或者stdin并将其转换成特定命令的命令参数
@@ -421,6 +440,27 @@ aaaaaf
 112455 safajfa rsafajfa
 ruuafajfa ruuuu aaaaaf112455
 safajfa ruuuu aaaaaf
+
+## 目录操作
+### 创建目录
+$ mkdir easy_mongo && cd easy_mongo
+
+### 移除目录
+[root@cache mnt]# rmdir projects
+rmdir: 删除 "projects" 失败: 目录非空
+
+### 移除非空目录（目录中有目录或文件）
+[root@cache projects]# ls
+gogo  readme.txt
+[root@cache mnt]# rm -rf projects
+-f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。 其中参数-f表示force.
+-r 将目录及以下之档案亦逐一删除。 
+
+
+
+
+
+
 
 
 
