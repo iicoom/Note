@@ -18,3 +18,9 @@ numbers.forEach(fun1)
 for(var item of numbers){
 	console.log(item)
 }
+
+// forEach的参数
+[4,2,3].forEach((item, index) => {console.log(item,index)})
+// 4 0
+// 2 1
+// 3 2

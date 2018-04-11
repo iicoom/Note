@@ -6,6 +6,8 @@
 * npm install package --save
 * npm i package --save-dev
 * npm uninstall package
+* npm install --global gulp-cli 全局安装
+* npm rm --global gulp 移除
 * npm outdated
 ➜  Server git:(master) npm outdated
 Package               Current  Wanted  Latest  Location
@@ -35,8 +37,7 @@ request                2.83.0  2.85.0  2.85.0  Server
 uuid                    3.1.0   3.2.1   3.2.1  Server
 xss                     0.3.3   0.3.7   0.3.7  Server
 
-* npm install --global gulp-cli 全局安装
-* npm rm --global gulp 移除
+
 
 ### 安装原理
 

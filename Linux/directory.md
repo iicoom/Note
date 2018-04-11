@@ -10,3 +10,15 @@ linux下mnt目录的作用：
 ### /etc
 初期：早期UNIX中，贝尔实验室的解释是：etcetra directory 。 etc.
 linux下/etc为系统配置文件目录，该目录包含系统启动脚本、启动配置文件、用户登陆配置文件、网络配置文件、httpd 配置文件、IPSec 配置文件和其他文件等。 host文件
+
+### 当前用户HOME
+cd ~
+Mac 的家目录
+```
+➜  ~ pwd
+/Users/mxj
+```
+.ssh
+.vim
+.nvm
+这些隐藏目录都在这里

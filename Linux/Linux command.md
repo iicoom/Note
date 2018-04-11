@@ -408,11 +408,20 @@ xzm@ubuntu:~$  sudo -i
 ```
 
 ## 文本/文件操作
+> head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head 用来显示档案的开头至标准输出中，而 tail 想当然就是看档案的结尾，看看下面的范例：
 ### tail
-sodu tail -50f file
+tail filename.txt     默认读取文件结尾后10行
+tail -n filename      显示文件后n行
+tail -25 mail.txt     displays the last 25 lines of a file
+sodu tail -50f file   展示文件后50行，并跟随
 
-tail -n +20 filename 是从文件第二十行开始显示 而不是显示前面二十行
-tail -500n file
+### head
+head -6 readme.txt
+displays the first 6 lines of a file
+
+### head&tail 事实证明这个是扯淡的。。。
+head -20 file | tail -10  结合了 head 与 tail 的指令，显示档案的第 11 行到第 20 行：
+
 
 ### touch
 ➜  ~ touch wtf.txt

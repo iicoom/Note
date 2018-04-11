@@ -44,6 +44,10 @@ An example of this object looks like:
   COLORTERM: 'truecolor' 
 }
 ```
+常用到的参数：
+process.env.PORT
+process.env.NODE_ENV
+
 
 ## process.argv
 The process.argv property returns an array containing the command line arguments passed when the Node.js process was launched. 
@@ -64,6 +68,22 @@ process.on('exit', (code) => {
 });
 ```
 
+To exit with a 'failure' code:
+```
+process.exit(1);
+```
+The shell that executed Node.js should see the exit code as 1.
+
+In most situations, it is not actually necessary to call process.exit() explicitly. The Node.js process will exit on its own if there is no additional work pending in the event loop. The process.exitCode property can be set to tell the process which exit code to use when the process exits gracefully.
+
+## Exit Codes
+Node.js will normally exit with a 0 status code when no more async operations are pending. The following status codes are used in other cases:
+1 Uncaught Fatal Exception - There was an uncaught exception, and it was not handled by a domain or an 'uncaughtException' event handler.
+2 - Unused (reserved by Bash for builtin misuse)
+3 Internal JavaScript Parse Error - The JavaScript source code internal in Node.js's bootstrapping process caused a parse error. This is extremely rare, and generally can only happen during development of Node.js itself.
+4 Internal JavaScript Evaluation Failure - The JavaScript source code internal in Node.js's bootstrapping process failed to return a function value when evaluated. This is extremely rare, and generally can only happen during development of Node.js itself.
+5 Fatal Error - There was a fatal unrecoverable error in V8. Typically a message will be printed to stderr with the prefix FATAL ERROR.
+
 ## Event: 'rejectionHandled'
 The 'rejectionHandled' event is emitted whenever a Promise has been rejected and an error handler was attached to it (using promise.catch(), for example) later than one turn of the Node.js event loop.
 ```
@@ -76,4 +96,45 @@ process.on('rejectionHandled', (p) => {
 });
 ```
 In this example, the unhandledRejections Map will grow and shrink over time, reflecting rejections that start unhandled and then become handled. It is possible to record such errors in an error log, either periodically (which is likely best for long-running application) or upon process exit (which is likely most convenient for scripts).
+
+## process.memoryUsage()
+The process.memoryUsage() method returns an object describing the memory usage of the Node.js process measured in bytes.
+
+console.log(process.memoryUsage());
+Will generate:
+```
+{
+  rss: 4935680,
+  heapTotal: 1826816,
+  heapUsed: 650472,
+  external: 49879
+}
+```
+heapTotal and heapUsed refer to V8's memory usage. external refers to the memory usage of C++ objects bound to JavaScript objects managed by V8. rss, Resident Set Size, is the amount of space occupied in the main memory device (that is a subset of the total allocated memory) for the process, which includes the heap, code segment and stack.
+
+## process.nextTick(callback[, ...args])
+The process.nextTick() method adds the callback to the "next tick queue". Once the current turn of the event loop turn runs to completion, all callbacks currently in the next tick queue will be called.
+
+This is not a simple alias to setTimeout(fn, 0). It is much more efficient. It runs before any additional I/O events (including timers) fire in subsequent ticks of the event loop.
+```
+console.log('start');
+process.nextTick(() => {
+  console.log('nextTick callback');
+});
+console.log('scheduled');
+// Output:
+// start
+// scheduled
+// nextTick callback
+```
+
+## process.uptime()
+The process.uptime() method returns the number of seconds the current Node.js process has been running.
+
+Note: The return value includes fractions of a second. Use Math.floor() to get whole seconds.
+
+
+
+
+
 
