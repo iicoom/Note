@@ -1,14 +1,31 @@
 ## Git服务器的搭建
 [git服务器的简易搭建](https://blog.csdn.net/lyhdream/article/details/49561645)
 ### 安装openssh
-首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将服务端和客户端都同时安装：
+首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将 服务端 和 客户端 都同时安装：
 
 sudo apt-get install openssh-server openssh-client
+
+#### 查看ssh服务是否启动
+打开"终端窗口"，输入
+
+sudo ps -e | grep ssh
+回车-->有sshd,说明ssh服务已经启动，
+如果没有启动，输入
+sudo service ssh start
+回车-->ssh服务就会启动。
+
+#### 使用vim修改配置文件"/etc/ssh/sshd_config"
+sudo vim /etc/ssh/ssh_config
+
+把配置文件中的"PermitRootLogin without-password"加一个"#"号,
+把它注释掉-->再增加一句"PermitRootLogin yes"-->保存，修改成功。
+
 
 ### 安装git环境
 作为服务端的git服务器（git作为一个代码管理工具，既可以作为服务端也可以作为客户端管理本地代码仓库）
 
 sudo apt-get install git
+
 
 ### 创建一个git用户
 
@@ -57,6 +74,7 @@ ps -A | grep ssh
 ### 服务端配置问题
 （注意：如果此时通过公钥访问还是需要输入密码，重新使用ssh-keygen生成秘钥对，文件名改为id_rsa.pub以及id_rsa即可；具体需要查看/etc/ssh/ssh_config 配置文件里的要求，参见：http://www.cnblogs.com/liyuanhong/articles/6791608.html）
 
+### Ubuntu 14.04上安装和配置ssh
 
 ## ssh 生成公钥私钥
 ### linux mac 的.shh都在~用户目home录下 cd ~ 可以进入你的home目录
@@ -74,6 +92,21 @@ ssh -T git@github.com
 Permission denied (publickey).
 
 那么你可能要在本地ssh-add一下，当然在这之前你可以使用 ssh -vT git@github.com 查看一下到底是因为什么原因导致的失败。
+
+### 管理多个公钥私钥对
+.ssh 下的 config 文件
+```
+#gitlab
+Host gitlab
+HostName gitlab.com
+IdentityFile ~/.ssh/id_rsa
+
+#imooc (github 配置)
+Host github
+HostName github.com
+IdentityFile ~/.ssh/id_rsa_github
+```
+
 
 ## ssh代理
 ### ssh参数

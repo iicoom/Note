@@ -261,21 +261,6 @@ eth0      no wireless extensions.
 eth1      no wireless extensions.
 
 
-## mxj@ubuntu:~/project$ sudo -s
-
-## who
-查看最近登录的用户
-➜  ~ who
-mxj      console  Jan 29 09:47
-mxj      ttys000  Jan 31 17:50
-mxj      ttys002  Jan 31 15:49
-
-## finger
-```
-Login    Name                 TTY  Idle  Login  Time   Office  Phone
-mxj      MXJ                 *con  7:37  日    09:19
-mxj      MXJ                  s00        日    16:57
-```
 
 ## locate filename
 定位文件路径
@@ -383,29 +368,6 @@ io  node
 6.11.0  8.11.1  8.6.0  9.10.1
 ```
 
-## 切换用户角色
-### sudo 命令  
-xzm@ubuntu:~$  sudo
-
-这样输入当前管理员用户密码就可以得到超级用户的权限。但默认的情况下5分钟root权限就失效了。
-
-### 真正切换角色
-```
-xzm@ubuntu:~$  su
-
-输入root用户的密码即可。
-su "king" 或者 exit回到用户权限s
-
-[root@iZ258wvzn92Z etc]# exit
-logout
-[xiaomao@iZ258wvzn92Z ~]$
-
-或者：
-sudo -i
-xzm@ubuntu:~$  sudo -i
-
-通过这种方法输入当前用户的密码就可以进到root用户。
-```
 
 ## 文本/文件操作
 > head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head 用来显示档案的开头至标准输出中，而 tail 想当然就是看档案的结尾，看看下面的范例：
