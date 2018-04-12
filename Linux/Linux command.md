@@ -279,36 +279,6 @@ cp [选项] 源文件或目录 目标文件或目录
 
 cp -r myAntPro/. antdPro
 
-## 包管理
-> rpm包和deb包是两种Linux系统下最常见的安装包格式，在安装一些软件或服务的时候免不了要和它们打交道。rpm包主要应用在RedHat系列包括 Fedora等发行版的Linux系统上，deb包主要应用于Debian系列包括现在比较流行的Ubuntu等发行版上。 
-
-yum可以用于运作rpm包，例如在Fedora系统上对某个软件的管理：
-安装：yum install <package_name> 
-卸载：yum remove <package_name> 
-更新：yum update <package_name> 
-
-apt-get可以用于运作deb包，例如在Ubuntu系统上对某个软件的管理：
-安装：apt-get install <package_name> 
-卸载：apt-get remove <package_name> 
-更新：apt-get update <package_name>
-
-### Yum
-（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。
-
-### apt-get
-
-apt-get clean
-rm -rf /var/lib/apt/lists/*
-apt-get clean
-apt-get update 
-apt-get upgrade
-
-## the following signatures were invalid expkeysig ed444ff07d8d0bf6 kali linux repository
-```
-wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
-apt install ./kali-archive-keyring_2018.1_all.deb
-apt-get update
-```
 
 ## 查看网络信息
 iwconfig
@@ -369,7 +339,7 @@ io  node
 ```
 
 
-## 文本/文件操作
+## 文件操作
 > head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head 用来显示档案的开头至标准输出中，而 tail 想当然就是看档案的结尾，看看下面的范例：
 ### tail
 tail filename.txt     默认读取文件结尾后10行
@@ -385,7 +355,7 @@ displays the first 6 lines of a file
 head -20 file | tail -10  结合了 head 与 tail 的指令，显示档案的第 11 行到第 20 行：
 
 
-### touch
+### touch 创建文件
 ➜  ~ touch wtf.txt
 ### xargs
 命令是给其他命令传递参数的一个过滤器，也是组合多个命令的一个工具。它擅长将标准输入数据转换成命令行参数，
@@ -411,6 +381,31 @@ aaaaaf
 112455 safajfa rsafajfa
 ruuafajfa ruuuu aaaaaf112455
 safajfa ruuuu aaaaaf
+
+### tar 解压  https://blog.csdn.net/x_iya/article/details/72889456
+tar zxvf nginx-1.6.2.tar.gz
+-c: 建立压缩档案
+-x：解压
+-t：查看内容
+-r：向压缩归档文件末尾追加文件
+-u：更新原压缩包中的文件
+
+以上这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个
+-z：有gzip属性的
+-j：有bz2属性的
+-Z：有compress属性的
+-v：显示所有过程
+-O：将文件解开到标准输出
+
+下面的参数-f是必须的
+
+-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。
+
+#### tar 压缩
+```
+tar -cf all.tar *.jpg
+这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
+```
 
 ## 目录操作
 ### 创建目录
