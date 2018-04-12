@@ -114,6 +114,8 @@ TLS包含三个基本阶段：
 
 * JDBC API是一个Java API可以访问任何类型的数据库的数据，尤其是存储在关系数据库中的数据。 JDBC的工作原理与Java在各种平台一样，如Windows，Mac OS和各种版本的UNIX系统。
 
+* fastcgi
+CGI全称是“通用网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序一般运行在网络服务器上。 CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl
 
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)

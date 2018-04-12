@@ -1,6 +1,7 @@
 Linux命令记录.md
-
-## 查看版本信息
+> 所有Linux指令都可以查看系统文档 man <command> 如 man ps 查看手册
+## 系统相关信息
+### 查看系统版本信息
 ```
 [root@cache /]# lsb_release -a
 LSB Version:  :base-4.0-amd64:base-4.0-noarch:core-4.0-amd64:core-4.0-noarch:graphics-4.0-amd64:graphics-4.0-noarch:printing-4.0-amd64:printing-4.0-noarch
@@ -9,14 +10,15 @@ Description:  CentOS release 6.9 (Final)
 Release:  6.9
 Codename: Final
 
+**LSB（Linux Standards Base)**
+
 或者：
 
 [root@cache /]# cat /proc/version
 Linux version 2.6.32-358.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Feb 22 00:31:26 UTC 
 ```
 
-## 查看Linux服务器的CPU情况
-### （Linux查看cpu相关信息，包括型号、主频、内核信息等）
+### Linux查看cpu相关信息，包括型号、主频、内核信息等
 ```
 [root@cache /]# cat /proc/version
 Linux version 2.6.32-358.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-3) (GCC) ) #1 SMP Fri Feb 22 00:31:26 UTC 2013
@@ -42,7 +44,7 @@ power management:
 
 ```
 
-### CPU核数
+#### CPU核数
 ```
 cat /proc/cpuinfo | grep "cpu cores" | uniq 
 
@@ -58,7 +60,7 @@ cpu cores	: 2
 cpu cores	: 2
 ```
 
-## 查看内存使用情况
+#### 查看内存使用情况
 ```
 [xiaomao@iZ258wvzn92Z ~]$ free -m
              total       used       free     shared    buffers     cached
@@ -69,7 +71,7 @@ Swap:            0          0          0
 m指使用M字节显示内存使用情况
 ```
 
-## 查看硬盘使用情况
+#### 查看硬盘使用情况
 ```
 [xiaomao@iZ258wvzn92Z ~]$ df
 Filesystem     1K-blocks     Used Available Use% Mounted on
@@ -84,10 +86,14 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 /dev/vdb         40G   22G   17G  57% /mnt
 ```
 
-## ps
+## 查看系统进程相关信息
+[10个重要的Linux ps命令实战](https://linux.cn/article-4743-1.html)
+### ps
 Linux作为Unix的衍生操作系统，Linux内建有查看当前进程的工具ps。ps命令能够给出当前系统中进程的快照.
-man ps 查看手册
-
+ps - report a snapshot of the current processes.
+ps displays information about a selection of the active processes. If you want a repetitive update of the selection and the displayed information,
+use top(1) instead.
+1. 不加参数的ps
 ```
 [xiaomao@iZ258wvzn92Z ~]$ ps
   PID TTY          TIME CMD
@@ -102,7 +108,7 @@ TTY: 命令所运行的位置（终端）
 TIME: 运行着的该命令所占用的CPU处理时间
 CMD: 该进程所运行的命令
 
-使用 -a 参数。-a 代表 all。同时加上x参数会显示没有控制终端的进程。
+2. 使用 -a 参数。-a 代表 all。同时加上x参数会显示没有 控制终端 的进程。
 ```
 PID TTY      STAT   TIME COMMAND
     1 ?        Ss     0:02 /sbin/init
@@ -116,22 +122,104 @@ PID TTY      STAT   TIME COMMAND
 21266 ?        Sl     8:51 node /mnt/projects/msg_center/index.js
 23755 ?        Sl    45:25 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
 23829 ?        Ssl    7:40 node /mnt/projects/sina_pay/bin/development.js
-24191 ?        Sl    18:22 node /mnt/projects/ranch_api/bin/development.js
-26931 ?        Ssl    3:21 PM2 v2.4.6: God Daemon (/mnt/pm2)
-27753 ?        Ssl    0:00 /usr/local/bin/node /usr/local/lib/node_modules/npm/node_modules/update-notifier/ch
-29881 ?        S      0:00 /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql --pid-file=/var/lib/mysql/iZ2
-31266 ?        Ss     0:00 sshd: xiaoming [priv]
-31268 ?        S      0:00 sshd: xiaoming@pts/4
-31269 pts/4    Ss+    0:00 -bash
-31451 ?        Ssl   31:25 node /mnt/projects/contract/bin/functional.js
-31472 ?        Ssl   21:59 node /mnt/projects/pay_center/bin/www
-31612 ?        Sl     0:34 node /mnt/projects/ucenter_v2/index.js
 ```
 
+3. ps -u username
 在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
-ps -u pungki
+```
+[root@cache ~]# ps -u root
+PID TTY       TIME     CMD
+1    ?        00:00:01 init
+2    ?        00:00:00 kthreadd
+3    ?        00:00:00 migration/0
+.
+.
+6480 ?        00:00:00 nginx
+6608 ?        00:00:00 sshd
+6610 pts/0    00:00:00 bash
+6645 ?        00:00:53 PM2 v2.10.2: Go
+6662 ?        00:00:49 node /mnt/proje
+8675 pts/0    00:00:00 ps
+```
+ps命令支持三种使用的语法格式:
+* UNIX 风格，选项可以组合在一起，并且选项前必须有“-”连字符
+* BSD 风格，选项可以组合在一起，但是选项前不能有“-”连字符
+* GNU 风格的长选项，选项前有两个“-”连字符
 
-## w 查看当前登录用户 在做什么
+centOS下查看nginx进程快照
+[root@cache ~]# ps ax | grep nginx
+6480 ?        Ss     0:00 nginx: master process /usr/local/nginx/sbin/nginx
+6795 ?        S      0:00 nginx: worker process
+8851 pts/0    S+     0:00 grep nginx
+
+4. 
+ps aux | less
+也许你希望把结果按照 CPU 或者内存用量来筛选，这样你就找到哪个进程占用了你的资源。要做到这一点，我们可以使用 aux 参数，来显示全面的信息:
+
+```
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  19340  1564 ?        Ss   Apr11   0:01 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    Apr11   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Apr11   0:00 [migration/0]
+root         4  0.0  0.0      0     0 ?        S    Apr11   0:00 [ksoftirqd/0]
+```
+[30个实例详解TOP命令](https://linux.cn/article-2352-1.html)
+### top
+The  top  program  provides  a dynamic real-time view of a running system.
+1. 不加参数的
+```
+[root@cache ~]# top
+top - 11:31:44 up 17:48,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  98 total,   1 running,  97 sleeping,   0 stopped,   0 zombie
+Cpu(s):  1.0%us,  0.3%sy,  0.0%ni, 98.3%id,  0.0%wa,  0.3%hi,  0.0%si,  0.0%st
+Mem:   1922064k total,  1221492k used,   700572k free,   570576k buffers
+Swap:  4128764k total,        0k used,  4128764k free,   241292k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+ 6662 root      20   0 1023m 119m  12m S  1.3  6.4   1:08.14 node /mnt/proje
+    1 root      20   0 19340 1564 1244 S  0.0  0.1   0:01.53 init
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0
+    4 root      20   0     0    0    0 S  0.0  0.0   0:00.99 ksoftirqd/0
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/0
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 watchdog/0
+```
+第二行显示的是任务或者进程的总结。进程可以处于不同的状态。这里显示了全部进程的数量。除此之外，还有正在运行、睡眠、停止、僵尸进程的数量（僵尸是一种进程的状态）
+
+PR: 进程的调度优先级。这个字段的一些值是'rt'。这意味这这些进程运行在实时态。
+
+NI: 进程的nice值（优先级）。越小的值意味着越高的优先级。
+
+VIRT: 进程使用的虚拟内存。
+
+RES: 驻留内存大小。驻留内存是任务使用的非交换物理内存大小。
+
+SHR: SHR是进程使用的共享内存。
+
+S: 这个是进程的状态。它有以下不同的值:
+D - 不可中断的睡眠态。
+R – 运行态
+S – 睡眠态
+T – 被跟踪或已停止
+Z – 僵尸态
+
+%CPU: 自从上一次更新时到现在任务所使用的CPU时间百分比。
+
+%MEM: 进程使用的可用物理内存百分比。
+
+TIME+: 任务启动后到现在所使用的全部CPU时间，精确到百分之一秒。
+
+COMMAND: 运行进程所使用的命令。
+
+#### uptime
+```
+[root@cache ~]# uptime
+ 11:43:37 up 18:00,  1 user,  load average: 0.00, 0.00, 0.00
+
+当前时间   系统连续运行时间  当前用户连接数  系统平均负载（最近1分钟、5分钟、15分钟）
+```
+#### w 
+查看当前登录用户 在做什么
 [xiaomao@iZ258wvzn92Z task_consume]$ w
  17:57:44 up 262 days,  5:41,  4 users,  load average: 1.03, 2.40, 5.53
 USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
@@ -139,51 +227,25 @@ xiaoming pts/1    121.69.73.122    09:56    5.00s  0.16s  0.16s -bash
 flt      pts/2    121.69.73.122    15:18    1:24m  0.02s  0.02s -bash
 xiaomao  pts/4    121.69.73.122    Wed15    0.00s  0.03s  0.00s w
 litan    pts/0    121.69.73.122    15:43    1.00s  0.14s  0.14s -bash
+#### free
+free - Display amount of free and used memory in the system
+```
+[root@cache ~]# free
+             total       used       free     shared    buffers     cached
+Mem:       1922064    1221864     700200        168     570576     241312
+-/+ buffers/cache:     409976    1512088
+Swap:      4128764          0    4128764
+
+[root@cache ~]# free -h
+             total       used       free     shared    buffers     cached
+Mem:          1.8G       1.2G       683M       168K       557M       235M
+-/+ buffers/cache:       400M       1.4G
+Swap:         3.9G         0B       3.9G
+```
+
 
 ## grep
 （global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
-
-## 查看Linux的系统平均负载
-1. uptime - Tell how long the system has been running.
-
-[xiaomao@iZ258wvzn92Z ~]$ uptime
- 14:01:07 up 213 days,  1:45,  4 users,  load average: 1.03, 1.01, 1.00
-
-2. w - Show who is logged on and what they are doing.
-
-[xiaomao@iZ258wvzn92Z ~]$ w
- 14:05:48 up 213 days,  1:50,  4 users,  load average: 1.00, 1.02, 1.00
-USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
-flt      pts/1    121.69.73.122    13:44   19:49   0.03s  0.03s -bash
-litan    pts/2    121.69.73.122    11:28   16:20   0.01s  0.01s -bash
-xiaoming pts/4    121.69.73.122    13:45   17:00   0.02s  0.02s -bash
-xiaomao  pts/5    121.69.73.122    14:00    0.00s  0.00s  0.00s w
-
-
-3. top - display Linux tasks 实时动态
-The  top program provides a dynamic real-time view of a running system.  It can display sys-
-       tem summary information as well as a list of tasks currently being managed by the Linux ker-
-       nel.
-[xiaomao@iZ258wvzn92Z ~]$ top
-top - 14:13:33 up 213 days,  1:57,  4 users,  load average: 1.01, 1.00, 1.00
-Tasks: 131 total,   2 running, 129 sleeping,   0 stopped,   0 zombie
-Cpu(s): 39.9%us, 11.8%sy,  0.0%ni, 45.7%id,  0.0%wa,  0.0%hi,  2.7%si,  0.0%st
-Mem:   3924684k total,  3574520k used,   350164k free,   113704k buffers
-Swap:        0k total,        0k used,        0k free,   355504k cached
-
-  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
-17390 root      20   0 1301m 151m  13m R 100.1  4.0   1589:17 node /mnt/proje
-  130 root      20   0 36092 1392 1148 S  6.0  0.0  18776:19 plymouthd
- 1228 root      20   0  931m  31m 4008 S  0.3  0.8   1578:34 PM2 v2.4.6: God
- 1596 root      20   0  184m  37m  848 S  0.3  1.0 632:08.93 redis-server
- 1604 root      20   0 7131m 122m 7784 S  0.3  3.2 955:25.21 mongod
- 4702 flt       20   0 98328 1772  804 S  0.3  0.0   0:00.04 sshd
-17938 root      20   0 1295m 118m 6524 S  0.3  3.1  14:03.21 node /mnt/proje
-23829 root      20   0 1288m 105m 4268 S  0.3  2.7   8:46.88 node /mnt/proje
-32613 xiaoming  20   0 3701m 500m 7204 S  0.3 13.1   9:37.71 java
-    1 root      20   0 19232  380   88 S  0.0  0.0   0:02.47 init
-    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd
-
 
 ## uname
        Print certain system information.  With no OPTION, same as -s.
@@ -226,7 +288,7 @@ lspci is a utility for displaying information about PCI buses in the system and 
 ## 查看网络配置
 /etc/systemconfig/network-scripts/
 
-## ifconfig iwconfig
+### ifconfig iwconfig
 
 ^C[xiaomao@iZ258wvzn92Z ~]$ ifconfig
 eth0      Link encap:Ethernet  HWaddr 00:16:3E:12:0A:5B
@@ -260,6 +322,40 @@ eth0      no wireless extensions.
 
 eth1      no wireless extensions.
 
+
+[netstat 的10个基本用法](https://linux.cn/article-2434-1.html)
+> Netstat 是一款命令行工具，可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。如果你想确认系统上的 Web 服务有没有起来，你可以查看80端口有没有打开。
+### netstat -lntp
+netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+```
+[root@iZ258wvzn92Z ~]# netstat -lntp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
+tcp        0      0 101.201.197.163:6379        0.0.0.0:*                   LISTEN      1596/redis-server 1
+tcp        0      0 0.0.0.0:80                  0.0.0.0:*                   LISTEN      2348/nginx
+tcp        0      0 0.0.0.0:4369                0.0.0.0:*                   LISTEN      23999/epmd
+tcp        0      0 0.0.0.0:10003               0.0.0.0:*                   LISTEN      31951/sshd
+tcp        0      0 127.0.0.1:18005             0.0.0.0:*                   LISTEN      9108/java
+tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      7126/sshd
+tcp        0      0 0.0.0.0:3030                0.0.0.0:*                   LISTEN      1228/PM2 v2.4.6
+tcp        0      0 0.0.0.0:3000                0.0.0.0:*                   LISTEN      14921/node /mnt/pro
+```
+#### netstat -a 
+列出所有当前的连接
+netstat -at 使用 -t 选项列出 TCP 协议的连接
+netstat -au 使用 -u 选项列出 UDP 协议的连接
+#### netstat -ant
+默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n 选项禁用域名解析功能。
+#### netstat -tnl 
+只列出监听中的连接
+任何网络服务的后台进程都会打开一个端口，用于监听接入的请求。这些正在监听的套接字也和连接的套接字一样，也能被 netstat 列出来。使用 -l 选项列出正在监听的套接字。
+#### sudo netstat -nlpt
+使用 -p 选项查看进程信息
+获取进程名、进程号以及用户 ID
+#### sudo netstat -ltpe
+相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。
+#### netstat -s
+netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。
 
 
 ## locate filename
