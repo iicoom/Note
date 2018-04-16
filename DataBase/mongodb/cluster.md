@@ -1,0 +1,1 @@
+[MongoDB高可用集群配置的几种方案](https://yq.aliyun.com/articles/61516/)
