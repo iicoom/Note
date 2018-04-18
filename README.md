@@ -120,6 +120,10 @@ CGI全称是“通用网关接口”(Common Gateway Interface)，HTTP服务器�
 * ALY.OSS
 阿里云存储服务（Open Storage Service，简称 OSS），是阿里云对外提供的海量，安全，低成本，高可靠的云存储服务。用户可以通过简单的 REST 接口，在任何时间、任何地点、任何互联网设备上进行上传和下载数据，也可以使用WEB 页面对数据进行管理。
 
+* AMQP，即Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准,为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同的开发语言等条件的限制。Erlang中的实现有 RabbitMQ等。
+
+* Erlang(['ə:læŋ])是一种通用的面向并发的编程语言，它由瑞典电信设备制造商爱立信所辖的CS-Lab开发，目的是创造一种可以应对大规模并发活动的编程语言和运行环境。Erlang问世于1987年，经过十年的发展，于1998年发布开源版本。
+Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance.
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
