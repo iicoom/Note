@@ -177,6 +177,11 @@ commit:
 ➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
 [feature/cli_fuck 42c4d8d] just a fuck feature
  1 file changed, 55 insertions(+)
+
+
+➜  tool git:(master) ✗ git commit -am "video"
+[master d5d9717] video
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
 ### 切换分支，合并分支，解决冲突
