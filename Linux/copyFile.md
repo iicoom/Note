@@ -79,6 +79,9 @@ scp username@server_ip:/path_to_remote_directory local_machine/path_to_the_file
 ```
 
 ## Copy files from one remote server to another remote server from a local machine
+rsync 命令只能先登录到一台远程Linux，然后传文件到另一台Linux
+SCP 命令则不需要登录到任何Linux，就可以完成2台 Linux之间的文件传输
+
 Currently I have to ssh into one server in order to use rsync command to copy files to another server. I can use SCP command to move files between two remote servers:
 
 Usually I ssh into that machine and then use rsync command to perform the job, but with SCP, I can do it easily without having to log into the remote server.
