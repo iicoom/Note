@@ -15,6 +15,17 @@ In the following example I am copying a local file from my macOS system to my Li
 scp /home/swapnil/Downloads/fedora.iso swapnil@10.0.0.75:/media/prim_5/media_server/
 ```
 
+Mac OS
+```
+➜  ~ ls
+Applications             Desktop                  Downloads                Music                    Repo                     iCloud Drive（归档）
+DB                       Document                 Library                  Pictures                 Work                     test.txt
+Demo                     Documents                Movies                   Public                   dump.rdb
+➜  ~ scp test.txt root@10.101.111.190:/root/
+root@10.101.111.190's password:
+test.txt                                                                                                                                         100%    0     0.0KB/s   00:00
+```
+
 If you are running Windows 10, then you can use Ubuntu bash on Windows to copy files from the Windows system to Linux server:
 ```
 scp /mnt/c/Users/swapnil/Downloads/fedora.iso swapnil@10.0.0.75:/media/prim_5/
@@ -26,6 +37,35 @@ scp /mnt/c/Users/swapnil/Downloads/fedora.iso swapnil@10.0.0.75:/media/prim_5/
 If you want to copy the entire local directory to the server, then you can add the -r flag to the command:
 ```
 scp -r localmachine/path_to_the_directory username@server_ip:/path_to_remote_directory/
+```
+
+Mac OS
+```
+➜  ~ ls Repo
+AwesomeProject          Express-api             React-news-front        dva                     gs-rest-service         my-app
+Download                MERN-Stack              Server                  front-end               iicoom.github.io        react-music-player
+Eslint                  Note                    antPro                  gs-accessing-data-mysql msg_client              redux-saga
+➜  ~ scp -r Repo root@10.101.111.190:/root/
+root@10.101.111.190's password:
+.DS_Store                                                                                                                                        100%   16KB   1.2MB/s   00:00
+.DS_Store                                                                                                                                        100% 8196     2.2MB/s   00:00
+.editorconfig                                                                                                                                    100%  245   148.9KB/s   00:00
+.eslintrc                                                                                                                                        100% 1903   857.2KB/s   00:00
+.ga                                                                                                                                              100%   32    12.7KB/s   00:00
+COMMIT_EDITMSG                                                                                                                                   100%    9     2.3KB/s   00:00
+config                                                                                                                                           100%  347    89.8KB/s   00:00
+description                                                                                                                                      100%   73    23.7KB/s   00:00
+FETCH_HEAD                                                                                                                                       100%   87    21.1KB/s   00:00
+```
+190查看
+```
+➜  ~ ssh root@10.101.111.190
+root@10.101.111.190's password:
+Last login: Fri Apr 20 14:26:10 2018 from 10.102.104.224
+[root@cache ~]# ls
+163.nginx  aios-release  anaconda-ks.cfg  test.txt  thtf
+[root@cache ~]# ls
+163.nginx  aios-release  anaconda-ks.cfg  Repo  test.txt  thtf
 ```
 
 **Make sure that the source directory doesn’t have a forward slash at the end of the path, at the same time the destination path *must* have a forward slash.**
