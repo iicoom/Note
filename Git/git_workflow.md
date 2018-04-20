@@ -113,7 +113,7 @@ $ git branch -d hotfix-1.2.1
 Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hotfix-1.2.1 (was abbe5d6).
 ```
 
-## 使用图形工具的工作流
+## 使用图形工具的工作流SourceTree
 ### 开发前master和develop是保持一致的
 ### 然后为下一个版本做准备
 例如：从develop上checkout出feature
@@ -121,9 +121,11 @@ Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hot
 2. 再次点击 选择推荐动作 选择 建立新的功能
 3. 然后就在feature上开发，直到开发完成
 4. 开发完成在feature分支即可完成（Git工作流中完成功能）,即可自动跳转到并合并到develop上。
-5. 在develop上修改下package.json version(此次发布的版本) 先提交一下
-5. 此时在develop上 Git工作流中建立一个release 填入版本 确定后自动跳到release
-6. 在release分支上 点 Git工作流 完成当前发布 下一步跳到打标签的页面 留下标签信息作为记录
-7. 确定后 会自动合并当前release到master，并且从master上把最新代码push到develop上以供下次开发新的feature
+5. 在develop上 Git工作流--建立新版本--填写版本号 会自动切换到release分支上
+6. 此时可以在发布到生产环境前做最后的测试，如果有Bug 就可以在release上进行修复，提交代码
+7. release上测试通过，此时可修改下版本信息。 Git工作流--完成--填写这个版本发布的标签 作为版本记录
+8. 完成后自动把 release合并到master上，并会自动从 master上push一份最新代码到 develop上以供下次开发
+9. 生产环境出现问题，master分支上 Git工作流--建立hotfix 分支 填写修复版本号，对应发布版本号
+10. 
 
 

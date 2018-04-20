@@ -13,6 +13,7 @@
     "excel-export": "^0.5.1",
     "express": "^4.16.2",
     "formidable": "^1.1.1",
+    "images": "^3.0.1",
     "kue": "^0.11.6",
     "later": "^1.2.0",
     "log4js": "^2.5.1",

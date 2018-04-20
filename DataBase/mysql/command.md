@@ -25,6 +25,10 @@ mysql -u root -p
 ```
 输入密码
 
+或者：
+➜  ~ mysql -uroot -padmin
+mysql: [Warning] Using a password on the command line interface can be insecure.
+
 ### 修改用户登录密码
 前提是知道旧密码
 mysqladmin -u root password "newpass"
@@ -165,6 +169,64 @@ mysql> show databases;
 15 rows in set (0.00 sec)
 ```
 
+## create database
+```
+mysql> create database Java;
+Query OK, 1 row affected (0.01 sec)
+```
+
+### create user
+```
+mysql> create user 'springuser'@'localhost' identified by 'admin';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> grant all on Java.* to 'springuser'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+```
+
+### create table
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+
+```
+mysql> create table user(
+    -> id INT PRIMARY KEY AUTO_INCREMENT,
+    -> name VARCHAR(16) NOT NULL,
+    -> create_date TIMESTAMP NULL DEFAULT now()
+    -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Query OK, 0 rows affected (0.02 sec)
+```
+查看表结构：
+```
+mysql> desc user;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int(11)      | NO   | PRI | NULL    |       |
+| email | varchar(255) | YES  |     | NULL    |       |
+| name  | varchar(255) | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+```
+
+例子：
+```
+mysql> create table student(
+	-> id int not null auto_increment,
+	-> name varchar(20) not null,
+	-> age int not null,
+	-> primary key(id);
+	)
+```
+
+### insert data
+```
+insert into student (name, age) values ("zhangsan", 20);
+insert into student (name, age) values ("lisi", 21);
+insert into student (name, age) values ("wangwu", 22);
+```
+
 ## select db
 ```
 mysql> use member;
@@ -197,7 +259,7 @@ mysql> show tables;
 25 rows in set (0.00 sec)
 ```
 
-## 查询数据
+### 查询数据
 ```
 mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
@@ -209,29 +271,25 @@ mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
 
-## CRUD
-### create database
-
-CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name;
-去掉{}和[]
-
+### count
 ```
-mysql> CREATE SCHEMA IF NOT EXISTS Nodejs;
-```
+mysql> select * from user;
++----+---------------------------------+--------+
+| id | email                           | name   |
++----+---------------------------------+--------+
+|  1 | someemail@someemailprovider.com | First  |
+|  2 | fuck@nimei.com                  | Second |
+|  3 | luckin@nimei.com                | Second |
++----+---------------------------------+--------+
+3 rows in set (0.00 sec)
 
-### create table
-CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-    (create_definition,...)
-    [table_options]
-    [partition_options]
-
-```
-mysql> create table user(
-    -> id INT PRIMARY KEY AUTO_INCREMENT,
-    -> name VARCHAR(16) NOT NULL,
-    -> create_date TIMESTAMP NULL DEFAULT now()
-    -> )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-Query OK, 0 rows affected (0.02 sec)
+mysql> select count(name) from user where name='Second';
++-------------+
+| count(name) |
++-------------+
+|           2 |
++-------------+
+1 row in set (0.01 sec)
 ```
 
 
