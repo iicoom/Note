@@ -126,6 +126,6 @@ Dele<a href="http://www.wuseyun.com/htmldata/tag/46/TED.html">TED</a> branch hot
 7. release上测试通过，此时可修改下版本信息。 Git工作流--完成--填写这个版本发布的标签 作为版本记录
 8. 完成后自动把 release合并到master上，并会自动从 master上push一份最新代码到 develop上以供下次开发
 9. 生产环境出现问题，master分支上 Git工作流--建立hotfix 分支 填写修复版本号，对应发布版本号
-10. 
+10. Hotfix修复完成后，Git工作流--完成项目--填写修复的标签记录，然后自动将hotfix分支合并到master上，并且会自动合并hotfix到develop上
 
 
