@@ -142,5 +142,5 @@ To clear all the currently configured rules, you can issue the flush command.
 iptables -F
 
 
-
+[25 Useful IPtable Firewall Rules Every Linux Administrator Should Know](https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/)
 
