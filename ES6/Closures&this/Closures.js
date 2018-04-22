@@ -148,4 +148,46 @@ first message – but the header variable is still referenced via a closure and 
  */
 
 
+for(var i=1; i<10;i++) {
+    setTimeout(function(){console.log(i)})
+}
+/*
+9个10
+*/
+
+for(var i=1; i<10;i++) {
+    setTimeout(console.log(i))
+}
+
+/*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+*/
+
+for(var i=1; i<10;i++) {
+    (function(i){
+        console.log(i)
+    })(i)
+}
+/*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+*/
+
+
+
 
