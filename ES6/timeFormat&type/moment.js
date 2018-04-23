@@ -59,6 +59,22 @@ moment(1521712085299).format('YYYY-MM-DD hh:mm:ss')
 moment(1521712085299).format('YYYY-MM-DD HH:mm:ss')
 "2018-03-22 17:48:05"
 
+moment().format('YYYY-MM-DD HH:mm:ss')
+"2018-04-23 10:32:42"
+moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')
+"2018-04-22 10:32:16"
+moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')
+"2018-04-21 10:32:59"
+
+moment("2018-04-22 10:32:16", 'YYYY-MM-DD HH:mm:ss').valueOf()
+1524364336000
+moment(1524364336000).format('YYYY-MM-DD HH:mm:ss')
+"2018-04-22 10:32:16"
+moment("2018-04-22 10:32:16", 'YYYY-MM-DD HH:mm:ss').add(1, 'days').valueOf()
+1524450736000
+moment(1524450736000).format('YYYY-MM-DD HH:mm:ss')
+"2018-04-23 10:32:16"
+
 
 // 拿到本月初的时间及时间戳
 moment().startOf('month').toDate()
@@ -66,6 +82,8 @@ Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
 
 moment().startOf('month').toDate().getTime()
 1522512000000
+
+
 
 
   

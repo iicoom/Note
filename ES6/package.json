@@ -6,7 +6,9 @@
   "dependencies": {
     "exdate": "^0.0.4",
     "q": "^1.5.1",
-    "qs": "^6.5.1"
+    "qs": "^6.5.1",
+    "querystring": "^0.2.0",
+    "request": "^2.85.0"
   },
   "devDependencies": {},
   "scripts": {
