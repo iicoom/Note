@@ -6,5 +6,5 @@ var evens = _.remove(array, function(n) {
 console.log(array);
 // => [1, 3]
  
-console.log(evens);
+console.log(evens); // remove掉的是不符合条件的元素
 // => [2, 4]

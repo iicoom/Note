@@ -1,5 +1,5 @@
 var request = require('request');
-var querystring = require('querystring');
+var querystring = require('querystring'); // Node自带的模块
 
 // request('https://www.baidu.com/',function(error, response, body) {
 // 	console.log('error:', error); // Print the error if one occurred 
@@ -7,8 +7,17 @@ var querystring = require('querystring');
 // 	console.log('body:', body); // Print the HTML for the Google homepage. 
 // })
 
+
+// The querystring module provides utilities for parsing and formatting URL query strings. 
+// It can be accessed using:
+
 // querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
 // returns 'foo=bar&baz=qux&baz=quux&corge='
 
-const nimei = querystring.stringify('signTime=1524412800000') // 这样写不对
 console.log(nimei)
+
+querystring.parse('foo=bar&abc=xyz&abc=123')
+{
+  foo: 'bar',
+  abc: ['xyz', '123']
+}
