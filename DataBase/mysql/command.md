@@ -271,6 +271,16 @@ mysql> select * from sign;
 +----------------------------------+--------------------------+-------+------------+-------------+------------
 ```
 
+### limit
+select * from table limit m,n
+
+/*当没有指定位置偏移量时，只取4条时，可以这样写*/
+SELECT * FROM YourTableName LIMIT 4;
+ 
+/*当指定了位置偏移量时，从第3条起取4条时，可以这样写*/
+/*因为索引是从0开始计数的，所以第3条对应的索引就是2*/
+SELECT * FROM YourTableName LIMIT 2,4;
+
 ### count
 ```
 mysql> select * from user;
