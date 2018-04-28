@@ -21,6 +21,13 @@
 ### webstorm
 * command + +/- 折叠展开代码块
 * command + shift + +/- 折叠展开所有可以操作的代码块
+* command + f: 当前文档搜索
+* command + shift + f: 全局搜索
+
+* control + j: 选相同结构
+* alt + 鼠标点选位置
+
+* Command + shift + 箭头：移动选中行
 
 ### PyCharm
 * shift + enter 下一行
