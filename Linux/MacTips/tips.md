@@ -28,3 +28,14 @@
 * alt + 鼠标  点选拖拽多行
 * shift + delete 删除行
 * ctrl + D 复制此行到下一行
+
+### iTerm2 
+* Ctrl+a: 光标移动到行首
+* Ctrl+e: 光标移动到行末
+* Ctrl+k: 删除光标之后整行
+
+* Command + w: 关闭当前标签
+* Command + T: 打开新的标签
+
+* Tab 查看候选命令
+
