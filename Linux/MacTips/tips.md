@@ -29,6 +29,9 @@
 
 * Command + shift + 箭头：移动选中行
 
+### intelliJ IDEA
+* 定位到方法+ alt+command+b: 查看引用 
+
 ### PyCharm
 * shift + enter 下一行
 * ctrl + shift + arrow 移动行
