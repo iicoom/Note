@@ -11,3 +11,29 @@ POM 也包含了目标和插件。在执行任务或目标时，Maven 会使用�
 * developers
 * mailing list
 创建一个POM之前，应该要先决定项目组(groupId)，它的名字(artifactId)和版本，因为这些属性在项目仓库是唯一标识的。
+
+## Building Java Projects with Maven
+[Spring](https://spring.io/guides/gs/maven/)
+
+### Create the directory structure
+```
+└── src
+    └── main
+        └── java
+            └── hello
+```
+
+### Define a simple Maven build
+```
+pom.xml
+
+```
+* <modelVersion>. POM model version (always 4.0.0).
+
+* <groupId>. Group or organization that the project belongs to. Often expressed as an inverted domain name.
+
+* <artifactId>. Name to be given to the project’s library artifact (for example, the name of its JAR or WAR file).
+
+* <version>. Version of the project that is being built.
+
+* <packaging> - How the project should be packaged. Defaults to "jar" for JAR file packaging. Use "war" for WAR file packaging.
