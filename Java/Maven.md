@@ -37,3 +37,6 @@ pom.xml
 * <version>. Version of the project that is being built.
 
 * <packaging> - How the project should be packaged. Defaults to "jar" for JAR file packaging. Use "war" for WAR file packaging.
+
+### Build Java code
+
