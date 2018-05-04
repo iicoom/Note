@@ -145,7 +145,43 @@ true
 || && 表示逻辑运算,||表示或者的意思，&& 表示并且的意思，例如  33>44 || "abcd"=="abcd",其结果是逻辑值true或false
 
 ***********************/
+undefined && 9/2
+undefined
 
+undefined && true
+undefined
+
+undefined && 9/undefined
+undefined
+
+'1' && 9/2
+4.5
+
+{} && 9/2
+// VM18070:1 Uncaught SyntaxError: Unexpected token &&
+
+[1,2] && 9/2
+4.5
+
+[] && 9/2
+4.5
+
+[] && true
+true
+[] && false
+false
+
+false<'20'  // false 会先转为0
+true
+false> '20'
+false
+
+false<0
+false
+false>0
+false
+false>=0
+true
 
 
 
