@@ -1,3 +1,21 @@
+## Maven Installation
+
+Spring Boot is compatible with Apache Maven 3.2 or above. If you do not already have Maven installed, you can follow the instructions at [maven.apache.org](https://maven.apache.org/)
+
+[Tip]
+On many operating systems, Maven can be installed with a package manager. 
+If you use OSX Homebrew, try 
+```
+brew install maven
+```
+Ubuntu users can run 
+```
+sudo apt-get install maven
+```
+Windows users with Chocolatey can run 
+choco install maven from an elevated (administrator) prompt.
+
+
 [Maven教程](https://www.yiibai.com/maven/)
 ## POM
 代表项目对象模型。它是 Maven 中工作的基本单位，这是一个 XML 文件。它始终保存在该项目基本目录中的 pom.xml 文件。
