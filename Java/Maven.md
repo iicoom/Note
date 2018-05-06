@@ -58,3 +58,6 @@ pom.xml
 
 ### Build Java code
 
+### 向pom.xml添加了依赖后要重新引入依赖
+pom.xml 右击 Maven - Reimport
+

@@ -36,6 +36,11 @@ Util通常来说是我们找不到合适的名字的时候的选择，Util就是
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
+### Controller
+@Controller  处理http请求
+@RestController  Spring4新加的原来返回json需要@ResponseBody配合@Controller
+@RequestMapping  配置URL映射
+
 
 
 

@@ -19,3 +19,12 @@ public class HelloController {
 ```
 The class is flagged as a @RestController, meaning it’s ready for use by Spring MVC to handle web requests. @RequestMapping maps / to the index() method. When invoked from a browser or using curl on the command line, the method returns pure text. 
 That’s because @RestController combines @Controller and @ResponseBody, two annotations that results in web requests returning data rather than a view.
+
+## 项目配置文件
+idea 默认生成的配置文件在resources下的application.properties文件 
+
+自己使用application.yml 好像逼格更高一点
+
+多环境配置
+application-dev.yml
+application-prod.yml
