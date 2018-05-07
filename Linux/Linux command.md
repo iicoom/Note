@@ -86,6 +86,21 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 /dev/vdb         40G   22G   17G  57% /mnt
 ```
 
+#### 查看文件占用内存大小
+```
+[xiaomao@iZ258wvzn92Z java_projects]$ ls
+log.file  logs  member.jar  member.jar.bak  start_member.sh
+[xiaomao@iZ258wvzn92Z java_projects]$ du log.file
+166348  log.file
+[xiaomao@iZ258wvzn92Z java_projects]$ du -h log.file
+163M  log.file
+[xiaomao@iZ258wvzn92Z java_projects]$ du -h logs
+560M  logs
+[xiaomao@iZ258wvzn92Z java_projects]$ du -h member.jar
+24M member.jar
+[xiaomao@iZ258wvzn92Z java_projects]$
+```
+
 ## 查看系统进程相关信息
 [10个重要的Linux ps命令实战](https://linux.cn/article-4743-1.html)
 ### ps
