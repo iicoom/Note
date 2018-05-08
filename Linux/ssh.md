@@ -127,6 +127,12 @@ ssh -fCNL
 ******************区分大小写啊各位亲******************
 ```
 
+### 通过ssh tunnel端口映射
+1. 登录到内网虚拟机服务器 ssh -p 1125 -fNR 3838:localhost:22 litan@101.201.197.163（意思是把内网localhost:22映射到公网IP服务器101.201.197.163的3838端口）
+2. 然后可以在任何接入Internet的设备上访问内网服务器localhost。命令如下3
+3. ssh -p 3838 fucker@101.201.197.163
+
+
 ### 查看正在监听的端口
 ```
 [xiaomao@iZ258wvzn92Z ~]$ netstat -lntp
@@ -145,3 +151,7 @@ tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LIST
 
 ## terminal
 * 命令记忆 输入 ssh xiaomao 按arrow up自动匹配之间记忆的命令
+
+
+
+

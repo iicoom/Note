@@ -61,15 +61,28 @@ var result = {};
 arr = [ false, false, false, false, true, true, '@@' ];
 arr1 = [ undefined, false, false, false, true, true, '@@' ];
 arr2 = [ undefined, undefined ];
+// for(var i = 0; i < arr2.length; i++){
+//     if(arr2[i] === false){
+//       result[0] = false;
+//       break;
+//     } else {
+//       result[0] = true;
+//     }
+//   }
+// { '0': true }
+
+
 for(var i = 0; i < arr2.length; i++){
     if(arr2[i] === false){
-      result[0] = false;
+      return result[0] = false;  // 加return，就直接跳出进程不返回结果 
       break;
     } else {
-      result[0] = true;
+      return result[0] = true;
     }
   }
+
 // { '0': false }
 console.log(result)
+// nothing
 
 

@@ -13,7 +13,7 @@ async.parallel([
     },
     function(callback) {
         setTimeout(function() {
-            callback(null, 'two');
+            callback(null, 'tw1o');
         }, 100);
     }
 ],
@@ -21,6 +21,25 @@ async.parallel([
 function(err, results) {
     // the results array will equal ['one','two'] even though
     // the second function had a shorter timeout.
+});
+```
+
+### series(tasks, callbackopt)
+> Run the functions in the tasks collection in series, each one running once the previous function has completed. If any functions in the series pass an error to its callback, no more functions are run, and callback is immediately called with the value of the error. Otherwise, callback receives an array of results when tasks have completed.
+```
+async.series([
+    function(callback) {
+        // do some stuff ...
+        callback(null, 'one');
+    },
+    function(callback) {
+        // do some more stuff ...
+        callback(null, 'two');
+    }
+],
+// optional callback
+function(err, results) {
+    // results is now equal to ['one', 'two']
 });
 ```
 
