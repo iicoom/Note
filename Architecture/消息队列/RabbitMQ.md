@@ -54,6 +54,25 @@ Unlike some other installation methods, namely the Debian and RPM packages, Rabb
 Start the Server
 To start the server, run the sbin/rabbitmq-server script. This displays a short banner message, concluding with the message "completed with [n] plugins.", indicating that the RabbitMQ broker has been started successfully.
 
+#### 切到安装目录启动server
+➜  ~ cd /usr/local/sbin
+➜  sbin ls
+cuttlefish           rabbitmq-defaults    rabbitmq-diagnostics rabbitmq-env         rabbitmq-plugins     rabbitmq-server      rabbitmqadmin        rabbitmqctl
+
+```
+➜  sbin sh rabbitmq-server
+
+  ##  ##
+  ##  ##      RabbitMQ 3.7.4. Copyright (C) 2007-2018 Pivotal Software, Inc.
+  ##########  Licensed under the MPL.  See http://www.rabbitmq.com/
+  ######  ##
+  ##########  Logs: /usr/local/var/log/rabbitmq/rabbit@localhost.log
+                    /usr/local/var/log/rabbitmq/rabbit@localhost_upgrade.log
+
+              Starting broker...
+ completed with 6 plugins.
+```
+
 #### 启动
 ➜  ~ brew services start rabbitmq
 
@@ -67,4 +86,7 @@ The rabbitmq-management plugin provides an HTTP-based API for management and mon
 The Web UI is located at: http://server-name:15672/
 
 To use the web UI you will need to authenticate as a RabbitMQ user (on a fresh installation the user "guest" is created with password "guest"). From here you can manage exchanges, queues, bindings, virtual hosts, users and permissions. Hopefully the UI is fairly self-explanatory.
+
+Web UI in Browser
+http://localhost:15672/#/
 
