@@ -49,3 +49,6 @@
 
 * Tab 查看候选命令
 
+### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
+sudo spctl --master-disable
+

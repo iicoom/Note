@@ -1,3 +1,11 @@
+## 切换用户角色
+```
+[xiaomao@iZ258wvzn92Z ~]$ su
+Password: root的密码
+
+[xiaomao@iZ258wvzn92Z ~]$ sudo -i
+[sudo] password for xiaomao:当前用户的密码
+```
 
 ## 为Linux添加用户（Ubuntu）
 ```
