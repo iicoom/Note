@@ -90,6 +90,8 @@ To use the web UI you will need to authenticate as a RabbitMQ user (on a fresh i
 Web UI in Browser
 http://localhost:15672/#/
 
+[clitool](http://www.rabbitmq.com/management-cli.html)
+
 ### 消费模式
 [官方文档](http://www.rabbitmq.com/tutorials/tutorial-two-javascript.html)
 #### Round-robin dispatching （循环分配）
@@ -117,6 +119,16 @@ At this point we're sure that the task_queue queue won't be lost even if RabbitM
 ```
 ch.sendToQueue(q, new Buffer(msg), {persistent: true});
 ```
+
+### Exchanges
+The core idea in the messaging model in RabbitMQ is that the producer never sends any messages directly to a queue. Actually, quite often the producer doesn't even know if a message will be delivered to any queue at all.
+
+### Bindings
+We've already created a fanout exchange and a queue. Now we need to tell the exchange to send messages to our queue. That relationship between exchange and a queue is called a binding.
+```
+ch.bindQueue(queue_name, 'logs', '');
+```
+From now on the logs exchange will append messages to our queue.
 
 
 

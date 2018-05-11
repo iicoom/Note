@@ -46,8 +46,10 @@
 
 * Command + w: 关闭当前标签
 * Command + T: 打开新的标签
+* 右键Tab Duplicate 可以完全复制一个窗口 包括路径
 
 * Tab 查看候选命令
+
 
 ### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
 sudo spctl --master-disable

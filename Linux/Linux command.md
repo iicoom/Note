@@ -373,24 +373,6 @@ netstat -au 使用 -u 选项列出 UDP 协议的连接
 netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。
 
 
-## locate filename
-定位文件路径
-
-## linux复制指定目录下的全部文件到另一个目录中
-https://www.cnblogs.com/zdz8207/p/linux-cp-dir.html
-cp [选项] 源文件或目录 目标文件或目录
-该命令的各选项含义如下：
-- a 该选项通常在拷贝目录时使用。它保留链接、文件属性，并递归地拷贝目录，其作用等于dpR选项的组合。
-- d 拷贝时保留链接。
-- f 删除已经存在的目标文件而不提示。
-- i 和f选项相反，在覆盖目标文件之前将给出提示要求用户确认。回答y时目标文件将被覆盖，是交互式拷贝。
-- p 此时cp除复制源文件的内容外，还将把其修改时间和访问权限也复制到新文件中。
-- r 若给出的源文件是一目录文件，此时cp将递归复制该目录下所有的子目录和文件。此时目标文件必须为一个目录名。
-- l 不作拷贝，只是链接文件。
-
-cp -r myAntPro/. antdPro
-
-
 ## 查看网络信息
 iwconfig
 必须确保你在使用USB无线网卡，虚拟机只能挂载USB无线网卡
@@ -404,51 +386,6 @@ wget https://www.baidu.com/
 wget -S -O - https://www.baidu.com/
 会将请求的数据，输出到屏幕
 ```
-
-## 用户安装目录
-* npm 全局安装的目录
-```
-[root@cache /]# ls
-bin  boot  cgroup  dev  edata  etc  home  lib  lib64  lost+found  media  misc  mnt  net  opt  proc  root  sbin  selinux  srv  sys  tmp  usr  var
-[root@cache /]# cd usr
-[root@cache usr]# ls
-bin  etc  FastDFS  games  include  lib  lib64  libevent-2.0.21-stable  libexec  local  sbin  share  src  tmp
-[root@cache usr]# cd local
-[root@cache local]# ls
-bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
-[root@cache local]# cd lib
-[root@cache lib]# ls
-libfastcommon.so  libfastcommon.so.1  libfdfsclient.so  libfdfsclient.so.1  node_modules
-[root@cache lib]# ls node_modules
-npm  pm2
-```
-
-* n 和node安装目录
-```
-[root@cache /]# cd usr/local
-[root@cache local]# ls
-bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
-[root@cache local]# ls bin
-fdfs_appender_test   fdfs_crc32          fdfs_file_info  fdfs_test      fdfs_upload_appender  npm  pm2-dev      redis-benchmark   redis-cli       restart.sh
-fdfs_appender_test1  fdfs_delete_file    fdfs_monitor    fdfs_test1     fdfs_upload_file      npx  pm2-docker   redis-check-aof   redis-sentinel  stop.sh
-fdfs_append_file     fdfs_download_file  fdfs_storaged   fdfs_trackerd  node                  pm2  pm2-runtime  redis-check-dump  redis-server
-[root@cache local]# ls node
-ls: 无法访问node: 没有那个文件或目录
-[root@cache local]# cd ..
-[root@cache usr]# ls
-bin  etc  FastDFS  games  include  lib  lib64  libevent-2.0.21-stable  libexec  local  sbin  share  src  tmp
-[root@cache usr]# cd local
-[root@cache local]# ls
-bin  etc  games  include  jre  lib  lib64  libexec  n  redis-3.0.5  redis-log  sbin  share  src
-[root@cache local]# ls n
-versions
-[root@cache local]# ls n/versions
-io  node
-[root@cache local]# ls n/versions/io
-[root@cache local]# ls n/versions/node
-6.11.0  8.11.1  8.6.0  9.10.1
-```
-
 
 ## 文件操作
 > head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head 用来显示档案的开头至标准输出中，而 tail 想当然就是看档案的结尾，看看下面的范例：
@@ -532,6 +469,24 @@ aaaaaf
 ruuafajfa ruuuu aaaaaf112455
 safajfa ruuuu aaaaaf
 
+### locate filename
+定位文件路径
+
+### linux复制指定目录下的全部文件到另一个目录中
+https://www.cnblogs.com/zdz8207/p/linux-cp-dir.html
+cp [选项] 源文件或目录 目标文件或目录
+该命令的各选项含义如下：
+- a 该选项通常在拷贝目录时使用。它保留链接、文件属性，并递归地拷贝目录，其作用等于dpR选项的组合。
+- d 拷贝时保留链接。
+- f 删除已经存在的目标文件而不提示。
+- i 和f选项相反，在覆盖目标文件之前将给出提示要求用户确认。回答y时目标文件将被覆盖，是交互式拷贝。
+- p 此时cp除复制源文件的内容外，还将把其修改时间和访问权限也复制到新文件中。
+- r 若给出的源文件是一目录文件，此时cp将递归复制该目录下所有的子目录和文件。此时目标文件必须为一个目录名。
+- l 不作拷贝，只是链接文件。
+
+cp -r myAntPro/. antdPro
+
+
 ### tar 解压  https://blog.csdn.net/x_iya/article/details/72889456
 tar zxvf nginx-1.6.2.tar.gz
 -c: 建立压缩档案
@@ -557,20 +512,7 @@ tar -cf all.tar *.jpg
 这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
 ```
 
-## 目录操作
-### 创建目录
-$ mkdir easy_mongo && cd easy_mongo
 
-### 移除目录
-[root@cache mnt]# rmdir projects
-rmdir: 删除 "projects" 失败: 目录非空
-
-### 移除非空目录（目录中有目录或文件）
-[root@cache projects]# ls
-gogo  readme.txt
-[root@cache mnt]# rm -rf projects
--f 即使原档案属性设为唯读，亦直接删除，无需逐一确认。 其中参数-f表示force.
--r 将目录及以下之档案亦逐一删除。 
 
 
 
