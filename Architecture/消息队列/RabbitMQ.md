@@ -130,6 +130,18 @@ ch.bindQueue(queue_name, 'logs', '');
 ```
 From now on the logs exchange will append messages to our queue.
 
+A binding is a relationship between an exchange and a queue. This can be simply read as: the queue is interested in messages from this exchange.
+
+Bindings can take an extra binding key parameter (the empty string in the code above). This is how we could create a binding with a key:
+```
+ch.bindQueue(queue_name, exchange_name, 'black');
+```
+
+The meaning of a binding key depends on the exchange type. The fanout exchanges, which we used previously, simply ignored its value.
+
+#### Direct exchange
+We will use a direct exchange instead. The routing algorithm behind a direct exchange is simple - a message goes to the queues whose binding key exactly matches the routing key of the message.
+
 
 
 
