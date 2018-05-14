@@ -26,6 +26,13 @@ git config --global user.email johndoe@example.com
 git clone git@gitlab.m-touch.cn:cloud-ranch/cloud_ranch.git
 ```
 
+## 同步本地新建的git仓库到远程
+```
+git commit -m 'first commit'
+git remote add origin git@gitlab.m-touch.cn:cloud-ranch/order_consume.git
+git push -u origin master
+```
+
 ## 分支操作
 ### 查看远程仓库信息
 ```
