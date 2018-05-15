@@ -20,7 +20,7 @@
 
 ### webstorm
 * command + +/- 折叠展开代码块
-* command + shift + +/- 折叠展开所有可以操作的代码块
+* command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
 * command + f: 当前文档搜索
 * command + shift + f: 全局搜索
 
