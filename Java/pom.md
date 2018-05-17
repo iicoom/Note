@@ -87,6 +87,15 @@ Project Object Model，项目对象模型。通过xml格式保存的pom.xml文�
 </project>
 ```
 
+## 
+The Spring Boot Maven plugin provides many convenient features:
+
+It collects all the jars on the classpath and builds a single, runnable "über-jar", which makes it more convenient to execute and transport your service.
+
+It searches for the public static void main() method to flag as a runnable class.
+
+It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
+
 
 
 

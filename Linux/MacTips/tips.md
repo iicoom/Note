@@ -29,6 +29,8 @@
 
 * Command + shift + 箭头：移动选中行
 
+* webstorm preference - language&framework - JavaScript - 更改version
+
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
 
