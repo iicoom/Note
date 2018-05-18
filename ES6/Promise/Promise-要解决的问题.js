@@ -1,28 +1,3 @@
-// 看Promise的执行顺序
-new Promise(resolve => {
-    console.log(1);
-    resolve(3);
-}).then(num => {
-    console.log(num)
-});
-console.log(2)
-
-// 这道题的输出是123
-
-
-// 如果在promise里面再加一个promise：
-
-new Promise(resolve => {
-    console.log(1);
-    resolve(3);
-    Promise.resolve().then(()=> console.log(4))
-}).then(num => {
-    console.log(num)
-});
-console.log(2)
-
-// 执行顺序是1243，第二个Promise的顺序会比第一个的早，所以直观来看也是比较奇怪，这是为什么呢？
-
 // Promise的实现有很多库，有jQuery的deferred，还有很多提供polyfill的，如es6-promise，lie等，
 // 它们的实现都基于Promise/A+标准，这也是ES6的Promise采用的。
 
@@ -89,6 +64,46 @@ $q.all([$http.get('/demo1'),
 });
 
 
-
-
-
+// 插入队列时的一些流程控制 ///////////////////////////////////////////////////////////////////////////
+var runningBatch = [];
+new Promise(function (resolve, reject){
+batchService.find({ 'end_time' :{$gt:ranchUtil.getNowTime()} },null,null,function (err, list) {
+  if (err){
+    console.log(err);
+    reject(err);
+  }
+  list.forEach(function(item) {
+    runningBatch.push(item._id);
+  });
+  resolve(runningBatch);
+});
+})
+.then(function(runningBatch){
+return new Promise(function(resolve){
+  resolve(ranchUtil.genQueueName(batch_id, runningBatch));
+});
+})
+.then(function (queueName) {
+var connect;
+var open = require('amqplib').connect(config.rabbitmq_server);
+open.then(function(conn){
+  connect = conn;
+  return conn.createChannel();
+})
+.then(function(ch){
+  var q = queueName;
+  var content = JSON.stringify({
+    user_id: uid,
+    batch_id: batch_id,
+    sheep_num: sheep_num
+  });
+  console.log('orderInfo:',content);
+  return ch.assertQueue(q).then(function(ok) {
+    return ch.sendToQueue(q, new Buffer(content),{ durable: true });
+  });
+}).then(function(status){
+  console.log('插入队列状态:', status);
+  ranchUtil.doResult(res, null, status);
+  setTimeout(function() { connect.close(); }, 500);
+});
+});
