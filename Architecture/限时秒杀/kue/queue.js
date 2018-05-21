@@ -67,18 +67,18 @@ for (let i = 0; i < 20; i++) {
 // POST method route
 app.post('/job', function (req, res) {
   const deferred = Q.defer();
-  // 根据hashCode重算通道
-	// const lineIndex = Math.abs(hashCode('' + mobile)) % orderLineNum;
-	// const lineIndex = Math.abs(hashCode('' + Date.now())) % orderLineNum;
-  //const line = orderLines[0];
+  根据hashCode重算通道
+	const lineIndex = Math.abs(hashCode('' + mobile)) % orderLineNum;
+	const lineIndex = Math.abs(hashCode('' + Date.now())) % orderLineNum;
+  const line = orderLines[0];
 
-  const job = queue.create('order/line-0', {
+  const job = queue.create(line, {
                 user_id: 'uid',
-                batch_id: 'batch_id',
-                sheep_num: 'sheep_num',
-                presentInfo: {}
+                wannerf_id: 'biebibi_id',
+                product_num: 'sheep_num',
+                addInfo: {}
             }).attempts(3).backoff(true).ttl(5 * 1000).save(function(err) {
-                if (err) return deferred.reject(ranchUtil.generateErr(ErrorCode.CreateOrderFail, '下单失败，请重新下单'));
+                if (err) return deferred.reject(Util.generateErr(ErrorCode.CreateOrderFail, '下单失败，请重新下单'));
                 deferred.resolve(job);
                 res.send({jobId: job.id})   
             });
