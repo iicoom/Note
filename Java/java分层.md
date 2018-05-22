@@ -2,7 +2,7 @@
 
 * DAO = Data Access Object = 数据存取对象
 
-* Service = 服务
+* Service = 服务(业务层)
 
 * Controller = 控制器
 

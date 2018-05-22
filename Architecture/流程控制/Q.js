@@ -13,8 +13,11 @@ q.nfcall(checkQueueState, key)
     .then(function (data) {
     	console.log(data)
     	// 要对data进行一些操作
-    	
+    	return data;
     }）
+    .then(function(data) {
+    	
+    })
     .catch(fucntion(e) {
     	console.log(e)
     })

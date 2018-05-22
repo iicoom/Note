@@ -185,6 +185,10 @@ qFindUsers({ _id: { $in: userids } });
     create_time: 1512626311900,
     companies: [] } ]
 
+
+
+db.inventory.find ( { quantity: { $in: [20, 50] } } )
+
 ```
 
 
