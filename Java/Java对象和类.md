@@ -30,3 +30,25 @@ public class Dog{
   }
 }
 ```
+
+### 实例化
+* 声明：声明一个对象，包括对象名称和对象类型。
+* 实例化：使用关键字new来创建一个对象。
+* 初始化：使用new创建对象时，会调用构造方法初始化对象。
+```
+public class Puppy{
+   public Puppy(String name){
+      //这个构造器仅有一个参数：name
+      System.out.println("小狗的名字是 : " + name ); 
+   }
+   public static void main(String []args){
+      // 下面的语句将创建一个Puppy对象
+      Puppy myPuppy = new Puppy( "tommy" );
+   }
+}
+```
+编译并运行上面的程序，会打印出下面的结果：
+小狗的名字是 : tommy
+
+
+
