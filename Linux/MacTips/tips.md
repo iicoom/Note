@@ -31,6 +31,8 @@
 
 * webstorm preference - language&framework - JavaScript - 更改version
 
+* Editor - File and Code template 可以控制新创建文件的顶部注释
+
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
 
