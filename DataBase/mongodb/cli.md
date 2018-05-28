@@ -185,6 +185,10 @@ qFindUsers({ _id: { $in: userids } });
     create_time: 1512626311900,
     companies: [] } ]
 
+
+
+db.inventory.find ( { quantity: { $in: [20, 50] } } )
+
 ```
 
 
@@ -267,6 +271,21 @@ Sheep.aggregate([
     }
   }
 ]);
+```
+
+```
+db.getCollection('orders').aggregate([{
+                      $match: {"user_id": "5a28d8877d72587761cae36a", "batch_id":"5afd266bf6ea1daf5cc94cca"}
+                    },{
+                      $group: {"_id": '$user_id', "sheep_num":{$sum: '$sheep_num'}}
+                    }])
+
+=>
+/* 1 */
+{
+    "_id" : "5a28d8877d72587761cae36a",
+    "sheep_num" : 3
+}
 ```
 
 ## Update

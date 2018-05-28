@@ -20,7 +20,7 @@
 
 ### webstorm
 * command + +/- 折叠展开代码块
-* command + shift + +/- 折叠展开所有可以操作的代码块
+* command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
 * command + f: 当前文档搜索
 * command + shift + f: 全局搜索
 
@@ -28,6 +28,10 @@
 * alt + 鼠标点选位置
 
 * Command + shift + 箭头：移动选中行
+
+* webstorm preference - language&framework - JavaScript - 更改version
+
+* Editor - File and Code template 可以控制新创建文件的顶部注释
 
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 

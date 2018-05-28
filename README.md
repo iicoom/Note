@@ -15,6 +15,8 @@ SaaS有什么特别之处呢？其实在云计算还没有盛行的时代，我�
 
 * IPO 首次公开募股（Initial Public Offerings，简称IPO）是指一家企业或公司 （股份有限公司）第一次将它的股份向公众出售（首次公开发行，指股份公司首次向社会公众公开招股的发行方式）。通常，上市公司的股份是根据相应证监会出具的招股书或登记声明中约定的条款通过经纪商或做市商进行销售。一般来说，一旦首次公开上市完成后，这家公司就可以申请到证券交易所或报价系统挂牌交易,有限责任公司在申请IPO之前，应先变更为股份有限公司。
 
+* ICO，全称Initial Coin Offering，意为“首次代币发行”，可以说是以币换币：发行的是区块链项目的代币，投资者通常用币圈认知度最高的比特币或以太币去兑换。
+
 * OCR （Optical Character Recognition，光学字符识别）是指电子设备（例如扫描仪或数码相机）检查纸上打印的字符，通过检测暗、亮的模式确定其形状，然后用字符识别方法将形状翻译成计算机文字的过程；即，针对印刷体字符，采用光学的方式将纸质文档中的文字转换成为黑白点阵的图像文件，并通过识别软件将图像中的文字转换成文本格式，供文字处理软件进一步编辑加工的技术。
 
 * WebSocket
@@ -121,6 +123,22 @@ CGI全称是“通用网关接口”(Common Gateway Interface)，HTTP服务器�
 阿里云存储服务（Open Storage Service，简称 OSS），是阿里云对外提供的海量，安全，低成本，高可靠的云存储服务。用户可以通过简单的 REST 接口，在任何时间、任何地点、任何互联网设备上进行上传和下载数据，也可以使用WEB 页面对数据进行管理。
 
 * AMQP，即Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准,为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同的开发语言等条件的限制。Erlang中的实现有 RabbitMQ等。
+
+* aka  又叫做，亦称（also known as）
+
+* 斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
+如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：F(n)=F(n-1)+F(n-2)
+The Fibonacci function:
+```
+function fibonacci(n) {
+  if (n == 0 || n == 1)
+    return n;
+  else
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+https://baike.baidu.com/item/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91/2037797
+We declare our fibonacci function. It assumes only valid positive integer input. (Don't expect this one to work for big numbers, and it's probably the slowest recursive implementation possible).
 
 * Erlang(['ə:læŋ])是一种通用的面向并发的编程语言，它由瑞典电信设备制造商爱立信所辖的CS-Lab开发，目的是创造一种可以应对大规模并发活动的编程语言和运行环境。Erlang问世于1987年，经过十年的发展，于1998年发布开源版本。
 Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance.

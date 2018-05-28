@@ -82,6 +82,7 @@ ps -A | grep ssh
 1. 首先需要检查你电脑是否已经有 SSH key  cd ~/.ssh
 2. 创建一个 $ ssh-keygen -t rsa -C "your_email@example.com"
 3. 复制公钥 cat ~/.ssh/id_rsa.pub
+4.
 
 ### 添加了ssh key之后
 当你在github后台添加了ssh keys之后，如果你在本地 git clone git://www.somesite.com/test.git 的时候出现了一些问题，不如access denied，那么你要在本地这么测试一下：
@@ -108,7 +109,7 @@ IdentityFile ~/.ssh/id_rsa_github
 ```
 
 
-## ssh代理
+## ssh代理 http://www.cnblogs.com/kwongtai/p/6903420.html
 ### ssh参数
 * 反向代理
 ssh -fCNR
@@ -147,10 +148,14 @@ tcp        0      0 0.0.0.0:10004               0.0.0.0:*                   LIST
 tcp        0      0 0.0.0.0:3030                0.0.0.0:*                   LISTEN      -
 tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      -
 ```
+### 检验是否已经启动了可以使用ps aux | grep ssh指令来查看：
 
 
 ## terminal
 * 命令记忆 输入 ssh xiaomao 按arrow up自动匹配之间记忆的命令
+
+## ssh 集群登录配置
+[配置ssh免密码登录——集群学习日记](http://www.cnblogs.com/kwongtai/p/7224495.html)
 
 
 

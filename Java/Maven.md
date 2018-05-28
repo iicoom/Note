@@ -39,6 +39,17 @@ POM 也包含了目标和插件。在执行任务或目标时，Maven 会使用�
     └── main
         └── java
             └── hello
+
+
+Maven 项目的目录结构
+src
+	-main 
+		-java
+			-package
+	-test
+		-java
+			-package
+	resources
 ```
 
 ### Define a simple Maven build
@@ -60,4 +71,11 @@ pom.xml
 
 ### 向pom.xml添加了依赖后要重新引入依赖
 pom.xml 右击 Maven - Reimport
+
+### mvn maven 命令行工具
+以下命令会在target目录下生成对应文件： 
+* mvn compile (在pom.xml所在的目录下运行) - 会生成Java的字节码文件classes
+* mvn test 会运行写好的的测试用例 - surefire-reports生成的测试报告
+* mvn package 生成jar包
+
 
