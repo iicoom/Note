@@ -10,7 +10,9 @@
 
 * 显示简介：Command+I
 * 新建Finder窗口：Command+N
-* 关闭窗口： Command+W	
+* 关闭窗口： Command+W
+
+* Command + Space  => spotlight 搜索
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
