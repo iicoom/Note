@@ -46,6 +46,14 @@ kill 3268
 kill 3268
 -bash: kill: (3268) - 没有那个进程
 
+kill命令格式：
+kill -Signal pid
+pid是进程号，可以用 ps 命令查出
+
+signal是发送给进程的信号，TERM(或数字9）表示“无条件终止”；
+因此 kill - 9 表示强制杀死该进程； 
+而 kill 则有局限性，例如后台进程，守护进程等；
+
 5. ps -u username
 在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
 ```
@@ -74,6 +82,15 @@ centOS下查看nginx进程快照
 6480 ?        Ss     0:00 nginx: master process /usr/local/nginx/sbin/nginx
 6795 ?        S      0:00 nginx: worker process
 8851 pts/0    S+     0:00 grep nginx
+
+[root@cache ucenter_v2]# ps ax | grep node
+ 2130 ?        Ssl    1:57 node /mnt/yfarm.net/www/bin/www                                 
+17768 ?        Ssl    0:14 node /mnt/projects/ranch_api/bin/development.js                 
+18126 ?        Ssl    1:56 node /mnt/projects/cloud_ranch/cloud_bin/www                    
+20397 ?        Sl     0:05 node /mnt/yfarm.net/cloud-ranch-v2/index.js                                
+21735 ?        Ssl    0:02 node /mnt/projects/task_consume/bin/development.js              
+21843 ?        Sl     0:03 node /mnt/yfarm.net/ucenter_v2/index.js                                    
+21889 pts/2    S+     0:00 grep node
 ```
 
 6. 
