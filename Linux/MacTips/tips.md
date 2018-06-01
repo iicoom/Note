@@ -16,6 +16,7 @@
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
+* 新窗口打开当前链接 Command+点击
 
 ### Sublime
 * 多行光标拖动 alt+鼠标
