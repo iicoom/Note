@@ -38,6 +38,8 @@
 
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
+* 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
+* 
 
 ### PyCharm
 * shift + enter 下一行

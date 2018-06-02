@@ -1,3 +1,7 @@
+> Similar to Annotations in Java but unlike Java annotations, decorators are functions which are applied at runtime.
+
+
+
 > ES7的Decorators让我们能够在设计时对类、属性等进行标注和修改成为了可能。Decorators利用了ES5的
 
 ```
