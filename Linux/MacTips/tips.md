@@ -13,6 +13,7 @@
 * 关闭窗口： Command+W
 
 * Command + Space  => spotlight 搜索
+* shift + Command + .  显示隐藏文件  再按隐藏
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T

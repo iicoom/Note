@@ -37,3 +37,8 @@ idea 默认生成的配置文件在resources下的application.properties文件
 多环境配置
 application-dev.yml
 application-prod.yml
+
+## Java类的种类
+* Class
+* Interface
+* Annotation
