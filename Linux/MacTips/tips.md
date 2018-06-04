@@ -15,6 +15,8 @@
 * Command + Space  => spotlight 搜索
 * shift + Command + .  显示隐藏文件  再按隐藏
 
+* 强制退出 使用快捷键：Command+Option+Esc
+
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
 * 新窗口打开当前链接 Command+点击
