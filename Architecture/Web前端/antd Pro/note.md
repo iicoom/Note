@@ -27,4 +27,6 @@ function checkStatus(response) {
 checkStatus对response返回结果做了分类处理
 
 ## 页面流程
-* 
+1. login
+2. basiclayout
+3. 
