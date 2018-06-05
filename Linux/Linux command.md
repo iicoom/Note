@@ -99,132 +99,12 @@ log.file  logs  member.jar  member.jar.bak  start_member.sh
 [xiaomao@iZ258wvzn92Z java_projects]$ du -h member.jar
 24M member.jar
 [xiaomao@iZ258wvzn92Z java_projects]$
+
+可以查看目录占用大小 disk usage
+➜  antMobile du -h myapp
+ 12K  myapp/src
+ 36K  myapp
 ```
-
-## 查看系统进程相关信息
-[10个重要的Linux ps命令实战](https://linux.cn/article-4743-1.html)
-### ps
-Linux作为Unix的衍生操作系统，Linux内建有查看当前进程的工具ps。ps命令能够给出当前系统中进程的快照.
-ps - report a snapshot of the current processes.
-ps displays information about a selection of the active processes. If you want a repetitive update of the selection and the displayed information,
-use top(1) instead.
-1. 不加参数的ps
-```
-[xiaomao@iZ258wvzn92Z ~]$ ps
-  PID TTY          TIME CMD
- 8875 pts/1    00:00:00 bash
- 9728 pts/1    00:00:00 ps
-
- ```
-结果默认会显示4列信息。
-
-PID: 运行着的命令(CMD)的进程编号
-TTY: 命令所运行的位置（终端）
-TIME: 运行着的该命令所占用的CPU处理时间
-CMD: 该进程所运行的命令
-
-2. 使用 -a 参数。-a 代表 all。同时加上x参数会显示没有 控制终端 的进程。
-```
-PID TTY      STAT   TIME COMMAND
-    1 ?        Ss     0:02 /sbin/init
-    2 ?        S      0:00 [kthreadd]
-    3 ?        S      0:20 [migration/0]
-    4 ?        S      4:05 [ksoftirqd/0]
-    5 ?        S      0:00 [migration/0]
-    6 ?        S      0:28 [watchdog/0]
-    7 ?        S      0:20 [migration/1]
-21184 ?        Sl     4:53 node /mnt/projects/cloud-ranch-v2/index.js
-21266 ?        Sl     8:51 node /mnt/projects/msg_center/index.js
-23755 ?        Sl    45:25 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
-23829 ?        Ssl    7:40 node /mnt/projects/sina_pay/bin/development.js
-```
-
-3. ps -u username
-在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
-```
-[root@cache ~]# ps -u root
-PID TTY       TIME     CMD
-1    ?        00:00:01 init
-2    ?        00:00:00 kthreadd
-3    ?        00:00:00 migration/0
-.
-.
-6480 ?        00:00:00 nginx
-6608 ?        00:00:00 sshd
-6610 pts/0    00:00:00 bash
-6645 ?        00:00:53 PM2 v2.10.2: Go
-6662 ?        00:00:49 node /mnt/proje
-8675 pts/0    00:00:00 ps
-```
-ps命令支持三种使用的语法格式:
-* UNIX 风格，选项可以组合在一起，并且选项前必须有“-”连字符
-* BSD 风格，选项可以组合在一起，但是选项前不能有“-”连字符
-* GNU 风格的长选项，选项前有两个“-”连字符
-
-centOS下查看nginx进程快照
-[root@cache ~]# ps ax | grep nginx
-6480 ?        Ss     0:00 nginx: master process /usr/local/nginx/sbin/nginx
-6795 ?        S      0:00 nginx: worker process
-8851 pts/0    S+     0:00 grep nginx
-
-4. 
-ps aux | less
-也许你希望把结果按照 CPU 或者内存用量来筛选，这样你就找到哪个进程占用了你的资源。要做到这一点，我们可以使用 aux 参数，来显示全面的信息:
-
-```
-USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root         1  0.0  0.0  19340  1564 ?        Ss   Apr11   0:01 /sbin/init
-root         2  0.0  0.0      0     0 ?        S    Apr11   0:00 [kthreadd]
-root         3  0.0  0.0      0     0 ?        S    Apr11   0:00 [migration/0]
-root         4  0.0  0.0      0     0 ?        S    Apr11   0:00 [ksoftirqd/0]
-```
-[30个实例详解TOP命令](https://linux.cn/article-2352-1.html)
-### top
-The  top  program  provides  a dynamic real-time view of a running system.
-1. 不加参数的
-```
-[root@cache ~]# top
-top - 11:31:44 up 17:48,  1 user,  load average: 0.00, 0.00, 0.00
-Tasks:  98 total,   1 running,  97 sleeping,   0 stopped,   0 zombie
-Cpu(s):  1.0%us,  0.3%sy,  0.0%ni, 98.3%id,  0.0%wa,  0.3%hi,  0.0%si,  0.0%st
-Mem:   1922064k total,  1221492k used,   700572k free,   570576k buffers
-Swap:  4128764k total,        0k used,  4128764k free,   241292k cached
-
-  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
- 6662 root      20   0 1023m 119m  12m S  1.3  6.4   1:08.14 node /mnt/proje
-    1 root      20   0 19340 1564 1244 S  0.0  0.1   0:01.53 init
-    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd
-    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0
-    4 root      20   0     0    0    0 S  0.0  0.0   0:00.99 ksoftirqd/0
-    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 stopper/0
-    6 root      RT   0     0    0    0 S  0.0  0.0   0:00.07 watchdog/0
-```
-第二行显示的是任务或者进程的总结。进程可以处于不同的状态。这里显示了全部进程的数量。除此之外，还有正在运行、睡眠、停止、僵尸进程的数量（僵尸是一种进程的状态）
-
-PR: 进程的调度优先级。这个字段的一些值是'rt'。这意味这这些进程运行在实时态。
-
-NI: 进程的nice值（优先级）。越小的值意味着越高的优先级。
-
-VIRT: 进程使用的虚拟内存。
-
-RES: 驻留内存大小。驻留内存是任务使用的非交换物理内存大小。
-
-SHR: SHR是进程使用的共享内存。
-
-S: 这个是进程的状态。它有以下不同的值:
-D - 不可中断的睡眠态。
-R – 运行态
-S – 睡眠态
-T – 被跟踪或已停止
-Z – 僵尸态
-
-%CPU: 自从上一次更新时到现在任务所使用的CPU时间百分比。
-
-%MEM: 进程使用的可用物理内存百分比。
-
-TIME+: 任务启动后到现在所使用的全部CPU时间，精确到百分之一秒。
-
-COMMAND: 运行进程所使用的命令。
 
 #### uptime
 ```
@@ -511,6 +391,117 @@ tar zxvf nginx-1.6.2.tar.gz
 tar -cf all.tar *.jpg
 这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
 ```
+
+## 相关命令对应中文释义
+### 目录名
+/boot：顾名思义
+/root ：同上
+/lost+found：同上
+/run：同上
+/home：同上
+/etc：ETCetera
+/bin：BINaries
+/dev：DEVices
+/lib：LIBraries
+/mnt：MouNT
+/proc：PROCesses
+/tmp：TeMPorary
+/var：VARiable
+/srv：SeRVices
+/opt：OPTion
+/sbin：Super BINaries（又作Superuser BINaries）
+/sys：SYStem
+/usr：一鼓而作Unix System Resources，再而作Unix Software Resources,三而作Unix Shared Resources（这个很重要，很多人会认为这个是user）
+
+### 文件管理命令
+ls -- LiSt
+cd -- Change Directory
+pwd -- Print Working Directory
+cp -- CoPy
+mv -- MoVe
+rm -- ReMove
+pushd -- PUSH to Directory
+popd -- POP from Directory（这俩个是很有用的命令，在编译LFS的时候学到的）
+mkdir -- MaKe DIRectory
+rmdir -- ReMove DIRectory
+cat -- CATenate（有说是conCATenate，这两个词是一个意思吧）
+sed -- Stream EDitor
+diff -- DIFFerence
+wc -- Word Count（不是那个wc啊）
+chmod -- CHange MODe
+chown -- CHange OWNer
+chgrp -- CHange GRouP
+awk -- Aho Weinberger and Kernighan（自恋，服气）( @xx xxxx 谢谢指错）
+gawk -- Gnu Aho Weinberger and Kernighan
+grep -- General Regular Expression Print( @闫子昂 谢谢）
+ln -- LiNk
+tar -- TARball
+
+### 硬件管理命令
+df -- Disk Free
+du -- Disk Usage
+dd -- Data Description（一说是Convert and Copy， 但是cc被用掉了，就用dd了）
+parted -- PARTition EDitor
+lspci -- LiSt Peripheral Component Interconnect
+lscpu -- LiSt Central Process Unit
+lsusb -- LiSt Universal Serial Bus
+mdadm -- 求助啊，这个不知道啊，只知道md是multiple device！！
+
+### 软件及软件包管理：
+man -- MANual
+apt -- Advanced Packaging Tool
+dpkg -- Debian PacKaGe
+yum -- Yellow dog Updater, Modified
+rpm -- RPM Package Manager（又作Redhat Package Manager，不过我比较喜欢前者，因为魔性）
+
+### 系统管理（主要是内核模组）：
+depmod -- DEPend MODule
+lsmod -- LiSt MODule
+modprobe -- MODule PROBE
+modinfo -- MODule INFOrmation
+insmod -- INSert MODule
+rmmod -- ReMove MODule
+ps -- Processes Status
+su -- Substitute User
+bash -- Bourne Again SHell
+init -- INITialization（差点把这个忘了）
+ssh -- Secure SHell
+wine -- Wine Is Not an Emulator（哈哈，又来了）
+exec -- EXECute
+fstab -- FileSystem TABle
+passwd -- PASSWorD
+tty -- TeleTYpe
+sudo -- SuperUser DO
+grub -- GRand Unified Bootloader（Linux全家桶启动就靠它了）
+tzselect -- Time Zone SELECT
+sync -- SYNChronize（确认关机前多执行几次。有次我在tty1用vim改nginx配置文件，朋友在tty2给我直接关机了（用halt关的，这个猪脑子，我说过好多次用shutdown了），导致开机的时候nginx启动不起来，关机前配置文件我改了很多，但是vim没有备份那么多，还要重改www）
+装了systemd -- SYSTEM Daemon 的话，会有systemctl bootctl journalctl loginctl localectl timedatectl 等等，都是blablabla ConTroL
+
+### 编辑器：
+ed -- EDitor
+nano -- Nano's ANOther editor（还有）
+emacs -- Editor MACroS（还有很多全称，就不罗列了，这个接受度比较广）
+vi -- VIsual
+vim -- Vi Improved
+
+### 接下来是写程序时会用到的：
+cc -- C Compiler
+gcc -- Gnu Compiler Collection（作为一个软件集被你下载下来编译安装的时候）
+gcc -- Gnu C Compiler (作为一个软件被你调用来编译C程序的时候）
+g++ -- Gnu c++ compiler（其实g++只是调用gcc，然后连接c++的库，并且作相应的一些编译设置而已）
+gcj -- Gnu Compiler for Java
+yacc -- Yet Another Compiler Compiler
+guile -- Gnu Ubiquitous Intelligent Language for Extensions
+gas -- Gnu Assembler（好像已经看不到了）
+
+### 接下来是图形界面：
+gnome -- GNu Object Model Environment
+gdm -- Gnome Display Manager
+gtk -- Graphic user interface ToolKit
+qt -- ………………Toolkit（不说Q了，用Q只是因为在开发者的Emacs中Q特别漂亮…………）
+kde -- K Desktop Environment
+lxde -- Lightweight X11 Desktop Environment
+xfce -- XForms Common Environment
 
 
 

@@ -1,3 +1,17 @@
+## Blockchain
+[Wiki](https://en.wikipedia.org/wiki/Blockchain)
+
+Blockchains are secure by design and exemplify a distributed computing system with high Byzantine fault tolerance. 
+Decentralized consensus has therefore been achieved with a blockchain.[9] This makes blockchains potentially suitable for the 
+recording of events, 
+medical records,
+and other records management activities, such as 
+identity management 
+transaction processing, 
+documenting provenance, 
+food traceability
+and voting.
+
 [用JavaScript写一个区块链](https://zhuanlan.zhihu.com/p/34522746)
 
 >  区块链就是通过密码学的方式形成的一个由集体维护的分布式数据库。

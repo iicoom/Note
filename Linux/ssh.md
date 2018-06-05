@@ -108,6 +108,14 @@ HostName github.com
 IdentityFile ~/.ssh/id_rsa_github
 ```
 
+### Github 账号识别（公钥）
+Github上 Leo 的仓库 Bibobobi无法通过ssh提交代码  之前通过将其添加为collaborator来授权
+
+GitHub上 每一个公钥对应一个用户
+
+解决方法：删掉Bibobobi的公钥 添加到Leo下 这样就不会报 公钥已经被使用的错误了
+
+
 
 ## ssh代理 http://www.cnblogs.com/kwongtai/p/6903420.html
 ### ssh参数

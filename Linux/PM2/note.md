@@ -56,7 +56,7 @@ pm2 start app.js --no-daemon
 pm2 start app.js --no-vizion
 pm2 start app.js --no-autorestart
 
-#### Environment management
+#### Environment management 环境管理
 [When starting a new process](http://pm2.keymetrics.io/docs/usage/environment/#when-starting-a-new-process)
 [root@cache task_consume]# NODE_ENV=development pm2 start bin/development.js --name task_consume
 

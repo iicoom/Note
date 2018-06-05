@@ -32,6 +32,94 @@ git commit -m 'first commit'
 git remote add origin git@gitlab.m-touch.cn:cloud-ranch/order_consume.git
 git push -u origin master
 ```
+### 本地和远程仓库无法合并的问题
+是由于不同的git操作历史造成的
+```
+➜  girl git:(master) git pull git@github.com:iicoom/girl.git
+From github.com:iicoom/girl
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
+➜  girl git:(master) git pull git@github.com:iicoom/girl.git --allow-unrelated-histories
+
+出现以下merge的提示：
+Merge github.com:iicoom/girl
+
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.
+
+:q 退出
+
+From github.com:iicoom/girl
+ * branch            HEAD       -> FETCH_HEAD
+Already up-to-date!
+Merge made by the 'recursive' strategy.
+```
+### 移除与远程关联
+git remote remove origin
+
+### 建立和远程的关联
+```
+➜  girl git:(master) git remote add origin git@github.com:iicoom/girl.git
+➜  girl git:(master) git pull
+From github.com:iicoom/girl
+ * [new branch]      master     -> origin/master
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=<remote>/<branch> master
+
+这样做
+➜  girl git:(master) git pull orign master
+From github.com:iicoom/girl
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> orign/master
+Already up-to-date.
+
+➜  girl git:(master) git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+➜  girl git:(master) git push --set-upstream origin master
+Counting objects: 31, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (31/31), 48.80 KiB | 8.13 MiB/s, done.
+Total 31 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To github.com:iicoom/girl.git
+   114db2b..9f90433  master -> master
+Branch master set up to track remote branch master from origin.
+```
+
+### 查看本地git仓库信息
+查看.git 中的config文件
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        precomposeunicode = true
+[user]
+        name = Leo
+        email = asdfpeng@qq.com
+[remote "orign"]
+        url = git@github.com:iicoom/girl.git
+        fetch = +refs/heads/*:refs/remotes/orign/*
+```
+
 
 ## 分支操作
 ### 查看远程仓库信息

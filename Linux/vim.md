@@ -6,6 +6,8 @@
 * E :Move to the end of Blank delimited word
 * G:命令将光标移动到文档末尾
 
+* ：set nu 显示行号   ：set nonumber 关闭行号
+
 ### 删除行与多行
 不要在INSERT模式下使用,注意一行的长度
 
