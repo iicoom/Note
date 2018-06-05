@@ -24,8 +24,6 @@ C:\Users\MXJ>java -version
 java version "1.5.0_21"
 
 ### Linux Ubuntu安装JDK
-https://blog.csdn.net/pysena/article/details/72514776
-
 https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04
 
 ## 基本语法
