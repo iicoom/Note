@@ -16,6 +16,7 @@
 * shift + Command + .  显示隐藏文件  再按隐藏
 
 * 强制退出 使用快捷键：Command+Option+Esc
+* 最小化当前窗口：Command+M
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
