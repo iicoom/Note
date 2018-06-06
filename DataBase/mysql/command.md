@@ -97,6 +97,8 @@ systemctl status mysql.service
 sudo systemctl mysql start
 
 ### 登录连接数据库
+[guanwang](https://dev.mysql.com/doc/refman/5.7/en/connecting-disconnecting.html)
+
 ```
 mysql -u root -p 
 ```
@@ -129,6 +131,19 @@ My mysql version is 5.7.16, For those who hasn't solved the problem:
 6. Enter: UPDATE mysql.user SET authentication_string=PASSWORD('YOUR NEW MYSQL PASSWORD') WHERE User='root'; 7. Enter: FLUSH PRIVILEGES;  
 8. Enter: \q  
 Hope this might help you, it took me almost half a day to find the solution, and it works just fine to me.
+
+### The MySQL Access Privilege System
+https://dev.mysql.com/doc/refman/5.7/en/privilege-system.html
+
+[Adding User Accounts](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html)
+
+mysql> CREATE USER 'cloud'@'localhost' IDENTIFIED BY '02060934Mao,.';
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'cloud'@'localhost' WITH GRANT OPTION;
+Query OK, 0 rows affected (0.07 sec)
+
+
 
 ### 环境变量的执行顺序
 Mac系统的环境变量，加载顺序为：
