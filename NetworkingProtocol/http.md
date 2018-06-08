@@ -139,3 +139,14 @@ SMS(Push)方式：服务器又新内容时，发送一条类似短信的信令�
 405 Method Not Allowed 请求方法（GET、POST、HEAD、Delete、PUT、TRACE等）对指定的资源不适用。（HTTP 1.1新） 
 
 504 错误是（网关超时）Nginx 服务器作为网关或代理，但是没有及时从上游服务器收到请求。
+
+## HTTP request method
+https://www.cnblogs.com/chris-oil/p/8042677.html
+前的工作中，HEAD、PUT、DELETE我是真的没有见过……但是OPTIONS几乎天天都会遇到。本地环境跑公司项目的时候，每次POST之前，为啥浏览器还偷偷给我来一次没有返回的OPTIONS请求？
+
+原来，浏览器在某些请求中，在正式通信前会增加一次HTTP查询请求，称为"预检"请求（preflight）。
+
+览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错。
+
+Request Method: OPTIONS
+Status Code: 204 No Content

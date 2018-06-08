@@ -72,6 +72,7 @@ npm update <packageName>
 * yarn add [package]
 * yarn add [package]@[version]
 * yarn add [package]@[tag]
+* yarn add amqplib --save
 
 * yarn upgrade [package]
 * yarn upgrade [package]@[version]
