@@ -30,3 +30,7 @@ checkStatus对response返回结果做了分类处理
 1. login
 2. basiclayout
 3. 
+
+## 页面数据加载渲染流程
+* initData() 先做数据的获取
+
