@@ -391,6 +391,13 @@ git commit -m "comments"
 ### git checkout .
 丢弃文件修改
 
+## 常见问题
+### [root@cache cloud-ranch-v2]# git pull
+You are not currently on a branch, so I cannot use any
+'branch.<branchname>.merge' in your configuration file.
+
+git checkout master 或检出任意别的分支即可
+
 
 
 
