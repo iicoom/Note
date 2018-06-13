@@ -15,3 +15,9 @@ object1.property1 = 77;
 
 console.log(object1.property1);
 // expected output: 42
+
+/*****************************
+	Object.keys(obj)
+	**********************************/
+var obj = {'a':'123','b':'345'};
+console.log(Object.keys(obj));  //['a','b']
