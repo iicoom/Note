@@ -31,6 +31,7 @@
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
 * command + f: 当前文档搜索
 * command + shift + f: 全局搜索
+* Command + l 跳转到指定
 
 * control + j: 选相同结构
 * alt + 鼠标点选位置
