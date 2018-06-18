@@ -12,11 +12,14 @@
 * 新建Finder窗口：Command+N
 * 关闭窗口： Command+W
 
-* Command + Space  => spotlight 搜索
+* Command + Space  => spotlight 搜索 打开应用程序直接搜索，回车打来，速度快到爆
 * shift + Command + .  显示隐藏文件  再按隐藏
 
 * 强制退出 使用快捷键：Command+Option+Esc
 * 最小化当前窗口：Command+M
+* control + 关机键 弹出关机提示窗口
+
+* 有的小伙伴把移动硬盘或 U 盘接入到 Mac 电脑上，当把文件拷贝到移动硬盘时，会发现不能复制文件到移动硬盘。这里因为移动硬盘或 U 盘是使用 Windows 系统下的 NTFS 分区格式，而 Mac 系统原生是不支持这种格式的，也就是为什么不能向硬盘里拷贝资料的原因
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
