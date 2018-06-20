@@ -25,6 +25,7 @@ import { sendEmail as sendMyLove } from './app/util/email';
 // export default Utility; 类的静态方法引入时必须用import，否则静态方法获取不到
 import Utility from './app/util/utils';
 
+
 ```
 
 ### 导出
@@ -60,4 +61,8 @@ export const sendEmail = async (subject, html, attachments) => {
     // transporter.close(); // 如果没用，关闭连接池
   });
 };
+
+
+
+/////
 ```
