@@ -11,6 +11,7 @@
 * 显示简介：Command+I
 * 新建Finder窗口：Command+N
 * 关闭窗口： Command+W
+* 拖动窗口碰撞顶部 可以放到其他桌面
 
 * Command + Space  => spotlight 搜索 打开应用程序直接搜索，回车打来，速度快到爆
 * shift + Command + .  显示隐藏文件  再按隐藏
@@ -23,8 +24,11 @@
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
+* 关闭当前标签 Command + w
+* 打开新的浏览器窗口 Command + n
 * 新窗口打开当前链接 Command+点击
 * Command+L 光标定位到地址栏
+* Command + shift + n 进入无痕浏览模式
 
 ### Sublime
 * 多行光标拖动 alt+鼠标
