@@ -141,6 +141,50 @@ ssh -fCNL
 2. 然后可以在任何接入Internet的设备上访问内网服务器localhost。命令如下3
 3. ssh -p 3838 fucker@101.201.197.163
 
+### AutoSSH 自动重连
+使用SSH的方式不够稳定，使用AutoSSH可以自动在连接断开时自动重连，再把AutoSSH加入系统服务自动启动，则可以做到稳定的连接。
+1. 安装AutoSSH
+```
+sudo apt-get install autossh
+```
+2. 执行AutoSSH命令
+```
+autossh -M 5555 -NR 80:127.0.0.1:7777 root@114.114.114.114
+```
+-M：在5555端口上监听连接的变化，只要断开就重连 
+少了-f 参数，因为AutoSSH本来就在后台运行
+
+163 nginx
+```
+server {
+                # 返回代理转到公司内网的 190 服务器上去
+                access_log      /mnt/nginx_log/logs/admin.dev.yunfarm.cn.log;
+                error_log       /mnt/nginx_log/logs/admin.dev.yunfarm.cn.err.log;
+                listen          80;
+                server_name     admin.dev.yunfarm.cn;
+                proxy_set_header Host $host;
+                proxy_set_header REMOTE-HOST $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                location / {
+                        proxy_pass http://127.0.0.1:60005;
+                }
+        }
+```
+
+190
+```
+[root@cache cloud_ranch]# netstat -nlp |grep LISTEN
+tcp        0      0 127.0.0.1:60004             0.0.0.0:*                   LISTEN      1723/ssh            
+tcp        0      0 127.0.0.1:60005             0.0.0.0:*                   LISTEN      21114/autossh       
+tcp        0      0 127.0.0.1:60006             0.0.0.0:*                   LISTEN      20610/ssh           
+tcp        0      0 127.0.0.1:60007             0.0.0.0:*                   LISTEN      4164/autossh        
+tcp        0      0 127.0.0.1:60008             0.0.0.0:*                   LISTEN      17098/ssh           
+```
+
+```
+autossh -M 60005 -NR 60005:127.0.0.1:3011 root@114.114.114.114
+```
 
 ### 查看正在监听的端口
 ```
