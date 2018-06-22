@@ -48,6 +48,7 @@
 * webstorm preference - language&framework - JavaScript - 更改version
 
 * Editor - File and Code template 可以控制新创建文件的顶部注释
+* 关闭当前Tab Command+w  或者 shift+鼠标点击  intelliJ IDEA 同样适用
 
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
