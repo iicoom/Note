@@ -7,3 +7,31 @@ console.log(b); // 20
 console.log(a); // 10
 console.log(b); // 20
 console.log(rest); // [30, 40, 50]
+
+
+// Array destructuring
+//Basic variable assignment
+var foo = ['one', 'two', 'three'];
+
+var [one, two, three] = foo;
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+
+//Assignment separate from declaration
+//A variable can be assigned its value via destructuring separate from the variable's declaration.
+var a, b;
+
+[a, b] = [1, 2];
+console.log(a); // 1
+console.log(b); // 2
+
+// Default values
+// A variable can be assigned a default, in the case that the value unpacked from the array is undefined.
+var a, b;
+
+[a=5, b=7] = [1];
+console.log(a); // 1
+console.log(b); // 7
+
+
