@@ -45,6 +45,18 @@ const { ProductStorageDetail: PSD } = this.props.common;
 // 把ProductStorageDetail重命名为较短的PSD
 
 
+// 对象也能直接取key
+const ProductStorageAction: {
+      1: '任务奖励',
+      2: '回购',
+      3: '提取',
+      4: '提取失败',
+      5: '更新库存'
+    },
+
+console.log(ProductStorageAction[1])
+// =>
+// '任务奖励'
 
 
 
