@@ -97,7 +97,7 @@ It searches for the public static void main() method to flag as a runnable class
 It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
 
 ### mysql-connector-java
-连接mysql数据库的配置
+连接mysql数据库的配置. 依次是mysql的驱动、Java Persistence API
 ```
 <dependency>
     <groupId>mysql</groupId>
