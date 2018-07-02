@@ -83,7 +83,15 @@ Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
 moment().startOf('month').toDate().getTime()
 1522512000000
 
+// Mongodb 的ISO date 比较
+localhost:3011/cloud_ranch/v2/api/userStorage?userName=张三&mobile=&startTime=2018-07-02&endTime=2018-07-29
 
+startTime && endTime && (condition.update_at = { $gt: new Date(`${startTime}`), $lt: new Date(`${endTime}`) });
+
+{ user_name: '张三',
+  update_at:
+   { '$gt': 2018-07-02T00:00:00.000Z,
+     '$lt': 2018-07-29T00:00:00.000Z } }
 
 
   
