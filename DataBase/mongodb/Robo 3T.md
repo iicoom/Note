@@ -59,5 +59,33 @@ db.inventory.update(
                    )
 
 
+去掉某个字段：
+db.getCollection('products').update({"_id" : ObjectId("5b2cba4252ea765316f1ca7a")}, { $unset: {"market_price_id":""} })
+
+db.inventory.find( { qty: { $in: [ 5, 15 ] } } )
+
+
+简单写法，如下，匹配到，只更新第一条记录
+db.swxx.update({"ZJHM":"xxxxxxxxxxxxxxxxxx"},{"ZJHM":"23060419730523301X"})
+
+后面加上可以更新多条的第四个参数，这时候需要用$set操作才能更新多条
+db.swxx.update({"ZJHM":"xxxxxxxxxxxxxxxxxx"},{$set:{"ZJHM":"23060419730523301X"}},false,true)
+
+update参数1：筛选条件
+
+参数2：更新哪些字段
+
+参数3：如果没有筛选到符合条件的记录，是否需要将参数2插入到集合中，默认false，不插入
+
+参数4：默认false，一次更新一条；true一次更新多条，此时参数2需要使用$set操作
+
+
+"mongoose": "^4.13.6",需要下面的写法：更新多条
+const oo = await ProductService.update({ name: { $in: MPname } }, { is_set_market_price: true }, { multi: true });
+console.log(oo);
 
 ```
+
+
+
+
