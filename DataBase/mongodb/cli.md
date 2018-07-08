@@ -28,14 +28,11 @@ msgtpls
 users
 
 ### 表操作
-> db.users.find()
 
-#### id查询
 ```
 > db.users.find({"_id" : ObjectId("5a93e047765b59282e21e872")})
 { "_id" : ObjectId("5a93e047765b59282e21e872"), "update_at" : ISODate("2018-02-26T10:24:07.376Z"), "create_at" : ISODate("2018-02-26T10:24:07.376Z"), "username" : "as@qq.com", "password" : "feca52c6f90bdc90f3b1e157acb36975dd1efa3660aaedf01763d3882230cc07", "salt" : "rOqh5Mo7WSQZXVUs7zbfJODW", "modify_mobile" : false, "is_set_pay_password" : false, "is_binding_verify" : false, "is_real_name" : false, "is_activate" : false, "need_upgrade" : false, "verified" : false, "__v" : 0 }
 ```
-
 
 ## Operators
 
@@ -50,74 +47,6 @@ $lte	Matches values that are less than or equal to a specified value.
 $ne		Matches all values that are not equal to a specified value.
 $nin	Matches none of the values specified in an array.
 ```
-
-## robo 3t GUI
-
-1. _id查询
-```
-#########################################
-#############  insert()  ################
-#########################################
-db.getCollection('accounts').insert({
-    "uid" : "5a28d8877d72587761cae36a",
-    "balance" : 1000000,
-    "income" : 1.0,
-    "isRebuild" : true,
-    "create_at" : 1429789134274.0,
-    "__v" : 0})
-
-#########################################
-############   find()  sort() ###########
-#########################################
-db.getCollection('users').find({ "_id" : ObjectId("54af3b6a48e6cd1c1be333e8") })
-db.getCollection('msgs').find({'to_user':'5a28d8877d72587761cae36a', "create_time":{ $gt:1521417600000}})
-
-按create_time降序
-*********** 排序 **************************
-在MongoDB中使用使用sort()方法对数据进行排序，sort()方法可以通过参数指定排序的字段，并使用 1 和 -1 来指定排序的方式，其中 1 为升序排列，而-1是用于降序排列。
-
-db.getCollection('msgs').find({'to_user':'5a28d8877d72587761cae36a', "create_time":{ $gt:1521417600000}}).sort( { "create_time": -1 } )
-
-db.getCollection('jifens').find({ uid: {'$in': [ '54df318e1c701cc40b708d89', '54df318e1c701cc40b708d89' ]} })
-
-
-#########################################
-#############   remove()  ################
-#########################################
-
-db.getCollection('batches').remove({"batch_code" : "030503"})
-
-
-#########################################
-#############   update()  ################
-#########################################
-
-db.getCollection('users').update({"mobile":"18231088178"},{$set:{"username":"嘿嘿嘿"}})
-
-更新操作
-Then, the following update() operation will set the sale field value to true where the tags field holds an array with at least one element matching either "appliances" or "school".
-
-db.inventory.update(
-                     { tags: { $in: ["appliances", "school"] } },
-                     { $set: { sale:true } }
-                   )
-
-
-```
-2. Oprator
-
-## Query 
-### Comparison Query Operators
-
-Name	Description
-$eq	Matches values that are equal to a specified value.
-$gt	Matches values that are greater than a specified value.
-$gte	Matches values that are greater than or equal to a specified value.
-$in	Matches any of the values specified in an array.
-$lt	Matches values that are less than a specified value.
-$lte	Matches values that are less than or equal to a specified value.
-$ne	Matches all values that are not equal to a specified value.
-$nin	Matches none of the values specified in an array.
 
 #### $in
 ```
@@ -186,7 +115,6 @@ qFindUsers({ _id: { $in: userids } });
     companies: [] } ]
 
 
-
 db.inventory.find ( { quantity: { $in: [20, 50] } } )
 
 ```
@@ -235,9 +163,7 @@ $regex	Selects documents where values match a specified regular expression.
 $text	Performs text search.
 $where	Matches documents that satisfy a JavaScript expression.
 
-
-
-### aggregation 集合体
+### aggregation 集合体 统计
 Aggregate constructor used for building aggregation pipelines. Do not instantiate this class directly, use Model.aggregate() instead.
 
 ```
@@ -288,7 +214,91 @@ db.getCollection('orders').aggregate([{
 }
 ```
 
+### $project (aggregation)
+```
+{
+  "_id" : 1,
+  title: "abc123",
+  isbn: "0001122223334",
+  author: { last: "zzz", first: "aaa" },
+  copies: 5
+}
+The following $project stage includes only the _id, title, and the author fields in its output documents:
+
+db.books.aggregate( [ { $project : { title : 1 , author : 1 } } ] )
+
+The operation results in the following document:
+{ "_id" : 1, "title" : "abc123", "author" : { "last" : "zzz", "first" : "aaa" } }
+
+
+Suppress _id Field in the Output Documents
+db.books.aggregate( [ { $project : { _id: 0, title : 1 , author : 1 } } ] )
+
+The operation results in the following document:
+{ "title" : "abc123", "author" : { "last" : "zzz", "first" : "aaa" } }
+```
+
+### $match (aggregation)¶
+```
+{ "_id" : ObjectId("512bc95fe835e68f199c8686"), "author" : "dave", "score" : 80, "views" : 100 }
+{ "_id" : ObjectId("512bc962e835e68f199c8687"), "author" : "dave", "score" : 85, "views" : 521 }
+{ "_id" : ObjectId("55f5a192d4bede9ac365b257"), "author" : "ahn", "score" : 60, "views" : 1000 }
+{ "_id" : ObjectId("55f5a192d4bede9ac365b258"), "author" : "li", "score" : 55, "views" : 5000 }
+{ "_id" : ObjectId("55f5a1d3d4bede9ac365b259"), "author" : "annT", "score" : 60, "views" : 50 }
+{ "_id" : ObjectId("55f5a1d3d4bede9ac365b25a"), "author" : "li", "score" : 94, "views" : 999 }
+{ "_id" : ObjectId("55f5a1d3d4bede9ac365b25b"), "author" : "ty", "score" : 95, "views" : 1000 }
+
+db.articles.aggregate(
+    [ { $match : { author : "dave" } } ]
+);
+
+The $match selects the documents where the author field equals dave, and the aggregation returns the following:
+
+{ "_id" : ObjectId("512bc95fe835e68f199c8686"), "author" : "dave", "score" : 80, "views" : 100 }
+{ "_id" : ObjectId("512bc962e835e68f199c8687"), "author" : "dave", "score" : 85, "views" : 521 }
+
+The following example selects documents to process using the $match pipeline operator and then pipes the results to the $group pipeline operator to compute a count of the documents:
+
+db.articles.aggregate( [
+  { $match: { $or: [ { score: { $gt: 70, $lt: 90 } }, { views: { $gte: 1000 } } ] } },
+  { $group: { _id: null, count: { $sum: 1 } } }
+] );
+
+{ "_id" : null, "count" : 5 }
+```
+
+### $group (aggregation)¶
+```
+{ "_id" : 1, "item" : "abc", "price" : 10, "quantity" : 2, "date" : ISODate("2014-03-01T08:00:00Z") }
+{ "_id" : 2, "item" : "jkl", "price" : 20, "quantity" : 1, "date" : ISODate("2014-03-01T09:00:00Z") }
+{ "_id" : 3, "item" : "xyz", "price" : 5, "quantity" : 10, "date" : ISODate("2014-03-15T09:00:00Z") }
+{ "_id" : 4, "item" : "xyz", "price" : 5, "quantity" : 20, "date" : ISODate("2014-04-04T11:21:39.736Z") }
+{ "_id" : 5, "item" : "abc", "price" : 10, "quantity" : 10, "date" : ISODate("2014-04-04T21:23:13.331Z") }
+
+Group by Month, Day, and Year
+
+db.sales.aggregate(
+   [
+      {
+        $group : {
+           _id : { month: { $month: "$date" }, day: { $dayOfMonth: "$date" }, year: { $year: "$date" } },
+           totalPrice: { $sum: { $multiply: [ "$price", "$quantity" ] } },
+           averageQuantity: { $avg: "$quantity" },
+           count: { $sum: 1 }
+        }
+      }
+   ]
+)
+
+{ "_id" : { "month" : 3, "day" : 15, "year" : 2014 }, "totalPrice" : 50, "averageQuantity" : 10, "count" : 1 }
+{ "_id" : { "month" : 4, "day" : 4, "year" : 2014 }, "totalPrice" : 200, "averageQuantity" : 15, "count" : 2 }
+{ "_id" : { "month" : 3, "day" : 1, "year" : 2014 }, "totalPrice" : 40, "averageQuantity" : 1.5, "count" : 2 }
+```
+
 ## Update
+```
+db.getCollection.get('batches').update({ batch_type: { $exist: false }}, { $set: { batch_type: 2 }})
+```
 ### Field Update Operators
 Name	Description
 $currentDate	Sets the value of a field to current date, either as a Date or a Timestamp.
@@ -367,5 +377,48 @@ The operation updates the dateEntered field:
 
 #### $set
 If the field does not exist, $set will add a new field with the specified value, provided that the new field does not violate a type constraint.
+```
+Given a books collection that includes the following documents:
+{
+  _id: 5,
+  item: "EFG222",
+  stock: 18,
+  info: { publisher: "0000", pages: 70 },
+  reorder: true
+}
+{
+  _id: 6,
+  item: "EFG222",
+  stock: 15,
+  info: { publisher: "1111", pages: 72 },
+  reorder: true
+}
+```
+The following operation specifies both the multi option and the upsert option. If matching documents exist, the operation updates all matching documents. If no matching documents exist, the operation inserts a new document.
+```
+db.books.update(
+   { item: "EFG222" },
+   { $set: { reorder: false, tags: [ "literature", "translated" ] } },
+   { upsert: true, multi: true }
+)
+
+The operation updates all matching documents and results in the following:
+{
+   "_id" : 5,
+   "item" : "EFG222",
+   "stock" : 18,
+   "info" : { "publisher" : "0000", "pages" : 70 },
+   "reorder" : false,
+   "tags" : [ "literature", "translated" ]
+}
+{
+   "_id" : 6,
+   "item" : "EFG222",
+   "stock" : 15,
+   "info" : { "publisher" : "1111", "pages" : 72 },
+   "reorder" : false,
+   "tags" : [ "literature", "translated" ]
+}
+```
 
 

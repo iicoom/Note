@@ -11,17 +11,24 @@
 * 显示简介：Command+I
 * 新建Finder窗口：Command+N
 * 关闭窗口： Command+W
+* 拖动窗口碰撞顶部 可以放到其他桌面
 
-* Command + Space  => spotlight 搜索
+* Command + Space  => spotlight 搜索 打开应用程序直接搜索，回车打来，速度快到爆
 * shift + Command + .  显示隐藏文件  再按隐藏
 
 * 强制退出 使用快捷键：Command+Option+Esc
 * 最小化当前窗口：Command+M
+* control + 关机键 弹出关机提示窗口
+
+* 有的小伙伴把移动硬盘或 U 盘接入到 Mac 电脑上，当把文件拷贝到移动硬盘时，会发现不能复制文件到移动硬盘。这里因为移动硬盘或 U 盘是使用 Windows 系统下的 NTFS 分区格式，而 Mac 系统原生是不支持这种格式的，也就是为什么不能向硬盘里拷贝资料的原因
 
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
+* 关闭当前标签 Command + w
+* 打开新的浏览器窗口 Command + n
 * 新窗口打开当前链接 Command+点击
 * Command+L 光标定位到地址栏
+* Command + shift + n 进入无痕浏览模式
 
 ### Sublime
 * 多行光标拖动 alt+鼠标
@@ -31,6 +38,7 @@
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
 * command + f: 当前文档搜索
 * command + shift + f: 全局搜索
+* Command + l 跳转到指定
 
 * control + j: 选相同结构
 * alt + 鼠标点选位置
@@ -40,6 +48,7 @@
 * webstorm preference - language&framework - JavaScript - 更改version
 
 * Editor - File and Code template 可以控制新创建文件的顶部注释
+* 关闭当前Tab Command+w  或者 shift+鼠标点击  intelliJ IDEA 同样适用
 
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
@@ -73,3 +82,8 @@
 ### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
 sudo spctl --master-disable
 
+
+### excel
+* 默认填充数据会递增填充，alt+鼠标拖动 避免递增
+* 输入 2018-06-03 这样的日期格式 在顶部栏输入'2018-06-03
+*

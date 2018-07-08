@@ -19,5 +19,6 @@ _.filter(users, ['active', false]);
 // The `_.property` iteratee shorthand.
 _.filter(users, 'active');
 // => objects for ['barney']
+
 console.log(_.filter(users, 'active'))
 //[ { user: 'barney', age: 36, active: true } ]
