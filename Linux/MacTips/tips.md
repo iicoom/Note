@@ -53,7 +53,7 @@
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
 * 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
-* 
+* Linux  生成构造方法 alt + insert  
 
 ### PyCharm
 * shift + enter 下一行
@@ -75,6 +75,8 @@
 
 ### Ubuntu
 * clear: qingping
+* Windows Tab 切换当前进行的窗口
+* ctrl + q  退出程序
 
 
 ### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
