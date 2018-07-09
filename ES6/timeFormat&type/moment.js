@@ -14,41 +14,39 @@ new Date()
 console.log(new Date().getTime())
 // => 1513907599685
 
-Date.parse(2017-12-15)
-631152000000
-
 Date.now()
 // 1521769579275
+
+new Date(new Date().setHours(0, 0, 0, 0))
+Mon Jul 09 2018 00:00:00 GMT+0800 (中国标准时间)
+new Date(new Date().setHours(0, 0, 0, 0)).getTime()
+1531065600000
+moment(1531065600000).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-09 00:00:00"
+
+/* Chrome 控制台可以用moment */
+new Date('2018-01-05').getTime()  // 默认是 08:00:00
+1515110400000
+moment(1515110400000).format('YYYY-MM-DD HH:mm:ss')
+"2018-01-05 08:00:00"
+
 moment(Date.now()).format('YYYY-MM-DD HH:mm:ss')
 "2018-03-23 09:46:01"
 moment('2018-02-25T13:31:09.645Z').format('YYYY-MM-DD HH:mm:ss')
 "2018-02-25 21:31:09"
 
-
-
-/* Chrome 控制台可以用moment */
-new Date('2018-01-05').getTime()  // 默认是 08:00:00
-1515110400000
-
-
 moment(1513326650913).format('YYYY-MM-DD HH-mm-ss')
 "2017-12-15 16-30-50"
-moment(1513326650913).format('YYYY-MM-DD HH:mm:ss')
-"2017-12-15 16:30:50"
-moment(1515110400000).format('YYYY-MM-DD HH:mm:ss')
-"2018-01-05 08:00:00"
+
 
 // 不写03竟然是12点
 new Date('2018-3-19').getTime()
 1521388800000
 new Date('2018-03-19').getTime()
 1521417600000
-moment(1521417600000).format('YYYY-MM-DD HH:mm:ss')
-"2018-03-19 08:00:00"
-moment(1521417600000).format('YYYY-MM-DD hh:mm:ss')
-"2018-03-19 08:00:00"
 
-// 大于12点的就他妈不一样了。。。！！！
+
+// 大于12点的就他妈不一样了。。。！！！ 注意HH与hh 的写法 24小时制与12小时制
 moment(1521388800000).format('YYYY-MM-DD hh:mm:ss')
 "2018-03-19 12:00:00"
 moment(1521388800000).format('YYYY-MM-DD HH:mm:ss')
@@ -82,6 +80,17 @@ Sun Apr 01 2018 00:00:00 GMT+0800 (CST)
 
 moment().startOf('month').toDate().getTime()
 1522512000000
+// 拿到本日初的时间及时间戳
+moment().startOf('day').toDate()
+Mon Jul 09 2018 00:00:00 GMT+0800 (中国标准时间)
+moment().endOf('day').toDate()
+Mon Jul 09 2018 23:59:59 GMT+0800 (中国标准时间)
+
+moment().endOf('day').toDate().getTime()
+1531151999999
+
+moment().endOf('day').valueOf()
+1531151999999
 
 // Mongodb 的ISO date 比较
 localhost:3011/cloud_ranch/v2/api/userStorage?userName=张三&mobile=&startTime=2018-07-02&endTime=2018-07-29
