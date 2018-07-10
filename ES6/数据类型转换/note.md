@@ -17,3 +17,35 @@ console.log('这是一个对象：', {})
 加入换行符看起来更清晰
 console.log('这是一个对象：\n', {})
 ```
+
+## 数据类型的判断
+if([]){console.log('dd')}
+=>dd
+
+if([]&& [].length !==0){console.log('dd')}
+=> nothing
+
+## 比较大小
+### 字符串类型的比较
+'120' <= '20'
+true
+
+'120' < '20'
+true
+
+'120' == '20'
+false
+
+'120' < '20' && '120' == '20'
+false
+
+### number类型比较
+120 < 20
+false
+120 <= 20
+false
+
+### string number混合
+120 <= '20'
+false
+

@@ -92,6 +92,16 @@ moment().endOf('day').toDate().getTime()
 moment().endOf('day').valueOf()
 1531151999999
 
+Defaulting to now, when nothing is passed:
+moment();  // current date and time
+moment().valueOf()
+1531123057095
+
+moment({hour: 5});  // today, 5:00:00.000
+moment({hour: 5}).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-09 05:00:00"
+moment({hour: 5, minute: 10, seconds: 20, milliseconds: 300});  // today, 5:10.20.300
+
 // Mongodb 的ISO date 比较
 localhost:3011/cloud_ranch/v2/api/userStorage?userName=张三&mobile=&startTime=2018-07-02&endTime=2018-07-29
 
