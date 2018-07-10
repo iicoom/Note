@@ -1,10 +1,24 @@
 ## 启动数据库
-mongodb/bin/mongod
+mongodb/bin/mongod 在mongodb的安装目录下运行mongod文件
 [官网启动server](http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/)
 
 ## CLI
-### 链接数据库
-mongodb bin/mongo
+### 链接数据库（本地）
+mongodb bin/mongo 在mongodb的安装目录下运行mongo文件
+
+### 连接数据库（远程）
+本地命令行执行
+➜  ~ mongo 101.201.192.165:27017
+MongoDB shell version v3.4.6
+connecting to: 101.201.192.165:27017
+MongoDB server version: 2.6.0
+WARNING: shell and server versions do not match
+
+//连接到指定的MongoDB数据库
+➜  ~ mongo 101.201.192.165:27017/test
+
+//指定用户名和密码连接到指定的MongoDB数据库
+mongo 192.168.1.200:27017/test -u user -p password
 
 ### show dbs
 > show dbs
@@ -47,78 +61,6 @@ $lte	Matches values that are less than or equal to a specified value.
 $ne		Matches all values that are not equal to a specified value.
 $nin	Matches none of the values specified in an array.
 ```
-
-#### $in
-```
-// 6种
-const userids = [ 
-  '54af3b6a48e6cd1c1be333e8',
-  '54df318e1c701cc40b708d89',
-  '54df318e1c701cc40b708d89',
-  '5a1667a32acb47cb135d5b0a',
-  '54df318e1c701cc40b708d89',
-  '54df318e1c701cc40b708d89',
-  '54df318e1c701cc40b708d89',
-  '54df318e1c701cc40b708d89',
-  '54af3b6a48e6cd1c1be333e8',
-  '54af3b6a48e6cd1c1be333e8',
-  '54df318e1c701cc40b708d89',
-  '5a28d8877d72587761cae36a',
-  '54af3b6a48e6cd1c1be333e8',
-  '54af3b6a48e6cd1c1be333e8',
-  '5a1667a32acb47cb135d5b0a',
-  '58b91199386bef4f3b7f3ad3',
-  '58b91199386bef4f3b7f3ad3',
-  '551e45eb6c5ac465b3cf5f0c',
-  '5a1667a32acb47cb135d5b0a',
-]
-
-qFindUsers({ _id: { $in: userids } });
-
-// 5种 因为数据库中 并没有 58b91199386bef4f3b7f3ad3的用户信息
-[ { _id: 54af3b6a48e6cd1c1be333e8,
-    nickname: '6112',
-    mobile: '13930196112',
-    role_type: 3,
-    __v: 2,
-    is_bindwx: true,
-    companies: [] },
-  { _id: 54df318e1c701cc40b708d89,
-    mobile: '13522689508',
-    role_type: 3,
-    is_activate: true,
-    need_upgrade: true,
-    create_time: 1423913358000 },
-  { _id: 551e45eb6c5ac465b3cf5f0c,
-    username: '云联牧场',
-    role_type: 3,
-    create_time: 1429789134092,
-    companies: [] },
-  { _id: 5a1667a32acb47cb135d5b0a,
-    mobile: '13717579101',
-    role_type: 3,
-    __v: 0,
-    is_set_pay_password: true,
-    is_binding_verify: true,
-    is_real_name: true,
-    is_activate: true,
-    need_upgrade: false,
-    create_time: 1511417763916,
-    companies: [] },
-  { _id: 5a28d8877d72587761cae36a,
-    mobile: '18231088178',
-    role_type: 3,
-    __v: 0,
-    is_activate: true,
-    need_upgrade: false,
-    create_time: 1512626311900,
-    companies: [] } ]
-
-
-db.inventory.find ( { quantity: { $in: [20, 50] } } )
-
-```
-
 
 ### Logical Query Operators
 Name	Description
@@ -166,53 +108,6 @@ $where	Matches documents that satisfy a JavaScript expression.
 ### aggregation 集合体 统计
 Aggregate constructor used for building aggregation pipelines. Do not instantiate this class directly, use Model.aggregate() instead.
 
-```
-q.nfcall(sheepService.aggregate,
-	[
-		{
-			$match:{ batch_id:batchId, user_id:{ $ne:config.yunfarm_uid} }
-		},
-		{
-			$group:{ _id:"$user_id", sheepIds:{ $addToSet:"$_id" } }
-		}
-	]
-)
-
-
-sheepService.aggregate,[{$match:{user_id:userId,batch_id:{$nin:idArrys},is_presenting:false}},{$group:{_id:"$batch_id",sheepNum:{$sum:1},sheepStatus:{$addToSet:"$sheep_status"}}}])
-
-Sheep.aggregate([
-  {
-    $match:{
-      user_id: userId,
-      batch_id: { $nin:idArrys },
-      is_presenting: false
-    }
-  },
-  {
-    $group:{
-      _id: "$batch_id",
-      sheepNum: {$sum:1},
-      sheepStatus:{$addToSet:"$sheep_status"}
-    }
-  }
-]);
-```
-
-```
-db.getCollection('orders').aggregate([{
-                      $match: {"user_id": "5a28d8877d72587761cae36a", "batch_id":"5afd266bf6ea1daf5cc94cca"}
-                    },{
-                      $group: {"_id": '$user_id', "sheep_num":{$sum: '$sheep_num'}}
-                    }])
-
-=>
-/* 1 */
-{
-    "_id" : "5a28d8877d72587761cae36a",
-    "sheep_num" : 3
-}
-```
 
 ### $project (aggregation)
 ```
@@ -420,5 +315,7 @@ The operation updates all matching documents and results in the following:
    "tags" : [ "literature", "translated" ]
 }
 ```
+
+
 
 
