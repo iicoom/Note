@@ -39,6 +39,7 @@
 * command + f: 当前文档搜索
 * command + shift + f: 全局搜索
 * Command + l 跳转到指定
+* Command + shift + 方向键选中行
 
 * control + j: 选相同结构
 * alt + 鼠标点选位置
