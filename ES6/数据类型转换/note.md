@@ -49,3 +49,25 @@ false
 120 <= '20'
 false
 
+
+## toString() 与 String()
+var num = 15;
+var n = num.toString();
+console.log(n)
+15
+
+
+String(1234)
+"1234"
+
+Number("1234")
+1234
+
+## && 的取值
+5.12 && 5.12.toFixed(1)
+"5.1"
+
+
+
+
+

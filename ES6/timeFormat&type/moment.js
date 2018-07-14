@@ -102,6 +102,20 @@ moment({hour: 5}).format('YYYY-MM-DD HH:mm:ss')
 "2018-07-09 05:00:00"
 moment({hour: 5, minute: 10, seconds: 20, milliseconds: 300});  // today, 5:10.20.300
 
+moment(1531301950772).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-11 17:39:10"
+
+moment(1531301950772).endOf('day').format('YYYY-MM-DD HH:mm:ss')
+"2018-07-11 23:59:59"
+
+moment(1531301950772).get('hour', 8).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-11 08:39:10"
+
+moment(1531301950772).hour(8).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-11 08:39:10"
+moment(1531301950772).hour(8).minute(0).second(0).millisecond(0).format('YYYY-MM-DD HH:mm:ss')
+"2018-07-11 08:00:00"
+
 // Mongodb 的ISO date 比较
 localhost:3011/cloud_ranch/v2/api/userStorage?userName=张三&mobile=&startTime=2018-07-02&endTime=2018-07-29
 
