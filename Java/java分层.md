@@ -42,6 +42,15 @@ Util通常来说是我们找不到合适的名字的时候的选择，Util就是
 @RequestMapping  配置URL映射
 
 
+## Sell 项目分层分析
+### dataobject => Entity => 与数据库字段相映射 
+### repository => Dao 
+继承 JpaRepository 传入 Entity和数据类型
+### service
+impl => service 的实现
+
+
+
 
 
 
