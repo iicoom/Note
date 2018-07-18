@@ -9,3 +9,9 @@ reg.test('https://m.yunfarm.cn:3000')
 true
 reg.test('https://m.yunfarm.cn:a')
 false
+
+## 字符串检测
+/http/.test('kjlkjk')
+false
+/http/.test('http')
+true
