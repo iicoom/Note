@@ -1,9 +1,18 @@
 ## React
 ### 生命周期
-* componentWillReceiveProps
+-> constructor()
+-> componentWillMount()
+-> render()
+// 然后构造 DOM 元素插入页面
+-> componentDidMount()
+// ...
+// 即将从页面中删除
+-> componentWillUnmount()
+// 从页面中删除
 
-* componentWillUnmount
-
+* componentWillMount：组件挂载开始之前，也就是在组件调用 render 方法之前调用。
+* componentDidMount：组件挂载完成以后，也就是 DOM 元素已经插入页面后调用。
+* componentWillUnmount：组件对应的 DOM 元素从页面中删除之前调用。
 
 ## React-Redux
 简单说，如果你的UI层非常简单，没有很多互动，Redux 就是不必要的，用了反而增加复杂性。
