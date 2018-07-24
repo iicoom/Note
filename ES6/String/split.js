@@ -43,3 +43,6 @@ console.log( parseUrl(activityUrl) )
   skip: '0',
   limit: '15' }
 */
+
+'1000'.split('')
+(4) ["1", "0", "0", "0"]

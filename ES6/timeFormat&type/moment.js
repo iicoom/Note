@@ -11,6 +11,8 @@ console.log( Date.parse('2017-12-15T08:30:50.913Z'))
 // 浏览器控制台
 new Date()
 // Fri Mar 23 2018 09:47:52 GMT+0800 (CST)
+new Date() // Js取的当前系统时间
+// Tue Jul 24 2018 11:44:02 GMT+0200 (中欧夏令时间)
 console.log(new Date().getTime())
 // => 1513907599685
 
