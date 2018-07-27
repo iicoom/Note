@@ -17,8 +17,10 @@ WARNING: shell and server versions do not match
 //连接到指定的MongoDB数据库
 ➜  ~ mongo 101.201.192.165:27017/test
 
-//指定用户名和密码连接到指定的MongoDB数据库
+//指定用户名和密码连接到指定的MongoDB数据库test
 mongo 192.168.1.200:27017/test -u user -p password
+
+
 
 ### show dbs
 > show dbs

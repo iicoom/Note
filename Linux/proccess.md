@@ -37,9 +37,18 @@ PID TTY      STAT   TIME COMMAND
 ```
 
 3. ps -ef 
+```
 [root@document java_projects]# ps -ef | grep java
 root      1076     1  0 May22 ?        00:13:21 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
 root     28329 28225  0 11:46 pts/0    00:00:00 grep java
+
+
+// 可以看到程序的目录
+[root@document ~]# ps -ef | grep java
+root      2645     1  0 Jul24 ?        00:04:06 java -jar /mnt/java_projects/orderConsume.jar --server.port=20000 --spring.profiles.active=functional
+root     10817 10796  0 11:14 pts/0    00:00:00 grep java
+root     28627     1  0 May29 ?        01:44:15 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
+```
 
 4. kill 
 kill 3268

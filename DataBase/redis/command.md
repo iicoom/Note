@@ -125,6 +125,18 @@ hash
 2904) "task_consume_registerFinish:47791965e364175fe8c344747f7c7aea"
 2905) "sid:uz50NSXXKgZkPKuA7uQl8ckntYsLI8Bm"
 
+redis> keys *o*
+1) "four"
+2) "two"
+3) "one"
+
+10.101.111.185:6379[5]> keys *task_consume_importSheep*
+1) "task_consume:task_consume_importSheep:jobs"
+2) "task_consume:jobs:task_consume_importSheep:failed"
+3) "task_consume:jobs:task_consume_importSheep:inactive"
+10.101.111.185:6379[5]> type "task_consume:task_consume_importSheep:jobs"
+list
+
 2. get key
 ```
 101.201.197.163:6379> get sid:-_D4KmjM7bd79KpH1ECoMWrViyu6CQ_z

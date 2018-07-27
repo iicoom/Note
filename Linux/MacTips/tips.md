@@ -10,6 +10,7 @@
 
 * 显示简介：Command+I
 * 新建Finder窗口：Command+N
+* Finder窗口返回上级 Command+[ 或 Command+UP
 * 关闭窗口： Command+W
 * 拖动窗口碰撞顶部 可以放到其他桌面
 
