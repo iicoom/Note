@@ -39,4 +39,56 @@ var plusOne = x => x + 1;
 arr.map(plusOne) // [2, 3, 4, 5]
 
 
+// 例 2018-07-30
+var numbers = [65, 44, 12, 4];
+
+function getSum(total, num) {
+	console.log(total, num);
+    return total + num;
+}
+numbers.reduce(getSum)
+65 44
+109 12
+121 4
+125
+
+numbers.reduceRight(getSum)
+4 12
+16 44
+60 65
+125
+
+// lodash 中的reduce 可以扩展到collection使用
+_.reduce([1, 2], function(sum, n) {
+  return sum + n;
+}, 0);
+// => 3
+
+
+_.reduce({ 'a': 1, 'b': 2, 'c': 1 }, function(result, value, key) {
+  (result[value] || (result[value] = [])).push(key);
+  return result;
+}, {});
+// => { '1': ['a', 'c'], '2': ['b'] } (iteration order is not guaranteed)
+
+result["1"] || result["1"] = [];
+// => Uncaught ReferenceError: Invalid left-hand side in assignment
+result["1"] || (result["1"] = []);
+[]
+console.log(result);
+VM135:1 {1: Array(0)}1: []__proto__: Object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
