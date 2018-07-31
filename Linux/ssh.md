@@ -137,9 +137,30 @@ ssh -fCNL
 ```
 
 ### 通过ssh tunnel端口映射
-1. 登录到内网虚拟机服务器 ssh -p 1125 -fNR 3838:localhost:22 litan@101.201.197.163（意思是把内网localhost:22映射到公网IP服务器101.201.197.163的3838端口）
+1. 登录到内网虚拟机服务器 ssh -p 1125 -fNR 3838:localhost:22 litan@101.201.197.165（意思是把内网localhost:22映射到公网IP服务器101.201.197.165的3838端口）
 2. 然后可以在任何接入Internet的设备上访问内网服务器localhost。命令如下3
-3. ssh -p 3838 fucker@101.201.197.163
+3. ssh -p 3838 fucker@101.201.197.165
+
+4. 登录到内网虚拟机服务器 ssh -p 1125 -fNR 3838:localhost:8000 litan@101.201.197.165
+5. 可以在101.201.197.165上配合Nginx使用 将163的3838端口指向 内网的应用程序8000
+```
+Nginx:
+
+server {
+                access_log      /mnt/nginx_log/logs/admin.dev.yunfarm.cn.log;
+                error_log       /mnt/nginx_log/logs/admin.dev.yunfarm.cn.err.log;
+                listen          80;
+                server_name     admin.dev.yunfarm.cn admin.dev.yfarm.net;
+                proxy_set_header Host $host;
+                proxy_set_header REMOTE-HOST $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                location / {
+                        proxy_pass http://127.0.0.1:3838;
+                }
+        }
+
+```
 
 ### AutoSSH 自动重连
 使用SSH的方式不够稳定，使用AutoSSH可以自动在连接断开时自动重连，再把AutoSSH加入系统服务自动启动，则可以做到稳定的连接。
@@ -149,7 +170,7 @@ sudo apt-get install autossh
 ```
 2. 执行AutoSSH命令
 ```
-autossh -M 5555 -NR 80:127.0.0.1:7777 root@114.114.114.114
+autossh -M 5555 -NR 3838:127.0.0.1:8000 root@101.201.197.165
 ```
 -M：在5555端口上监听连接的变化，只要断开就重连 
 少了-f 参数，因为AutoSSH本来就在后台运行
