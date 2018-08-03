@@ -15,3 +15,12 @@ false
 false
 /http/.test('http')
 true
+
+/扣除/.test('扣除ldsalka')
+true
+/扣除/.test('扣ldsalka')
+false
+
+正则表达式里不要引号
+/'扣除'/.test('扣ldsalka')
+false
