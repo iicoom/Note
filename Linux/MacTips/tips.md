@@ -65,6 +65,7 @@
 * 定位到方法+ alt+command+b: 查看引用 
 * 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
 * Linux  生成构造方法 alt + insert  
+* 在某个目录下创建新文件： 光标定位到该目录 Command+N
 
 ### PyCharm
 * shift + enter 下一行
