@@ -113,15 +113,7 @@ log.file  logs  member.jar  member.jar.bak  start_member.sh
 
 当前时间   系统连续运行时间  当前用户连接数  系统平均负载（最近1分钟、5分钟、15分钟）
 ```
-#### w 
-查看当前登录用户 在做什么
-[xiaomao@iZ258wvzn92Z task_consume]$ w
- 17:57:44 up 262 days,  5:41,  4 users,  load average: 1.03, 2.40, 5.53
-USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
-xiaoming pts/1    121.69.73.122    09:56    5.00s  0.16s  0.16s -bash
-flt      pts/2    121.69.73.122    15:18    1:24m  0.02s  0.02s -bash
-xiaomao  pts/4    121.69.73.122    Wed15    0.00s  0.03s  0.00s w
-litan    pts/0    121.69.73.122    15:43    1.00s  0.14s  0.14s -bash
+
 #### free
 free - Display amount of free and used memory in the system
 ```

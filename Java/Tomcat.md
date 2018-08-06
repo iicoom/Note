@@ -73,3 +73,6 @@ exit 0
 			2)  tomcat stop
    		3)  tomcat restart 
 ```
+
+## IntelliJ IDEA配置Tomcat
+https://www.cnblogs.com/Miracle-Maker/articles/6476687.html
