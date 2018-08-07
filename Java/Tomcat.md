@@ -76,3 +76,8 @@ exit 0
 
 ## IntelliJ IDEA配置Tomcat
 https://www.cnblogs.com/Miracle-Maker/articles/6476687.html
+
+Warning: No artifacts marked for deployment
+
+需要设置Deployment
+

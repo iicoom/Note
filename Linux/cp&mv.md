@@ -15,3 +15,9 @@ cp -r myAntPro/. antdPro
 ### mv
 将apache-tomcat-8.5.9.tar.gz文件移动到/usr/local/下
 sudo mv /Users/feng/Downloads/apache-tomcat-8.5.9.tar.gz /usr/local/
+
+#### 出现替换的情况
+[root@iZ258wvzn92Z target]# ls
+butchershop-busi  butchershop-busi.war  classes  generated-sources  maven-archiver  maven-status
+[root@iZ258wvzn92Z target]# mv butchershop-busi.war /mnt/tomcat/current/webapps/
+mv: overwrite `/mnt/tomcat/current/webapps/butchershop-busi.war'? Y
