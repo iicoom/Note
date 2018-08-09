@@ -20,6 +20,12 @@ WARNING: shell and server versions do not match
 //指定用户名和密码连接到指定的MongoDB数据库test
 mongo 192.168.1.200:27017/test -u user -p password
 
+[使用用户管理员帐户连接和授权](https://www.jianshu.com/p/27fffcd68afe)
+➜  ~ mongo 47.92.153.154:90100/Ranch -u Ranch -p yunfarm_000 --authenticationDatabase "admin"
+MongoDB shell version v3.4.6
+connecting to: mongodb://47.94.154.154:9011/Ranch
+MongoDB server version: 2.6.5
+WARNING: shell and server versions do not match
 
 
 ### show dbs
