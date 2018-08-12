@@ -66,6 +66,7 @@
 * 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
 * Linux  生成构造方法 alt + insert  
 * 在某个目录下创建新文件： 光标定位到该目录 Command+N
+* product_not_exist => PRODUCT_NOT_EXIST : Command+shift+U
 
 ### PyCharm
 * shift + enter 下一行
