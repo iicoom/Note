@@ -68,6 +68,10 @@
 * 在某个目录下创建新文件： 光标定位到该目录 Command+N
 * product_not_exist => PRODUCT_NOT_EXIST : Command+shift+U
 
+* Intellij IDEA 提示Cannot resolve symbol 'log' 的解决方法
+https://blog.csdn.net/gao_shuang/article/details/79494002
+Lombok Plugin 的作用 http://plugins.jetbrains.com/plugin/6317-lombok-plugin
+
 ### PyCharm
 * shift + enter 下一行
 * ctrl + shift + arrow 移动行
