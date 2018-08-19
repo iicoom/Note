@@ -72,6 +72,17 @@
 https://blog.csdn.net/gao_shuang/article/details/79494002
 Lombok Plugin 的作用 http://plugins.jetbrains.com/plugin/6317-lombok-plugin
 
+* Inferred type 'S' 解决办法
+报错 Inferred type 'S' for type parameter 'S' is not within its bound; 解决办法
+Inferred type 'S' for type parameter 'S' is not within its bound;
+
+should extends xxxxxx
+出现这种问题的原因是，springboot 版本问题，将 2。1 版本换成 1。5。4 版本。
+或者是将代码改写一下
+return girlRepository.findOne(id);
+=> 改为
+return girlRepository.findById(id).orElse(null);
+
 ### PyCharm
 * shift + enter 下一行
 * ctrl + shift + arrow 移动行
