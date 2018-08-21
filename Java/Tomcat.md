@@ -81,3 +81,29 @@ Warning: No artifacts marked for deployment
 
 需要设置Deployment
 
+## Linux tomcat 部署
+### 日志目录 cd /mnt/tomcat/apache-tomcat-8.0.36
+ls
+bin  logs
+
+  - 进入项目目录，执行git命令拉取代码 
+      + cd /mnt/projects/cloud-butchershop
+      + git pull 
+    - 执行mvn命令 (需要root权限)
+      - mvn install -Dmaven.test.skip=true
+      - 不执行测试用例，也不编译测试用例类
+    - 停止tomcat 或 kill -9 端口id
+      - sh shutdown.sh 
+    - mv butchershop-busi/target/butchershop-busi.war /mnt/tomcat/current/webapps/
+    
+    - cd /mnt/tomcat/apache-tomcat-8.0.36/bin 重启tomcat,查看是否启动成功
+      - sh startup.sh 
+
+
+
+
+
+
+
+
+

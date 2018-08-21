@@ -83,6 +83,9 @@ return girlRepository.findOne(id);
 => 改为
 return girlRepository.findById(id).orElse(null);
 
+* 断点调试
+	在需要出打断点，使用debug方式运行方法，程序停在断点处会显示出所有变量的值
+
 ### PyCharm
 * shift + enter 下一行
 * ctrl + shift + arrow 移动行
