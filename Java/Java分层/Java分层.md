@@ -25,6 +25,79 @@ DAO，数据存取对象。通常我们会遇到很多要和数据库打交道�
 
 这些可以独自完成某一方面业务功能，高度内聚，可以独立部署测试的模块，我们可以称之为Business Service，业务服务。它同样具有服务的特征，抽象、独立和稳定。一个会员系统内部的逻辑可能非常复杂（积分规则，分级规则，风险控制，行为数据），但是在其外部，会员的概念可以非常简单。
 
+* service 都有对应的implement 如：OrderService 且类型为interface，需要一个OrderService的实现类 OrderServiceImpl
+```
+// OrderService
+public interface OrderService {
+
+    /**
+     * 按条件分页查询
+     * @param queryDTO
+     * @param pg_index
+     * @param pg_count
+     * @param sort_type
+     * @return
+     */
+    public Page<OrderDTO> findByPage(OrderQueryDTO queryDTO, int pg_index, int pg_count, String sort_type);
+
+
+    /**
+     * 根据order_id获取订单详情
+     * @param order_id
+     * @return
+     */
+    public OrderDTO get(Integer order_id);
+}
+
+// OrderServiceImpl
+@Service("orderService")
+public class OrderServiceImpl implements OrderService {
+	@Resource
+	private OrderDao orderDao;
+	@Resource
+	private OrderCommonDao orderCommonDao;
+	@Resource
+	private StoreDao storeDao;
+	@Resource
+	private MemberDao memberDao;
+	@Resource
+	private OrderGoodsDao orderGoodsDao;
+	@Resource
+	private GoodsDao goodsDao;
+	@Resource
+	private GoodsCommonDao goodsCommonDao;
+	@Resource
+	private ExpressDao expressDao;
+
+	@Override
+	public Page<OrderDTO> findByPage(OrderQueryDTO queryDTO, int pg_index, int pg_count, String sort_type) {
+		PageRequest pageRequest = buildPageRequest(pg_index, pg_count, sort_type);
+		Specification<OrderEntity> spec = buildSpecification(queryDTO);
+		Page<OrderEntity> page = orderDao.findAll(spec, pageRequest);
+		List<OrderDTO> orderDTOList = OrderDataConvert.entityToDto(page.getContent());
+		if (null != queryDTO.order_type && queryDTO.order_type == 1) {
+			for (OrderDTO orderDTO : orderDTOList) {
+				// 查询子订单
+				List<OrderEntity> orderChildrensEntity = orderDao.findByPayOrderSn(orderDTO.order_sn);
+				if (null != orderChildrensEntity) {
+					List<OrderDTO> orderChildrens = OrderDataConvert.entityToDto(orderChildrensEntity);
+					List<OrderDTO> orderChildrensExtend = orderExtendList(orderChildrens);
+					orderDTO.orderChildrens = orderChildrensExtend;
+				}
+			}
+		}
+		for (OrderDTO orderDTO : orderDTOList) {
+			if (null != orderDTO.pay_order_sn && orderDTO.order_state > 1) {
+				OrderDTO payOrderDTO = findByOrderSn(orderDTO.pay_order_sn);
+				orderDTO.payment_time = payOrderDTO.payment_time;
+			}
+		}
+		List<OrderDTO> orderExtend = orderExtendList(orderDTOList);
+		return new PageImpl<OrderDTO>(orderExtend, pageRequest, page.getTotalElements());
+	}
+}
+```
+
 ### Util
 Util通常来说是我们找不到合适的名字的时候的选择，Util就是工具，在做项目的时候我们总会遇到一些奇奇怪怪的小功能或者重复的代码需要提取。像是URL编码或者解码（当然这个类库通常会提供，不过就以 .NET Framework 为例，提供这个方法的类型名称叫做HttpUtility），或是自创的加密签名算法等等。
 
