@@ -31,3 +31,7 @@
 基本类型：char 二进制位数：16
 包装类：java.lang.Character
 最小值：Character.MIN_VALUE=0
+
+八种基本数据类型：int、short、float、double、long、boolean、byte、char。
+
+封装类分别是：Integer、Short、Float、Double、Long、Boolean、Byte、Character。
