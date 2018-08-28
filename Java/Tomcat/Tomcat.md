@@ -1,3 +1,7 @@
+> Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。
+Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。不过，Tomcat处理静态HTML的能力不如Apache服务器。目前Tomcat最新版本为9.0。
+
+
 ## Tomcat for Mac
 1、检查安装环境
       可以在shell终端运行如下命令查看是否安装了java，以及JDK的版本：
@@ -80,4 +84,30 @@ https://www.cnblogs.com/Miracle-Maker/articles/6476687.html
 Warning: No artifacts marked for deployment
 
 需要设置Deployment
+
+## Linux tomcat 部署
+### 日志目录 cd /mnt/tomcat/apache-tomcat-8.0.36
+ls
+bin  logs
+
+  - 进入项目目录，执行git命令拉取代码 
+      + cd /mnt/projects/cloud-butchershop
+      + git pull 
+    - 执行mvn命令 (需要root权限)
+      - mvn install -Dmaven.test.skip=true
+      - 不执行测试用例，也不编译测试用例类
+    - 停止tomcat 或 kill -9 端口id
+      - sh shutdown.sh 
+    - mv butchershop-busi/target/butchershop-busi.war /mnt/tomcat/current/webapps/
+    
+    - cd /mnt/tomcat/apache-tomcat-8.0.36/bin 重启tomcat,查看是否启动成功
+      - sh startup.sh 
+
+
+
+
+
+
+
+
 

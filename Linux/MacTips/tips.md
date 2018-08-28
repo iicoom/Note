@@ -29,6 +29,10 @@
 
 * 有的小伙伴把移动硬盘或 U 盘接入到 Mac 电脑上，当把文件拷贝到移动硬盘时，会发现不能复制文件到移动硬盘。这里因为移动硬盘或 U 盘是使用 Windows 系统下的 NTFS 分区格式，而 Mac 系统原生是不支持这种格式的，也就是为什么不能向硬盘里拷贝资料的原因
 
+* 选中文件 shift配合上下箭头操作
+
+* 查看连接过的无线密码：钥匙串访问-种类-密码-拷贝-验证用户名密码即可
+
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
 * 关闭当前标签 Command + w
@@ -84,6 +88,19 @@ should extends xxxxxx
 return girlRepository.findOne(id);
 => 改为
 return girlRepository.findById(id).orElse(null);
+
+* 断点调试
+	在需要出打断点，使用debug方式运行方法，程序停在断点处会显示出所有变量的值
+
+* 设置作者注释：preference - editor - file and template - includes - fileHeader 添加如下内容：
+```
+/** 
+ * Created by ${USER} on ${DATE} ${TIME}
+ */ 
+``` 
+
+* 关闭打开侧边栏：Command + 1
+
 
 ### PyCharm
 * shift + enter 下一行
