@@ -72,6 +72,8 @@
 https://blog.csdn.net/gao_shuang/article/details/79494002
 Lombok Plugin 的作用 http://plugins.jetbrains.com/plugin/6317-lombok-plugin
 
+linux setting plugin
+
 * Inferred type 'S' 解决办法
 报错 Inferred type 'S' for type parameter 'S' is not within its bound; 解决办法
 Inferred type 'S' for type parameter 'S' is not within its bound;
