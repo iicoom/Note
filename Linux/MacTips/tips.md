@@ -101,6 +101,8 @@ return girlRepository.findById(id).orElse(null);
 
 * 关闭打开侧边栏：Command + 1
 
+* Java Interface 上 option+command+鼠标点击 查看接口的实现类
+
 
 ### PyCharm
 * shift + enter 下一行
