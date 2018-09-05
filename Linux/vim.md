@@ -8,38 +8,38 @@
 
 * ：set nu 显示行号   ：set nonumber 关闭行号
 
-### 删除行与多行
-不要在INSERT模式下使用,注意一行的长度
+> 不要在INSERT模式下使用,注意一行的长度
+### 跳转到指定行
+nG ----n为行数，该命令立即使光标跳到指定行。
 
-光标所在行，dd
-光标所在行以下的N行，Ndd
+### 删除行与多行
+光标所在行，dd （删除光标所在行）
+光标所在行以下的N行，Ndd(包括当前行)
+
+### 复制行与多行
+光标所在行，yy (复制当前行，按p 在当前行下一行插入复制的内容)
+光标所在行，Nyy (复制当前行，包括当前行以下 N行内容，光标定位到当前行以下N行，p，复制剪贴板内容)
+```
+ 68         location /api/ {
+ 69             proxy_pass http://101.201.197.163/api/;
+ 70             proxy_redirect default;
+ 71             proxy_set_header Host $host;
+ 72             proxy_set_header REMOTE-HOST $remote_addr;
+ 73             proxy_set_header X-Real-IP $remote_addr;
+ 74             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+ 75         }
+ 76         location /api/ {
+ 77             proxy_pass http://101.201.197.163/api/;
+ 78             proxy_redirect default;
+ 79             proxy_set_header Host $host;
+ 80             proxy_set_header REMOTE-HOST $remote_addr;
+ 81             proxy_set_header X-Real-IP $remote_addr;
+ 82             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+ 83         }
+ ```
+ 以上在68行 输入 8yy 然后75G 跳转到75行 按p 粘贴复制到的内容
 
 ```
-VI中的多行删除与复制
-法一：
-单行删除，：1（待删除行）d
-多行删除 ，：1,10d
-法二：
-光标所在行，dd
-光标所在行以下的N行，Ndd
-方法1：
-光标放到第6行，
-输入：2yy
-光标放到第9行，
-输入：p
-此方法适合复制少量行文本的情况，复制第6行（包括）下面的2行数据，放到第9行下面。
-方法2：
-命令行模式下输入
-6,9 co 12
-复制第6行到第9行之间的内容到第12行后面。
-方法3：
-有时候不想费劲看多少行或复制大量行时，可以使用标签来替代
-光标移到起始行，输入ma
-光标移到结束行，输入mb
-光标移到粘贴行，输入mc
-然后 :'a,'b co 'c 把 co 改成 m 就成剪切了
-要删除多行的话，可以用 ：5, 9 de
-
 VIM常用命令
 常用命令
 
