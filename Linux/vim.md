@@ -39,6 +39,30 @@ nG ----n为行数，该命令立即使光标跳到指定行。
  ```
  以上在68行 输入 8yy 然后75G 跳转到75行 按p 粘贴复制到的内容
 
+## 块模式（visual block）
+按ESC进入命令行模式, 按Ctrl+v,进入区块模式;
+在行首使用上下选择需要注释的行
+在(大写)环境下,按下键盘”I”键,进入插入模式;
+然后输入注释符号(“//”, “#”等);
+完成输入后按下”ESC”确定修改
+```
+location / {
+    root   html;
+    index  index.html index.htm;
+}
+
+
+#location / {
+#    root   html;
+#    index  index.html index.htm;
+#}
+
+```
+进入区块模式;
+选择要取消注释的行;
+按下”x”或者”d”.
+
+## 待开发
 ```
 VIM常用命令
 常用命令

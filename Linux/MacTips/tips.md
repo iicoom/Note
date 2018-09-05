@@ -151,6 +151,7 @@ return girlRepository.findById(id).orElse(null);
 * 右键Tab Duplicate 可以完全复制一个窗口 包括路径
 
 * Tab 查看候选命令
+* Command+/ 绚丽的定位光标位置
 
 ### Ubuntu
 * clear: qingping
