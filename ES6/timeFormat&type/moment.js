@@ -16,6 +16,9 @@ new Date() // Js取的当前系统时间
 console.log(new Date().getTime())
 // => 1513907599685
 
+console.log(new Date('2018-09-12 23:34:20').getTime())
+// => 1536766460000
+
 Date.now()
 // 1521769579275
 
