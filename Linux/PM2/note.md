@@ -1,5 +1,32 @@
 > pm2 = P (rocess) M (anager)2，是可以用于生产环境的Nodejs的进程管理工具，并且它内置一个负载均衡。它不仅可以保证服务不会中断一直在线，并且提供0秒reload功能，还有其他一系列进程管理、监控功能。
 
+Forever Alive
+Once started, your app is forever alive, auto-restarting across crashes and machine restarts.
+This is as simple as running:
+```
+pm2 start app.js
+```
+
+## Ecosystem File
+The object has two properties:
+* apps, an array that contains the configuration for each process
+* deploy, an object that contains the configuration for the deployments
+```
+module.exports = {
+  apps: [{}, {}],
+  deploy: {}
+}
+```
+
+## Installation
+With yarn:
+
+yarn global add pm2
+
+With npm:
+
+npm install pm2 -g
+
 ## 首次部署
 pm2 start app.js 
 ┌──────────┬────┬──────┬───────┬────────┬─────────┬────────┬─────┬───────────┬──────┬──────────┐
@@ -19,6 +46,7 @@ pm2 start app.js -i max      # Same as above, but deprecated.
 
 #### Listing
 
+pm2 ls                 # Display all processes status
 pm2 list               # Display all processes status
 pm2 jlist              # Print process list in raw JSON
 pm2 prettylist         # Print process list in beautified JSON
@@ -30,6 +58,10 @@ pm2 monit              # Monitor all processes
 #### Logs
 
 pm2 logs [--raw]       # Display all processes logs in streaming
+
+**only app logs**
+pm2 logs app
+
 pm2 flush              # Empty all log files
 pm2 reloadLogs         # Reload all logs
 
@@ -119,5 +151,50 @@ Or:
 pm2 reload process.json
 ```
 
-## 日志切割
+## 日志管理（路径、切割）
+```
+module.exports = {
+  apps: [{
+      name: 'app',
+      script: 'app.js',
+      output: './out.log',
+      error: './error.log',
+	    log: './combined.outerr.log',
+    }]
+}
+```
+output is only standard output (console.log)
+error is only error output (console.error)
+log combines output and error, disabled by default
+
+### Rotating Logs
+If you want to split logs into multiple files instead of a big one, use the logrotate:
+```
+pm2 install pm2-logrotate
+```
+
+### Merging Logs
+In cluster mode, each cluster has his own log files. You can use the merge options to gather all logs into a single file:
+```
+module.exports = {
+  apps: [{
+      name: 'app',
+      script: 'app.js',
+      output: './out.log',
+      error: './error.log',
+      merge_logs: true,
+    }]
+}
+```
+
 [pm2按日期切割日志](https://cnodejs.org/topic/563abbc07320b237394c5a5e)
+
+
+
+
+
+
+
+
+
+

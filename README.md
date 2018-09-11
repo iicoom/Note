@@ -2,6 +2,8 @@
 something important
 
 ### 常见装逼词汇
+* daemon 守护进程(daemon)是一类在后台运行的特殊进程，用于执行特定的系统任务。很多守护进程在系统引导的时候启动，并且一直运行直到系统关闭。
+
 * “i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
 
 * e.g. 

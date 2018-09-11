@@ -138,4 +138,12 @@ beta: 测试版
 rc: 即将作为正式版发布
 lts: 长期维护但说实话，知名的项目没有几个是遵守上述规则的。商业软件完全取决于老板的意思，有时候还会配合宣传任意地来更改版本号。而历史悠久的开源项目，往往会有自己的规则，例如Linux用奇数版本表示开发板，偶数版本表示正式版等等。
 
+## 我们是怎么做Code Review的
+https://www.cnblogs.com/wenhx/p/How-We-Code-Review.html
+
+## Pull Request
+http://blog.jobbole.com/76854/
+
+## 持续集成是什么？
+http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html
 
