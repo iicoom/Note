@@ -19,6 +19,33 @@ true
 !![1, 2]
 true
 
+!![]
+true
+
+!!''
+false
+
+!!{}
+true
+
+!!null
+false
+
+!!undefined
+false
+
+[1,2,3].indexOf(1)
+0
+[1,2,3].indexOf(3)
+2
+[1,2,3].indexOf(2.5)
+-1
+
+'123asaaf='.indexOf('=')
+8
+'123asaaf='.indexOf('a')
+3
+
 -------------------
 .get('/session/loginState', ctx => {
             ctx.body = { isLogin: !!ctx.session.userInfo };
