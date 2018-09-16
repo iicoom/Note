@@ -98,6 +98,8 @@ brew cleanup mysql
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
 * 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
+* 生成interface中的override control + enter 选择对应的方法
+
 * Linux  生成构造方法 alt + insert  
 * 在某个目录下创建新文件： 光标定位到该目录 Command+N
 * product_not_exist => PRODUCT_NOT_EXIST : Command+shift+U
@@ -131,7 +133,7 @@ return girlRepository.findById(id).orElse(null);
 
 * 关闭打开侧边栏：Command + 1
 
-* Java Interface 上 option+command+鼠标点击 查看接口的实现类
+* Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
 
 ### PyCharm
