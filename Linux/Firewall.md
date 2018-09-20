@@ -1,3 +1,60 @@
+## iptables rules
+
+```
+[root@vultr ~]# iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+
+查看更精确的信息
+iptables -vnL
+
+打开80 端口：
+[root@vultr ~]# iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
+然后保存：
+[root@vultr ~]# service iptables save
+
+centos7 可能会出现下面问题：
+The service command supports only basic LSB actions (start, stop, restart, try-restart, reload, force-reload, status). For other actions, please try to use systemctl.
+
+解决方法：https://www.cnblogs.com/love3556/p/5923392.html
+
+systemctl stop firewalld
+systemctl mask firewalld
+
+// Then, install the iptables-services package:
+
+yum install iptables-services
+// Enable the service at boot-time:
+
+systemctl enable iptables
+// Managing the service
+
+// systemctl [stop|start|restart] iptables
+// Saving your firewall rules can be done as follows:
+
+service iptables save
+// or
+
+/usr/libexec/iptables/iptables.init save
+
+重启
+[root@vultr ~]# service iptables restart
+
+查看状态
+[root@vultr ~]# iptables -vnL
+Chain INPUT (policy ACCEPT 26 packets, 2850 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 23 packets, 3920 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+```
+
+
 [The Beginner’s Guide to iptables, the Linux Firewall](https://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/)
 
 > Iptables is an extremely flexible firewall utility built for Linux operating systems. Whether you’re a novice Linux geek or a system administrator, there’s probably some way that iptables can be a great use to you. Read on as we show you how to configure the most versatile Linux firewall.
@@ -143,4 +200,7 @@ iptables -F
 
 
 [25 Useful IPtable Firewall Rules Every Linux Administrator Should Know](https://www.tecmint.com/linux-iptables-firewall-rules-examples-commands/)
+
+
+
 
