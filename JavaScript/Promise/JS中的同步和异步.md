@@ -17,11 +17,11 @@ console.log("Next line");
 ```
 Would be:
 
-1. Query finished
-   Next line
+1. - Query finished
+   - Next line
 
-2. Next line
-   Query finished
+2. - Next line
+   - Query finished
 
 
 ## asynchronous 
