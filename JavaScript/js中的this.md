@@ -17,8 +17,8 @@ const user = {
   }
 }
 ```
-user.greet() // Tyler
-user.mother.greet() // Stacey
+- user.greet() // Tyler
+- user.mother.greet() // Stacey
 
 每当判断 this 的引用时，我们都需要查看调用过程，并确认“点的左侧”是什么。第一个调用，user 在点左侧意味着 this 将引用 user。第二次调用中，mother 在点的左侧意味着 this 引用 mother。
 
