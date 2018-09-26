@@ -67,41 +67,42 @@ $q.all([$http.get('/demo1'),
 // 插入队列时的一些流程控制 ///////////////////////////////////////////////////////////////////////////
 var runningBatch = [];
 new Promise(function (resolve, reject){
-batchService.find({ 'end_time' :{$gt:ranchUtil.getNowTime()} },null,null,function (err, list) {
-  if (err){
-    console.log(err);
-    reject(err);
-  }
-  list.forEach(function(item) {
-    runningBatch.push(item._id);
+  batchService.find({ 'end_time' :{$gt:ranchUtil.getNowTime()} },null,null,function (err, list) {
+    if (err){
+      console.log(err);
+      reject(err);
+    }
+    list.forEach(function(item) {
+      runningBatch.push(item._id);
+    });
+    resolve(runningBatch);
   });
-  resolve(runningBatch);
-});
 })
 .then(function(runningBatch){
-return new Promise(function(resolve){
-  resolve(ranchUtil.genQueueName(batch_id, runningBatch));
-});
+  return new Promise(function(resolve){
+    resolve(ranchUtil.genQueueName(batch_id, runningBatch));
+  });
 })
 .then(function (queueName) {
-var connect;
-var open = require('amqplib').connect(config.rabbitmq_server);
-open.then(function(conn){
-  connect = conn;
-  return conn.createChannel();
+  var connect;
+  var open = require('amqplib').connect(config.rabbitmq_server);
+  open.then(function(conn){
+    connect = conn;
+    return conn.createChannel();
+  })
+  .then(function(ch){
+    var q = queueName;
+    var content = JSON.stringify({
+      user_id: uid,
+      batch_id: batch_id,
+      sheep_num: sheep_num
+    });
+    console.log('orderInfo:',content);
+    return ch.assertQueue(q).then(function(ok) {
+      return ch.sendToQueue(q, new Buffer(content),{ durable: true });
+    });
 })
-.then(function(ch){
-  var q = queueName;
-  var content = JSON.stringify({
-    user_id: uid,
-    batch_id: batch_id,
-    sheep_num: sheep_num
-  });
-  console.log('orderInfo:',content);
-  return ch.assertQueue(q).then(function(ok) {
-    return ch.sendToQueue(q, new Buffer(content),{ durable: true });
-  });
-}).then(function(status){
+.then(function(status){
   console.log('插入队列状态:', status);
   ranchUtil.doResult(res, null, status);
   setTimeout(function() { connect.close(); }, 500);

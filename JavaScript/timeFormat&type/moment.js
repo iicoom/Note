@@ -97,6 +97,12 @@ moment().endOf('day').toDate().getTime()
 moment().endOf('day').valueOf()
 1531151999999
 
+moment(1537866023000).endOf('day').valueOf()
+1537891199999
+
+moment(1537866023000).startOf('day').valueOf()
+1537804800000
+
 Defaulting to now, when nothing is passed:
 moment();  // current date and time
 moment().valueOf()
