@@ -1,11 +1,19 @@
+> Node Version Manager - Simple bash script to manage multiple active node.js versions
+[GitHub](https://github.com/creationix/nvm)
+
 ## window-nvm安装
 [下载nvm-setup](https://github.com/coreybutler/nvm-windows/releases)
 
 ## 常用命令
 
 * 输入nvm 会列出常用命令
+
+* nvm install node # "node" is an alias for the latest version
+
 * nvm ls-remote  
+
 * nvm install <version> [arch] : The version can be a node.js version or "latest" for the latest stable version.
+	
 * nvm uninstall <version>      : The version must be a specific version.
 
 ➜  ranch_api git:(develop) ✗ nvm list
@@ -24,3 +32,4 @@ lts/boron -> v6.12.3 (-> N/A)
 lts/carbon -> v8.9.4 (-> N/A)
 
 * nvm use version
+

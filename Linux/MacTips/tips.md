@@ -31,7 +31,7 @@
 
 * 选中文件 shift配合上下箭头操作
 
-* 查看连接过的无线密码：钥匙串访问-种类-密码-拷贝-验证用户名密码即可
+* 查看连接过的无线密码：钥匙串访问-种类-密码-拷贝-验证用户名密码即可Exodus1688yunying
 
 * homebrew https://www.jianshu.com/p/bca8fc1ff3f0
 ```
