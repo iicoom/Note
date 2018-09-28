@@ -44,6 +44,49 @@ Later, to stop MongoDB, press Control+C in the terminal where the mongod instanc
 
 ## Uninstall MongoDB Community Edition
 
+## 自定义mongodb 的配置
+➜  ~ mkdir mongodb_simple
+➜  ~ ls
+'`'        Documents   examples.desktop   Music      Public   Software    Videos
+ Desktop   Downloads   mongodb_simple     Pictures   snap     Templates   Work
+➜  ~ cd mongodb_simple
+➜  mongodb_simple mkdir data
+➜  mongodb_simple mkdir log
+➜  mongodb_simple mkdir conf
+➜  mongodb_simple mkdir bin
+➜  mongodb_simple ls
+bin  conf  data  log
+
+➜  / which mongod
+/usr/bin/mongod
+
+➜  mongodb_simple cp /usr/bin/mongod bin/
+➜  mongodb_simple ls
+bin  conf  data  log
+➜  mongodb_simple ls bin
+mongod
+➜  mongodb_simple
+➜  mongodb_simple cd conf
+➜  conf vim mongod.conf
+```
+port = 12345
+dbpath = data
+logpath = log/mongod.log
+fork = true
+```
+
+用配置文件启动
+➜  mongodb_simple ./bin/mongod -f conf/mongod.conf
+2018-09-28T22:20:17.902+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+about to fork child process, waiting until server is ready for connections.
+forked process: 4719
+child process started successfully, parent exiting
+➜  mongodb_simple ls log
+mongod.log
+➜  mongodb_simple tail -f log/mongod.log
+
+
+
 
 
 
