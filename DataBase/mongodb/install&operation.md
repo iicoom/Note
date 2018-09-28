@@ -85,6 +85,28 @@ child process started successfully, parent exiting
 mongod.log
 ➜  mongodb_simple tail -f log/mongod.log
 
+连接数据库
+➜  mongodb_simple cp /usr/bin/mongo bin/
+➜  mongodb_simple ./bin/mongo 127.0.0.1:12345/test
+MongoDB shell version v4.0.2
+connecting to: mongodb://127.0.0.1:12345/test
+MongoDB server version: 4.0.2
+Server has startup warnings:
+
+>
+
+停止数据库服务
+> db.shutdownServer()
+shutdown command only works with the admin database; try 'use admin'
+> use admin
+switched to db admin
+> db.shutdownServer()
+server should be down...
+2018-09-28T22:34:19.400+0800 I NETWORK  [js] trying reconnect to 127.0.0.1:12345 failed
+2018-09-28T22:34:19.400+0800 I NETWORK  [js] reconnect 127.0.0.1:12345 failed failed
+> ^C
+bye
+
 
 
 
