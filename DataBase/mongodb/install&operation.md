@@ -107,7 +107,63 @@ server should be down...
 > ^C
 bye
 
+## 基本操作
+```
+> show dbs;
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> use imooc           会自动创建数据库
+switched to db imooc
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db.imooc_collection.insert({name: "Jack", age: "18"})
+WriteResult({ "nInserted" : 1 })
+> show dbs
+admin   0.000GB
+config  0.000GB
+imooc   0.000GB
+local   0.000GB
+> show collections
+imooc_collection
+> db.imooc_collection.find()
+{ "_id" : ObjectId("5baf900c2537acf61972babc"), "name" : "Jack", "age" : "18" }
+>
+> db.imooc_collection.count()
+1
 
+插入/查询
+> db.imooc_collection.insert({name: "Tom", age: "19"})
+WriteResult({ "nInserted" : 1 })
+> db.imooc_collection.insert({name: "Herry", age: "20"})
+WriteResult({ "nInserted" : 1 })
+> db.imooc_collection.insert({name: "Dick", age: "21"})
+WriteResult({ "nInserted" : 1 })
+> db.imooc_collection.find()
+{ "_id" : ObjectId("5baf900c2537acf61972babc"), "name" : "Jack", "age" : "18" }
+{ "_id" : ObjectId("5baf91672537acf61972babd"), "name" : "Tom", "age" : "19" }
+{ "_id" : ObjectId("5baf917a2537acf61972babe"), "name" : "Herry", "age" : "20" }
+{ "_id" : ObjectId("5baf91872537acf61972babf"), "name" : "Dick", "age" : "21" }
+
+> db.imooc_collection.find().skip(1).limit(2).sort({age: 1})
+{ "_id" : ObjectId("5baf91672537acf61972babd"), "name" : "Tom", "age" : "19" }
+{ "_id" : ObjectId("5baf917a2537acf61972babe"), "name" : "Herry", "age" : "20" }
+
+> db.imooc_collection.find().skip(1).limit(2).sort({age: -1})
+{ "_id" : ObjectId("5baf917a2537acf61972babe"), "name" : "Herry", "age" : "20" }
+{ "_id" : ObjectId("5baf91672537acf61972babd"), "name" : "Tom", "age" : "19" }
+>
+
+更新
+> db.imooc_collection.update({name: "Jack"},{$set: {age: 100, sex: "man"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.imooc_collection.find({name: "Jack"})
+{ "_id" : ObjectId("5baf900c2537acf61972babc"), "name" : "Jack", "age" : 100, "sex" : "man" }
+>
+
+```
 
 
 
