@@ -23,9 +23,6 @@ mysqlslap -hlocalhost -uroot -abc123456 -P3306
 --debug-info
 ```
 
-## MySQL高可用方案－PXC(Percona XtraDB Cluster)环境部署
-
-### 高价值重要数据（集群要保证强一致性 如 订单 库存）
 https://www.cnblogs.com/taotaohappy/p/4694290.html
 > HAProxy介绍
 
@@ -43,8 +40,18 @@ HAPproxy节点 ：192.168.79.128 、 192.168.79.5
 HAproxy版本   ：1.5.2
 keepalived版本：keepalived-1.2.13-4.el6.x86_64 vip：192.168.79.166
 
+## MySQL高可用方案－PXC(Percona XtraDB Cluster)环境部署
 
-### 日志信息数据（不需要强一致性 只要保证同步即可）
+* 高价值重要数据（集群要保证强一致性 如 账户 订单 交易 库存）
+
+* 事务在所有集群节点要么同时提交，要么不提交
+
+
+## Replication方案(分主从节点)
+
+* 存储低价值数据（不需要强一致性 只要保证同步即可 如 通知 日志等）
+
+* 采用异步复制，无法保证数据的一致性
 
 
 
