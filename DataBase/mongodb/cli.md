@@ -158,7 +158,7 @@ The updated document is the following:
 }
 ```
 
-#### remove
+#### remove 是针对collection中的数据进行操作
 db.collection.remove()
 ```
 db.collection.remove(
@@ -171,6 +171,10 @@ db.collection.remove(
 )
 
 ```
+
+#### drop
+db.students.drop() 把整个students 删除
+
 
 ## Operators
 
