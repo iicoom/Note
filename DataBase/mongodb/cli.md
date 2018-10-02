@@ -51,9 +51,125 @@ users
 
 ### 表操作
 
+#### insert
 ```
-> db.users.find({"_id" : ObjectId("5a93e047765b59282e21e872")})
-{ "_id" : ObjectId("5a93e047765b59282e21e872"), "update_at" : ISODate("2018-02-26T10:24:07.376Z"), "create_at" : ISODate("2018-02-26T10:24:07.376Z"), "username" : "as@qq.com", "password" : "feca52c6f90bdc90f3b1e157acb36975dd1efa3660aaedf01763d3882230cc07", "salt" : "rOqh5Mo7WSQZXVUs7zbfJODW", "modify_mobile" : false, "is_set_pay_password" : false, "is_binding_verify" : false, "is_real_name" : false, "is_activate" : false, "need_upgrade" : false, "verified" : false, "__v" : 0 }
+> db.students.insert([
+  { "_id" : 1, "grades" : [ 85, 80, 80 ] },
+  { "_id" : 2, "grades" : [ 88, 90, 92 ] },
+  { "_id" : 3, "grades" : [ 85, 100, 90 ] }
+  ])
+
+BulkWriteResult({
+  "writeErrors" : [ ],
+  "writeConcernErrors" : [ ],
+  "nInserted" : 3,
+  "nUpserted" : 0,
+  "nMatched" : 0,
+  "nModified" : 0,
+  "nRemoved" : 0,
+  "upserted" : [ ]
+})
+```
+
+#### find
+```
+> db.students.find()
+{ "_id" : 1, "grades" : [ 85, 80, 80 ] }
+{ "_id" : 2, "grades" : [ 88, 90, 92 ] }
+{ "_id" : 3, "grades" : [ 85, 100, 90 ] }
+```
+
+#### update
+db.collection.updateOne(filter, update, options)
+```
+> db.students.updateOne({_id: 4, "grades.grade": 85}, {$set: {"grades.$.std": 6}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+表中有以下数据：
+{ "_id" : 5, "grades" : 
+[ { "grade" : 80, "mean" : 75, "std" : 8 }, 
+  { "grade" : 85, "mean" : 90, "std" : 5 }, 
+  { "grade" : 90, "mean" : 85, "std" : 3 } 
+] }
+
+> db.students.updateOne(
+  {_id: 5, grades: {$elemMatch: { grade: { $lte: 90 }, mean: { $gt: 80 }}}},
+  {$set: {"grades.$.std" : 9}}
+  )
+```
+
+db.collection.updateMany(filter, update, options)
+
+
+db.collection.update(query, update, options)
+```
+db.collection.update(
+   <query>,
+   <update>,
+   {
+     upsert: <boolean>,
+     multi: <boolean>,
+     writeConcern: <document>,
+     collation: <document>,
+     arrayFilters: [ <filterdocument1>, ... ]
+   }
+)
+
+> db.students.update({ name: "Andy"},{name: "Andy", rating: 1, score: 1},{ upsert: true})
+WriteResult({
+  "nMatched" : 0,
+  "nUpserted" : 1,
+  "nModified" : 0,
+  "_id" : ObjectId("5bb3705102b969e8f3764603")
+})
+
+> db.books.find()
+{ 
+  "_id" : 1, 
+  "item" : "TBD", 
+  "stock" : 0, 
+  "info" : { "publisher" : "1111", "pages" : 430 }, 
+  "tags" : [ "technology", "computer" ], 
+  "ratings" : [ { "by" : "ijk", "rating" : 4 }, { "by" : "lmn", "rating" : 5 } ], 
+  "reorder" : false 
+}
+
+db.books.update(
+   { _id: 1 },
+   {
+     $inc: { stock: 5 },
+     $set: {
+       item: "ABC123",
+       "info.publisher": "2222",
+       tags: [ "software" ],
+       "ratings.1": { by: "xyz", rating: 3 }
+     }
+   }
+)
+The updated document is the following:
+{
+  "_id" : 1,
+  "item" : "ABC123",
+  "stock" : 5,
+  "info" : { "publisher" : "2222", "pages" : 430 },
+  "tags" : [ "software" ],
+  "ratings" : [ { "by" : "ijk", "rating" : 4 }, { "by" : "xyz", "rating" : 3 } ],
+  "reorder" : false
+}
+```
+
+#### remove
+db.collection.remove()
+```
+db.collection.remove(
+   <query>,
+   {
+     justOne: <boolean>,
+     writeConcern: <document>,
+     collation: <document>
+   }
+)
+
 ```
 
 ## Operators
