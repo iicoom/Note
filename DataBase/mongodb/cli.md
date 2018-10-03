@@ -175,6 +175,25 @@ db.collection.remove(
 #### drop
 db.students.drop() 把整个students 删除
 
+#### 创建索引
+查询collection的索引情况
+```
+> db.books.getIndexes()
+[
+  {
+    "v" : 2,
+    "key" : {
+      "_id" : 1
+    },
+    "name" : "_id_",
+    "ns" : "students.books"
+  }
+]
+```
+给常用的查询创建索引，可以大幅提高查询速度，虽然会影响写入速度，但是数据量很大的情况下是值得的
+创建索引要注意的问题：
+1. 在插入数据之前就创建，否则在已有大量数据的时候创建索引会需要很长的时间，损害数据库的性能
+
 
 ## Operators
 
