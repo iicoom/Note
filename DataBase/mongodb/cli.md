@@ -194,6 +194,29 @@ db.students.drop() 把整个students 删除
 创建索引要注意的问题：
 1. 在插入数据之前就创建，否则在已有大量数据的时候创建索引会需要很长的时间，损害数据库的性能
 
+索引的分类：
+单键索引，多键索引，复合索引
+
+创建索引：
+db.collection.ensureIndex(keys, options)
+
+keys：
+For an ascending index on a field, specify a value of 1; for descending index, specify a value of -1.
+
+```
+> db.students.ensureIndex({sex: 1, age: 1})
+{
+  "createdCollectionAutomatically" : false,
+  "numIndexesBefore" : 1,
+  "numIndexesAfter" : 2,
+  "ok" : 1
+}
+
+使用索引
+> db.students.find({sex: "man", age: 18})
+{ "_id" : ObjectId("5bb5fdbb37c243e75d95e149"), "grades" : [ 20, 30, 40 ], "sex" : "man", "age" : 18 }
+
+```
 
 ## Operators
 
