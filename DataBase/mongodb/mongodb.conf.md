@@ -1,6 +1,14 @@
 ## 使用配置文件启动
 ```
 ./bin/mongod --config ./conf/mongodb.conf(或./bin/mongod -f ./conf/mongodb.conf)
+
+// mongodb.conf
+bind_ip = 192.168.56.3  
+port = 28003
+logpath = /usr/local/mongodb/log/28003.log
+dbpath = /data/db/28003
+replSet = imooc
+fork = true
 ```
 
 配置（mongod.conf）参数说明如下。

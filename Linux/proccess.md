@@ -48,6 +48,9 @@ root     28329 28225  0 11:46 pts/0    00:00:00 grep java
 root      2645     1  0 Jul24 ?        00:04:06 java -jar /mnt/java_projects/orderConsume.jar --server.port=20000 --spring.profiles.active=functional
 root     10817 10796  0 11:14 pts/0    00:00:00 grep java
 root     28627     1  0 May29 ?        01:44:15 java -jar member.jar --server.port=18880 --spring.profiles.active=functional
+
+可以查看监听端口的进程
+ps -ef | grep 28003
 ```
 
 4. kill 
@@ -62,6 +65,11 @@ pid是进程号，可以用 ps 命令查出
 signal是发送给进程的信号，TERM(或数字9）表示“无条件终止”；
 因此 kill - 9 表示强制杀死该进程； 
 而 kill 则有局限性，例如后台进程，守护进程等；
+
+在Linux中Kill-2和Kill-9的区别:
+Kill-2:先保存相关数据,然后再退出;
+Kill-9:直接强制结束程序;
+在用nohup挂起程序时,当想要结束这个程序,最好用kill-2.
 
 5. ps -u username
 在需要查看特定用户进程的情况下，我们可以使用 -u 参数。比如我们要查看用户'pungki'的进程，可以通过下面的命令：
