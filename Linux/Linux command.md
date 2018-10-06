@@ -60,52 +60,6 @@ cpu cores	: 2
 cpu cores	: 2
 ```
 
-#### 查看内存使用情况
-```
-[xiaomao@iZ258wvzn92Z ~]$ free -m
-             total       used       free     shared    buffers     cached
-Mem:          3832       3417        415          0        107        336
--/+ buffers/cache:       2973        859
-Swap:            0          0          0
-
-m指使用M字节显示内存使用情况
-```
-
-#### 查看硬盘使用情况
-```
-[xiaomao@iZ258wvzn92Z ~]$ df
-Filesystem     1K-blocks     Used Available Use% Mounted on
-/dev/vda1       20641404 12585284   7007596  65% /
-tmpfs            1962340        0   1962340   0% /dev/shm
-/dev/vdb        41284928 22044560  17143216  57% /mnt
-
-[xiaomao@iZ258wvzn92Z ~]$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/vda1        20G   13G  6.7G  65% /
-tmpfs           1.9G     0  1.9G   0% /dev/shm
-/dev/vdb         40G   22G   17G  57% /mnt
-```
-
-#### 查看文件占用内存大小
-```
-[xiaomao@iZ258wvzn92Z java_projects]$ ls
-log.file  logs  member.jar  member.jar.bak  start_member.sh
-[xiaomao@iZ258wvzn92Z java_projects]$ du log.file
-166348  log.file
-[xiaomao@iZ258wvzn92Z java_projects]$ du -h log.file
-163M  log.file
-[xiaomao@iZ258wvzn92Z java_projects]$ du -h logs
-560M  logs
-[xiaomao@iZ258wvzn92Z java_projects]$ du -h member.jar
-24M member.jar
-[xiaomao@iZ258wvzn92Z java_projects]$
-
-可以查看目录占用大小 disk usage
-➜  antMobile du -h myapp
- 12K  myapp/src
- 36K  myapp
-```
-
 #### uptime
 ```
 [root@cache ~]# uptime
@@ -114,150 +68,29 @@ log.file  logs  member.jar  member.jar.bak  start_member.sh
 当前时间   系统连续运行时间  当前用户连接数  系统平均负载（最近1分钟、5分钟、15分钟）
 ```
 
-#### free
-free - Display amount of free and used memory in the system
-```
-[root@cache ~]# free
-             total       used       free     shared    buffers     cached
-Mem:       1922064    1221864     700200        168     570576     241312
--/+ buffers/cache:     409976    1512088
-Swap:      4128764          0    4128764
-
-[root@cache ~]# free -h
-             total       used       free     shared    buffers     cached
-Mem:          1.8G       1.2G       683M       168K       557M       235M
--/+ buffers/cache:       400M       1.4G
-Swap:         3.9G         0B       3.9G
-```
-
-
 ## grep
 （global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。
 
 ## uname
-       Print certain system information.  With no OPTION, same as -s.
+Print certain system information.  With no OPTION, same as -s.
 
-       -a, --all
-              print all information, in the following order, except omit -p and -i if unknown:
+-a, --all
+      print all information, in the following order, except omit -p and -i if unknown:
 
-       -s, --kernel-name
-              print the kernel name
+-s, --kernel-name
+      print the kernel name
 
-       -n, --nodename
-              print the network node hostname
+-n, --nodename
+      print the network node hostname
 
-       -r, --kernel-release
-              print the kernel release
+-r, --kernel-release
+      print the kernel release
 
-       -v, --kernel-version
-              print the kernel version
+-v, --kernel-version
+      print the kernel version
 
-       -m, --machine
+-m, --machine
 
-## lspci
-lspci is a utility for displaying information about PCI buses in the system and devices con-
-       nected to them.
-
-00:00.0 Host bridge: Intel Corporation 440FX - 82441FX PMC [Natoma] (rev 02)
-00:01.0 ISA bridge: Intel Corporation 82371SB PIIX3 ISA [Natoma/Triton II]
-00:01.1 IDE interface: Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]
-00:01.2 USB controller: Intel Corporation 82371SB PIIX3 USB [Natoma/Triton II] (rev 01)
-00:01.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 03)
-00:02.0 VGA compatible controller: Cirrus Logic GD 5446
-00:03.0 Ethernet controller: Red Hat, Inc Virtio network device
-00:04.0 Ethernet controller: Red Hat, Inc Virtio network device
-00:05.0 Communication controller: Red Hat, Inc Virtio console
-00:06.0 SCSI storage controller: Red Hat, Inc Virtio block device
-00:07.0 SCSI storage controller: Red Hat, Inc Virtio block device
-00:08.0 Unclassified device [00ff]: Red Hat, Inc Virtio memory balloon
-00:09.0 Unclassified device [00ff]: Red Hat, Inc Device 1014
-
-## 查看网络配置
-/etc/systemconfig/network-scripts/
-
-### ifconfig iwconfig
-
-^C[xiaomao@iZ258wvzn92Z ~]$ ifconfig
-eth0      Link encap:Ethernet  HWaddr 00:16:3E:12:0A:5B
-          inet addr:10.174.9.148  Bcast:10.174.15.255  Mask:255.255.248.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:282063 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:1068739 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:22668936 (21.6 MiB)  TX bytes:81949766 (78.1 MiB)
-
-eth1      Link encap:Ethernet  HWaddr 00:16:3E:12:02:16
-          inet addr:101.201.197.163  Bcast:101.201.199.255  Mask:255.255.252.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:503627951 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:497871622 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:35930506319 (33.4 GiB)  TX bytes:47841588101 (44.5 GiB)
-
-lo        Link encap:Local Loopback
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:16436  Metric:1
-          RX packets:383570931753 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:383570931753 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:19262647018875 (17.5 TiB)  TX bytes:19262647018875 (17.5 TiB)
-
-[xiaomao@iZ258wvzn92Z ~]$ iwconfig
-lo        no wireless extensions.
-
-eth0      no wireless extensions.
-
-eth1      no wireless extensions.
-
-
-[netstat 的10个基本用法](https://linux.cn/article-2434-1.html)
-> Netstat 是一款命令行工具，可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。如果你想确认系统上的 Web 服务有没有起来，你可以查看80端口有没有打开。
-### netstat -lntp
-netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
-```
-[root@iZ258wvzn92Z ~]# netstat -lntp
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name
-tcp        0      0 101.201.197.163:6379        0.0.0.0:*                   LISTEN      1596/redis-server 1
-tcp        0      0 0.0.0.0:80                  0.0.0.0:*                   LISTEN      2348/nginx
-tcp        0      0 0.0.0.0:4369                0.0.0.0:*                   LISTEN      23999/epmd
-tcp        0      0 0.0.0.0:10003               0.0.0.0:*                   LISTEN      31951/sshd
-tcp        0      0 127.0.0.1:18005             0.0.0.0:*                   LISTEN      9108/java
-tcp        0      0 0.0.0.0:22                  0.0.0.0:*                   LISTEN      7126/sshd
-tcp        0      0 0.0.0.0:3030                0.0.0.0:*                   LISTEN      1228/PM2 v2.4.6
-tcp        0      0 0.0.0.0:3000                0.0.0.0:*                   LISTEN      14921/node /mnt/pro
-```
-#### netstat -a 
-列出所有当前的连接
-netstat -at 使用 -t 选项列出 TCP 协议的连接
-netstat -au 使用 -u 选项列出 UDP 协议的连接
-#### netstat -ant
-默认情况下 netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 -n 选项禁用域名解析功能。
-#### netstat -tnl 
-只列出监听中的连接
-任何网络服务的后台进程都会打开一个端口，用于监听接入的请求。这些正在监听的套接字也和连接的套接字一样，也能被 netstat 列出来。使用 -l 选项列出正在监听的套接字。
-#### sudo netstat -nlpt
-使用 -p 选项查看进程信息
-获取进程名、进程号以及用户 ID
-#### sudo netstat -ltpe
-相比进程名和进程号而言，查看进程的拥有者会更有用。使用 -ep 选项可以同时查看进程名和用户名。
-#### netstat -s
-netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。
-
-
-## 查看网络信息
-iwconfig
-必须确保你在使用USB无线网卡，虚拟机只能挂载USB无线网卡
-启动虚拟机，在kali linux中打开终端，输入
-airmon-ng
-### 发HTTP请求
-```
-wget https://www.baidu.com/
-会把请求到的数据保存到index.html文件中
-
-wget -S -O - https://www.baidu.com/
-会将请求的数据，输出到屏幕
-```
 
 ## 文件操作
 > head 与 tail 就像它的名字一样的浅显易懂，它是用来显示开头或结尾某个数量的文字区块，head 用来显示档案的开头至标准输出中，而 tail 想当然就是看档案的结尾，看看下面的范例：
@@ -454,16 +287,6 @@ gawk -- Gnu Aho Weinberger and Kernighan
 grep -- General Regular Expression Print( @闫子昂 谢谢）
 ln -- LiNk
 tar -- TARball
-
-### 硬件管理命令
-df -- Disk Free
-du -- Disk Usage
-dd -- Data Description（一说是Convert and Copy， 但是cc被用掉了，就用dd了）
-parted -- PARTition EDitor
-lspci -- LiSt Peripheral Component Interconnect
-lscpu -- LiSt Central Process Unit
-lsusb -- LiSt Universal Serial Bus
-mdadm -- 求助啊，这个不知道啊，只知道md是multiple device！！
 
 ### 软件及软件包管理：
 man -- MANual
