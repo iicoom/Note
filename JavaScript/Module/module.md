@@ -5,32 +5,9 @@ Class并没有解决模块化的问题。ES6之前，社区制订了模块加载
 ## 严格模式
 
 ## 模块的导入导出方式
-### 导入
-```
-// 直接加载到进程中
-require('./statistics');
-// 作为变量引入
-const later = require('later');
-// 解构的方式引入
-const { sendEmail } = require('./app/util/email');
-
-// ES6 模块引入
-import nodemailer from 'nodemailer';
-
-import { sendEmail } from './app/util/email';
-
-// 引入重命名
-import { sendEmail as sendMyLove } from './app/util/email';
-
-// export default Utility; 类的静态方法引入时必须用import，否则静态方法获取不到
-import Utility from './app/util/utils';
-
-
-```
-
 ### 导出
-
 ```
+// ES5
 module.exports = function send(mail) {
   transporter.sendMail(mail, (error, info) => {
     if (error) {
@@ -40,6 +17,7 @@ module.exports = function send(mail) {
   });
 };
 
+// ES6
 // './app/util/email.js'
 export const sendEmail = async (subject, html, attachments) => {
   console.log('开始发送邮件...');
@@ -62,7 +40,50 @@ export const sendEmail = async (subject, html, attachments) => {
   });
 };
 
+// 导出变量
+//test.js
+export var name = 'Rainbow'
 
+// 输出多个变量
+//test.js
+var name = 'Rainbow';
+var age = '24';
+export {name, age};
 
-/////
+// 导出函数
+// myModule.js
+export function myModule(someArg) {
+  return someArg;
+}  
 ```
+
+### 导入
+```
+// ES5
+// 直接加载到进程中
+require('./statistics');
+// 作为变量引入
+const later = require('later');
+// 解构的方式引入
+const { sendEmail } = require('./app/util/email');
+
+// ES6 模块引入
+import nodemailer from 'nodemailer';
+
+import { sendEmail } from './app/util/email';
+
+// 引入重命名
+import { sendEmail as sendMyLove } from './app/util/email';
+
+// export default Utility; 类的静态方法引入时必须用import，否则静态方法获取不到
+import Utility from './app/util/utils';
+
+
+import {myModule} from 'myModule';// main.js
+import {name,age} from 'test';// test.js
+
+心得:一条import 语句可以同时导入默认函数和其它变量。import defaultMethod, { otherMethod } from 'xxx.js';
+
+```
+
+

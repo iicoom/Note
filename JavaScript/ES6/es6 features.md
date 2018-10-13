@@ -4,13 +4,19 @@ promise是异步编程的一种解决方案，比传统的解决方案 回调函
 
 ## Class 类的支持
 
-## 模块
+## 模块化(Module)
+ES5不支持原生的模块化，在ES6中模块作为重要的组成部分被添加进来。模块的功能主要由 export 和 import 组成。每一个模块都有自己单独的作用域，模块之间的相互调用关系是通过 export 来规定模块对外暴露的接口，通过import来引用其它模块提供的接口。同时还为模块创造了命名空间，防止函数的命名冲突。
 
 ## let/const块作用域
 ### let 和 var的区别
 
+## Map/Set
+
 ## => 操作符
 ### => 和 function的区别
+=>不只是关键字function的简写，它还带来了其它好处。箭头函数与包围它的代码共享同一个this,能帮你很好的解决this的指向问题。有经验的JavaScript开发者都熟悉诸如
+var self = this;
+或var that = this这种引用外围this的模式。但借助=>，就不需要这种模式了。
 
 ## 解构
 
@@ -67,4 +73,34 @@ console.log(Object.keys(obj))
 ## 私有化
 Class和Symbol能否实现私有化，为什么要用闭包？
 ### 闭包的应用场景
+```
+function aaa() {
+	var a = 1;
+	return function(){
+		a++;
+		alert(a);
+	}
+}
+
+var b = aaa();
+
+b();   //2
+b();   //3
+alert(a);   //a找不到，是局部变量
+
+------------------------------
+/*  模块化代码，减少全局变量的污染
+	var aaa = (function(){
+
+		var a = 1;
+		return function(){
+			a++;
+			alert(a);
+		}
+	})();
+
+	aaa();
+	aaa();
+*/
+```
 
