@@ -2,6 +2,8 @@
 something important
 
 ### 常见装逼词汇
+* ORM 对象关系映射（英语：(Object Relational Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换 [1]  。从效果上说，它其实是创建了一个可在编程语言里使用的--“虚拟对象数据库”。
+
 * SOA 全英文是Service-Oriented Architecture，中文意思是中文面向服务编程，是一种思想，一种方法论，一种分布式的服务架构。
 [微服务架构 vs. SOA架构](https://blog.csdn.net/chszs/article/details/78515231)
 
