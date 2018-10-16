@@ -62,6 +62,45 @@ location / {
 选择要取消注释的行;
 按下”x”或者”d”.
 
+## vim 设置文件头
+sudo -i
+cd /etc/vim
+vim vimrc
+```
+ 62 "################### 以下为自定义配置 Add by MXJ ####################"
+ 63 "set cursorline
+ 64
+ 65 set number
+ 66 set cursorcolumn"
+ 67 autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+ 68 let $author_name = "MXJ"
+ 69 let $author_email = "asdfpeng@qq.com"
+ 70
+ 71 func SetTitle()
+ 72         if &filetype == 'sh'
+ 73                 call setline(1,"\##########################################################################")
+ 74                 call append(line("."), "\# File Name: ".expand("%"))
+ 75                 call append(line(".")+1, "\# Author:".$author_name)
+ 76                 call append(line(".")+2, "\# Email:".$author_email)
+ 77                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
+ 78                 call append(line(".")+4, "\#=======================================================================")
+ 79                 call append(line(".")+5, "\#!/bin/bash")
+ 80                 call append(line(".")+6, "")
+ 81         else
+ 82                 call setline(1,"###########################################################################")
+ 83                 call append(line("."), "\# File Name: ".expand("%"))
+ 84                 call append(line(".")+1, "\# Author:".$author_name)
+ 85                 call append(line(".")+2, "\# Email:".$author_email)
+ 86                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
+ 87                 call append(line(".")+4, "\#=======================================================================")
+ 88                 call append(line(".")+5, "\#!/usr/bin/python")
+ 89                 call append(line(".")+6, "")
+ 90         endif
+ 91 autocmd BufNewFile * normal G
+ 92 endfunc
+
+```
+
 ## 待开发
 ```
 VIM常用命令
@@ -90,14 +129,14 @@ vi file
 另外一种方法删掉文件中所有的空行及以#开始的注释行 
 #cat squid.conf.default | grep -v '^$' | grep -v '^#' 
 
-2) 在打开一个文件编辑后才知道登录的用户对该文件没有写权，不能存盘 
-vi file 
-:w /tmp/1 既然没法存盘，不想放弃所做的所有修改，先临时存到/tmp/1 
+2) 在打开一个文件编辑后才知道登录的用户对该文件没有写权，不能存盘
+vi file
+:w /tmp/1 既然没法存盘，不想放弃所做的所有修改，先临时存到/tmp/1
 :20,59w /tmp/1 或者仅仅把第20到59行之间的内容存盘成文件/tmp/1
 3) 用VI编辑一个文件，但需要删除大段大段的内容 
 vi file 
 Ctrl+G 把光标移到需要删除的行的处按ctrl+G显示行号，再到结尾处再按Ctrl+G. 
-:23,1045d 假定两次行号为23和1045，则把这几间的内容全删除 
+:23,1045d 假定两次行号为23和1045，则把这几间的内容全删除
 
 也可以在开始和结束两行中用ma,mb命令标记后用:'a,'bd删除.
 4) 在整个文件或某几行中在行首或行尾加一些字符串 
