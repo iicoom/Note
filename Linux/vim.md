@@ -62,42 +62,59 @@ location / {
 选择要取消注释的行;
 按下”x”或者”d”.
 
-## vim 设置文件头
+## vim 设置文件头 
+1. Ubuntu
 sudo -i
 cd /etc/vim
 vim vimrc
 ```
- 62 "################### 以下为自定义配置 Add by MXJ ####################"
- 63 "set cursorline
- 64
- 65 set number
- 66 set cursorcolumn"
- 67 autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
- 68 let $author_name = "MXJ"
- 69 let $author_email = "asdfpeng@qq.com"
- 70
- 71 func SetTitle()
- 72         if &filetype == 'sh'
- 73                 call setline(1,"\##########################################################################")
- 74                 call append(line("."), "\# File Name: ".expand("%"))
- 75                 call append(line(".")+1, "\# Author:".$author_name)
- 76                 call append(line(".")+2, "\# Email:".$author_email)
- 77                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
- 78                 call append(line(".")+4, "\#=======================================================================")
- 79                 call append(line(".")+5, "\#!/bin/bash")
- 80                 call append(line(".")+6, "")
- 81         else
- 82                 call setline(1,"###########################################################################")
- 83                 call append(line("."), "\# File Name: ".expand("%"))
- 84                 call append(line(".")+1, "\# Author:".$author_name)
- 85                 call append(line(".")+2, "\# Email:".$author_email)
- 86                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
- 87                 call append(line(".")+4, "\#=======================================================================")
- 88                 call append(line(".")+5, "\#!/usr/bin/python")
- 89                 call append(line(".")+6, "")
- 90         endif
- 91 autocmd BufNewFile * normal G
- 92 endfunc
+"################### 以下为自定义配置 Add by MXJ ####################"
+set number
+syntax on         "自动语法高亮
+set showmatch     "高亮显示对应的括号
+set cursorcolumn  "set cursorline
+set cindent       "C风格的对齐方式
+set autoindent    "自动对齐
+set tabstop=4     "Tab键的宽度
+
+              "autocmd BufNewFile *.py,*.sh, exec ":call SetTitle()"
+let $author_name = "MXJ"
+let $author_email = "asdfpeng@qq.com"
+func SetTitle()
+         if &filetype == 'sh'
+                 call setline(1,"\##########################################################################")
+                 call append(line("."), "\# File Name: ".expand("%"))
+                 call append(line(".")+1, "\# Author:".$author_name)
+                 call append(line(".")+2, "\# Email:".$author_email)
+                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
+                 call append(line(".")+4, "\#=======================================================================")
+                 call append(line(".")+5, "\#!/bin/bash")
+                 call append(line(".")+6, "")
+         else
+                 call setline(1,"###########################################################################")
+                 call append(line("."), "\# File Name: ".expand("%"))
+                 call append(line(".")+1, "\# Author:".$author_name)
+                 call append(line(".")+2, "\# Email:".$author_email)
+                 call append(line(".")+3, "\# Created Time:".strftime("%c"))
+                 call append(line(".")+4, "\#=======================================================================")
+                call append(line(".")+5, "\#!/usr/bin/python")
+                call append(line(".")+6, "")
+        endif
+autocmd BufNewFile * normal G
+endfunc
+
+```
+2. Mac
+https://blog.csdn.net/yuanmengong886/article/details/52914714
+vim 在Mac电脑下的配置和Linux下的一样，只是配置的路径不一样
+
+在liunx 系统下, vim 的配置是在/etc 的vimrc 的配置目录下
+
+在unix 的Mac 本下 vim 的配置路径如下：
+```
+- 首先执行  cp /usr/share/vim/vimrc ~/.vim   "拷贝默认的配置文件
+
+- vim  ～/.vimrc    打开该文件，在文件的加入以下的配置信息:
 
 ```
 
