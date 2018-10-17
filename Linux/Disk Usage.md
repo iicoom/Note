@@ -30,7 +30,8 @@ tmpfs           1.9G     0  1.9G   0% /dev/shm
 /dev/vdb         40G   22G   17G  57% /mnt
 ```
 
-## 查看文件占用内存大小
+## 查看文件占用内存大小 du
+可以查看目录占用大小 disk usage
 ```
 [xiaomao@iZ258wvzn92Z java_projects]$ ls
 log.file  logs  member.jar  member.jar.bak  start_member.sh
@@ -44,10 +45,18 @@ log.file  logs  member.jar  member.jar.bak  start_member.sh
 24M member.jar
 [xiaomao@iZ258wvzn92Z java_projects]$
 
-可以查看目录占用大小 disk usage
+
 ➜  antMobile du -h myapp
  12K  myapp/src
  36K  myapp
+```
+
+[du 参数](http://www.runoob.com/linux/linux-comm-du.html)
+-h或--human-readable 以K，M，G为单位，提高信息的可读性。
+-s或--summarize 仅显示总计。
+显示文件夹及内部文件的总大小:
+```
+[root@vultr projects]# du -h -s antdPro
 ```
 ## 硬件管理命令
 df -- Disk Free
