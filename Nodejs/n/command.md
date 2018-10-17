@@ -1,3 +1,17 @@
+## Install Node.js
+https://nodejs.org/en/download/package-manager/#arch-linux
+
+
+### Enterprise Linux and Fedora
+Including Red Hat® Enterprise Linux® / RHEL, CentOS and Fedora.
+
+```
+curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+
+然后：
+sudo yum -y install nodejs
+```
+
 ## Installation
 Since you probably already have node, the easiest way to install n is through npm:
 
