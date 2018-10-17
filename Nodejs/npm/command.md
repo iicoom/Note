@@ -9,6 +9,13 @@
 * npm install --global gulp-cli 全局安装
 * npm rm --global gulp 移除
 * npm outdated
+
+Dependencies - not installed error (npm WARN optional SKIPPING OPTIONAL DEPENDENCY:
+fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents)
+
+Use --no-optional on all environments excepts OSX effectively disabling the cause of the warning.
+npm install --no-optional
+
 ➜  Server git:(master) npm outdated
 Package               Current  Wanted  Latest  Location
 babel-eslint            8.2.1   8.2.2   8.2.2  Server
