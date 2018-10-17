@@ -6,6 +6,7 @@
 
 ## install
 ### centOS
+https://www.cnblogs.com/qianxiaoruofeng/p/8046570.html
 [root@localhost ~]# yum install redis
 开启：service redis start
 关闭：redis-cli  shutdown      --关闭服务
