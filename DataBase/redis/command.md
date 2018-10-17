@@ -4,6 +4,12 @@
 
 [github](https://github.com/NodeRedis/node_redis)
 
+## install
+### centOS
+[root@localhost ~]# yum install redis
+开启：service redis start
+关闭：redis-cli  shutdown      --关闭服务
+
 ## 启动服务
 cd 到redis安装目录中 执行 redis-server
 

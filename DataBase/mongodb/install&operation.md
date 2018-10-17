@@ -10,6 +10,23 @@ Using .deb Packages (Recommended)
 
 4. sudo apt-get install -y mongodb-org
 
+## Install MongoDB Community Edition on CentOS
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
+
+Configure the package management system (yum).
+Create a /etc/yum.repos.d/mongodb-org-4.0.repo file so that you can install MongoDB directly using yum:
+```
+[mongodb-org-4.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
+
+然后：
+sudo yum install -y mongodb-org
+```
+
 ## Run MongoDB Community Edition
 > The MongoDB instance stores its data files in /var/lib/mongodb and its log files in /var/log/mongodb by default,
 and runs using the mongodb user account.
