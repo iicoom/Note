@@ -2,6 +2,10 @@
 something important
 
 ### 常见装逼词汇
+* VGA (Video Graphics Array)是IBM在1987年随PS/2机一起推出的一种视频传输标准，具有分辨率高、显示速率快、颜色丰富等优点，在彩色显示器领域得到了广泛的应用。不支持热插拔，不支持音频传输。
+
+* HDMI 是（High Definition Multimedia Interface）的缩写，意思是高清晰度多媒体接口，是一种数字化视频/音频接口技术，适合影像传输的专用型数字化接口，可同时传送音频和影像信号，最高数据传输速度为48Gbps（2.1版）
+
 * ORM 对象关系映射（英语：(Object Relational Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换 [1]  。从效果上说，它其实是创建了一个可在编程语言里使用的--“虚拟对象数据库”。
 
 * SOA 全英文是Service-Oriented Architecture，中文意思是中文面向服务编程，是一种思想，一种方法论，一种分布式的服务架构。

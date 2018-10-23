@@ -8,6 +8,8 @@
 * 打开桌面文件夹：Command+shift+D
 * 前往文件夹：Command+shift+G
 
+* 查看一个文件夹中的多个文件：文件全部选中+space进入看图模式 箭头键切换
+
 * 显示简介：Command+I
 * 新建Finder窗口：Command+N
 * Finder窗口返回上级 Command+[ 或 Command+UP
