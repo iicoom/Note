@@ -65,6 +65,14 @@ brew cleanup
 brew cleanup mysql
 ```
 
+### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
+sudo spctl --master-disable
+
+### excel
+* 默认填充数据会递增填充，alt+鼠标拖动 避免递增
+* 输入 2018-06-03 这样的日期格式 在顶部栏输入'2018-06-03
+*
+
 ### 浏览器
 * goolge 打开新标签页 Command+T   打开刚关闭的标签页 Command+shift+T
 * 关闭当前标签 Command + w
@@ -72,6 +80,7 @@ brew cleanup mysql
 * 新窗口打开当前链接 Command+点击
 * Command+L 光标定位到地址栏
 * Command + shift + n 进入无痕浏览模式
+* 超级好用的截图工具 Full Page Screen Capture
 
 ### Sublime
 * 多行光标拖动 alt+鼠标
@@ -163,11 +172,3 @@ return girlRepository.findById(id).orElse(null);
 * ctrl + q  退出程序
 
 
-### “Navicat Premium”已损坏,打不开。 您应该将它移到废纸篓。
-sudo spctl --master-disable
-
-
-### excel
-* 默认填充数据会递增填充，alt+鼠标拖动 避免递增
-* 输入 2018-06-03 这样的日期格式 在顶部栏输入'2018-06-03
-*
