@@ -37,3 +37,23 @@ function annotation(target) {
    target.annotated = true;
 }
 ```
+
+在很多框架和库中看到它的身影，尤其是React和Redux，还有mobx中，那什么是装饰器呢。
+
+修饰器（Decorator）是一个函数，用来修改类的行为。不是很理解这种抽象概念，还是看代码讲解实际些。
+```
+//定义一个函数，也就是定义一个Decorator，target参数就是传进来的Class。
+//这里是为类添加了一个静态属性
+function addAge(target) {
+  target.age = 2;
+}
+
+//在Decorator后面跟着Class，Decorator是函数的话，怎么不是addAge(MyGeekjcProject)这样写呢？
+//我只能这样理解：因为语法就这样，只要Decorator后面是Class，默认就已经把Class当成参数隐形传进Decorator了(就是所谓的语法糖)。
+@addAge
+class MyGeekjcProject {}
+
+console.log(MyGeekjcProject.age) // 2
+
+
+```
