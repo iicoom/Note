@@ -92,6 +92,9 @@ pm2 start app.js --no-autorestart
 [When starting a new process](http://pm2.keymetrics.io/docs/usage/environment/#when-starting-a-new-process)
 [root@cache task_consume]# NODE_ENV=development pm2 start bin/development.js --name task_consume
 
+NODE_ENV=development node ./bin/www
+
+
 ## 任务启停
 * sudo pm2 stop 28 26  停止多个任务
 * pm2 stop all         #停止所有进程
