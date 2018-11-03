@@ -84,6 +84,11 @@ sudo spctl --master-disable
 
 ### Sublime
 * 多行光标拖动 alt+鼠标
+* 多行光标定位 行首 => 行尾 Command+arrow
+* 多行光标定位 单词首 => 单词尾 alt+arrowRight
+* 多行光标定位 行首 => 行位 并选中 Command+shift+arrow
+* 多行光标定位 单词首 => 单词尾 并选中 Command+shift+alt+arrow
+
 
 ### webstorm
 * command + +/- 折叠展开代码块
