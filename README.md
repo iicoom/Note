@@ -2,6 +2,9 @@
 something important
 
 ### 常见装逼词汇
+* GM(General Manager)总经理  VP(Vice President)副总裁  CEO(Chief Executive Officer)首席执行官
+CTO(Chief technology officer)首席技术官 类似总工程师 https://zhidao.baidu.com/question/172835795.html
+
 * VGA (Video Graphics Array)是IBM在1987年随PS/2机一起推出的一种视频传输标准，具有分辨率高、显示速率快、颜色丰富等优点，在彩色显示器领域得到了广泛的应用。不支持热插拔，不支持音频传输。
 
 * HDMI 是（High Definition Multimedia Interface）的缩写，意思是高清晰度多媒体接口，是一种数字化视频/音频接口技术，适合影像传输的专用型数字化接口，可同时传送音频和影像信号，最高数据传输速度为48Gbps（2.1版）
