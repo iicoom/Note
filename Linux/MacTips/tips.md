@@ -19,7 +19,7 @@
 * Command + Space  => spotlight 搜索 打开应用程序直接搜索，回车打来，速度快到爆
 * shift + Command + .  显示隐藏文件  再按隐藏
 
-* 强制退出 使用快捷键：Command+Option+Esc
+* 强制退出 使用快捷键：Command+Option+Esc 结束进程
 * 最小化当前窗口：Command+M
 * control + 关机键 弹出关机提示窗口
 
