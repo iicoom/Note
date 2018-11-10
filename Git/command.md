@@ -21,6 +21,8 @@ git config --global user.email johndoe@example.com
 3. 在当前git仓库配置用户信息
 去掉--global
 
+4. sourceTree 右上角设置 高级设置针对当前仓库的用户信息
+
 ## 克隆远程仓库
 ```
 git clone git@gitlab.m-touch.cn:cloud-ranch/cloud_ranch.git

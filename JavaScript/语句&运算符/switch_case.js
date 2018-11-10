@@ -44,6 +44,27 @@ case 6:
 }
 console.log(x)
 
+
+// 合并case类型
+switch (prizeInfo.prize_id)
+{
+  case 1:
+    msg_code="RANCH_ACTIVITY_PRIZE_ANNUAL_CARD"; // 会员卡
+    msg_content = "恭喜小主，贺喜小主！您抽中了 <%=name%>！请及时在“发现”板块-活动页面填写地址。";
+    break;
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+    msg_code = "RANCH_ACTIVITY_PRIZE_ENTITY_NOTIFY"; // 抽中实物
+    msg_content = "恭喜小主，贺喜小主！您抽中了 <%=name%>！请及时在“发现”板块-活动页面填写地址。";
+    break;
+  case 8:
+    msg_code="RANCH_ACTIVITY_PRIZE_E_CARD"; // 抽中京东E卡
+    msg_content = "恭喜小主，贺喜小主！您抽中了 <%=name%>！请及时在“发现”板块-活动页面填写地址。";
+    break;
+}
+
 /*
 x 的结果：
 
