@@ -88,6 +88,7 @@ sudo spctl --master-disable
 * 多行光标定位 单词首 => 单词尾 alt+arrowRight
 * 多行光标定位 行首 => 行位 并选中 Command+shift+arrow
 * 多行光标定位 单词首 => 单词尾 并选中 Command+shift+alt+arrow
+* 全局搜索替换 Find => Find in Files => Add folder(搜索替换范围)
 
 
 ### webstorm
