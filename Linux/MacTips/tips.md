@@ -89,6 +89,7 @@ sudo spctl --master-disable
 * 多行光标定位 行首 => 行位 并选中 Command+shift+arrow
 * 多行光标定位 单词首 => 单词尾 并选中 Command+shift+alt+arrow
 * 全局搜索替换 Find => Find in Files => Add folder(搜索替换范围)
+* 全局保存 File => Save all(alt+command+S)
 
 
 ### webstorm
@@ -160,7 +161,7 @@ return girlRepository.findById(id).orElse(null);
 * shift + delete 删除行
 * ctrl + D 复制此行到下一行
 
-### iTerm2 
+### iTerm2 Mac terminal 替代方案
 * Ctrl+a: 光标移动到行首
 * Ctrl+e: 光标移动到行末
 * Ctrl+k: 删除光标之后整行
