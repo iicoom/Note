@@ -115,7 +115,9 @@ GitHub上 每一个公钥对应一个用户
 
 解决方法：删掉Bibobobi的公钥 添加到Leo下 这样就不会报 公钥已经被使用的错误了
 
-
+### ssh免密登录
+上传公钥至服务器免密码登录
+https://www.jianshu.com/p/6761199bedba
 
 ## ssh代理 http://www.cnblogs.com/kwongtai/p/6903420.html
 ### ssh参数
