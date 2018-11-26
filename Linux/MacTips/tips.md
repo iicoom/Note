@@ -173,6 +173,9 @@ return girlRepository.findById(id).orElse(null);
 * Tab 查看候选命令
 * Command+/ 绚丽的定位光标位置
 
+* 默认zsh 启动iTerm 2 默认使用dash改用zsh解决方法：chsh -s /bin/zsh 
+[iTerm 2 && Oh My Zsh教程](https://www.jianshu.com/p/7de00c73a2bb)
+
 ### Ubuntu
 * clear: qingping
 * Windows Tab 切换当前进行的窗口
