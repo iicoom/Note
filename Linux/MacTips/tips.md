@@ -181,4 +181,7 @@ return girlRepository.findById(id).orElse(null);
 * Windows Tab 切换当前进行的窗口
 * ctrl + q  退出程序
 
+### PhotoShop
+* 图片取反色 选中取反色的区域 ctrl+i（windows） Command+i(Mac) 
+
 
