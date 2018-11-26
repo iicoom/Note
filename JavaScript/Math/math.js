@@ -44,6 +44,9 @@ parseFloat('10.33')
 parseFloat('10.33').toFixed(1)
 //"10.3"
 
+// p = 0.0123477234598
+parseFloat((p * 100).toFixed(2)); // 计算顺序问题
+
 /*************************
     Math.pow(base, exponent) 
     ***************************/
