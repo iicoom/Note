@@ -158,6 +158,9 @@ alter add命令格式：alter table 表名 add字段 类型 其他;
 
 5) 增加字段
     mysql> ALTER TABLE table_name ADD field_name field_type;
+```
+ALTER TABLE `announcement_goods` ADD COLUMN `auc_id` varchar(255) NULL DEFAULT NULL AFTER `announcement_id`;
+```
 
 6) 修改原字段名称及类型
     mysql> ALTER TABLE table_name CHANGE old_field_name new_field_name field_type;
