@@ -170,6 +170,8 @@ ALTER TABLE `announcement_goods` ADD COLUMN `auc_id` varchar(255) NULL DEFAULT N
 
 原文：https://blog.csdn.net/u013063153/article/details/53304325 
 
+[各种修改表结构的情况](http://www.cnblogs.com/mr-wuxiansheng/p/6134513.html)
+
 ## 图形工具中更改Structure
 
 
