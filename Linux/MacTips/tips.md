@@ -35,6 +35,8 @@
 
 * 查看连接过的无线密码：钥匙串访问-种类-密码-拷贝-验证用户名密码即可Exodus1688yunying
 
+* Mac 自带截图 录屏 command+shift+5
+
 * homebrew https://www.jianshu.com/p/bca8fc1ff3f0
 ```
 // 查看包信息，比如目前的版本，依赖，安装后注意事项等

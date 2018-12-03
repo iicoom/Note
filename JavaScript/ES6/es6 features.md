@@ -63,48 +63,6 @@ for (let i = 0; i < 10; i++) {
 									0  1  2  3  4  5  6  7  8 9
 ```
 
-## Map/Set集合 (ES6的Set对象和Map对象)
-Map 对象保存键值对。任何值(对象或者原始值) 都可以作为一个键或一个值。
-
-Map方法:
-```
-var myMap = new Map();
-myMap.set("bar", "baz");
-myMap.set(1, "foo");
-
-myMap.size;       // 2
-myMap.has("bar"); // true
-
-myMap.clear();
-
-myMap.size;       // 0
-myMap.has("bar")  // false
-```
-
-Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
-
-Set 对象方法:
-```
-var mySet = new Set();
-mySet.add(1);
-mySet.add("foo");
-
-mySet.size;       // 2
-mySet.has("foo"); // true
-
-mySet.clear();
-
-mySet.size;       // 0
-mySet.has("bar")  // false
-```
-
-应用一：Set对象数组去重
-```
-var arr=[3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
-console.log(new Set(arr))
-```
-
-
 ## => 操作符
 ### => 和 function的区别
 =>不只是关键字function的简写，它还带来了其它好处。箭头函数与包围它的代码共享同一个this,能帮你很好的解决this的指向问题。有经验的JavaScript开发者都熟悉诸如
