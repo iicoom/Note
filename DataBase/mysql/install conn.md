@@ -19,6 +19,12 @@
 ### Mac
 [Mac 安装 MySQL](https://blog.csdn.net/catstarxcode/article/details/78940385)
 
+### 命令行安装
+在命令行输入
+
+brew install mysql  
+brew 包管理工具会自行安装 MySQL
+
 ### Ubuntu 
 sudo apt-get update
 sudo apt-get install mysql-server
@@ -146,6 +152,7 @@ Query OK, 0 rows affected (0.07 sec)
 
 
 ### 环境变量的执行顺序
+```
 Mac系统的环境变量，加载顺序为：
 /etc/profile
 /etc/paths
@@ -154,6 +161,7 @@ Mac系统的环境变量，加载顺序为：
 ~/.profile
 ~/.bashrc
 当然/etc/profile和/etc/paths是系统级别的，系统启动就会加载，后面几个是当前用户级的环境变量。后面3个按照从前往后的顺序读取，如果/.bash_profile文件存在，则后面的几个文件就会被忽略不读了，如果/.bash_profile文件不存在，才会以此类推读取后面的文件。~/.bashrc没有上述规则，它是bash shell打开的时候载入的。
+```
 
 ### 添加环境变量
 ```
@@ -166,55 +174,15 @@ export PATH=${PATH}:/usr/local/mysql/bin
 source .bash_profile
 ```
 
-### 上述不起作用可直接添加到 ~/.zshrc中
+### 上述不起作用可直接添加到
+
 ```
+~/.zshrc中
+
 vim ~/.zshrc
 
 export PATH=${PATH}:/usr/local/mysql/bin
 保存退出 重启terminal生效
-```
-
-## 检查MySQL服务器是否启动
-```
-[xiaomao@iZ258wvzn92Z /]$ ps -ef | grep mysqld
-
-```
-
-## 查看mysql版本
-### 已连接到数据库
-```
-mysql> status;
---------------
-mysql  Ver 14.14 Distrib 5.7.21, for macos10.13 (x86_64) using  EditLine wrapper
-
-Connection id:		63
-Current database:
-Current user:		root@localhost
-SSL:			Not in use
-Current pager:		less
-Using outfile:		''
-Using delimiter:	;
-Server version:		5.7.21
-Protocol version:	10
-Connection:		Localhost via UNIX socket
-Server characterset:	latin1
-Db     characterset:	latin1
-Client characterset:	utf8
-Conn.  characterset:	utf8
-UNIX socket:		/tmp/mysql.sock
-Uptime:			1 hour 10 min 21 sec
-
-Threads: 1  Questions: 84  Slow queries: 0  Opens: 104  Flush tables: 1  Open tables: 99  Queries per second avg: 0.019
---------------
-```
-### 未连接到数据库
-```
-➜  ~ mysqladmin --version
-mysqladmin  Ver 8.42 Distrib 5.7.21, for macos10.13 on x86_64
-
-或
-➜  ~ mysql -V
-mysql  Ver 14.14 Distrib 5.7.21, for macos10.13 (x86_64) using  EditLine wrapper
 ```
 
 ## 命令行连接MySQL
