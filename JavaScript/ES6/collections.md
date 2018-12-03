@@ -73,6 +73,19 @@ myMap.clear();
 
 myMap.size;       // 0
 myMap.has("bar")  // false
+
+
+// setting the values
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, 'value associated with keyObj');
+myMap.set(keyFunc, 'value associated with keyFunc');
+
+myMap.size; // 3
+
+// getting the values
+myMap.get(keyString);    // "value associated with 'a string'"
+myMap.get(keyObj);       // "value associated with keyObj"
+myMap.get(keyFunc);      // "value associated with keyFunc"
 ```
 
 Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
