@@ -174,37 +174,29 @@ ALTER TABLE `announcement_goods` ADD COLUMN `auc_id` varchar(255) NULL DEFAULT N
 
 ## 图形工具中更改Structure
 
+## AUTO_INCREMENT
+如果设置了自增主键，则从1开始，步长为1。但是有时候，比如我们创建员工编号或者学生证号的时候，希望能够从某个起始值开始自增。
 
-## SQL 高级
-### SQL 连接(JOIN)
-SQL join 用于把来自两个或多个表的行结合起来。
-
-#### grade 与 grade_power 通过gid关联起来
+建表时设置自增起始值
 ```
-SELECT grade.id, grade.experience_value, grade_power.sheepnumber, grade_power.create_at
-FROM grade
-INNER JOIN grade_power
-ON grade.id=grade_power.gid;
-
-+---------+------------------+-------------+---------------------+
-| id      | experience_value | sheepnumber | create_at           |
-+---------+------------------+-------------+---------------------+
-| grade_1 |                0 |           1 | 2017-01-16 22:42:35 |
-| grade_2 |              501 |           2 | 2017-01-16 22:42:35 |
-| grade_3 |             1001 |           3 | 2017-01-16 22:42:35 |
-| grade_4 |             2001 |           4 | 2017-01-16 22:42:35 |
-| grade_5 |             5001 |           5 | 2017-01-16 22:42:35 |
-| grade_6 |            10001 |           6 | 2017-01-16 22:42:35 |
-| grade_7 |            20001 |           7 | 2017-01-16 22:42:35 |
-+---------+------------------+-------------+---------------------+
-7 rows in set (0.00 sec)
-
+CREATE TABLE student_info(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    sex TINYINT NOT NULL,
+    name VARCHAR(10) NOT NULL
+    )ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=20110000;
 ```
-### 不同的 SQL JOIN
-* INNER JOIN：如果表中有至少一个匹配，则返回行
-* LEFT JOIN：即使右表中没有匹配，也从左表返回所有的行
-* RIGHT JOIN：即使左表中没有匹配，也从右表返回所有的行
-* FULL JOIN：只要其中一个表中存在匹配，则返回行
+
+建表后设置自增起始值
+```
+CREATE TABLE student_info(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    sex TINYINT NOT NULL,
+    name VARCHAR(10) NOT NULL
+    )ENGINE=MyISAM DEFAULT CHARSET=utf8; 
+
+ALTER TABLE student_info SET AUTO_INCREMENT=20110000;
+```
+
 
 
 
