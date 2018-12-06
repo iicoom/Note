@@ -36,11 +36,17 @@ docker run hello-world
 
 ## List Docker images
 docker image ls
+or just
+docker images
 
 ## List Docker containers (running, all, all in quiet mode)
 docker container ls
 docker container ls --all
 docker container ls -aq
+
+or just 
+
+docker ps
 
 ```
 [root@izm5egu9g2mfvoy5821g5xz ~]# docker container ls
