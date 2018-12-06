@@ -27,16 +27,56 @@ Empty set (0.00 sec)
 
 ```
 
+## SQL DataTypes
+> MySQL中定义数据字段的类型对你数据库的优化是非常重要的。
+
+MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。
+http://www.runoob.com/mysql/mysql-data-types.html
+
+CREATE TABLE `model` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` smallint(2) DEFAULT NULL COMMENT '类型 1:qq 2:ww 3:ee 4:rr 5:tt',
+  `target_id` int(11) NOT NULL DEFAULT '0' COMMENT '目标id',
+  `questions` json DEFAULT NULL COMMENT '问题',
+  `plan_date` date DEFAULT NULL COMMENT '计划学习时间',
+  `power_score` int(11) NOT NULL DEFAULT '0' COMMENT '积分值',
+  `extend` json DEFAULT NULL COMMENT '{ "pic_url": "图片地址", "activity_name":"活动名称" }',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 ## SQL CREATE TABLE 语法
 ```
-CREATE TABLE 表名称
-(
-列名称1 数据类型,
-列名称2 数据类型,
-列名称3 数据类型,
-....
-)
+CREATE TABLE table_name (column_name column_type);
 
+*******************************************************************************************************
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `runoob_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+**插入数据**
+mysql> insert into model(type,questions,extend) values
+( 1, 
+  JSON_ARRAY(1, 'abc', null, true, CURTIME()), 
+  '[{"subid":31,"tips_id":"3","name":"开学典礼"},{"subid":32,"tips_id":"3","name":"课程"}]'
+);
+
+**删除数据**
+mysql> delete from model where id=1;
+
+-- 清空全部数据，不写日志，不可恢复，速度极快
+truncate table 表名;
+ 
+-- 清空全部数据，写日志，数据可恢复，速度慢
+delete from 表名
+
+
+*******************************************************************************************************
 
 // 软件导出的表结构
 DROP TABLE IF EXISTS `grade`;
@@ -94,6 +134,7 @@ mysql> select * from grade;
 +---------+-------------+------------------+---------------------+---------------------+
 7 rows in set (0.00 sec)
 
+*******************************************************************************************************
 // 创建一张关联表grade_power
 DROP TABLE IF EXISTS `grade_power`;
 CREATE TABLE `grade_power` (
@@ -128,7 +169,7 @@ mysql> select * from grade_power;
 7 rows in set (0.00 sec)
 ```
 
-## SQL 给已存在的表增加字段
+## SQL 更改表结构
 alter add命令用来增加表的字段。
 
 alter add命令格式：alter table 表名 add字段 类型 其他;
