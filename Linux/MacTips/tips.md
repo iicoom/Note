@@ -115,6 +115,8 @@ sudo spctl --master-disable
 * shift + enter 当前行下一行插入空行
 * control + enter 当前行上一行插入空行
 
+* Command+shift+R 全局替换
+
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
 * 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
