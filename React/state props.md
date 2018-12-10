@@ -81,3 +81,11 @@ const HelloWorld = (props) => {
   )
 }
 ```
+
+## render
+react setState后render没有更新
+```
+遇到问题后解决的方法
+React.Component 把PureComponent 改成Component
+备注：React.PureComponent 通过prop和state的浅对比来实现 如果使用了PureComponent 请确保子组件也是PureComponent
+```
