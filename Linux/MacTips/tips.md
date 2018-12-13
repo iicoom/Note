@@ -84,6 +84,8 @@ sudo spctl --master-disable
 * Command + shift + n 进入无痕浏览模式
 * 超级好用的截图工具 Full Page Screen Capture
 
+* Safari 控制台 需要在偏好设置里显示 开发
+
 ### Sublime
 * 多行光标拖动 alt+鼠标
 * 多行光标定位 行首 => 行尾 Command+arrow

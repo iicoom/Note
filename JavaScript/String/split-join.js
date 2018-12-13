@@ -1,3 +1,10 @@
+// join and split
+['jj',0,'ii'].join()
+"jj,0,ii"
+"jj,0,ii".split()
+["jj,0,ii"]
+
+
 /**
    * 解析URL参数
    *
