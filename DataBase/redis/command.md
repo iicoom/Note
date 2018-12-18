@@ -299,32 +299,6 @@ zset
 21) "02|21"
 ```
 
-### 删除单个或多个key
-127.0.0.1:6379> del "uid:5a92ba9dfecffa6b1fb8f086"
-
-127.0.0.1:6379> del key1 key2
-
-
-### 批量删除指定的key
-注意先得退出redis-cli
-
-```
-redis-cli keys "*" | xargs redis-cli del  
-//如果redis-cli没有设置成系统变量，需要指定redis-cli的完整路径  
-//如：/opt/redis/redis-cli keys "*" | xargs /opt/redis/redis-cli del  
-
-➜  ~ redis-cli keys "*" | xargs redis-cli DEL
-```
-
-如下面查找表名下的show类型的keys 
-keys db:table:[a-zA-Z_/d]*:show:* 
-
-keys "$PATTERN" | xargs redis-cli del  
-
-
-
-
-
 [官网-事务处理](http://www.redis.cn/topics/transactions.html)
 ## 事务处理
 > MULTI 、 EXEC 、 DISCARD 和 WATCH 是 Redis 事务相关的命令。事务可以一次执行多个命令， 并且带有以下两个重要的保证：
