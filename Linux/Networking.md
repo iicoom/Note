@@ -1,3 +1,65 @@
+## linux 检测远程端口是否打开
+
+### telnet
+此法常被用来检测是个远端端口是否通畅。
+```
+[root@dev ~]# telnet baidu.com 80
+Trying 123.125.115.110...
+Connected to baidu.com.
+Escape character is '^]'.
+^]
+
+telnet> quit
+Connection closed.
+[root@dev ~]#
+```
+### nmap
+```
+yum install nmap    #输入y安装
+
+nmap localhost    #查看主机当前开放的端口
+nmap -p 1024-65535 localhost    #查看主机端口（1024-65535）中开放的端口
+nmap -PS 192.168.21.163        #探测目标主机开放的端口
+nmap -PS22,80,3306  192.168.21.163    #探测所列出的目标主机端口
+nmap -O 192.168.21.163    #探测目标主机操作系统类型
+nmap -A 192.168.21.163    #探测目标主机操作系统类型
+nmap --help  #更多nmap参数请查询帮助信息
+
+
+****************************************************************
+[root@dev ~]# nmap localhost
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-12-19 17:17 CST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000060s latency).
+Other addresses for localhost (not scanned): 127.0.0.1
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+3000/tcp open  ppp
+5555/tcp open  freeciv
+5566/tcp open  westec-connect
+8080/tcp open  http-proxy
+
+
+nmap ip 显示全部打开的端口
+ 
+根据显示close/open确定端口是否打开。
+
+****************************************************************
+[root@dev ~]# nmap localhost -p 80
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-12-19 17:25 CST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000064s latency).
+Other addresses for localhost (not scanned): 127.0.0.1
+PORT   STATE SERVICE
+80/tcp open  http
+```
+
+
 > I have listed down 10 basic Linux networking and monitoring commands which each Linux user should know. These Linux basic networking and monitoring commands like hostname, ping, ifconfig, iwconfig, netstat, nslookup, traceroute, finger, telnet, ethtool are used for viewing the IP address of the Linux server, managing Linux server network adapter configuration, making network connections among Linux servers over telnet and ethernet, Linux server information etc. Lets have a look on the following Linux networking and monitoring commands.
 
 1. hostname
