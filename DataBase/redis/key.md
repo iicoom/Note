@@ -25,6 +25,20 @@ redis> keys *o*
 
 127.0.0.1:6379> del key1 key2
 
+### 返回0 1 状态含义
+127.0.0.1:6379> keys *
+1) "yasuo:data:token:5"
+2) "fuck"
+127.0.0.1:6379> get fuck
+"you"
+127.0.0.1:6379> del fuck
+(integer) 1
+127.0.0.1:6379> del fuck
+(integer) 0
+127.0.0.1:6379>
+
+1表示成功 0表示失败
+
 
 ### 批量删除指定的key
 注意先得退出redis-cli
