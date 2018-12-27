@@ -32,3 +32,31 @@ const words = ["spray", "limit", "elite", "exuberant", "destruction", "present",
 let longWords = words.filter(word => word.length > 6);
 
 // Filtered array longWords is ["exuberant", "destruction", "present"]
+
+
+// The following example uses filter() to create a filtered json of all elements with non-zero, numeric id.
+var arr = [
+  { id: 15 },
+  { id: -1 },
+  { id: 0 },
+  { id: 3 },
+  { id: 12.2 },
+  { },
+  { id: null },
+  { id: NaN },
+  { id: 'undefined' }
+];
+
+function filterByID(item) {
+  if (isNumber(item.id) && item.id !== 0) {
+    return true;
+  } 
+}
+
+var arrByID = arr.filter(filterByID);
+
+console.log('Filtered Array\n', arrByID); 
+// Filtered Array
+// [{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }]
+
+
