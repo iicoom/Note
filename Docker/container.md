@@ -1,3 +1,39 @@
+## Start a Dockerized web server
+```
+docker run -d -p 80:80 --name webserver nginx
+
+docker ps
+➜  ~ docker ps
+CONTAINER ID  IMAGE       COMMAND               CREATED         STATUS        PORTS                NAMES
+be312539b4d3  nginx    "nginx -g 'daemon of…"   23 hours ago   Up 23 hours    0.0.0.0:80->80/tcp   webserver
+```
+
+## Stop and remove containers and images
+```
+➜  ~ docker stop webserver
+webserver
+
+➜  ~ docker ps -a
+view stopped containers
+
+➜  ~ docker start webserver  再次启动
+webserver
+
+➜  ~ docker rm adoring_mccarthy  移除adoring_mccarthy container
+adoring_mccarthy
+
+➜  ~ docker image ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               latest              568c4670fa80        3 weeks ago         109MB
+hello-world         latest              4ab4c602aa5e        3 months ago        1.84kB
+
+➜  ~ docker image rm hello-world
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
+Deleted: sha256:4ab4c602aa5eed5528a6620ff18a1dc4faef0e1ab3a5eddeddb410714478c67f
+Deleted: sha256:428c97da766c4c13b19088a471de6b622b038f3ae8efa10ec5a37d6d31a2df0b
+```
+
 ## 链接到Docker 容器的redis
 ```
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker ps
