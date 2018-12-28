@@ -24,9 +24,18 @@ zsh: command not found: java
 ➜  ~ 
 ```
 
+```
 /etc/profile中设定的变量(全局)的可以作用于任何用户,而~/.bashrc等中设定的变量(局部)只能继承/etc/profile中的变量,他们是"父子"关系.
 ```
-```
+
+## Mac install jdk
+在sun官网下载JDK安装包非常的慢,mac下可以通过brew快速安装JDK.
+
+安装命令:
+brew cask install java
+默认应该会下载jdk7
+也可以指定下载版本
+brew cask install java6
 
 ## Linux jdk install and setup
 1. download from 官网下载
