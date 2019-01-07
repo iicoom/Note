@@ -14,6 +14,17 @@ sudo ps -e | grep ssh
 sudo service ssh start
 回车-->ssh服务就会启动。
 
+#### ssh 免密登录
+[Linux下实现免密码登录(超详细)](https://www.cnblogs.com/yixue2017/p/7559970.html)
+```
+通过scp将内容写到对方的文件中
+命令：scp -p ~/.ssh/id_rsa.pub root@<remote_ip>:/root/.ssh/authorized_keys
+
+➜  ~ scp -p ~/.ssh/id_rsa.pub root@149.28.210.96:/root/.ssh/authorized_keys
+root@149.28.205.96's password:
+id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
+```
+
 #### 使用vim修改配置文件"/etc/ssh/sshd_config"
 sudo vim /etc/ssh/ssh_config
 
