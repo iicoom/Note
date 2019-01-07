@@ -27,6 +27,38 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.0.asc
 sudo yum install -y mongodb-org
 ```
 
+## Install MongoDB on Mac OS
+```
+brew install mongodb
+
+sudo service mongod start
+
+然后使用 链接至数据库
+➜  ~ mongo
+MongoDB shell version v4.0.4
+connecting to: mongodb://127.0.0.1:27017
+Implicit session: session { "id" : UUID("65f9c02f-8dcd-4cca-be9b-2ca2ce0901f6") }
+MongoDB server version: 4.0.4
+Server has startup warnings:
+2019-01-07T12:23:45.525+0800 I CONTROL  [initandlisten]
+2019-01-07T12:23:45.525+0800 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2019-01-07T12:23:45.525+0800 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2019-01-07T12:23:45.525+0800 I CONTROL  [initandlisten]
+---
+Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+and anyone you share the URL with. MongoDB may use this information to make product
+improvements and to suggest MongoDB products and deployment options to you.
+
+To enable free monitoring, run the following command: db.enableFreeMonitoring()
+To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+
+>
+```
+
 ## Run MongoDB Community Edition
 > The MongoDB instance stores its data files in /var/lib/mongodb and its log files in /var/log/mongodb by default,
 and runs using the mongodb user account.

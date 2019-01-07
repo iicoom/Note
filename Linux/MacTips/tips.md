@@ -118,6 +118,7 @@ sudo spctl --master-disable
 * control + enter 当前行上一行插入空行
 
 * Command+shift+R 全局替换
+* Webstorm 右键文件 => Git => show history => 双击某次提交 查看对比
 
 ### intelliJ IDEA
 * 定位到方法+ alt+command+b: 查看引用 
