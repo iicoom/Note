@@ -1,3 +1,27 @@
+## Installation of Docker on CentOS 7
+https://www.linuxtechi.com/install-docker-on-centos-7/
+Docker package is included in the default CentOS-Extras repository. So to install docker , simply run below yum command :
+
+```
+[root@localhost ~]# yum install docker
+
+[root@vultr ~]# docker --version
+Docker version 1.13.1, build 07f3374/1.13.1
+
+[root@vultr ~]# docker ps -a
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+可见docker守护进程没有启动
+
+Start the Docker Service
+
+[root@localhost ~]# systemctl start docker && systemctl enable docker
+
+[root@vultr ~]# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+正常启动
+
+```
+
 ## Command line
 1. Run docker --version and ensure that you have a supported version of Docker:
 * docker --version 
