@@ -8,6 +8,9 @@ CONTAINER ID  IMAGE       COMMAND               CREATED         STATUS        PO
 be312539b4d3  nginx    "nginx -g 'daemon of…"   23 hours ago   Up 23 hours    0.0.0.0:80->80/tcp   webserver
 ```
 
+## docker logs gitlab
+
+
 ## Stop and remove containers and images
 ```
 ➜  ~ docker stop webserver
@@ -47,12 +50,39 @@ f41e85fc5078        mongo                                         "docker-entryp
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker exec -it redis redis-cli
 127.0.0.1:6379> keys *
 
+```
+
+## 链接到Docker mysql
+```
+[root@localhost ~]# docker exec -it mysql bash
+root@eb3dbfb0958f:/# mysql -uroot -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 3
+Server version: 5.7.20 MySQL Community Server (GPL)
+ 
+Copyright (c) 2000, 2017, Oracle and/or its affiliates. All rights reserved.
+ 
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+ 
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+```
+
+## 链接到Docker gitlab
+```
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker exec -it gitlab-ce bash
 root@git:/# pwd
+```
 
-堡垒机
+## 链接阿里云内网的redis
+```
+需要通过堡垒机链接到正式环境的redis
 [root@dev ~]# redis-cli -h jjaskk-redis.redas.rds.aliyuncs.com
 ```
+
+## 链接到阿里云mysql
 
 
 
