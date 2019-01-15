@@ -1,6 +1,34 @@
-## Git服务器的搭建
-[git服务器的简易搭建](https://blog.csdn.net/lyhdream/article/details/49561645)
-### 安装openssh
+## 保存ssh的主机名和用户名
+在linux下，要远程连接另外一台linux服务器，可以使用ssh，具体类似下面的命令：
+```
+ssh michael@192.168.0.222
+```
+但是，如果登陆linux服务器是每天的都要做的事情，那么这样每天输入用户名和IP地址是稍微有些麻烦的。使用下面的方法，你就可以避免这种麻烦。
+
+在用户根目录下的.ssh文件内创建config文件，如下：
+```
+vi ~/.ssh/config
+```
+在其中以类似如下的格式输入要登陆的服务器的相关信息：
+```
+Host servername
+User username
+Hostname serverIP
+```
+其中的servername是服务器的别名，username是用户名，serverIP就是这台服务器的IP。比如最前面的那个登陆命令，就可以写成下面的形式：
+```
+Host ubuntu
+User michael
+Hostname 192.168.0.222
+```
+如果有多台服务器，可以空一行，然后以同样的格式写在这个文件中。
+
+然后，你就可以直接使用类似下面的命令连接服务器了：
+```
+ssh ubuntu
+```
+
+### 安装openssh(for Ubuntu)
 首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将 服务端 和 客户端 都同时安装：
 
 sudo apt-get install openssh-server openssh-client
@@ -25,48 +53,6 @@ root@149.28.205.96's password:
 id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
 ```
 
-#### 使用vim修改配置文件"/etc/ssh/sshd_config"
-sudo vim /etc/ssh/ssh_config
-
-把配置文件中的"PermitRootLogin without-password"加一个"#"号,
-把它注释掉-->再增加一句"PermitRootLogin yes"-->保存，修改成功。
-
-
-### 安装git环境
-作为服务端的git服务器（git作为一个代码管理工具，既可以作为服务端也可以作为客户端管理本地代码仓库）
-
-sudo apt-get install git
-
-
-### 创建一个git用户
-
-adduser  git
-
-### 进入home目录创建一个目录用于存放仓库
-
-cd  /home
-
-mkdir git_pro
-
-### 修改目录的所属组为git
-
-chown git:git /home/git_pro
-
-### 修改目录的操作权限为所有者和所属组的人为读、写、执行：
-
-chmod -R 774 /home/git_pro
-
-### 创建仓库
-这样就在服务端创建好了一个可以使用的git仓库了，为了能在客户端将本地仓库推送到服务端，我们确保ssh服务是开启的：
-
-ps -A | grep ssh
-
-如果没有开启，则执行：
-
-/etc/init.d/ssh start
-
-来开启服务
-
 ### 配置服务器端authorized_keys  
 * 进入git用户的主目录，创建一个 .ssh目录
 * mkdir  .ssh  
@@ -79,21 +65,6 @@ ps -A | grep ssh
 将 开发者 .ssh目录里生成的公钥复制到 authorized_keys 文件里
 这样，服务端就已经具备了通过公钥来为用户提供推送代码的权限了。
 
-## Git 客户端
-假设现在有一个开发者（用户名为lyh1），想要对该仓库具有推送代码的权限，那么他就可以在自己电脑上，通过lyh1这个用户生成相应的公钥和私钥，把公钥复制到服务端.ssh/authorized_keys文件里（另起一行），就可以了。
-
-### 服务端配置问题
-（注意：如果此时通过公钥访问还是需要输入密码，重新使用ssh-keygen生成秘钥对，文件名改为id_rsa.pub以及id_rsa即可；具体需要查看/etc/ssh/ssh_config 配置文件里的要求，参见：http://www.cnblogs.com/liyuanhong/articles/6791608.html）
-
-### Ubuntu 14.04上安装和配置ssh
-
-## ssh 生成公钥私钥
-### linux mac 的.shh都在~用户目home录下 cd ~ 可以进入你的home目录
-### ls -a 显示所有文件包括隐藏文件
-1. 首先需要检查你电脑是否已经有 SSH key  cd ~/.ssh
-2. 创建一个 $ ssh-keygen -t rsa -C "your_email@example.com"
-3. 复制公钥 cat ~/.ssh/id_rsa.pub
-4.
 
 ### 添加了ssh key之后
 当你在github后台添加了ssh keys之后，如果你在本地 git clone git://www.somesite.com/test.git 的时候出现了一些问题，不如access denied，那么你要在本地这么测试一下：
@@ -104,31 +75,6 @@ ssh -T git@github.com
 Permission denied (publickey).
 
 那么你可能要在本地ssh-add一下，当然在这之前你可以使用 ssh -vT git@github.com 查看一下到底是因为什么原因导致的失败。
-
-### 管理多个公钥私钥对
-.ssh 下的 config 文件
-```
-#gitlab
-Host gitlab
-HostName gitlab.com
-IdentityFile ~/.ssh/id_rsa
-
-#imooc (github 配置)
-Host github
-HostName github.com
-IdentityFile ~/.ssh/id_rsa_github
-```
-
-### Github 账号识别（公钥）
-Github上 Leo 的仓库 Bibobobi无法通过ssh提交代码  之前通过将其添加为collaborator来授权
-
-GitHub上 每一个公钥对应一个用户
-
-解决方法：删掉Bibobobi的公钥 添加到Leo下 这样就不会报 公钥已经被使用的错误了
-
-### ssh免密登录
-上传公钥至服务器免密码登录
-https://www.jianshu.com/p/6761199bedba
 
 ## ssh代理 http://www.cnblogs.com/kwongtai/p/6903420.html
 ### ssh参数
