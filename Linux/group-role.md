@@ -1,3 +1,9 @@
+## 查看当前用户的用户组命令：
+```
+[root@gitlab ~]# groups
+root
+```
+
 ## 切换用户角色
 ```
 [xiaomao@iZ258wvzn92Z ~]$ su

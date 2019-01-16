@@ -9,7 +9,38 @@ be312539b4d3  nginx    "nginx -g 'daemon of…"   23 hours ago   Up 23 hours    
 ```
 
 ## docker logs gitlab
+docker --help
+```
+docker logs containerId
 
+docker top containerId
+```
+### docker logs --help
+```
+Usage:	docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
+
+Options:
+      --details        Show extra details provided to logs
+  -f, --follow         Follow log output
+      --help           Print usage
+      --since string   Show logs since timestamp
+      --tail string    Number of lines to show from the end of the logs (default "all")
+  -t, --timestamps     Show timestamps
+```
+查看container 日志结尾指定行数 并跟随
+[root@gitlab ~]# docker logs -f --tail 10 gitlab
+~
+[root@gitlab ~]# docker logs --tail 10 gitlab
+{"method":"GET","path":"/-/metrics","format":"html","controller":"MetricsController","action":"index","status":200,"duration":18.75,"view":0.84,"db":0.0,"time":"2019-01-16T03:53:38.870Z","params":[],"remote_ip":null,"user_id":null,"username":null,"ua":null,"correlation_id":"2ecb7aaf-d612-43e6-a69e-5e4d3216285b"}
+==> /var/log/gitlab/gitlab-workhorse/current <==
+2019-01-16_03:53:38.23888 45.76.75.55 45.76.75.55:0 - - [2019/01/16:03:53:38 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)" 0.000
+==> /var/log/gitlab/nginx/gitlab_access.log <==
+45.76.75.55 - - [16/Jan/2019:03:53:39 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)"
+==> /var/log/gitlab/gitlab-workhorse/current <==
+2019-01-16_03:53:39.73915 45.76.75.55 45.76.75.55:0 - - [2019/01/16:03:53:39 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)" 0.000
+~
 
 ## Stop and remove containers and images
 ```

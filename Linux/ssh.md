@@ -1,4 +1,46 @@
-## 保存ssh的主机名和用户名
+## 安装ssh
+### 安装openssh(for Ubuntu)
+首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将 服务端 和 客户端 都同时安装：
+
+sudo apt-get install openssh-server openssh-client
+
+### Centos
+yum install ssh
+
+### 查看ssh服务是否启动
+打开"终端窗口"，输入
+
+sudo ps -e | grep ssh
+回车-->有sshd,说明ssh服务已经启动，
+如果没有启动，输入
+sudo service ssh start
+回车-->ssh服务就会启动。
+
+## Generating a new SSH key pair
+https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair
+
+```
+ ssh-keygen -o -t rsa -b 4096 -C "email@example.com"
+```
+The -C flag adds a comment in the key in case you have multiple of them and want to tell which is which. It is optional.
+
+上面的4096，生成的会比较长
+```
+ssh-keygen -t rsa -C "your_email@example.com"
+```
+
+
+## ssh 免密登录
+[Linux下实现免密码登录(超详细)](https://www.cnblogs.com/yixue2017/p/7559970.html)
+```
+通过scp将内容写到对方的文件中
+命令：scp -p ~/.ssh/id_rsa.pub root@<remote_ip>:/root/.ssh/authorized_keys
+
+➜  ~ scp -p ~/.ssh/id_rsa.pub root@149.28.210.96:/root/.ssh/authorized_keys
+root@149.28.205.96's password:
+id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
+```
+## ssh servername 快捷登录（保存ssh的主机名和用户名ssh config)
 在linux下，要远程连接另外一台linux服务器，可以使用ssh，具体类似下面的命令：
 ```
 ssh michael@192.168.0.222
@@ -27,44 +69,6 @@ Hostname 192.168.0.222
 ```
 ssh ubuntu
 ```
-
-### 安装openssh(for Ubuntu)
-首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将 服务端 和 客户端 都同时安装：
-
-sudo apt-get install openssh-server openssh-client
-
-#### 查看ssh服务是否启动
-打开"终端窗口"，输入
-
-sudo ps -e | grep ssh
-回车-->有sshd,说明ssh服务已经启动，
-如果没有启动，输入
-sudo service ssh start
-回车-->ssh服务就会启动。
-
-#### ssh 免密登录
-[Linux下实现免密码登录(超详细)](https://www.cnblogs.com/yixue2017/p/7559970.html)
-```
-通过scp将内容写到对方的文件中
-命令：scp -p ~/.ssh/id_rsa.pub root@<remote_ip>:/root/.ssh/authorized_keys
-
-➜  ~ scp -p ~/.ssh/id_rsa.pub root@149.28.210.96:/root/.ssh/authorized_keys
-root@149.28.205.96's password:
-id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
-```
-
-### 配置服务器端authorized_keys  
-* 进入git用户的主目录，创建一个 .ssh目录
-* mkdir  .ssh  
-* cd .ssh  
-* 为该用户创建一个公钥和私钥：
-* ssh-keygen -t rsa   //以rsa的加密方式生成秘钥对  
-* 在.ssh目录里创建一个authorized_keys文件，用于存放开发者用户的公钥
-* touch authorized_keys  
-
-将 开发者 .ssh目录里生成的公钥复制到 authorized_keys 文件里
-这样，服务端就已经具备了通过公钥来为用户提供推送代码的权限了。
-
 
 ### 添加了ssh key之后
 当你在github后台添加了ssh keys之后，如果你在本地 git clone git://www.somesite.com/test.git 的时候出现了一些问题，不如access denied，那么你要在本地这么测试一下：
