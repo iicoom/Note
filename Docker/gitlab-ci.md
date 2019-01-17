@@ -97,5 +97,11 @@ Host key verification failed.
 ERROR: Job failed: exit status 1
 
 gitlab-runner执行时是以gitlab-runner组gitlab-runner用户登录要部署的远程主机，所以要配置该用户的ssh免密登录
+所以需要切换到 gitlab-runner用户，添加目标服务器的公钥
+su - gilab-runner
+使用命令：su - 用户名 （注意：此时su和用户名之后有一个英文版的横杠）
+[root@gitlab ~]# su - gitlab-runner
+上一次登录：四 1月 17 08:38:23 UTC 2019
+[gitlab-runner@gitlab ~]$
 
 ## Kubernetes cluster

@@ -1,6 +1,16 @@
 > Node Version Manager - Simple bash script to manage multiple active node.js versions
 [GitHub](https://github.com/creationix/nvm)
 
+## CentOS nvm instll
+```
+第一步：
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+第二步：
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
 ## window-nvm安装
 [下载nvm-setup](https://github.com/coreybutler/nvm-windows/releases)
 

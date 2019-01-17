@@ -45,3 +45,31 @@ git remote add origin http://gitlab.example.com/Monkey/sai.git
 git push -u origin --all
 git push -u origin --tags
 ```
+
+如果提示remote origin已经存在，查看.git/config
+```
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        precomposeunicode = true
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+[remote "origin"]
+        url = ssh://git@45.76.75.55:2222/root/s-admin.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+```
+需要把
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+整块删除，然后就可以pull代码了,但是还会出现问题
+➜  S-admin git:(master) git pull
+fatal: refusing to merge unrelated histories
+
+
+
+

@@ -180,6 +180,16 @@ There is NO WARRANTY, to the extent permitted by law.
 sudo : 暂时切换到超级用户模式以执行超级用户权限，提示输入密码时该密码为当前用户的密码，而不是超级账户的密码。不过有时间限制，Ubuntu默认为一次时长15分钟。
 su ： 切换到某某用户模式，提示输入密码时该密码为切换后账户的密码，用法为“su 账户名称”。如果后面不加账户时系统默认为root账户，密码也为超级账户的密码。没有时间限制。
 sudo -i: 为了频繁的执行某些只有超级用户才能执行的权限，而不用每次输入密码，可以使用该命令。提示输入密码时该密码为当前账户的密码。没有时间限制。执行该命令后提示符变为“#”而不是“$”。想退回普通账户时可以执行“exit”或“logout” 。
+```
+[root@gitlab ~]#
+[root@gitlab ~]# su - gitlab-runner
+上一次登录：四 1月 17 08:38:23 UTC 2019
+[gitlab-runner@gitlab ~]$
+
+[gitlab-runner@gitlab .ssh]$ exit
+logout
+[root@gitlab ~]#
+```
 
 ## 查看现在登录的用户
 ### who
