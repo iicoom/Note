@@ -80,6 +80,22 @@ Common commands:
 ### pip3 install <package>
 ➜  ~ pip3 install scrapy
 
+### scrapy
+➜  Spider scrapy list
+quotes
+spider1
+
+How to run our spider
+To put our spider to work, go to the project’s top level directory and run:
+```
+scrapy crawl quotes
+```
+
+Storing the scraped data
+```
+scrapy crawl quotes -o quotes.json
+```
+
 ## pycharm active code
 https://blog.csdn.net/qq_37489565/article/details/80612301
 
