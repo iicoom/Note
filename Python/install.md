@@ -77,9 +77,6 @@ Common commands:
   flutter create <output directory>
 
 
-### pip3 install <package>
-➜  ~ pip3 install scrapy
-
 ## pycharm active code
 https://blog.csdn.net/qq_37489565/article/details/80612301
 
