@@ -175,13 +175,6 @@ iwconfig
 必须确保你在使用USB无线网卡，虚拟机只能挂载USB无线网卡
 启动虚拟机，在kali linux中打开终端，输入
 airmon-ng
-### 发HTTP请求
-```
-wget https://www.baidu.com/
-会把请求到的数据保存到index.html文件中
 
-wget -S -O - https://www.baidu.com/
-会将请求的数据，输出到屏幕
-```
 
 
