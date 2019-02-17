@@ -1,3 +1,8 @@
+## 本地连接阿里云内网mysql
+https://www.cnblogs.com/SeaWxx/p/9969007.html
+1. 先ssh登录到阿里云内网（秘钥）
+2. 然后输入mysql相关信息 host username password port
+
 ## 用法
 * 新建表：可以直接执行sql语句，切换到query选项卡下：
 ```
