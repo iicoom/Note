@@ -44,3 +44,23 @@ http://www.w3school.com.cn/xpath/xpath_syntax.asp
 ```
 如果使用标签选择器可能会因为js渲染页面后结构发生改变拿不到值，id选择器似乎可以避免这个问题
 
+### scrapy shell
+scrapy shell <url>
+
+➜  ~ scrapy shell http://python.jobbole.com/
+>>> response
+<200 http://python.jobbole.com/>
+>>> response.headers
+{b'Server': [b'nginx'], b'Date': [b'Sun, 17 Feb 2019 07:52:24 GMT'], b'Content-Type': [b'text/html; charset=utf-8'], b'Vary': [b'Accept-Encoding'], b'X-Powered-By': [b'PHP/5.3.3']}
+>>> response.xpath("/html/head/title/text()")
+[<Selector xpath='/html/head/title/text()' data='Python - 伯乐在线'>]
+>>> title=response.xpath("/html/head/title/text()")
+>>> title.extract()
+['Python - 伯乐在线']
+>>> title.extract()[0]
+'Python - 伯乐在线'
+
+提取文章列表的文章url
+>>> response.css('#archive .post-thumb a::attr(href)').extract()
+['http://python.jobbole.com/89337/', 'http://python.jobbole.com/89331/', 'http://python.jobbole.com/89328/', 'http://python.jobbole.com/89319/', 'http://python.jobbole.com/89316/', 'http://python.jobbole.com/89313/', 'http://python.jobbole.com/89309/', 'http://python.jobbole.com/89305/', 'http://python.jobbole.com/89302/', 'http://python.jobbole.com/89297/', 'http://python.jobbole.com/89290/', 'http://python.jobbole.com/89287/', 'http://python.jobbole.com/89279/', 'http://python.jobbole.com/89275/', 'http://python.jobbole.com/89272/', 'http://python.jobbole.com/89250/', 'http://python.jobbole.com/89267/', 'http://python.jobbole.com/89263/', 'http://python.jobbole.com/89258/', 'http://python.jobbole.com/89252/']
+
