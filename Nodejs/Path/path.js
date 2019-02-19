@@ -1,3 +1,29 @@
+
+const fs        = require('fs');
+const path      = require('path');
+const basename  = path.basename(__filename);
+
+// 全局变量 __dirname
+console.log('=============', __dirname)
+// ============= /Users/guitar/Work/yasuo/models
+
+console.log('=============', fs.readdirSync(__dirname))
+// ============= index.js
+
+console.log('=============', fs.readdirSync(__dirname))
+/*
+============= [ 'celebration.js',
+  'challenge.js',
+  'challengeMap.js',
+  'class.js',
+  'classGroup.js',
+  'classNews.js',
+  'company.js',
+  'dayTips.js']
+*/
+
+
+/* ===================================================================================================== */
 const path = require('path');
 
 console.log(path.dirname('/foo/bar/baz/asdf/quux.html'));
