@@ -61,6 +61,7 @@ scrapy shell <url>
 'Python - 伯乐在线'
 
 提取文章列表的文章url
+➜  ~ scrapy shell http://python.jobbole.com/all-posts/
 >>> response.css('#archive .post-thumb a::attr(href)').extract()
 ['http://python.jobbole.com/89337/', 'http://python.jobbole.com/89331/', 'http://python.jobbole.com/89328/', 'http://python.jobbole.com/89319/', 'http://python.jobbole.com/89316/', 'http://python.jobbole.com/89313/', 'http://python.jobbole.com/89309/', 'http://python.jobbole.com/89305/', 'http://python.jobbole.com/89302/', 'http://python.jobbole.com/89297/', 'http://python.jobbole.com/89290/', 'http://python.jobbole.com/89287/', 'http://python.jobbole.com/89279/', 'http://python.jobbole.com/89275/', 'http://python.jobbole.com/89272/', 'http://python.jobbole.com/89250/', 'http://python.jobbole.com/89267/', 'http://python.jobbole.com/89263/', 'http://python.jobbole.com/89258/', 'http://python.jobbole.com/89252/']
 
