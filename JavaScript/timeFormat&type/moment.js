@@ -22,6 +22,9 @@ console.log(new Date('2018-09-12 23:34:20').getTime())
 Date.now()
 // 1521769579275
 
+Date.now().toString().substr(0,10);
+//  生成10位时间戳
+
 new Date(new Date().setHours(0, 0, 0, 0))
 Mon Jul 09 2018 00:00:00 GMT+0800 (中国标准时间)
 new Date(new Date().setHours(0, 0, 0, 0)).getTime()
