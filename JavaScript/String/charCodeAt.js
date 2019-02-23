@@ -3,6 +3,10 @@
 // index	必需。表示字符串中某个位置的数字，即字符在字符串中的下标。
 
 /*
+'a'.charCodeAt()
+97
+String.fromCharCode(97)
+"a"
 
 'abcdefghi'.charCodeAt(0)
 97
@@ -18,3 +22,4 @@
 "a"
 
 */
+
