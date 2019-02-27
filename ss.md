@@ -94,7 +94,7 @@ chmod +x shadowsocks.sh
 
 如果这篇文章帮到了你，那就请为我点个赞吧(∩_∩)
 
-
+https://segmentfault.com/a/1190000015067117
 
 
 
