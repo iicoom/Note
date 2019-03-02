@@ -47,3 +47,32 @@ function MyComponent() {
   return <div dangerouslySetInnerHTML={createMarkup()} />;
 }
 ```
+
+## React 组件自定义属性及 onClick 方法
+```
+<FormItem {...formItemLayout} label="已选">
+  <div>
+    {options.map(item => (
+      <Tag closable color="cyan" key={item.id} id={item.id} onClick={this.handleClick}>
+        {item.value}
+      </Tag>
+    ))}
+  </div>
+</FormItem>
+```
+如上，给<Tag>添加click方法 并获取自定义属性id的值
+```
+handleClick = e => {
+  const { options } = this.state;
+  const tag_id = e.currentTarget.getAttribute('id')
+  this.setState({options: options.filter(item => item.id !== Number(tag_id))})
+}
+```
+
+
+
+
+
+
+
+
