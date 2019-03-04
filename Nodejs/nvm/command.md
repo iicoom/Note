@@ -9,6 +9,13 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | 
 第二步：
 export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+2019-03-04
+export NVM_DIR="nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  					# This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+这3条一条一条执行
 ```
 
 ## window-nvm安装
@@ -23,6 +30,18 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 * nvm ls-remote  
 
 * nvm install <version> [arch] : The version can be a node.js version or "latest" for the latest stable version.
+
+* nvm install --lts 安装长期支持板
+```
+######################################################################## 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+nvm is not compatible with the npm config "prefix" option: currently set to "/root/nvm/versions/node/v10.15.2"
+Run `nvm use --delete-prefix v10.15.2` to unset it.
+
+[root@iz2ze4a9gck8ryb6hpqzamz ~]# nvm use --delete-prefix v10.15.2
+Now using node v10.15.2 (npm v6.4.1)
+```
 	
 * nvm uninstall <version>      : The version must be a specific version.
 

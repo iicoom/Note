@@ -15,6 +15,9 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/
 
 Configure the package management system (yum).
 Create a /etc/yum.repos.d/mongodb-org-4.0.repo file so that you can install MongoDB directly using yum:
+创建repo文件
+vim /etc/yum.repos.d/mongodb-org-4.0.repo
+把下面的内容放进来
 ```
 [mongodb-org-4.0]
 name=MongoDB Repository
@@ -90,6 +93,38 @@ Start a mongo shell on the same host machine as the mongod. Use the --host comma
 mongo --host 127.0.0.1:27017
 ```
 Later, to stop MongoDB, press Control+C in the terminal where the mongod instance is running.
+
+## centos 服务器mongodb远程连接被拒绝
+各种百度，远程连接mongodb失败，网上资料显示原因有两个：
+提高安全性：https://blog.csdn.net/qq_34964399/article/details/80260782
+修改配置文件：
+/etc/mongod.conf
+1、mongodb的配置文件中的bind_ip 默认为127.0.0.1，默认只有本机可以连接。  此时，需要将bind_ip配置为0.0.0.0，表示接受任何IP的连接。
+
+2、防火墙阻止了27017端口。
+
+于是，先修改mongodb配置文件，并重启mongod服务。
+
+* Start MongoDB
+```
+sudo service mongod start
+```
+
+* Stop MongoDB
+```
+sudo service mongod stop
+```
+
+* Restart MongoDB
+```
+sudo service mongod restart
+```
+
+* Begin using MongoDB.
+Start a mongo shell on the same host machine as the mongod. Use the --host command line option to specify the localhost address (in this case 127.0.0.1) and port that the mongod listens on:
+```
+mongo --host 127.0.0.1:27017
+```
 
 ## Uninstall MongoDB Community Edition
 
