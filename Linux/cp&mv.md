@@ -16,6 +16,14 @@ cp -r myAntPro/. antdPro
 将apache-tomcat-8.5.9.tar.gz文件移动到/usr/local/下
 sudo mv /Users/feng/Downloads/apache-tomcat-8.5.9.tar.gz /usr/local/
 
+在Linux下重命名文件或目录，可以使用mv命令或rename命令
+[root@vultr data]# ls
+dist  iicoom.github.io  www
+
+[root@vultr data]# mv iicoom.github.io iicoom
+[root@vultr data]# ls
+dist  iicoom  www
+
 #### 出现替换的情况
 [root@iZ258wvzn92Z target]# ls
 butchershop-busi  butchershop-busi.war  classes  generated-sources  maven-archiver  maven-status
