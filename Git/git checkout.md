@@ -1,17 +1,24 @@
-## git log 
+## 查看远程分支
+git branch -r
 
-commit 665c744ec46b062ba4da23d26f451e68eca3aeb9
-Author: 朱浩 <zhuhao@yunfarm.cn>
-Date:   Mon Sep 17 18:05:07 2018 +0800
+origin/HEAD -> origin/master
+  origin/develop
+  origin/feature/#22
+  origin/feature/#29
+  origin/hotfix/#26
+  origin/hotfix/#27
+  origin/hotfix/2.1.1
 
-    昨日收益调整
-
-commit d848ed5e43577cb62622329c48ea3a5a15f25834
-Merge: ed0f06c f459f9a
-Author: 毛小杰 <maoxiaojie@yunfarm.cn>
-Date:   Mon Sep 17 11:12:43 2018 +0800
-
-    Merge branch 'master' into develop
+### 拉去远程分支
+```
+要检出的本地分支名称feature/deleteContract  远程分支名称origin/feature/deleteContract
+该方法会检出分支后自动切换到检出的分支
+[xiaomao@iZ258wvzn92Z cloud_ranch]$ sudo git checkout -b feature/deleteContract origin/feature/deleteContract
+[sudo] password for xiaomao:
+Branch feature/deleteContract set up to track remote branch feature/deleteContract from origin.
+Switched to a new branch 'feature/deleteContract'
+[xiaomao@iZ258wvzn92Z cloud_ranch]$
+```
 
 ## Checkout a specific commit
 ```
