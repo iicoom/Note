@@ -36,8 +36,8 @@ ssh-keygen -t rsa -C "your_email@example.com"
 通过scp将内容写到对方的文件中
 命令：scp -p ~/.ssh/id_rsa.pub root@<remote_ip>:/root/.ssh/authorized_keys
 
-➜  ~ scp -p ~/.ssh/id_rsa.pub root@149.28.210.96:/root/.ssh/authorized_keys
-root@149.28.205.96's password:
+➜  ~ scp -p ~/.ssh/id_rsa.pub root@149.28.210.xx:/root/.ssh/authorized_keys
+root@149.28.2xx.xx's password:
 id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
 ```
 ## ssh servername 快捷登录（保存ssh的主机名和用户名ssh config)

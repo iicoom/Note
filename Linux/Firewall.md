@@ -1,3 +1,51 @@
+## How to Stop and Disable Firewalld on CentOS 7
+https://linuxize.com/post/how-to-stop-and-disable-firewalld-on-centos-7/
+
+> Starting with CentOS 7, FirewallD replaces iptables as the default firewall management tool.
+
+### 查看状态
+```
+sudo firewall-cmd --state
+```
+
+### Disable Firewall
+```
+sudo systemctl stop firewalld
+```
+
+To permanently disable the firewall on your CentOS 7 system, follow the steps below:
+```
+sudo systemctl stop firewalld
+
+sudo systemctl disable firewalld
+
+```
+
+Mask the FirewallD service which will prevent the firewall from being started by other services:
+```
+sudo systemctl mask --now firewalld
+```
+
+## How to Install Iptables on CentOS 7
+https://linuxize.com/post/how-to-install-iptables-on-centos-7/
+
+1. Type the following command to stop the FirewallD service:
+```
+sudo systemctl stop firewalld
+```
+
+2. Disable the FirewallD service to start automatically on system boot:
+```
+sudo systemctl disable firewalld
+```
+
+3. Mask the FirewallD service to prevent it from being started by another services:
+```
+sudo systemctl mask --now firewalld
+```
+
+
+
 ## iptables rules
 
 ```
