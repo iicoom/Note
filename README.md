@@ -2,6 +2,12 @@
 something important
 
 ### 常见装逼词汇
+* group wheel
+Modern Unix systems generally use user groups as a security protocol to control access privileges. The wheel group is a special user group used on some Unix systems to control access to the su[4][5] or sudo command, which allows a user to masquerade as another user (usually the super user)
+
+* VPS服务器（虚拟专用服务器）（"Virtual Private Server"，或简称 "VPS"）是利用虚拟服务器软件(如微软的Virtual Server、VMware的ESX server、SWsoft 的Virtuozzo)在一台物理服务器上创建多个相互隔离的小服务器。
+这些服务器（VPS）本身就有自己操作系统，它的运行和管理与独立服务器完全相同。 因为每一个VPS服务器均可独立进行重启并拥有自己的root访问权限、用户、IP地址、内存、过程、文件、应用程序、系统函数库以及配置文件。虚拟专用服务器确保所有资源为用户独享，给用户最高的服务品质保证，让用户以虚拟主机的价格享受到独立主机的服务品质。
+
 * OKR（Objectives and Key Results）即目标与关键成果法，是一套明确和跟踪目标及其完成情况的管理工具和方法，由英特尔公司发明。
 OKR由英特尔公司发明，并由约翰·杜尔将其大众化，OKR与OKR工具被多个公司采用，包括Uber、谷歌 [2]  、MongoDB、LinkedIn [3]  、推特 [4]  和Zynga。
 
