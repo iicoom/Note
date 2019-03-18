@@ -19,3 +19,6 @@ for example:
     "online": "NODE_ENV=production DEBUG=koa-my supervisor -- app.js --harmony"
   },
 ```
+
+## jsonwebtoken
+An implementation of JSON Web Tokens.
