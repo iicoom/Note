@@ -24,3 +24,20 @@ create table `order_master` (
 Command + R 执行语句
 
 * 新增数据：切换到content选项卡下，添加单条数据 Tab的使用，输入完成enter
+
+## 使用Mac下的sequel Pro链接数据库时提示错误（已解决）
+https://www.2cto.com/database/201805/743754.html
+使用Mac下的sequel Pro链接数据库时，出现如下问题：
+问题描述：就是在链接数据库时不能加载‘caching_sha2_password'这个插件，也就是不能对身份验证。
+
+解决方案：
+
+打开系统偏好设置，找到mysql，点击Initialize Database。
+
+输入你的新密码，记住这个密码，用于后期链接数据库的登陆使用。
+
+选择‘Use legacy password‘。
+
+重启mysql服务。
+
+使用sequel Pro链接。
