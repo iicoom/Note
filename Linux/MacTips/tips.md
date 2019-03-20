@@ -94,6 +94,7 @@ sudo spctl --master-disable
 * 多行光标定位 单词首 => 单词尾 并选中 Command+shift+alt+arrow
 * 全局搜索替换 Find => Find in Files => Add folder(搜索替换范围)
 * 全局保存 File => Save all(alt+command+S)
+* 代码折叠 Edit => Code Folding => level 3 折叠只剩函数名
 
 
 ### webstorm
