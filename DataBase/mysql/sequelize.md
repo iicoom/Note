@@ -1,3 +1,6 @@
+## 首先需要建立数据库链接，建库、建表
+
+
 ## 全局model变量
 global.model = require('../models/index');
 
@@ -57,6 +60,8 @@ module.exports = Comments;
 ```
 
 ### 关联查询
+
+
 
 
 

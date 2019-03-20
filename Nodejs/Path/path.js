@@ -3,9 +3,13 @@ const fs        = require('fs');
 const path      = require('path');
 const basename  = path.basename(__filename);
 
-// 全局变量 __dirname
+// 全局变量 __dirname 文件的绝对路径
 console.log('=============', __dirname)
 // ============= /Users/guitar/Work/yasuo/models
+
+// 取当前目录的上级目录
+console.log(path.join(__dirname, '../'))
+// ============= /Users/guitar/Work/yasuo/
 
 console.log('=============', fs.readdirSync(__dirname))
 // ============= index.js
@@ -41,6 +45,12 @@ console.log(path.extname('index.coffee.md'));
 console.log("path.join(__dirname,'index.html')",path.join(__dirname,'index.html'))
 console.log("path.resolve(__dirname,'index.html')",path.resolve(__dirname,'index.html'))
 
+// path.resolve总是返回一个以相对于当前的工作目录（working directory）的绝对路径。
+// 上边的例子中都有__dirname（就是绝对路径）所以join和resolve的返回是一样的
+console.log(path.join('db.js'))
+console.log(path.resolve('db.js'))
+// db.js
+// /Users/guitar/Repo/koa-mysql/db.js
 
 console.log(path.parse('/home/user/dir/file.txt'));
 // Returns:
@@ -49,6 +59,15 @@ console.log(path.parse('/home/user/dir/file.txt'));
 //   base: 'file.txt',
 //   ext: '.txt',
 //   name: 'file' }
+
+path.normalize('/foo/bar//baz/asdf/quux/..');
+// 返回: '/foo/bar/baz/asdf'
+
+path.normalize('C:\\temp\\\\foo\\bar\\..\\');
+// 返回: 'C:\\temp\\foo\\'
+
+path.win32.normalize('C:////temp\\\\/\\/\\/foo/bar');
+// 返回: 'C:\\temp\\foo\\bar'
 
 /*
 ┌─────────────────────┬────────────┐
