@@ -80,7 +80,9 @@ axios 发https请求报错
 点击高级，然后人工确认‘仍然进行连接’，即下载了证书。再使用axios访问https地址， 就可以了。
 
 [一个月试用证书](https://www.myssl.cn/)
+user asdf pass 02****34***
 
+七牛也提供1年免费证书服务
 
 ## Nginx 配置 HTTPS 服务器
 https://aotu.io/notes/2016/08/16/nginx-https/index.html
