@@ -15,3 +15,8 @@ item1, ..., itemX	可选。向数组添加的新项目。
 const arr = [{nimei: '66'}, {nidaye: 'oo'}]
 arr.splice(1,1)
 => [{nidaye: 'oo'}]
+-------------------------------------------
+arr.splice(0,1)
+=> [{nimei: '66'}]
+返回值是被slice掉的部分，原数组变为
+[{nidaye: 'oo'}]

@@ -22,3 +22,22 @@ for example:
 
 ## jsonwebtoken
 An implementation of JSON Web Tokens.
+
+## file-size
+File-size module for node.js for converting, manipulating, and handling file-sizes.
+* Zero Dependencies.
+* Supports IEC (power 1024, default), SI (power 1000), and JEDEC (Alternative SI Unit Notation).
+* Conversion from bytes to K, M, G, and so forth...
+* Customizable human-readable output.
+
+```
+var filesize = require('file-size');
+filesize(Number bytes, Object options)
+
+// outputs: 177.82 MiB
+filesize(186457865).human();
+
+// outputs: 186.46 MB
+filesize(186457865).human('jedec');
+```
+
