@@ -12,7 +12,7 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 
 
 2019-03-04
-export NVM_DIR="nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  					# This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 这3条一条一条执行
@@ -62,3 +62,12 @@ lts/carbon -> v8.9.4 (-> N/A)
 
 * nvm use version
 
+## 卸载nvm
+执行下面的命令移除nvm内容
+```
+cd ~
+rm -rf .nvm
+```
+移除掉~/.profile, ~/.bash_profile, ~/.zshrc, ~/.bashrc文件中关于nvm的配置
+
+重启terminal
