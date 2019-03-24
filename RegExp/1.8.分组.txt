@@ -1,6 +1,33 @@
-* ()
+// ()表示分组
 
 'a1b2c3d4'.replace(/[a-z]\d{3}/g,'X')
 "a1b2c3d4"
+
+/[a-z]\d{3}/.test('a123')
+true
+
+/[a-z]\d{3}/.test('asv')
+false
+/[a-z]\d{3}/.test('asv1234')
+true
+
+######## 注意上下2中有（）的区别 ###############
+
+'a1b2c3d4'.replace(/([a-z]\d){3}/g,'X')
+"Xd4"
+
+/([a-z]\d){3}/.test('a1b1c1')
+true
+/([a-z]\d){3}/.test('aaaas1s1c1jjjjjj') 匹配到 s1s1c1
+true
+
+
+// 上面的正则用到了 字符类[]  [a-z]表示a-z之间的一个字符
+// [a-z]\d  表示a-z之间的字符紧接着一个数字
+
+'a1b2c3d4'.replace(/[a-z]\d/g,'X')
+"XXXX"
+
+// （[a-z]\d){3} 表示a-z之间的一个字符紧接着一个数字 然后这样的模式连续出现了3次
 'a1b2c3d4'.replace(/([a-z]\d){3}/g,'X')
 "Xd4"
