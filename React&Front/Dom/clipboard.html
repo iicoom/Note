@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.js"></script>
+    <style>
+        input {
+            outline: none;
+        }
+        input::selection {
+            background: #fff;
+            color: #f00;
+        }
+
+        .tooltip {
+            padding: 5px;
+            background-color: #000;
+            color: #fff;
+            top: 3px;
+        }
+    </style>
+</head>
+<body>
+<input value="我是被复制的内容3" id="copy" />
+<button class="btn" data-clipboard-target="#copy">复制</button>
+
+
+<!-- Target -->
+<input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
+<!-- Trigger -->
+<button class="btn" data-clipboard-target="#foo" style="width: 32px;height:22px">
+    <img id="tooltip" src="https://clipboardjs.com/assets/images/clippy.svg" alt="Copy to clipboard" style="width: 100%;height: 100%">
+</button>
+<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+<script>
+
+    // new Tooltip($('#tooltip'), {
+    //     placement: 'top', // or bottom, left, right, and variations
+    //     title: "复制"
+    // });
+    const instance = new Tooltip($('#tooltip'), {
+        title: "复制",
+        placement: 'top',
+    });
+
+    $(function () {
+        var clipboard  = new ClipboardJS('.btn', {  
+            //启动
+            //被复制的内容可以在这里进行配置，这时在复制按钮中就不需要写data-clipboard-* 等自定义属性
+        });
+
+        // clipboard实例还可以进行事件的监听
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+            e.clearSelection();
+            instance.updateTitleContent('已复制')
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+    })
+    
+</script>
+</body>
+</html>
+
+<!-- 官网 https://clipboardjs.com/
+CDN https://www.bootcdn.cn/clipboard.js/ -->
+
+
+
