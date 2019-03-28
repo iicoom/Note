@@ -1,2 +1,0 @@
-## Gulp
-* sudo gulp taskname
