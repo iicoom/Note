@@ -13,3 +13,13 @@
 "XX78"
 
 /^(\+?0?86\-?)?1[345789]\d{9}$/  前边括号组中+ 0 86- 可以出现一次或零次
+
+
+"fuck you".split(/\s/)
+["fuck", "you"]
+
+"fuck  you".split(/\s/)
+["fuck", "", "you"]
+
+"fuck  you".split(/\s+/)
+["fuck", "you"]
