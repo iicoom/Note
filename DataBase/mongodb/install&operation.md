@@ -131,7 +131,7 @@ mongo --host 127.0.0.1:27017
 ## 自定义mongodb 的配置
 ➜  ~ mkdir mongodb_simple
 ➜  ~ ls
-'`'        Documents   examples.desktop   Music      Public   Software    Videos
+''        Documents   examples.desktop   Music      Public   Software    Videos
  Desktop   Downloads   mongodb_simple     Pictures   snap     Templates   Work
 ➜  ~ cd mongodb_simple
 ➜  mongodb_simple mkdir data

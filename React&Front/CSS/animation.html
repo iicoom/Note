@@ -1,0 +1,199 @@
+<!-- CSS3 animation http://www.runoob.com/cssref/css3-pr-animation.html -->
+<!-- CSS3 animation-timing-function http://www.w3school.com.cn/cssref/pr_animation-timing-function.asp -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animation</title>
+	<style>
+		@-webkit-keyframes _rqfzup {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			}
+
+			100% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+		}
+
+		@-moz-keyframes _rqfzup {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			}
+
+			100% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+		}
+
+		@-o-keyframes _rqfzup {
+			0% {
+				transform: scale(0);
+				opacity: 0;
+			}
+
+			100% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+		}
+
+		@keyframes _rqfzup {
+			0% {
+				transform: scale(0);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(0.5);
+				opacity: 0;
+			}
+		}
+
+		@-webkit-keyframes _13ual7k {
+			0% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
+
+		@-moz-keyframes _13ual7k {
+			0% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
+
+		@-o-keyframes _13ual7k {
+			0% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(1);
+				opacity: 0;
+			}
+		}
+
+		@keyframes _13ual7k {
+			0% {
+				transform: scale(0.33);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(1.5);
+				opacity: 0;
+			}
+		}
+
+		@-webkit-keyframes _1mbhho {
+			0% {
+				transform: scale(1);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+		}
+
+		@-moz-keyframes _1mbhho {
+			0% {
+				transform: scale(1);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+		}
+
+		@-o-keyframes _1mbhho {
+			0% {
+				transform: scale(1);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scale(2);
+				opacity: 0;
+			}
+		}
+
+		@keyframes _1mbhho {
+			0% {
+				transform: scale(1);
+				opacity: 0.5;
+			}
+
+			100% {
+				transform: scale(2.5);
+				opacity: 0;
+			}
+		}
+
+		._1o3r8bx {
+		    width: 50px;
+		    height: 50px;
+		    position: relative;
+		    top: 250px;
+			left: 40%;
+		}
+		.edge {
+		    position: absolute;
+		    width: 50px;
+		    height: 50px;
+		    border-radius: 50%;
+		    animation: _1mbhho 2.5s ease-out 1s infinite normal none running;
+		    border: 1px solid rgba(255, 0, 0, 0.7);
+		}
+		.core_outside {
+		    position: absolute;
+		    width: 50px;
+		    height: 50px;
+		    border-radius: 50%;
+		    border: 1px solid transparent;
+		    animation: _13ual7k 2.5s ease-out 0.5s infinite normal none running;
+		    background: rgba(255, 0, 0, 0.7);
+		}
+		.core {
+		    position: absolute;
+		    width: 50px;
+		    height: 50px;
+		    box-sizing: border-box;
+		    border-radius: 50%;
+		    border-width: 1px;
+		    border-style: solid;
+		    border-color: transparent;
+		    border-image: initial;
+		    animation: _rqfzup 2.5s ease-out 0s infinite normal none running;
+		    background: rgba(255, 0, 0, 0.7);
+		}
+
+	</style>
+</head>
+<body>
+<div class="_1o3r8bx">
+	<div class="edge"></div>
+	<div class="core_outside"></div>
+	<div class="core"></div>
+</div>
+</body>
+</html>
