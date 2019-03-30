@@ -2,6 +2,10 @@
 something important
 
 ### 常见装逼词汇
+* IMSI国际移动用户识别码是区别移动用户的标志，International Mobile Subscriber Identification Number储存在SIM卡中，可用于区别移动用户的有效信息。其总长度不超过15位，同样使用0-9的数字
+
+* IMEI 国际移动设备识别码（International Mobile Equipment Identity，IMEI），即通常所说的手机序列号、手机“串号”，用于在移动电话网络中识别每一部独立的手机等移动通信设备，相当于移动电话的身份证。
+
 * original demo,cover by在音乐上 原版 与 翻版(翻唱)
 
 * Crossed fingers

@@ -26,3 +26,38 @@ This query selects all documents in the inventory collection where the qty field
 
 { _id: 1, item: "abc", qty: 10, tags: [ "school", "clothing" ], sale: false }
 ```
+
+## $inc
+The $inc operator accepts positive and negative values.
+```
+{
+  _id: 1,
+  sku: "abc123",
+  quantity: 10,
+  metrics: {
+    orders: 2,
+    ratings: 3.5
+  }
+}
+
+
+db.products.update(
+   { sku: "abc123" },
+   { $inc: { quantity: -2, "metrics.orders": 1 } }
+)
+
+{
+   "_id" : 1,
+   "sku" : "abc123",
+   "quantity" : 8,
+   "metrics" : {
+      "orders" : 3,
+      "ratings" : 3.5
+   }
+}
+```
+
+
+
+
+
