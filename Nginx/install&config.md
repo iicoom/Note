@@ -55,7 +55,7 @@ tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1157/sshd
 tcp        0      0 0.0.0.0:27017           0.0.0.0:*               LISTEN      25725/mongod
 tcp6       0      0 :::80                   :::*                    LISTEN      29291/nginx: master
-tcp6       0      0 :::3000                 :::*                    LISTEN      1684/node /mnt/proj
+tcp6       0      0 :::3006                 :::*                    LISTEN      1684/node /mnt/proj
 ```
 或者直接查看80端口监听
 ```
@@ -85,6 +85,37 @@ firewall-cmd --add-port=80/tcp --permanent
 [root@iz2ze4a9gck8ryb6hpqzamz ~]# firewall-cmd --add-port=80/tcp --permanent
 FirewallD is not running
 ```
+
+### 开启http服务
+```
+[root@vultr ~]# firewall-cmd --list-services
+dhcpv6-client ssh
+```
+可见没有开启http服务 Nginx默认使用http 所以无法访问 通过以下命令开启
+```
+[root@vultr ~]# firewall-cmd --permanent --add-service=http
+success
+
+重启防火墙服务
+[root@vultr ~]# systemctl restart firewalld.service
+
+查看服务列表中已经包括http
+[root@vultr ~]# firewall-cmd --list-services
+dhcpv6-client ssh http
+
+浏览器访问ip，已经正常
+
+如果要使用https 同样需要先开启服务
+[root@vultr ~]# firewall-cmd --permanent --add-service=https
+success
+
+重启防火墙服务
+[root@vultr ~]# systemctl restart firewalld.service
+
+[root@vultr nginx]# firewall-cmd --list-services
+dhcpv6-client ssh http https
+```
+
 
 使用 CentOS 7 以前的版本并开启默认防火墙 iptables 时，应注意 iptables 默认不拦截访问，如果您配置了 iptables 规则，需要执行以下步骤：
 
