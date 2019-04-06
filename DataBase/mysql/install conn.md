@@ -25,6 +25,8 @@
 brew install mysql  
 brew 包管理工具会自行安装 MySQL
 
+brew services start mysql
+
 ### Ubuntu 
 sudo apt-get update
 sudo apt-get install mysql-server
@@ -101,6 +103,144 @@ systemctl status mysql.service
 如果MySQL没有运行，您可以启动它：
 
 sudo systemctl mysql start
+
+### centOS
+Centos7通过yum安装最新MySQL
+https://www.cnblogs.com/xiaopotian/p/8196464.html
+
+1. 下载MySQL源安装包
+```
+[root@vultr ~]# wget http://dev.mysql.com/get/mysql80-community-release-el7-2.noarch.rpm
+```
+2. 安装MySql源
+```
+[root@vultr ~]# ls
+mysql80-community-release-el7-2.noarch.rpm  projects  shadowsocks.log  shadowsocks.sh
+[root@vultr ~]# rpm -Uvh mysql80-community-release-el7-2.noarch.rpm
+```
+3. 查看一下安装效果
+yum repolist enabled | grep mysql.*
+
+4. 安装MySQL服务器
+yum install mysql-community-server
+
+5. 启动MySQL服务
+systemctl start  mysqld.service
+
+6. 查看服务状态
+```
+[root@vultr ~]# systemctl status mysqld.service
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: active (running) since 六 2019-04-06 08:55:57 UTC; 18s ago
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+  Process: 4794 ExecStartPre=/usr/bin/mysqld_pre_systemd (code=exited, status=0/SUCCESS)
+ Main PID: 4862 (mysqld)
+   Status: "SERVER_OPERATING"
+   CGroup: /system.slice/mysqld.service
+           └─4862 /usr/sbin/mysqld
+
+4月 06 08:55:51 vultr.guest systemd[1]: Starting MySQL Server...
+4月 06 08:55:57 vultr.guest systemd[1]: Started MySQL Server.
+```
+
+7. 日志目录
+/var/log/mysqld.log
+
+8. 查看初始登录密码
+```
+[root@vultr ~]# grep "password" /var/log/mysqld.log
+2019-04-06T08:55:53.291838Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: 6oew%(3)Iz8q
+```
+9. 登录
+mysql -uroot -p
+
+10. 修改密码
+```
+mysql> show databases;
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+
+mysql默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母、数字和特殊符号，并且长度不能少于8位。
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '123456Mao.';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+```
+11. 数据库授权
+数据库没有授权，只支持localhost本地访问
+```
+mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '1234445' WITH GRANT OPTION;
+```
+//远程连接数据库的时候需要输入用户名和密码
+用户名：root
+密码:1234445
+指点ip:%代表所有Ip,此处也可以输入Ip来指定Ip
+输入后使修改生效还需要下面的语句
+mysql>FLUSH PRIVILEGES;
+
+上面的授权提示语法和当前版本不符，8.x版本采取以下授权方式
+mysql> use mysql;
+
+mysql> select user,authentication_string,host from user;
++------------------+------------------------------------------------------------------------+-----------+
+| user             | authentication_string                                                  | host      |
++------------------+------------------------------------------------------------------------+-----------+
+| mysql.infoschema | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
+| mysql.session    | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
+| mysql.sys        | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
+| root             | $A$005$=-D/(nz\q"4(+7:}Cd9cfo925Pg7HjIHrbF6Bi68WVq8HijLD8ljKw.4zED     | localhost |
++------------------+------------------------------------------------------------------------+-----------+
+4 rows in set (0.01 sec)
+
+默认都是localhost
+update user set host = '%' where user = 'root';
+
+此时root的host是所有都可以了
+mysql> select user,authentication_string,host from user;
++------------------+------------------------------------------------------------------------+-----------+
+| user             | authentication_string                                                  | host      |
++------------------+------------------------------------------------------------------------+-----------+
+| root             | $A$005$=-D/(nz\q"4(+7:}Cd9cfo925Pg7HjIHrbF6Bi68WVq8HijLD8ljKw.4zED     | %         |
+| mysql.infoschema | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
+| mysql.session    | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
+| mysql.sys        | $A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED | localhost |
++------------------+------------------------------------------------------------------------+-----------+
+4 rows in set (0.00 sec)
+
+然后刷新修改，FLUSH PRIVILEGES;
+```
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+```
+这步一定要做，否则无法生效。
+
+远程连接mysql8.0，Error No.2058 Plugin caching_sha2_password could not be loaded
+
+修改加密方式
+
+
+```
+[root@vultr ~]# mysql -u root -p
+Enter password:
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+上面是由密码错误引起的
+重置密码 https://www.cnblogs.com/gumuzi/p/5711495.html
+```
 
 ### 登录连接数据库
 [guanwang](https://dev.mysql.com/doc/refman/5.7/en/connecting-disconnecting.html)
