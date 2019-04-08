@@ -29,6 +29,8 @@ let DJ = createDb(db_name);
 然后把所有model文件都挂在全局变量model上
 module.exports = model
 
+http://docs.sequelizejs.com/manual/getting-started.html
+
 ## service
 在service导入model
 ```

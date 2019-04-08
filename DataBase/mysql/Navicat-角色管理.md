@@ -1,3 +1,12 @@
+## mysql8 新的密码校验插件
+Client does not support authentication protocol requested by server
+会导致一些客户端无法正常连接到数据库
+
+解决方法 创建新的用户并使用原生的密码校验方式
+
+## MySQL角色管理
+https://www.yiibai.com/mysql/roles.html
+
 ## 右侧可以查看general 和DDL（表SQL）两种视图
 
 ## 导出表数据
