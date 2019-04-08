@@ -1,3 +1,10 @@
+const tags = [{id: 12, type_id: 9, value: 12, label: "A-积极心理学"},
+{id: 21, type_id: 4, value: 21, label: "Addd"}]
+
+tags.map(tag => tag.id)
+(2) [12, 21]
+
+
 console.log('==========例1输出===========')
 var obj ={
 	"name":"牛棚001",
