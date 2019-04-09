@@ -80,6 +80,16 @@ WHERE (
 LIMIT 1;
 ```
 
+### COUNT
+SQL COUNT(column_name) 语法
+COUNT(column_name) 函数返回指定列的值的数目（NULL 不计入）：
+```
+SELECT COUNT(column_name) FROM table_name
+
+下面返回所有记录
+SELECT COUNT(*) FROM table_name
+```
+
 ### SQL FOREIGN KEY
 http://www.runoob.com/sql/sql-foreignkey.html
 "Persons" 表：
