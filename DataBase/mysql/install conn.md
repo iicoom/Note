@@ -125,7 +125,7 @@ yum repolist enabled | grep mysql.*
 yum install mysql-community-server
 
 5. 启动MySQL服务
-systemctl start  mysqld.service
+systemctl start mysqld.service
 
 6. 查看服务状态
 ```

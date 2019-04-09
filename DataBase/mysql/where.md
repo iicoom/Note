@@ -46,6 +46,40 @@ Gates	    Bill		Xuanwumen10		Beijing	1985
 
 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。如果是数值，请不要使用引号。
 
+### AND IN OR Operators
+Sequelize
+```
+Project.findOne({
+  where: {
+    name: 'a project',
+    [Op.or]: [
+      { id: [1,2,3] },
+      { id: { [Op.gt]: 10 } }
+    ]
+  }
+})
+
+Project.findOne({
+  where: {
+    name: 'a project',
+    id: {
+      [Op.or]: [
+        [1,2,3],
+        { [Op.gt]: 10 }
+      ]
+    }
+  }
+})
+
+SELECT *
+FROM `Projects`
+WHERE (
+  `Projects`.`name` = 'a project'
+   AND (`Projects`.`id` IN (1,2,3) OR `Projects`.`id` > 10)
+)
+LIMIT 1;
+```
+
 ### SQL FOREIGN KEY
 http://www.runoob.com/sql/sql-foreignkey.html
 "Persons" 表：
