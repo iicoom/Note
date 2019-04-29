@@ -92,6 +92,7 @@ users
 ### 表操作
 
 #### insert
+不需要提前创建students表，可以直接运行插入数据
 ```
 > db.students.insert([
   { "_id" : 1, "grades" : [ 85, 80, 80 ] },
@@ -484,6 +485,32 @@ The operation updates all matching documents and results in the following:
 }
 ```
 
+## MongoDB Text Indexes（全文索引）
+https://docs.mongodb.com/manual/text-search/index.html
+
+不支持中文
+
+Create a collection stores with the following documents:
+```
+db.stores.insert(
+   [
+     { _id: 1, name: "Java Hut", description: "Coffee and cakes" },
+     { _id: 2, name: "Burger Buns", description: "Gourmet hamburgers" },
+     { _id: 3, name: "Coffee Shop", description: "Just coffee" },
+     { _id: 4, name: "Clothes Clothes Clothes", description: "Discount clothing" },
+     { _id: 5, name: "Java Shopping", description: "Indonesian goods" }
+   ]
+)
+```
+为 name description 穿件索引
+```
+db.stores.createIndex( { name: "text", description: "text" } )
+```
+
+For example, you could use the following query to find all stores containing any terms from the list “coffee”, “shop”, and “java”:
+```
+db.stores.find( { $text: { $search: "java coffee shop" } } )
+```
 
 
 
