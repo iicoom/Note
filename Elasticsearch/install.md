@@ -1,4 +1,5 @@
-## brew install elasticsearch
+## Elas for Mac
+### brew install elasticsearch
 
 elasticsearch: Java 1.8 is required to install this formula.
 JavaRequirement unsatisfied!
@@ -8,7 +9,11 @@ You can download from:
   https://www.oracle.com/technetwork/java/javase/downloads/index.html
 Error: An unsatisfied requirement failed this build.
 
-## 需要先安装Java8
+### 需要先安装Java8
+也可以到官网下载Mac的压缩包解压，bin下执行启动服务
+
+## for CentOS
+
 
 ## 运行
 https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html

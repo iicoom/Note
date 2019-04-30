@@ -19,3 +19,6 @@ https://help.aliyun.com/document_detail/57770.html?spm=a2c4g.11186623.6.542.6a0f
 https://blog.csdn.net/makang110/article/details/80596017
 
 ## 搭建ElasticSearch+MongoDB检索系统
+### Mongoosastic
+https://github.com/mongoosastic/mongoosastic
+
