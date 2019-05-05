@@ -13,6 +13,57 @@ Error: An unsatisfied requirement failed this build.
 也可以到官网下载Mac的压缩包解压，bin下执行启动服务
 
 ## for CentOS
+[官网下载地址](https://www.elastic.co/downloads/elasticsearch)
+
+[下载、解压、运行](https://cloud.tencent.com/developer/article/1358601)
+
+### 异常
+Caused by: java.lang.RuntimeException: can not run elasticsearch as root
+
+创建新用户
+```
+adduser es
+
+passwd es
+
+chown -R es:es elasticsearch-6.3.2/
+
+chmod 770 elasticsearch-6.3.2/
+
+切换用户
+su es
+
+启动es
+bin/elasticsearch
+
+还必须是su登录的窗口一直打开
+```
+
+在浏览器访问http://118.24.242.170:9200/拒绝访问（118.24.242.170为服务器ip）
+
+使用root用户，打开elasticsearch.yml文件，如下：
+
+vi /usr/local/tool/elasticsearch/elasticsearch-5.4.2/config/elasticsearch.yml
+
+要正常保存数据同样需要允许跨域
+```
+http.cors.enabled: true
+
+http.cors.allow-origin: "*"
+```
+
+### Linux启动elastic进程
+https://www.elastic.co/guide/en/elasticsearch/reference/current/starting-elasticsearch.html
+
+To run Elasticsearch as a daemon, specify -d on the command line, and record the process ID in a file using the -p option:
+```
+./bin/elasticsearch -d -p pid
+```
+
+To shut down Elasticsearch, kill the process ID recorded in the pid file:
+```
+pkill -F pid
+```
 
 
 ## 运行
