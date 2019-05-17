@@ -39,9 +39,10 @@ https://blog.csdn.net/xiyang1011/article/details/78692570
 https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=21_xxxxxx&type=jsapi
 
 3. 生成签名
-
+借助sdk就可以，只需要传入动态url。
 
 ## 步骤四：通过ready接口处理成功验证
+
 
 
 
