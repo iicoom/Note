@@ -23,3 +23,13 @@ Doctor summary (to see all details, run flutter doctor -v):
 [✓] IntelliJ IDEA Ultimate Edition (version 2018.1)
 [!] Connected device
     ! No devices available
+
+
+## Waiting for another flutter command to release the startup lock...解决办法
+
+ps -ef | grep dart
+
+kill 掉 dart进程
+
+## 升级flutter
+Flutter upgrade

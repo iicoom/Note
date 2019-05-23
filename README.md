@@ -2,6 +2,9 @@
 something important
 
 ### 常见装逼词汇
+* PARALLAX EFFECT 视差特效
+Parallax effects are awesome. Having elements move in the different speed during scrolling can easily provide the unique feeling for the application and they can make the user think that your app is well-polished. 
+
 * ICP备案 英文全称：Internet Content Provider，中文全称：网络内容提供商。ICP可以理解为向广大用户提供互联网信息业务和增值业务的电信运营商，是经国家主管部门批准的正式运营企业或部门.
 《互联网信息服务管理办法》指出互联网信息服务分为经营性和非经营性两类。国家对经营性互联网信息服务实行许可制度；对非经营性互联网信息服务实行备案制度。未取得许可或者未履行备案手续的，不得从事互联网信息服务
 
