@@ -43,3 +43,6 @@ On your Mac, find the Simulator via Spotlight or by using the following command:
 在spotlight中搜索Simulator
 
 Hardware-device 下可以切换设备
+
+## Android studio 模拟器
+Tools-AVD Manager
