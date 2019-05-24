@@ -36,3 +36,10 @@ Flutter upgrade
 
 ## flutter run: No connected devices
 需要先开启模拟器
+
+## Simulator
+On your Mac, find the Simulator via Spotlight or by using the following command:
+
+在spotlight中搜索Simulator
+
+Hardware-device 下可以切换设备
