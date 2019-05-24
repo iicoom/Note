@@ -15,9 +15,11 @@ A sound type system means you can never get into a state where an expression eva
 4. Better ahead of time (AOT) compilation.
 
 
-### Type inference
+### Type inference 类型推理
 
  In this example, a variable named arguments holds a map that pairs string keys with values of various types.
+
+ When the analyzer doesn’t have enough information to infer a specific type, it uses the dynamic type.
 
  If you explicitly type the variable, you might write this:
  ```
@@ -28,4 +30,6 @@ A sound type system means you can never get into a state where an expression eva
  ```
  var arguments = {'argA': 'hello', 'argB': 42}; // Map<String, Object>
  ```
+
+
 

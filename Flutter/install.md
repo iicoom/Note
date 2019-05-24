@@ -33,3 +33,6 @@ kill 掉 dart进程
 
 ## 升级flutter
 Flutter upgrade
+
+## flutter run: No connected devices
+需要先开启模拟器
