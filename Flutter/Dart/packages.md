@@ -57,6 +57,10 @@ main(List<String> arguments) async {
 ```
 
 ### flutter_bloc
+A Flutter package that helps implement the BLoC pattern.
+
+
+
 
 
 
