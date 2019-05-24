@@ -1,5 +1,16 @@
 https://codelabs.developers.google.com/codelabs/from-java-to-dart/#1
 
+基本特点
+
+* 任何变量都是对象，包括基本类型，所有对象都继承自 Object 类
+* 强类型，自带类型推断，但也可指定类型
+* 有泛型
+* 支持最外层函数定义，也支持类的静态方法与对象的实例方法，函数中可定义内部函数
+* 支持最外层变量定义，也支持类的静态成员和对象字段
+* 没有表示私有公用的关键字，以“_”开头的标识符表示库中私有
+* 标识符以字母或“_”开头，后面可随意组合
+* 语句末尾要加分号
+
 ## Create a simple Dart class
 
 ```
@@ -167,4 +178,42 @@ main() {
   }
 }
 ```
+
+## Annotation 注解
+> 对于 Java 程序员来说注解一定不陌生，对于 JavaScript 程序员来说，可能听说过装饰器(decorator)的提案
+
+注解作为元数据(metadata)，是为了给代码提供额外的信息，提升编码体验，大部分时候并不会对代码产生实质性影响。它以@打头，后跟一个const常量或调用一个const构造函数，内置对象有 @required @deprecated 等。
+
+An annotation is a form of representing syntactic metadata that can be added to our Dart code; in other words, a way of adding extra information to any component in our code, such as class or a method. Annotations are used everywhere in our Dart code: we use @required to specify that a named parameter is not optional, so our code won’t compile if the field annotated is not present, or we use @override to identify those APIs given by a parent class that are implemented in a child class. How do we know they are annotations? Well, they are easy to find, since they are prefixed by @.
+
+https://blog.rsuitejs.com/2019/02/02/dart/
+
+## 抽象类和抽象方法
+https://xsfelvis.github.io/2019/01/13/Dart%E8%AF%AD%E6%B3%95%E5%9F%BA%E7%A1%80/
+
+使用abstract修饰一个类，则这个类是抽象类，
+抽象类中可以有抽象方法和非抽象方法，抽象方法没有方法体，需要子类去实现，如下代码：
+```
+abstract class Doer {
+  // 抽象方法，没有方法体，需要子类去实现
+  void doSomething();
+  // 普通的方法
+  void greet() {
+    print("hello world!");
+  }
+}
+
+class EffectiveDoer extends Doer {
+  // 实现了父类的抽象方法
+  void doSomething() {
+    print("I'm doing something...");
+  }
+}
+```
+
+## Operators
+https://dart.dev/guides/language/language-tour#operators
+
+Cascade notation (..)
+
 

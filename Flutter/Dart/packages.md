@@ -59,6 +59,18 @@ main(List<String> arguments) async {
 ### flutter_bloc
 A Flutter package that helps implement the BLoC pattern.
 
+https://medium.com/@michaeladesola1410/change-flutter-application-theme-dynamically-using-bloc-e3bacf567f6e
+
+1. Create utils.dart
+
+2. change_theme_event.dart
+
+3. change_theme_state.dart
+
+4. change_theme_bloc.dart
+
+
+
 
 
 
