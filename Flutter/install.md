@@ -3,6 +3,31 @@ https://flutter.io/docs/get-started/install/macos
 
 flutter doctor
 
+## Add flutter to PATH
+So, open the .bash_profile or .zshrc file and add the following kind of path to it.
+
+```
+➜  ~ vim .zshrc
+增加以下内容
+# flutter
+export PATH=${PATH}:/Users/guitar/Development/flutter/bin
+
+➜  ~ which flutter
+/Users/guitar/Development/flutter/bin/flutter
+
+➜  ~ flutter doctor
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, v1.5.4-hotfix.2, on Mac OS X 10.14.5 18F132, locale zh-Hans-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 28.0.3)
+[✓] iOS toolchain - develop for iOS devices (Xcode 10.2.1)
+[✓] Android Studio (version 3.3)
+[✓] IntelliJ IDEA Ultimate Edition (version 2018.3.3)
+[✓] VS Code (version 1.34.0)
+[✓] Connected device (2 available)
+
+• No issues found!
+```
+
 ## Android Studio (version 3.3)
 https://developer.android.com/studio/
 

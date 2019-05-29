@@ -4,6 +4,13 @@
 ## shortcuts
 [cheatsheet](https://www.cnblogs.com/abeen/p/4104158.html)
 ### Mac系统
+* Mac使用小技巧：Fn键的妙用技巧
+
+  Home键=Fn+左方向  效果等同于command+上方向
+  End键=Fn+右方向   效果等同于command+下方向
+
+  PageUP=Fn+上方向 翻一整页
+
 * 打开使用工具：Command+shift+U
 * 打开桌面文件夹：Command+shift+D
 * 前往文件夹：Command+shift+G
@@ -162,6 +169,13 @@ return girlRepository.findById(id).orElse(null);
 
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
+### VS Code
+左下角的 设置按钮 - Extention - 安装扩展
+
+Flutter plugin for VS Code has a command for creating Flutter apps
+
+* 打开全局搜索 Command + Shift + P
+
 
 ### PyCharm
 * shift + enter 下一行
@@ -194,5 +208,7 @@ return girlRepository.findById(id).orElse(null);
 
 ### PhotoShop
 * 图片取反色 选中取反色的区域 ctrl+i（windows） Command+i(Mac) 
+
+
 
 
