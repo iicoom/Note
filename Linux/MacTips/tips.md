@@ -176,6 +176,13 @@ Flutter plugin for VS Code has a command for creating Flutter apps
 
 * 打开全局搜索 Command + Shift + P
 
+* terminal 打开模拟器 flutter run -d deviceID
+
+🔥  To hot reload changes while running, press "r". To hot restart (and rebuild state), press "R".
+
+* After adding the packages to ./pubspec.yaml VS Code 会自动执行 flutter packages get
+
+* 模拟器运行快捷键 fn + touchBar (F5)
 
 ### PyCharm
 * shift + enter 下一行
