@@ -2,6 +2,15 @@
 something important
 
 ### 常见装逼词汇
+* PARALLAX EFFECT 视差特效
+Parallax effects are awesome. Having elements move in the different speed during scrolling can easily provide the unique feeling for the application and they can make the user think that your app is well-polished. 
+
+* ICP备案 英文全称：Internet Content Provider，中文全称：网络内容提供商。ICP可以理解为向广大用户提供互联网信息业务和增值业务的电信运营商，是经国家主管部门批准的正式运营企业或部门.
+《互联网信息服务管理办法》指出互联网信息服务分为经营性和非经营性两类。国家对经营性互联网信息服务实行许可制度；对非经营性互联网信息服务实行备案制度。未取得许可或者未履行备案手续的，不得从事互联网信息服务
+
+*  邓氏编码（D-U-N-S® Number）是一种实时动态的企业身份标识。它源自于一个独一无二的9位数字全球编码系统DUNS，相当于企业的身份识别码 （就像是个人的身份证），被广泛应用于企业识别、商业信息的组织及整理。可以帮助识别和迅速定位全球2.4亿家企业的信息。
+https://baike.baidu.com/item/%E9%82%93%E6%B0%8F%E7%BC%96%E7%A0%81/10822659?fr=aladdin
+
 * IMSI国际移动用户识别码是区别移动用户的标志，International Mobile Subscriber Identification Number储存在SIM卡中，可用于区别移动用户的有效信息。其总长度不超过15位，同样使用0-9的数字
 
 * IMEI 国际移动设备识别码（International Mobile Equipment Identity，IMEI），即通常所说的手机序列号、手机“串号”，用于在移动电话网络中识别每一部独立的手机等移动通信设备，相当于移动电话的身份证。

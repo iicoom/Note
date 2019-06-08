@@ -4,6 +4,13 @@
 ## shortcuts
 [cheatsheet](https://www.cnblogs.com/abeen/p/4104158.html)
 ### Mac系统
+* Mac使用小技巧：Fn键的妙用技巧
+
+  Home键=Fn+左方向  效果等同于command+上方向
+  End键=Fn+右方向   效果等同于command+下方向
+
+  PageUP=Fn+上方向 翻一整页
+
 * 打开使用工具：Command+shift+U
 * 打开桌面文件夹：Command+shift+D
 * 前往文件夹：Command+shift+G
@@ -98,6 +105,7 @@ sudo spctl --master-disable
 
 
 ### webstorm
+* <View></View>  标签补全 输入完<View 按住shift+> 即可补全
 * command + +/- 折叠展开代码块
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
 * command + f: 当前文档搜索
@@ -161,6 +169,20 @@ return girlRepository.findById(id).orElse(null);
 
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
+### VS Code
+左下角的 设置按钮 - Extention - 安装扩展
+
+Flutter plugin for VS Code has a command for creating Flutter apps
+
+* 打开全局搜索 Command + Shift + P
+
+* terminal 打开模拟器 flutter run -d deviceID
+
+🔥  To hot reload changes while running, press "r". To hot restart (and rebuild state), press "R".
+
+* After adding the packages to ./pubspec.yaml VS Code 会自动执行 flutter packages get
+
+* 模拟器运行快捷键 fn + touchBar (F5)
 
 ### PyCharm
 * shift + enter 下一行
@@ -193,5 +215,7 @@ return girlRepository.findById(id).orElse(null);
 
 ### PhotoShop
 * 图片取反色 选中取反色的区域 ctrl+i（windows） Command+i(Mac) 
+
+
 
 

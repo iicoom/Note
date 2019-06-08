@@ -7,6 +7,9 @@ Client does not support authentication protocol requested by server
 ## MySQL角色管理
 https://www.yiibai.com/mysql/roles.html
 
+### 创建DataBase一般需要root用户
+用root用户建立数据库连接，配置其他数据库用户的Database可见性以及可操作权限
+
 ## 创建DB 和 Table
 1. 链接上menu New Database
 2. 创建表2种方法：DB上 menu - New query，还可以 DB上点击添加表图标
