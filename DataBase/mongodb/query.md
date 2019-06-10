@@ -1,3 +1,12 @@
+
+##  Comparison Query Operators
+```
+db.inventory.find( { qty: { $ne: 20 } } )
+
+condition.number = { $exists: true, $ne: null };
+```
+
+
 ## $elemMatch
 > The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.
 
