@@ -266,5 +266,14 @@ moment.locale('zh-cn', {relativeTime: {
 moment.duration(Date.now()-create_time).humanize();
 "10分钟"
 
+******Moment格式化时间默认格式为当地时区的时间。********
+如果格式化的结果与当地时间有差值，一般原因是：要格式化的时间带有时间标志，如：UTC 、GMT等。
+
+例如，要格式的时间中带有GMT标志（GMT是零时区），要格式化为北京时间
+
+moment(date).utcOffset(480).format('YYYY-MM-DD HH:mm:ss');
+北京时间东八区时间，比零时区早8个小时（480分钟），所以应该加上480分钟
+
+
 
   

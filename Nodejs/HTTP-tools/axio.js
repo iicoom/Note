@@ -1,14 +1,24 @@
+// https://github.com/axios/axios
 // axio参数传递
 import axios from '../utils/axios';
 
-export const addComments = async params => axios.post('/snippets/comments/create', params);
-export const getCommentsList = async params =>
-  axios.get('/snippets/comments', { params });
+// params 为{}
+export const hasRead = async params =>
+  axios.get('/message', { params })
+// 接收参数在 request.query中
 
-/*
-console.log('ctx.query', ctx.query)
-getList-param { snippet_id: '8', page: 1, limit: 20 }
-*/
+
+export const addComments = async params => axios.post('/snippets/comments/create', params);
+// 接受参数在 request.body中
+
+export const hasRead = async params =>
+  axios.put('/message', { params })
+
+export const hasRead = async params =>
+  axios.put('/message', params)
+// 2种写法相同 接受参数都是在 request.body中
+
+
 
 //axios POST提交数据的三种请求方式写法
 // https://segmentfault.com/a/1190000015261229
