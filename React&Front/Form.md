@@ -36,3 +36,17 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
         });
     }
 </script>
+
+
+## input 禁止复制
+<!DOCTYPE html>
+<html>
+<head>
+    <title>禁止粘贴</title>
+</head>
+<body>
+    <input type="" name="nocopy" oncut="return false">
+    <input type="" name="nocopy" onpaste="return false" autocomplete=”off”>
+    <textarea onpaste="return false"></textarea>
+</body>
+</html>
