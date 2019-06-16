@@ -26,6 +26,9 @@ git config --global user.email johndoe@example.com
 ## 克隆远程仓库
 ```
 git clone git@gitlab.m-touch.cn:cloud-ranch/cloud_ranch.git
+
+默认为为仓库名cloud-ranch, 可以重命名
+git clone git@gitlab.m-touch.cn:cloud-ranch/cloud_ranch.git new_project_name
 ```
 
 ## 同步本地新建的git仓库到远程
