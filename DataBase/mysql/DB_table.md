@@ -144,7 +144,7 @@ mysql> select count(name) from user where name='Second';
 ## MySQL 删除数据表
 以下为删除MySQL数据表的通用语法：
 ```
-DROP TABLE table_name ;
+DROP TABLE table_name;
 ```
 如果遇到 卡死状态 重启数据库服务即可解决
 
