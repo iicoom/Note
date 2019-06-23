@@ -2,6 +2,8 @@
 something important
 
 ### 常见装逼词汇
+* IPC（Inter-Process Communication，进程间通信）。
+
 * PARALLAX EFFECT 视差特效
 Parallax effects are awesome. Having elements move in the different speed during scrolling can easily provide the unique feeling for the application and they can make the user think that your app is well-polished. 
 

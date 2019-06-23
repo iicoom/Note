@@ -83,6 +83,9 @@ https://yarn.bootcss.com/docs/usage/
 * yarn add [package]@[version]
 * yarn add [package]@[tag]
 
+全局安装
+* yarn global add [package]
+
 分别添加到 devDependencies、peerDependencies 和 optionalDependencies 类别中：
 * yarn add [package] --dev
 * yarn add [package] --peer

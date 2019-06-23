@@ -3,6 +3,12 @@
 
 ## shortcuts
 [cheatsheet](https://www.cnblogs.com/abeen/p/4104158.html)
+
+## 小米手机共享移动网络
+* 热点 - 不好用
+* Bluetooth - 在设置的More下面
+* USB
+
 ### Mac系统
 * Mac使用小技巧：Fn键的妙用技巧
 
