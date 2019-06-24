@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>flex</title>
+	<style type="text/css">
+		.container {
+			background-color: #9061b0;
+			padding: 5px;
+			display: flex;
+			/*flex-direction: column;*/ /*row 水平*/ 
+			/*flex-direction: row-reverse;*/
+			/*justify-content: space-evenly; */
+			height: 250px;
+			/*justify-content: flex-start;*/ /*主轴*/
+			/*align-items: center;*/ /*交叉轴*/ /*哪个是主轴和flex-direction有关*/
+			/*align-content: flex-end;*/
+			flex-wrap: wrap;
+			width: 300px;
+		}
+		.item {
+			background-color: #ea9831;
+			width: 100px;
+			height: 100px;
+			margin: 5px;
+			/*flex-grow: 1;*/ /*用于不同比例缩放*/
+		}
+		.item2 {
+			background-color: #ea9831;
+			/*flex-grow: 2;*/
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="item">1</div>
+	<!-- <div class="item2">2</div> -->
+	<div class="item">3</div>
+	<div class="item">4</div>
+</div>
+<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="blank"></a>
+</body>
+</html>
+
+<!-- 
+
+.container {
+  flex-direction: row | row-reverse | column | column-reverse;
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+  align-items: stretch | flex-start | flex-end | center | baseline;
+  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+align-content
+Note: this property has no effect when there is only one line of flex items.
+
+
+.item {
+  flex-grow: <number>; /* default 0 */
+}
+-->
+
