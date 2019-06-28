@@ -2,6 +2,12 @@
 something important
 
 ### 常见装逼词汇
+* LMS（学习管理系统Learning Management System）中文常用别名：在线学习系统，网络培训平台，在线教育系统等。
+系统搭建具备以下功能：在线直播，互动教学，录播授课，网校管理
+
+* PBL (Project Based Learning (PBL) ) PROBLEM-BASED LEARNING (PBL)
+[三分钟带你了解PBL](https://baijiahao.baidu.com/s?id=1608831390047022179&wfr=spider&for=pc)
+
 * IPC（Inter-Process Communication，进程间通信）。
 
 * PARALLAX EFFECT 视差特效

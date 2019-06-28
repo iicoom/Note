@@ -73,6 +73,12 @@ Storing the scraped data
 scrapy crawl quotes -o quotes.json
 ```
 
+> Python Scrapy: What is the difference between “runspider” and “crawl” commands?
+
+scrapy crawl [options] <spider>
+
+scrapy runspider [options] <spider_file.py>
+
 ### scrapy 工程下的setting
 在scrapy中创建项目以后，在settings文件中有这样的一条默认开启的语句：
 
