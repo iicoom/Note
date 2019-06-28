@@ -1,12 +1,71 @@
+## 所有命令
+➜  ~ scrapy
+Scrapy 1.5.1 - no active project
+
+Usage:
+  scrapy <command> [options] [args]
+
+Available commands:
+  bench         Run quick benchmark test
+  fetch         Fetch a URL using the Scrapy downloader
+  genspider     Generate new spider using pre-defined templates
+  runspider     Run a self-contained spider (without creating a project)
+  settings      Get settings values
+  shell         Interactive scraping console
+  startproject  Create new project
+  version       Print Scrapy version
+  view          Open URL in browser, as seen by Scrapy
+
+https://medium.com/better-programming/develop-your-first-web-crawler-in-python-scrapy-6b2ee4baf954
+
+## 新建一个项目olx
+➜  Repo scrapy startproject olx
+
+You can start your first spider with:
+    cd olx
+    scrapy genspider example example.com
+
+进入项目目录 创建一个爬虫 【爬虫名称】 【爬取得网址域名】
+
+### Creating Your Crawler创建爬虫
+
+➜  olx scrapy genspider electronics  www.olx.com.pk
+Created spider 'electronics' using template 'basic' in module:
+  olx.spiders.electronics
+
+有单独的spiders目录存放爬虫，一个项目里可以有多个爬虫
+
+打开爬虫文件，分析python class
+```
+import scrapy
+
+
+class ElectronicsSpider(scrapy.Spider):
+    name = 'electronics'
+    allowed_domains = ['www.olx.com.pk']
+    start_urls = ['http://www.olx.com.pk/']
+
+    def parse(self, response):
+        pass
+```
+ElectronicsSpider is a subclass of scrapy.Spider
+
+name property is actually the name of the spider
+
+The parse method, as the name suggests, will parse the content of the page being accessed. 
+
 ### scrapy
-➜  Spider scrapy list
+➜  Spider scrapy list 查看项目中的爬虫列表
 quotes
 spider1
 
-How to run our spider
+How to run our spider 【运行爬虫】
 To put our spider to work, go to the project’s top level directory and run:
 ```
 scrapy crawl quotes
+
+不打印日志
+scrapy crawl --nolog  quotes
 ```
 
 Storing the scraped data
