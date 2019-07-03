@@ -2,6 +2,8 @@
 something important
 
 ### 常见装逼词汇
+* STEM 是科学（Science），技术（Technology），工程（Engineering），数学（Mathematics）四门学科英文首字母的缩写
+
 * LMS（学习管理系统Learning Management System）中文常用别名：在线学习系统，网络培训平台，在线教育系统等。
 系统搭建具备以下功能：在线直播，互动教学，录播授课，网校管理
 
