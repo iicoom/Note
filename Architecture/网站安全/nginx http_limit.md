@@ -30,3 +30,5 @@ server {
 }
 ```
 
+## HTTP DoS Protection with nginx
+https://www.unixteacher.org/blog/http-dos-protection-with-nginx/
