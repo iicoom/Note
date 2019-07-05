@@ -90,3 +90,7 @@ Nginx 配置 HTTPS 并不复杂，主要有两个步骤：签署第三方可信�
 
 配置 HTTPS 要用到私钥 example.key 文件和 example.crt 证书文件，申请证书文件的时候要用到 example.csr 文件，OpenSSL 命令可以生成 example.key 文件和 example.csr 证书文件。
 
+
+## 配置多个443 server
+http://www.ttlsa.com/web/multiple-https-host-nginx-with-a-ip-configuration/
+
