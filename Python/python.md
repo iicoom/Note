@@ -68,3 +68,16 @@ empCount 变量是一个类变量，它的值将在这个类的所有实例之�
 self 代表类的实例，self 在定义类的方法时是必须有的，虽然在调用时不必传入相应的参数。
 
 **类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称, 按照惯例它的名称是 self。**
+
+
+## python脚本运行的几种方式
+
+// hello.py
+print ("Hello, Python!");
+
+$ python ./hello.py
+hello,python
+
+
+
+
