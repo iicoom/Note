@@ -196,6 +196,7 @@ Flutter plugin for VS Code has a command for creating Flutter apps
 * alt + 鼠标  点选拖拽多行
 * shift + delete 删除行
 * ctrl + D 复制此行到下一行
+* shift + 3次 ”“” 可以生产多行注释
 
 ### iTerm2 Mac terminal 替代方案
 * Ctrl+a: 光标移动到行首
