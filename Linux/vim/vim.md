@@ -6,61 +6,9 @@
 * E :Move to the end of Blank delimited word
 * G:命令将光标移动到文档末尾
 
-* ：set nu 显示行号   ：set nonumber 关闭行号
-
 > 不要在INSERT模式下使用,注意一行的长度
 ### 跳转到指定行
 nG ----n为行数，该命令立即使光标跳到指定行。
-
-### 删除行与多行
-光标所在行，dd （删除光标所在行）
-光标所在行以下的N行，Ndd(包括当前行)
-
-### 复制行与多行
-光标所在行，yy (复制当前行，按p 在当前行下一行插入复制的内容)
-光标所在行，Nyy (复制当前行，包括当前行以下 N行内容，光标定位到当前行以下N行，p，复制剪贴板内容)
-```
- 68         location /api/ {
- 69             proxy_pass http://101.201.197.163/api/;
- 70             proxy_redirect default;
- 71             proxy_set_header Host $host;
- 72             proxy_set_header REMOTE-HOST $remote_addr;
- 73             proxy_set_header X-Real-IP $remote_addr;
- 74             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
- 75         }
- 76         location /api/ {
- 77             proxy_pass http://101.201.197.163/api/;
- 78             proxy_redirect default;
- 79             proxy_set_header Host $host;
- 80             proxy_set_header REMOTE-HOST $remote_addr;
- 81             proxy_set_header X-Real-IP $remote_addr;
- 82             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
- 83         }
- ```
- 以上在68行 输入 8yy 然后75G 跳转到75行 按p 粘贴复制到的内容
-
-## 块模式（visual block）
-按ESC进入命令行模式, 按Ctrl+v,进入区块模式;
-在行首使用上下选择需要注释的行
-在(大写)环境下,按下键盘”I”键,进入插入模式;
-然后输入注释符号(“//”, “#”等);
-完成输入后按下”ESC”确定修改
-```
-location / {
-    root   html;
-    index  index.html index.htm;
-}
-
-
-#location / {
-#    root   html;
-#    index  index.html index.htm;
-#}
-
-```
-进入区块模式;
-选择要取消注释的行;
-按下”x”或者”d”.
 
 ## vim 设置文件头 
 1. Ubuntu
