@@ -1,3 +1,15 @@
+## 表命名规范 (mysql table naming convention表命名约定)
+
+1. Table names are lower case, uses underscores to separate words, and are singular (e.g. 'foo', 'foo_bar', etc.
+
+2. I generally (not always) have a auto increment PK. I use the following convention: tablename_id (e.g. 'foo_id', 'foo_bar_id', etc.).
+
+3. FK(foreign key)
+https://stackoverflow.com/questions/36373735/mysql-table-and-column-naming-convention
+
+https://launchbylunch.com/posts/2014/Feb/16/sql-naming-conventions/
+
+
 ## SQL CREATE TABLE 语法
 ```
 CREATE TABLE table_name (column_name column_type);
