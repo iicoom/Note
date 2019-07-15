@@ -1,3 +1,17 @@
+编译型语言（C C++） 解释型语言（JavaScript, Python)
+
+Python能做什么？
+
+1. 爬虫
+
+2. 大数据分析（spark）
+
+3. 自动化运维与自动化测试
+
+4. Web开发 ：flask，Django
+
+5. 机器学习：TensorFlow
+
 > Python is a programming language that lets you work quickly
 and integrate systems more effectively.
 
@@ -77,6 +91,12 @@ print ("Hello, Python!");
 
 $ python ./hello.py
 hello,python
+
+## 第三方库的安装
+pip3 install libname
+
+查看已安装的库
+pip3 list
 
 
 
