@@ -10,6 +10,14 @@
 * USB
 
 ### Mac系统
+* terminal光标跳转技巧 
+3. 移动光标到行首：control+a 
+4. 移动光标到行尾：control+e
+
+vim 下：
+移动光标到行首：^
+移动光标到行尾：$ 
+
 * Mac使用小技巧：Fn键的妙用技巧
 
   Home键=Fn+左方向  效果等同于command+上方向
