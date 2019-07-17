@@ -2,6 +2,8 @@
 something important
 
 ### 常见装逼词汇
+* ADSL （Asymmetric Digital Subscriber Line ，非对称数字用户环路）是一种新的数据传输方式。它因为上行和下行带宽不对称，因此称为非对称数字用户线环路。它采用频分复用技术把普通的电话线分成了电话、上行和下行三个相对独立的信道，从而避免了相互之间的干扰。
+
 * STEM 是科学（Science），技术（Technology），工程（Engineering），数学（Mathematics）四门学科英文首字母的缩写
 
 * LMS（学习管理系统Learning Management System）中文常用别名：在线学习系统，网络培训平台，在线教育系统等。
