@@ -117,6 +117,13 @@ sudo spctl --master-disable
 * 全局保存 File => Save all(alt+command+S)
 * 代码折叠 Edit => Code Folding => level 3 折叠只剩函数名
 
+* Package Contril https://packagecontrol.io/  需要先安装
+```
+* Sublime Text console: control+`
+
+* Sublime Text - prference - Package control
+```
+
 
 ### webstorm
 * <View></View>  标签补全 输入完<View 按住shift+> 即可补全
