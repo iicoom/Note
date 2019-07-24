@@ -123,6 +123,23 @@ sudo spctl --master-disable
 
 * Sublime Text - prference - Package control
 ```
+* 安装了 TypeScript 之后可以对 js 语法做自动检测
+
+* Package Control 用法  command+shift+p
+
+1. Open Package Control: Preferences -> Package Control
+2. Select Package Control: Install Package
+3. Type DocBlockr into the search box and select the package to install it
+
+* Package Control 无法安装插件解决方法，
+在Sublime Text - prference - Package Setting - Package control - Setting-user 中更改源
+```
+"channels":
+[
+    "http://static.bolin.site/channel_v3.json",
+],
+```
+覆盖default
 
 
 ### webstorm
