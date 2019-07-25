@@ -1,4 +1,8 @@
-// 例1
+
+
+// ### filter 方法会创建一个新的 array，接受一个函数作为参数，新的array中的每个元素都满足 参数函数的筛选条件
+// 
+// 参数函数 过滤数组中足够大的数
 function isBigEnough(value) {
   return value >= 10;
 }
@@ -6,21 +10,16 @@ function isBigEnough(value) {
 var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
 // filtered is [12, 130, 44]
 
-// ES6 way
+
+// ES6 way Arrow Function 写法
 const isBigEnough = value => value >= 10;
 
-let [...spraed]= [12, 5, 8, 130, 44]; //数组的解构
+let [...spraed]= [12, 5, 8, 130, 44];      //数组的解构
 let filtered = spraed.filter(isBigEnough);
 // filtered is [12, 130, 44]
 
 
-// 例2
-var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-const result = words.filter(word => word.length > 6);
-
-console.log(result);
-// expected output: Array ["exuberant", "destruction", "present"]
+// 选择 array中 length 足够长的 element
 
 // ES6 version
 const words = ["spray", "limit", "elite", "exuberant", "destruction", "present", "happy"];
@@ -28,6 +27,9 @@ let longWords = words.filter(word => word.length > 6);
 // Filtered array longWords is ["exuberant", "destruction", "present"]
 
 
+
+// #### filter 操作 collection ####
+// 
 // The following example uses filter() to create a filtered json of all elements with non-zero, numeric id.
 var arr = [
   { id: 15 },
@@ -51,6 +53,8 @@ var arrByID = arr.filter(filterByID);
 console.log('Filtered Array\n', arrByID); 
 // Filtered Array
 // [{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }]
+
+
 
 /* ==============================================================================================*/
 // ES6，Array.find()和findIndex()函数的用法
@@ -77,27 +81,14 @@ var userArr = [
     { id:3,userName:"laoliu" },
 ]
 userArr.find(item => item.id > 1);
-//[ { id: 2, userName: 'laowang' },{ id: 3, userName: 'laoliu' } ]
+//{ id: 2, userName: 'laowang' }
 
-// 数组去重
-var myArr = [1,3,4,5,6,3,7,4];
-console.log(myArr.find((value,index,arr)=>arr.indexOf(value)===index));
-//[ 1, 3, 4, 5, 6, 7 ]
-
-userArr.map(item => item.id)
-[1, 2, 3]
-
-userArr.map(item => item.userName)
-["laozhang", "laowang", "laoliu"]
-
-userArr.map(item => item.id === 2)
-[false, true, false]
 
 /**********************************************************************
 
             **********find 和 filter 的区别
 **********************************************************************/
-find()只返回集合中匹配到的第一个对象  filter()返回所有匹配到的对象
+// find()只返回集合中匹配到的第一个对象  filter()返回所有匹配到的对象
 
 
 

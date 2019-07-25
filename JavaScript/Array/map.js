@@ -119,3 +119,21 @@ console.log(intArr)
 
 
 
+
+var userArr = [
+    { id:1,userName:"laozhang"},
+    { id:2,userName:"laowang" },
+    { id:3,userName:"laoliu" },
+]
+
+userArr.map(item => item.id)
+[1, 2, 3]
+
+userArr.map(item => item.userName)
+["laozhang", "laowang", "laoliu"]
+
+userArr.map(item => item.id === 2)
+[false, true, false]
+
+
+
