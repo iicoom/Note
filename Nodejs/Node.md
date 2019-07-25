@@ -1,18 +1,9 @@
-问题：
-```
-c.query(
-   'SELECT SLEEP(20);',
-   function (err, results, fields) {
-     if (err) {
-       throw err;
-     }
-     res.writeHead(200, {'Content-Type': 'text/html'});
-     res.end('<html><head><title>Hello</title></head><body><h1>Return from async DB query</h1></body></html>');
-     c.end();
-    }
-);
-```
-Here comes a question. When there are two request A(comes first) and B, since there is only a single thread, the server side program will handle the request A firstly: doing sql querying which is a sleep statement standing for I/O waiting. And The program is stucked at the I/O waiting, and cannot execute the code which renders the web page behind. Will the program switch to request B during the waiting? In my opinion, because of the single thread model, there is no way to switch one request from another. But the title of the example code says that "everything runs in parallel except your code". (P.S I'm not sure if I misunderstand the code or not since I have never used Node.)How Node switch A to B during the waiting? And can you explain the single threaded non blocking IO model of Node in a simple way? I would appreciate if you could help me. :)
+## terminal（使用node）
+
+输入 node 即可进入node 环境
+
+control+d 退出 同时清除之前 声明的变量
+
 
 
 > Node.js is built upon libuv, a cross-platform library that abstracts apis/syscalls for asynchronous (non-blocking) input/output provided by the supported OSes (Unix, OS X and Windows at least).
