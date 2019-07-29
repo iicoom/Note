@@ -76,8 +76,13 @@ adv.
 举例来说（等于for example）
 
 * SaaS是Software-as-a-Service（软件即服务）的简称
-SaaS有什么特别之处呢？其实在云计算还没有盛行的时代，我们已经接触到了一些SaaS的应用，通过浏览器我们可以使用Google、百度等搜索系统，可以使用E-mail，我们不需要在自己的电脑中安装搜索系统或者邮箱系统。典型的例子，我们在电脑上使用的Word、Excel、PowerPoint等办公软件，这些都是需要在本地安装才能使用的；而在GoogleDocs（DOC、XLS、ODT、ODS、RTF、CSV和PPT等）、MicrosoftOfficeOnline（WordOnline、ExcelOnline、PowerPointOnline和OneNoteOnline）网站上，无需在本机安装，打开浏览器，注册帐号，可以随时随地通过网络来使用这些软件编辑、保存、阅读自己的文档。对于用户只需要自由自在地使用，不需要自己去升级软件、维护软件等操作。
 [如何理解云计算？IaaS、PaaS和SaaS](http://www.chinacloud.cn/show.aspx?id=19758&cid=18)
+Software as a service (SaaS) is a software distribution model in which a third-party provider hosts applications and makes them available to customers over the Internet. 
+
+SaaS is one of three main categories of cloud computing, alongside infrastructure as a service (IaaS) and platform as a service (PaaS).
+https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service
+
+* [cloud computing](https://searchcloudcomputing.techtarget.com/definition/cloud-computing)
 
 * IPO 首次公开募股（Initial Public Offerings，简称IPO）是指一家企业或公司 （股份有限公司）第一次将它的股份向公众出售（首次公开发行，指股份公司首次向社会公众公开招股的发行方式）。通常，上市公司的股份是根据相应证监会出具的招股书或登记声明中约定的条款通过经纪商或做市商进行销售。一般来说，一旦首次公开上市完成后，这家公司就可以申请到证券交易所或报价系统挂牌交易,有限责任公司在申请IPO之前，应先变更为股份有限公司。
 
