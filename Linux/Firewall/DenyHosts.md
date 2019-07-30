@@ -1,5 +1,9 @@
 > DenyHosts 是 Python 语言写的一个程序软件，运行于 Linux 上预防 SSH 暴力破解的，它会分析 sshd 的日志文件（/var/log/secure），当发现重复的攻击时就会记录 IP 到 /etc/hosts.deny 文件，从而达到自动屏 IP 的功能。
 
+查看ssh服务安全状态
+```
+[root@vultr ~]# tail -f /var/log/secure
+```
 
 [CentOS 7 使用denyhosts防范暴力破解](https://my.oschina.net/itlzm/blog/1610812)
 
