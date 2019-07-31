@@ -32,6 +32,9 @@ app.listen(3000)
 
 优点：首先，借助 co 和 generator，很好地解决了异步流程控制和异常捕获问题。其次，Koa 把 Express 中内置的 router、view 等功能都移除了，使得框架本身更轻量。 
 
+## Koa next() & Koa compose
+https://github.com/koajs/koa/blob/master/docs/guide.md
+
 ## Express&Koa不同
 
 Express 采用 callback 来处理异步, Koa v1 采用 generator，Koa v2 采用 async/await
