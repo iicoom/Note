@@ -24,6 +24,8 @@ Parallax effects are awesome. Having elements move in the different speed during
 * ICP备案 英文全称：Internet Content Provider，中文全称：网络内容提供商。ICP可以理解为向广大用户提供互联网信息业务和增值业务的电信运营商，是经国家主管部门批准的正式运营企业或部门.
 《互联网信息服务管理办法》指出互联网信息服务分为经营性和非经营性两类。国家对经营性互联网信息服务实行许可制度；对非经营性互联网信息服务实行备案制度。未取得许可或者未履行备案手续的，不得从事互联网信息服务
 
+* ERP (Enterprise Resource Planning) 企业资源计划 是一种主要面向制造行业进行物质资源、资金资源和信息资源集成一体化管理的企业信息管理系统。
+
 *  邓氏编码（D-U-N-S® Number）是一种实时动态的企业身份标识。它源自于一个独一无二的9位数字全球编码系统DUNS，相当于企业的身份识别码 （就像是个人的身份证），被广泛应用于企业识别、商业信息的组织及整理。可以帮助识别和迅速定位全球2.4亿家企业的信息。
 https://baike.baidu.com/item/%E9%82%93%E6%B0%8F%E7%BC%96%E7%A0%81/10822659?fr=aladdin
 
