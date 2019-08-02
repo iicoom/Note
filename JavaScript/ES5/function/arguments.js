@@ -7,9 +7,11 @@ function testArg() {
 
 testArg('qq',123,[4,5,6],{'key':'value'})
 
+/**
 Arguments(4) ["qq", 123, Array(3), {…}, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 
 0: "qq"
 1: 123
 2: (3) [4, 5, 6]
 3: {key: "value"}
+*/

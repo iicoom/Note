@@ -41,3 +41,5 @@ arr.forEach((item) => {
 
 console.log('newArr:', newArr)
 
+// newArr: [ 5, 6, 7, 8, 9 ]
+

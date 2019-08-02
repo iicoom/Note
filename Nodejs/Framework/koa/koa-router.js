@@ -1,9 +1,3 @@
-module.exports = Router;
-
-/**
- * [Router description]
- * @param {[type]} opts [description]
- */
 function Router(opts) {
   if (!(this instanceof Router)) {
     return new Router(opts);
@@ -25,27 +19,6 @@ function Router(opts) {
 };
 
 
-/**
- * [prefix description]
- * @param  {[type]} prefix [description]
- * @return {[type]}        [description]
- */
-Router.prototype.prefix = function (prefix) {
-  prefix = prefix.replace(/\/$/, '');
-
-  this.opts.prefix = prefix;
-
-  this.stack.forEach(function (route) {
-    route.setPrefix(prefix);
-  });
-
-  return this;
-};
-
-/**
- * [middleware description]
- * @return {[type]} [description]
- */
 Router.prototype.routes = Router.prototype.middleware = function () {
   var router = this;
 
@@ -90,4 +63,3 @@ Router.prototype.routes = Router.prototype.middleware = function () {
 
   return dispatch;
 };
-
