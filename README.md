@@ -1,7 +1,10 @@
 ## Note
 something important
 
-### 常见装逼词汇
+### 常见装X词汇
+
+* IoT (internet of things) The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction.
+
 * GFW 防火长城（英文名称Great Firewall of China，简写为Great Firewall，缩写GFW），也称中国防火墙或中国国家防火墙，指中华人民共和国政府在其管辖因特网内部建立的多套网络审查系统的总称，包括相关行政审查系统。
 
 * 数字影院清晰度分为两级，即DCI 2K（2048x1080，每秒24帧或48帧）和DCI 4K（4096x2160像素，最低每秒60帧），其中DCI 4K（4096x2160）的信息量则是高清电视的4倍多。
@@ -9,6 +12,8 @@ something important
 * ADSL （Asymmetric Digital Subscriber Line ，非对称 数字用户环路）是一种新的数据传输方式。它因为上行和下行带宽不对称，因此称为非对称数字用户线环路。它采用频分复用技术把普通的电话线分成了电话、上行和下行三个相对独立的信道，从而避免了相互之间的干扰。
 
 * STEM 是科学（Science），技术（Technology），工程（Engineering），数学（Mathematics）四门学科英文首字母的缩写
+
+* CMS 是"Content Management System"的缩写，意为"内容管理系统"。
 
 * LMS（学习管理系统Learning Management System）中文常用别名：在线学习系统，网络培训平台，在线教育系统等。
 系统搭建具备以下功能：在线直播，互动教学，录播授课，网校管理
