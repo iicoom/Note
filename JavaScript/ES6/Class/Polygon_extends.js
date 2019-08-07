@@ -65,5 +65,3 @@ r.sayName();
 // Sup! My name is  Rectangle.
 // "Polygon" is derived from the Greek polus (many) and gonia (angle).
 
-
-console.log('================Example 5===========三角形========')
