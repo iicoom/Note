@@ -35,13 +35,41 @@ app.listen(3000)
 ## Koa next() & Koa compose
 https://github.com/koajs/koa/blob/master/docs/guide.md
 
-## Express&Koa不同
+## Express & Koa 不同
 
 Express 采用 callback 来处理异步, Koa v1 采用 generator，Koa v2 采用 async/await
 
 generator 和 async/await 使用同步的写法来处理异步，明显好于 callback 和 promise，
 
 async/await 在语义化上又要比 generator 更强。
+
+### Koa vs Express
+
+1. Philosophically, Koa aims to "fix and replace node", whereas Express "augments node".
+
+从设计理念上，Koa 目标在于 fix and replace node, 然而 Express 致力于 使node更健壮。
+
+2. Koa 使用 Promise and async 来避免callback hell 简化 error handling。它暴露出自己的ctx.request 和 ctx.response object 而不是 node's req and res object.
+
+3. Koa can be viewed as an abstraction of node.js's http modules, Express is an application framework for node.js.
+
+### How is Koa different than Connect/Express?
+
+1. Promises-based control flow
+
+No callback hell.
+
+Better error handling through try/catch.
+
+2. Koa is barebones
+
+Unlike both Connect and Express, Koa does not include any middleware.
+
+Unlike Express, routing is not provided.
+
+Unlike Express, many convenience utilities are not provided. For example, sending files.
+
+Koa is more modular.
 
 
 ## Sail
