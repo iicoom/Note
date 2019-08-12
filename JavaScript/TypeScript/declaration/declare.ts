@@ -69,7 +69,7 @@ declare function greet(setting: GreetingSettings): void;
 
 
 
-const g = new GreetingLib.Greeter("Hello");
+const g = new GreetingLib.Greeter();
 g.log({ verbose: true })
 g.alert({ modal: false, title: "Current Greeting" })
 
@@ -82,12 +82,17 @@ declare namespace GreetingLib {
 	interface AlertOptions {
 		modal: boolean;
 		title: string;
-		color: string;
+		color?: string;
 	}
 
-	function Greeter(s: string): void;
+	class Greeter {
+		log(l: LogOptions): void;
+		alert(a: AlertOptions): void;
+	}
 
 }
+
+// koa application-events 模块可以作为 TS 学习资料
 
 
 
