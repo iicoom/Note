@@ -2,6 +2,10 @@
 something important
 
 ### 常见装X词汇
+* [shadowsockets PAC](https://github.com/shadowsocks/ShadowsocksX-NG/wiki/PAC-Global-Manual-Mode)
+
+* Software engineer （A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.）
+使用软件设计原则 设计，开发，维护，测试，评估软件的 person。
 
 * IoT (internet of things) The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction.
 

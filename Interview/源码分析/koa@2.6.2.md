@@ -78,6 +78,22 @@ module.exports = class Application extends Emitter {
 	    context.state = {};
 	    return context;
     }
+
+    /**
+       * Use the given middleware `fn`.
+       *
+       * Old-style middleware will be converted.
+       *
+       * @param {Function} fn
+       * @return {Application} self
+       * @api public
+       */
+  	use(fn) {
+  		if (typeof fn !== 'function') throw new TypeError('middleware must be a function!')
+  		debug('use %s', fn._name || fn.name || '-')
+  		this.middleware.push(fn);
+  		return this;
+  	}
 }
 
 ```
