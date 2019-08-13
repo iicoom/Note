@@ -6,7 +6,7 @@
 import { StringValidator } from "./StringValidator";
 
 const numberRegexp = /^[0-9]+$/;
-const lettersRegexp = /^[A-Za-z+$/;
+const lettersRegexp = /^[A-Za-z]+$/;
 
 // export class ZipCodeValidator implements StringValidator {
 // 	isAcceptable(s: string) {
