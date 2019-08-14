@@ -1,5 +1,4 @@
-## Note
-Something important is worth recording. 不积跬步无以至千里.
+> Something important is worth recording. 不积跬步无以至千里.
 
 ### 常见装X词汇
 * [shadowsockets PAC](https://github.com/shadowsocks/ShadowsocksX-NG/wiki/PAC-Global-Manual-Mode)
@@ -56,14 +55,7 @@ Modern Unix systems generally use user groups as a security protocol to control 
 * OKR（Objectives and Key Results）即目标与关键成果法，是一套明确和跟踪目标及其完成情况的管理工具和方法，由英特尔公司发明。
 OKR由英特尔公司发明，并由约翰·杜尔将其大众化，OKR与OKR工具被多个公司采用，包括Uber、谷歌 [2]  、MongoDB、LinkedIn [3]  、推特 [4]  和Zynga。
 
-* KPI 关键绩效指标(KPI：Key Performance Indicator)是通过对组织内部流程的输入端、输出端的关键参数进行设置、取样、计算、分析，衡量流程绩效的一种目标式量化管理指标，是把企业的战略目标分解为可操作的工作目标的工具，是企业绩效管理的基础。
-
-KPI的缺陷：
-没有人对最终结果负责，每个人只对自己的过程负责。
-人的主观能动性被压抑。
-结果高度依赖机器和管理者的指令。
-
-OKR 解决了 KPI 的这些缺陷。首先它和绩效考核分离，把绩效考核交给 peer review来做。然后它强调 Key Result 必须服从 Objective，所以如果你在 Objective上写了要让用户喜欢我们的产品，但你实际执行 Key Result 的手段违反了这一点的话，谁都能看得出来。既然 Key Result 只是用来服务于 Objective 的，那就没必要像 KPI 那样一早制订好然后强制执行了。你可以在做的过程中随意更改 Key Result，只要它们还是服务于原本的 Objective 就行。
+* KPI 关键绩效指标(KPI：Key Performance Indicator)是通过对组织内部流程的输入端、输出端的关键参数进行设置、取样、计算、分析，衡量流程绩效的一种目标式量化管理指标，是把企业的战略目标分解为可操作的工作目标的工具，是企业绩效管理的基础。[KPI的缺陷：]没有人对最终结果负责，每个人只对自己的过程负责。人的主观能动性被压抑。结果高度依赖机器和管理者的指令。[OKR 解决了 KPI 的这些缺陷] 首先它和绩效考核分离，把绩效考核交给 peer review来做。然后它强调 Key Result 必须服从 Objective，所以如果你在 Objective上写了要让用户喜欢我们的产品，但你实际执行 Key Result 的手段违反了这一点的话，谁都能看得出来。既然 Key Result 只是用来服务于 Objective 的，那就没必要像 KPI 那样一早制订好然后强制执行了。你可以在做的过程中随意更改 Key Result，只要它们还是服务于原本的 Objective 就行。
 
 * GM(General Manager)总经理  VP(Vice President)副总裁  CEO(Chief Executive Officer)首席执行官
 CTO(Chief technology officer)首席技术官 类似总工程师 https://zhidao.baidu.com/question/172835795.html
@@ -88,9 +80,7 @@ adv.
 
 * SaaS是Software-as-a-Service（软件即服务）的简称
 [如何理解云计算？IaaS、PaaS和SaaS](http://www.chinacloud.cn/show.aspx?id=19758&cid=18)
-Software as a service (SaaS) is a software distribution model in which a third-party provider hosts applications and makes them available to customers over the Internet. 
-
-SaaS is one of three main categories of cloud computing, alongside infrastructure as a service (IaaS) and platform as a service (PaaS).
+Software as a service (SaaS) is a software distribution model in which a third-party provider hosts applications and makes them available to customers over the Internet. SaaS is one of three main categories of cloud computing, alongside infrastructure as a service (IaaS) and platform as a service (PaaS).
 https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service
 
 * [cloud computing](https://searchcloudcomputing.techtarget.com/definition/cloud-computing)
@@ -188,13 +178,7 @@ TLS包含三个基本阶段：
 
 * Hibernate 是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成数据持久化的重任。
 
-* JavaBean 是特殊的Java类，使用J ava语言书写，并且遵守JavaBean API规范。
-
-接下来给出的是JavaBean与其它Java类相比而言独一无二的特征：
-提供一个默认的无参构造函数。
-需要被序列化并且实现了Serializable接口。
-可能有一系列可读写属性。
-可能有一系列的"getter"或"setter"方法。
+* JavaBean 是特殊的Java类，使用J ava语言书写，并且遵守JavaBean API规范。接下来给出的是JavaBean与其它Java类相比而言独一无二的特征：提供一个默认的无参构造函数。需要被序列化并且实现了Serializable接口。可能有一系列可读写属性。可能有一系列的"getter"或"setter"方法。
 
 * JDBC API是一个Java API可以访问任何类型的数据库的数据，尤其是存储在关系数据库中的数据。 JDBC的工作原理与Java在各种平台一样，如Windows，Mac OS和各种版本的UNIX系统。
 
