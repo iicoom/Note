@@ -1,0 +1,71 @@
+# 异步和同步
+
+## JavaScript's event loop
+
+JavaScript programmers like to use words like, “event-loop”, “non-blocking”, “callback”, “asynchronous”, “single-threaded” and “concurrency”.
+
+We say things like “don’t block the event loop”, “make sure your code runs at 60 frames-per-second”, “well of course, it won’t work, that function is an asynchronous callback!”
+
+### Non-blocking I/O
+
+In JavaScript, almost all I/O is non-blocking. This includes
+
+* HTTP requests, 
+* database operations 
+* and disk reads and writes; 
+
+  the single thread of execution asks the runtime to perform an operation, providing a callback function and then moves on to do something else. 
+
+  When the operation has been completed, a message is enqueued along with the provided callback function. 
+
+  At some point in the future, the message is dequeued and the callback fired.
+
+Let’s compare two bits of code that make HTTP requests to www.google.com and output the response to console. First, Ruby, with Faraday:
+
+```text
+response = Faraday.get 'http://www.google.com'
+puts response
+puts 'Done!'
+```
+
+The execution path is easy to follow:
+
+1. The get method is executed and the thread of execution waits until a response is received
+2. The response is received from Google and returned to the caller where it’s stored in a variable
+3. The value of the variable \(in this case, our response\) is output to the console
+4. The value “Done!” is output to the console
+
+Let’s do the same in JavaScript with Node.js and the Request library:
+
+```text
+request('http://www.google.com', function(error, response, body) {
+  console.log(body);
+});
+
+console.log('Done!');
+```
+
+A slightly different look, and very different behavior:
+
+1. The request function is executed, passing an anonymous function as a callback to execute when a response is available sometime in the future.
+2. “Done!” is immediately output to the console
+3. Sometime in the future, the response comes back and our callback is executed, outputting its body to the console
+
+### The Event Loop
+
+The decoupling of the caller from the response allows for the JavaScript runtime to do other things while waiting for your asynchronous operation to complete and their callbacks to fire. But where in memory do these callbacks live – and in what order are they executed? What causes them to be called?
+
+JavaScript runtimes contain a message queue which stores a list of messages to be processed and their associated callback functions. These messages are queued in response to external events \(such as a mouse being clicked or receiving the response to an HTTP request\) given a callback function has been provided. If, for example a user were to click a button and no callback function was provided – no message would have been enqueued.
+
+In a loop, the queue is polled for the next message \(each poll referred to as a “tick”\) and when a message is encountered, the callback for that message is executed.
+
+## Synchronous iteration functions
+
+If you get an error like RangeError: Maximum call stack size exceeded. or other stack overflow issues when using async, you are likely using a synchronous iteratee.
+
+By synchronous we mean a function that calls its callback on the same tick in the javascript event loop,
+
+without doing any I/O or using any timers.
+
+Calling many callbacks iteratively will quickly overflow the stack. If you run into this issue, just defer your callback with async.setImmediate to start a new call stack on the next tick of the event loop.
+

@@ -1,0 +1,23 @@
+# 微信网页授权
+
+[https://mp.weixin.qq.com/wiki?t=resource/res\_main&id=mp1421140842](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)
+
+## 网页授权回调域名的说明
+
+“开发 - 接口权限 - 网页服务 - 网页帐号 - 网页授权获取用户基本信息”的配置选项中，修改授权回调域名。
+
+## 关于网页授权的两种scope的区别说明
+
+1. 以snsapi\_base为scope发起的网页授权，是用来获取进入页面的用户的openid的，并且是静默授权并自动跳转到回调页的。用户感知的就是直接进入了回调页（往往是业务页面）
+2. 以snsapi\_userinfo为scope发起的网页授权，是用来获取用户的基本信息的。但这种授权需要用户手动同意，并且由于用户同意过，所以无须关注，就可在授权后获取该用户的基本信息。
+
+具体而言，网页授权流程分为四步：
+
+1、引导用户进入授权页面同意授权，获取code
+
+2、通过code换取网页授权access\_token（与基础支持中的access\_token不同）
+
+3、如果需要，开发者可以刷新网页授权access\_token，避免过期
+
+4、通过网页授权access\_token和openid获取用户基本信息（支持UnionID机制）
+

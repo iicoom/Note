@@ -1,0 +1,10 @@
+# npm audit fix
+
+出于好奇，从npm官网上查阅了对于npm audit fix的相关介绍。
+
+npm audit ： npm@5.10.0 & npm@6，允许开发人员分析复杂的代码，并查明特定的漏洞和缺陷。
+
+## npm audit fix ：npm@6.1.0,  检测项目依赖中的漏洞并自动安装需要更新的有漏洞的依赖，而不必再自己进行跟踪和修复。
+
+作者：奋斗的小绿萝 来源：CSDN 原文：[https://blog.csdn.net/weixin\_40817115/article/details/81007774](https://blog.csdn.net/weixin_40817115/article/details/81007774) 版权声明：本文为博主原创文章，转载请附上博文链接！
+

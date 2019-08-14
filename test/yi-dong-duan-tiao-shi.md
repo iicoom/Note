@@ -1,0 +1,74 @@
+# Charles  Http抓包操作步骤
+
+[移动应用抓包调试利器Charles](https://www.jianshu.com/p/68684780c1b0) Step 1：开启Charleshttp代理；
+
+Step 2：手机端Wifi添加代理；
+
+Step 3：开启Charles录制功能；
+
+Step 4：启动应用开始抓包；
+
+Step 5：分析抓取的数据包。
+
+## 具体操作
+
+找到电脑IP，打开Charles，默认代理8888 端口。
+
+Proxy - Proxy Setting - Enable transparent HTTP Proxy
+
+在想要监听的域名右击-可以focus分类
+
+## 证书安装
+
+http的配置还是很简单，关键是https的，大部分我们是用抓包就是想用这个功能
+
+打开Charles, 点击Help-&gt;SSL Proxying-&gt;Install Charles Root Certificate
+
+然后输入密码进行安装，安装完成之后就要信任这个证书，刚开始我以为下载下来就没事了，其实不是。
+
+方法是有 双击，然后选择 始终信任 Charles抓https显示unknown解决方法 [https://www.jianshu.com/p/498884193013](https://www.jianshu.com/p/498884193013)
+
+这样就能在**电脑上**装好证书了。接下来是最重要的：给手机装证书。
+
+在Charles中, 点击Help-&gt;SSL Proxying-&gt;Install Charles Root Certificate on a Mobile Device or Remote Browser, 来查看当前IP地址下, 手机下载证书的网址.
+
+Configure your device to use Charles as its HTTP proxy on 192.168.199.191:8888, then browse to chls.pro/ssl to download and install the certificate
+
+手机连接到Charles代理 浏览器访问chls.pro/ssl 等待几秒会自动下载证书
+
+Android手机安装.pem证书文件 摸索时就遇到一个坑，Charles抓https的包的时候会乱码，于是我找到这篇帖子： [https://blog.csdn.net/huanghanqian/article/details/52973651](https://blog.csdn.net/huanghanqian/article/details/52973651)
+
+这里的最后一步是安装一个.pem的文件 安卓手机安装.pem会比较困难，可能无法识别
+
+以OPPO和一加五T为例来展示怎么安装.pem文件，其他手机都和这个差不多，基本都是在设置中找到，类似于 安全与隐私，这一项，然后从存储设备中安装。
+
+在菜单Proxy --&gt; SSL Proxying Settings 配置环境:
+
+```text
+*.443
+```
+
+[解决Charles抓取https报文乱码问题](https://www.jianshu.com/p/60b2b76b9066)
+
+[Android 系统各个版本上https的抓包](https://www.jianshu.com/p/3b4cd6fdd8a9)
+
+[What is SSL?](https://www.instantssl.com/ssl.html)
+
+\[Android 系统各个版本上https的抓包\][https://blog.csdn.net/H176Nhx7/article/details/79876588](https://blog.csdn.net/H176Nhx7/article/details/79876588) Android 7.0 \(api 24 \) 和 targetSdkVersion 对抓包的影响 这里要分两种情况：
+
+抓自己开发的app的网络包
+
+抓第三方app的网络包，比如微博客户端
+
+这两种情况有什么区别的，第一种app是我们自己开发的，我们手里有源码，能够修改，能够做到像官方文档里面说的一样进行配置。第二种我们没有源码，要想做到像官方文档里面配置的话，只能反编译后，把配置文件添加进去然后重新打包，但是重新打包就会遇到很多坑。
+
+1. 我们可以通过重打包的方式强行修改配置，或者强行降低 targetSdkVersion，或者强行修改别人源码里面的信任证书的代码，然后再重打包就好了\(分别针对上面1，2，3里面所说的方法，只不过通过逆向的方式添加\)。
+2. 通过使用Xposed的 JustTrustMe 模块来信任所有的证书，Xposed不会用的看这里
+3. 哈哈，使用Android 7.0 以下的系统安装应用，并抓包
+
+[重磅！VirtualXposed，让你无需Root也能使用Xposed框架！](https://xposed.appkg.com/2799.html)
+
+```text
+VirtualXposed 是基于VirtualApp 和 epic 在非ROOT环境下运行Xposed模块的实现（支持5.0~8.1)。一直以来Xposed框架最大的入门难度就在于设备需要Root，然后还要Recovery，还有承担变砖的各种搞基风险，现在这一切都不用再担心了！感谢Xposed作者rov89，感谢VirtualApp作者asLody@github！目前来看VirtualXposed的稳定性已经相当出色了
+```
+

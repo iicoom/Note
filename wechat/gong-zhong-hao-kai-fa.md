@@ -1,0 +1,84 @@
+# 公众号开发
+
+## 开发环境的搭建
+
+* 一个微信公众号
+* 内网映射工具 把本地接口服务映射到公网 与微信对接需要公网地址 只支持80端口
+* 内网 localhost:8080/test/index.jsp =&gt; 公网 [http://example.tunnel.mobi/test/index.jsp](http://example.tunnel.mobi/test/index.jsp)
+* 数据交互原理：微信公众号客户端发起请求 =&gt; 微信公众号后台 =&gt; 微信公众号服务器（开发的服务）=&gt; 返回给微信公众号后台 =&gt; 微信公众号客户端
+* 登录微信公众号进行配置：
+  * 填写接入的URL   [http://9c8c28da.ngrok.io/api/wechat](http://9c8c28da.ngrok.io/api/wechat)
+  * 填写token      checkitout
+
+    开发者提交信息后，微信服务器将发送GET请求到填写的服务器地址URL上，GET请求携带参数如下表所示：
+
+    signature   微信加密签名，signature结合了开发者填写的token参数和请求中的timestamp参数、nonce参数。
+
+    timestamp   时间戳
+
+    nonce   随机数
+
+    echostr 随机字符串
+
+开发者通过检验signature对请求进行校验（下面有校验方式）。若确认此次GET请求来自微信服务器，请原样返回echostr参数内容，则接入生效，成为开发者成功，否则接入失败。 [https://mp.weixin.qq.com/wiki?t=resource/res\_main&id=mp1421135319](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421135319)
+
+## 不同类型的订阅号具备的功能不一样
+
+[http://kf.qq.com/faq/120911VrYVrA130805byM32u.html](http://kf.qq.com/faq/120911VrYVrA130805byM32u.html)
+
+公众平台服务号、订阅号、企业号的相关说明 1、订阅号：主要偏于为用户传达资讯（类似报纸杂志），认证前后都是每天只可以群发一条消息； 2、服务号：主要偏于服务交互（类似银行，114，提供服务查询），认证前后都是每个月可群发4条消息； 3、企业号：主要用于公司内部通讯使用，需要先验证身份才可以关注成功企业号。
+
+温馨提示： 1）如果想简单的发送消息，达到宣传效果，建议可选择订阅号； 2）如果想用公众号获得更多的功能，例如开通微信支付，建议可以选择服务号； 3）如果想用来管理内部企业员工、团队，对内使用，可申请企业号； 4）订阅号可通过微信认证资质审核通过后有一次升级为服务号的入口，升级成功后类型不可再变； 5）服务号不可变更成订阅号。
+
+个人如何申请服务号？
+
+申请时需要验证 组织名称 组织机构代码 是企业组织机构代码，是公司注册时候，和营业执照一起办理的证件之一。正式注册的企业或机构都有这个，个体工商户没有，需要在本地的质量监督局补办。
+
+1）需要填写企业信息、法人身份验证
+
+2）需要购买服务器、域名
+
+3）微信公众号平台授权回调页面域名（用户同意授权公众号，微信会将授权数据传给一个回调页面，确保该页面在该域名下）
+
+--
+
+### 微信网页授权
+
+1）用户同意授权，获取code
+
+```text
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect 若提示“该链接无法访问”，请检查参数是否填写错误，是否拥有scope参数对应的授权作用域权限。
+
+替换参数 参考链接(请在微信客户端中打开此链接体验):
+scope为snsapi_base
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx520c15f417810387&redirect_uri=http://sell.natapp4.cc/sell/weixin/auth
+&response_type=code&scope=snsapi_base&state=123#wechat_redirect
+```
+
+如果用户同意授权，页面将跳转至 redirect\_uri/?code=CODE&state=STATE。 **code说明 ： code作为换取access\_token的票据，每次用户授权带上的code将不一样，code只能使用一次，5分钟未被使用自动过期。**
+
+2）第二步：通过code换取网页授权access\_token 获取code后，请求以下链接获取access\_token： [https://api.weixin.qq.com/sns/oauth2/access\_token?appid=APPID&secret=SECRET&code=CODE&grant\_type=authorization\_code](https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code)
+
+```text
+{ "access_token":"ACCESS_TOKEN",
+"expires_in":7200,
+"refresh_token":"REFRESH_TOKEN",
+"openid":"OPENID",
+"scope":"SCOPE" }
+```
+
+3\) 第三步：刷新access\_token（如果需要） 4\) 第四步：拉取用户信息\(需scope为 snsapi\_userinfo\) 如果网页授权作用域为snsapi\_userinfo，则此时开发者可以通过access\_token和openid拉取用户信息了。
+
+```text
+{    "openid":" OPENID",
+" nickname": NICKNAME,
+"sex":"1",
+"province":"PROVINCE"
+"city":"CITY",
+"country":"COUNTRY",
+"headimgurl":    "http://thirdwx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/46",
+"privilege":[ "PRIVILEGE1" "PRIVILEGE2"     ],
+"unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
+}
+```
+

@@ -1,0 +1,54 @@
+# 和 \*
+
+1. 算数运算符
+2. 代表乘法
+
+\*\* 代表乘方
+
+```text
+>>> 2 * 5
+10
+>>> 2 ** 5
+32
+```
+
+1. 函数形参
+
+你可以将不定数量的参数传递给一个函数
+
+```text
+*args 和 **kwargs 主要用于函数定义。
+
+*args 表示任何多个无名参数，它本质是一个 tuple
+**kwargs 表示关键字参数，它本质上是一个 dict
+
+如果同时使用 *args 和 **kwargs 时，必须 *args 参数列要在 **kwargs 之前。
+```
+
+```text
+>>> def fun(data1, data2, data3):
+...     print("data1: ", data1)
+...     print("data2: ", data2)
+...     print("data3: ", data3)
+... 
+>>> args = ("one", 2, 3)
+>>> fun(*args)
+data1:  one
+data2:  2
+data3:  3
+
+
+>>> kwargs = {"data3": "one", "data2": 2, "data1": 3}
+>>> fun(**kwargs)
+data1:  3
+data2:  2
+data3:  one
+
+
+>>> kwargs = {"data3": "one", "data2": 2, "data1": 3}
+>>> options = dict({'key1': 'value1'}, **kwargs)
+>>> print(options)
+{'key1': 'value1', 'data3': 'one', 'data2': 2, 'data1': 3}
+>>>
+```
+
