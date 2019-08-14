@@ -1,2 +1,0 @@
-# multip&thread
-

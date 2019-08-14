@@ -1,4 +1,0 @@
-# FirewallD
-
-[https://linuxize.com/post/how-to-setup-a-firewall-with-firewalld-on-centos-7/](https://linuxize.com/post/how-to-setup-a-firewall-with-firewalld-on-centos-7/)
-

@@ -1,4 +1,0 @@
-# 批量插入
-
-[Cnode](https://cnodejs.org/topic/55233cbfe78dd0ea3b4060b3)
-
