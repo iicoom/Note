@@ -19,3 +19,10 @@ TypeScript的核心价值体现在第一点，第二点可以认为是TypeScript
 console.log(5 == "5"); // true 
 console.log(0 == "");  // true
 ```
+
+## 编译 .ts
+At the command line, run the TypeScript compiler:
+
+```
+tsc greeter.ts
+```
