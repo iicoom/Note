@@ -1,5 +1,5 @@
 ## Note
-something important
+Something important is worth recording. 不积跬步无以至千里.
 
 ### 常见装X词汇
 * [shadowsockets PAC](https://github.com/shadowsocks/ShadowsocksX-NG/wiki/PAC-Global-Manual-Mode)
