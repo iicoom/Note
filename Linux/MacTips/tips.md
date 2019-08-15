@@ -10,6 +10,8 @@
 * USB
 
 ### Mac系统
+* MAC 电脑互传文件 Finder-AirDrop(隔空传送) shift+command+r
+
 * terminal光标跳转技巧 
 3. 移动光标到行首：control+a 
 4. 移动光标到行尾：control+e

@@ -7,12 +7,12 @@ const user = {
   name: 'Tyler',
   age: 27,
   greet() {
-    alert(`Hello, my name is ${this.name}`)
+    console.log(`Hello, my name is ${this.name}`)
   },
   mother: {
     name: 'Stacey',
     greet() {
-      alert(`Hello, my name is ${this.name}`)
+      console.log(`Hello, my name is ${this.name}`)
     }
   }
 }
@@ -25,10 +25,11 @@ const user = {
 但是，如果没有点呢?
 
 ## 显式绑定
+
 如果 greet 函数不是 user 对象的函数，只是一个独立的函数。
 ```
 function greet () {
-  alert(`Hello, my name is ${this.name}`)
+  console.log(`Hello, my name is ${this.name}`)
 }
 
 const user = {
@@ -36,15 +37,26 @@ const user = {
   age: 27,
 }
 ```
-我们知道为了判断 this 的引用我们首先必须查看这个函数的调用位置。现在就引出了一个问题，我们怎样能让 greet 方法调用的时候将 this 指向 user 对象？。我们不能再像之前那样简单的使用 user.greet()，因为 user 并没有 greet 方法。在 JavaScript 中，每个函数都包含了一个能让你恰好解决这个问题的方法，这个方法的名字叫做 call。
+我们知道为了判断 this 的引用我们首先必须查看这个函数的调用位置。
 
-> “call” 是每个函数都有的一个方法，它允许你在调用函数时为函数指定上下文。
+现在就引出了一个问题，我们怎样能让 greet 方法调用的时候将 this 指向 user 对象？。
 
-考虑到这一点，用下面的代码可以在调用 greet 时用 user 做上下文。
+我们不能再像之前那样简单的使用 user.greet()，因为 user 并没有 greet 方法。
+```
+> greet()
+Hello, my name is undefined
+```
+
+在 JavaScript 中，每个函数都包含了一个能让你恰好解决这个问题的方法，这个方法的名字叫做 call。
+
+> “call” 是每个函数都有的一个方法，它允许你在调用函数时为函数指定上下文。考虑到这一点，用下面的代码可以在调用 greet 时用 user 做上下文。
 
 ```
 greet.call(user)
+
+Hello, my name is Tyler
 ```
+
 再强调一遍，call 是每个函数都有的一个属性，并且传递给它的第一个参数会作为函数被调用时的上下文。换句话说，this 将会指向传递给 call 的第一个参数。
 
 浏览器中调用 正常弹出Tyler
@@ -57,7 +69,7 @@ greet.call(user)
 在绑定的而上下文 后面传其他参数
 ```
 function greet (lang1, lang2, lang3) {
-  alert(`Hello, my name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}`)
+  console.log(`Hello, my name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}`)
 }
 
 const user = {
@@ -73,21 +85,37 @@ greet.call(user, languages[0], languages[1], languages[2])
 结果如下
 Hello, my name is Tyler and I know JavaScript, Ruby, and Python
 
-方法奏效，它显示了如何将参数传递给使用 .call 调用的函数。不过你可能注意到，必须一个一个传递 languages 数组的元素，这样有些恼人。如果我们可以把整个数组作为第二个参数并让 JavaScript 为我们自动展开就好了。有个好消息，这就是 .apply 干的事情。.apply 和 .call 本质相同，但不是一个一个传递参数，你可以用数组传参而且 .apply 会在函数中为你自动展开。
+方法奏效，它显示了如何将参数传递给使用 .call 调用的函数。不过你可能注意到，必须一个一个传递 languages 数组的元素，这样有些恼人。
+
+如果我们可以把整个数组作为第二个参数并让 JavaScript 为我们自动展开就好了。
+
+有个好消息，这就是 .apply 干的事情。
+
+.apply 和 .call 本质相同，但不是一个一个传递参数，你可以用数组传参而且 .apply 会在函数中为你自动展开。
+
 那么现在用 .apply，我们的代码可以改为下面这个，其他一切都保持不变。
 
 ```
 const languages = ['JavaScript', 'Ruby', 'Python']
 
 // greet.call(user, languages[0], languages[1], languages[2])
+
 greet.apply(user, languages)
 
+Hello, my name is Tyler and I know JavaScript, Ruby, and Python
+
 ```
 
-到目前为止，我们学习了关于 .call 和 .apply 的“显式绑定”规则，用此规则调用的方法可以让你指定 this 在方法内的指向。关于这个规则的最后一个部分是 .bind。.bind 和 .call 完全相同，除了不会立刻调用函数，而是返回一个能以后调用的新函数。因此，如果我们看看之前所写的代码，换用 .bind，它看起来就像这样
+到目前为止，我们学习了关于 .call 和 .apply 的“显式绑定”规则，用此规则调用的方法可以让你指定 this 在方法内的指向。
+
+关于这个规则的最后一个部分是 .bind。
+
+.bind 和 .call 完全相同，除了不会立刻调用函数，而是返回一个能以后调用的新函数。
+
+因此，如果我们看看之前所写的代码，换用 .bind，它看起来就像这样
 ```
 function greet (lang1, lang2, lang3) {
-  alert(`Hello, my name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}`)
+  console.log(`Hello, my name is ${this.name} and I know ${lang1}, ${lang2}, and ${lang3}`)
 }
 
 const user = {
@@ -98,12 +126,19 @@ const user = {
 const languages = ['JavaScript', 'Ruby', 'Python']
 
 const newFn = greet.bind(user, languages[0], languages[1], languages[2])
-newFn() // alerts "Hello, my name is Tyler and I know JavaScript, Ruby, and Python"
+newFn() 
+
+// output: "Hello, my name is Tyler and I know JavaScript, Ruby, and Python"
 
 ```
 
 ## new 绑定
-第三条判断 this 引用的规则是 new 绑定。若你不熟悉 JavaScript 中的 new 关键字，其实每当用 new 调用函数时，JavaScript 解释器都会在底层创建一个全新的对象并把这个对象当做 this。如果用 new 调用一个函数，this 会自然地引用解释器创建的新对象。
+
+第三条判断 this 引用的规则是 new 绑定。
+
+若你不熟悉 JavaScript 中的 new 关键字，其实每当用 new 调用函数时，JavaScript 解释器都会在底层创建一个全新的对象并把这个对象当做 this。
+
+如果用 new 调用一个函数，this 会自然地引用解释器创建的新对象。
 ```
 function User (name, age) {
   /*
