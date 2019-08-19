@@ -258,5 +258,9 @@ Flutter plugin for VS Code has a command for creating Flutter apps
 * 图片取反色 选中取反色的区域 ctrl+i（windows） Command+i(Mac) 
 
 
+### Sketch
+* 拖动整个画布 space+鼠标拖动
+
+
 
 

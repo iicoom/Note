@@ -6,6 +6,9 @@
 * Software engineer （A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.）
 使用软件设计原则 设计，开发，维护，测试，评估软件的 person。
 
+* Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved so that the tests pass. This is opposed to software development that allows software to be added that is not proven to meet requirements.
+一种软件开发流程，依赖重复短周期的开发，需求转化为特定的测试用例。
+
 * IoT (internet of things) The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction.
 
 * GFW 防火长城（英文名称Great Firewall of China，简写为Great Firewall，缩写GFW），也称中国防火墙或中国国家防火墙，指中华人民共和国政府在其管辖因特网内部建立的多套网络审查系统的总称，包括相关行政审查系统。
