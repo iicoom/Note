@@ -145,6 +145,37 @@ sudo spctl --master-disable
 
 
 ### webstorm
+
+* webstorm preference 搜索 Templates 设置各种文件的文件头 注释
+
+The following example shows the default template for creating a JavaScript class in WebStorm:
+```
+/**
+ * Created by ${USER} on ${DATE}
+ */
+```
+或者自定义：
+```
+/**
+ * PROJECT ${PROJECT_NAME}
+ * IDE ${PRODUCT_NAME}
+ * Created by ${USER} on ${DATE} ${TIME}.
+ */
+```
+${PROJECT_NAME} - 当前项目的名称
+${NAME} - 在创建文件期间在新建文件对话框中指定的文件名称
+${USER} - 系统的当前用户登录名称
+${DATE} - 当前系统日期
+${TIME} - 当前系统时间
+${YEAR} - 当前年份
+${MONTH} - 当前月份
+${DAY} - 当前月的日期
+${HOUR} - 当前时刻
+${MINUTE} - 当前分钟
+${PRODUCT_NAME} - 将被创建文件所在的IDE名称
+${MONTH_NAME_SHORT} - 月份名称的前3个字母，例如: Jan, Feb, etc.
+${MONTH_NAME_FULL} - 月份全称，例如: January, February, etc.
+
 * <View></View>  标签补全 输入完<View 按住shift+> 即可补全
 * command + +/- 折叠展开代码块
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
