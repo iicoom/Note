@@ -1,6 +1,8 @@
 > Something important is worth recording. 不积跬步无以至千里.
 
 ### 常见装X词汇
+* Credits  In general, the term credit in the artistic or intellectual sense refers to an acknowledgement of those who contributed to a work, whether through ideas or in a more direct sense.
+
 * [shadowsockets PAC](https://github.com/shadowsocks/ShadowsocksX-NG/wiki/PAC-Global-Manual-Mode)
 
 * Software engineer （A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.）
