@@ -210,7 +210,9 @@ return girlRepository.findById(id).orElse(null);
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
 ### VS Code
-左下角的 设置按钮 - Extention - 安装扩展
+* 折叠代码快捷键 先按Command+K 再按Command+0   展开代码 先按 Command+K再按 Command+J
+
+* 左下角的 设置按钮 - Extention - 安装扩展
 
 Flutter plugin for VS Code has a command for creating Flutter apps
 
