@@ -1,10 +1,15 @@
 > Something important is worth recording. 不积跬步无以至千里.
 
 ### 常见装X词汇
+* Credits  In general, the term credit in the artistic or intellectual sense refers to an acknowledgement of those who contributed to a work, whether through ideas or in a more direct sense.
+
 * [shadowsockets PAC](https://github.com/shadowsocks/ShadowsocksX-NG/wiki/PAC-Global-Manual-Mode)
 
 * Software engineer （A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.）
 使用软件设计原则 设计，开发，维护，测试，评估软件的 person。
+
+* Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved so that the tests pass. This is opposed to software development that allows software to be added that is not proven to meet requirements.
+一种软件开发流程，依赖重复短周期的开发，需求转化为特定的测试用例。
 
 * IoT (internet of things) The internet of things, or IoT, is a system of interrelated computing devices, mechanical and digital machines, objects, animals or people that are provided with unique identifiers (UIDs) and the ability to transfer data over a network without requiring human-to-human or human-to-computer interaction.
 
