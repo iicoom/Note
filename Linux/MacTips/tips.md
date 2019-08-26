@@ -245,7 +245,11 @@ return girlRepository.findById(id).orElse(null);
 
 * 左下角的 设置按钮 - Extention - 安装扩展
 
-Flutter plugin for VS Code has a command for creating Flutter apps
+- Flutter plugin for VS Code has a command for creating Flutter apps
+
+- vscode-icons
+
+- 
 
 * 打开全局搜索 Command + Shift + P
 
