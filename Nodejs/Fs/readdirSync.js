@@ -1,22 +1,22 @@
 var fs = require('fs');
 
-const cfgs = [];
-fs.readdirSync(__dirname+'/config').map(filename => {
-  if (filename === 'index.js') {
-    return false;
-  }
-  //console.log(filename)
-  try {
-    const cfg = require('./config/' + filename);
-    //console.log(cfg)
-    if (cfg) {
-      cfgs.push(cfg);
-    }
-  } catch (e) {
-  	throw e;
-  }
-});
-console.log(cfgs);
+// const cfgs = [];
+// fs.readdirSync(__dirname+'/config').map(filename => {
+//   if (filename === 'index.js') {
+//     return false;
+//   }
+//   //console.log(filename)
+//   try {
+//     const cfg = require('./config/' + filename);
+//     //console.log(cfg)
+//     if (cfg) {
+//       cfgs.push(cfg);
+//     }
+//   } catch (e) {
+//   	throw e;
+//   }
+// });
+// console.log(cfgs);
 
 /*
 [ { logdir: '/Users/mxj/repo/Note/Nodejs/Fs/config/logs/',
@@ -29,4 +29,16 @@ console.log(cfgs);
     taskConsumeDB: 5,
     ranchServerPath:
      { sendGiveExperienceMsg: 'ranch_server/api/msgs/sendGiveExperience' } } ]
+*/
+
+const wtf = fs.readdirSync(__dirname)
+console.log(wtf)
+/*
+
+[ 'config',
+  'fs.rmdir.js',
+  'fs.stat.js',
+  'fs.unlink.js',
+  'readFile.js',
+  'readdirSync.js' ]
 */

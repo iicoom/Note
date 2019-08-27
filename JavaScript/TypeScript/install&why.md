@@ -26,3 +26,8 @@ At the command line, run the TypeScript compiler:
 ```
 tsc greeter.ts
 ```
+
+## 学习实例
+https://sequelize.org/
+
+Sequelize 4.X 版本用JavaScript  5.X 版本使用TypeScript  可以对照学习
