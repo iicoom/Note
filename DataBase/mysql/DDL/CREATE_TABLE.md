@@ -52,6 +52,15 @@ CREATE TABLE `qiushi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='糗事百科数据';
 
+CREATE TABLE `article` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `content` varchar(500) NOT NULL DEFAULT '' COMMENT '正文',
+  `image` varchar(200) NOT NULL DEFAULT '' COMMENT '秘籍攻略图片',
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资料礼包秘籍攻略';
+
 且 服务器端也要相应配置
 
 https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets

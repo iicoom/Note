@@ -5,6 +5,7 @@
 global.model = require('../models/index');
 
 ## index
+```
 const Sequelize = require('sequelize');
 
 const createDb = db => new Sequelize(db, null, null, {
@@ -25,6 +26,7 @@ const createDb = db => new Sequelize(db, null, null, {
 });
 
 let DJ = createDb(db_name);
+```
 
 然后把所有model文件都挂在全局变量model上
 module.exports = model

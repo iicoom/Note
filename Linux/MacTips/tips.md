@@ -241,6 +241,11 @@ return girlRepository.findById(id).orElse(null);
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
 ### VS Code
+* 多行光标 
+    vscode 操作：在每行的头部，alt + 4 次点击。
+    sublime 操作：鼠标中键按住，从第一行开头拖到第四行开头。
+    Mac Option+Shift+鼠标左键
+
 * vs code 会自动检测项目目录下的JavaScript函数方法，在当前文件输入getKey 如果其他文件有此方法的导出，那么按下Tab键会自动讲模块导入
 
 * 折叠代码快捷键 先按Command+K 再按Command+0   展开代码 先按 Command+K再按 Command+J

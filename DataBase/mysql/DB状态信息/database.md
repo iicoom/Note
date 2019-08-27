@@ -116,3 +116,25 @@ mysql> show databases;
 ```
 
 ### use spider
+```
+mysql> use spider;
+Database changed
+mysql> select database(); // 查看当前使用的数据库
++------------+
+| database() |
++------------+
+| spider     |
++------------+
+1 row in set (0.19 sec)
+```
+
+### select version()
+```
+mysql> select version();
++-----------+
+| version() |
++-----------+
+| 8.0.17    |
++-----------+
+1 row in set (0.19 sec)
+```
