@@ -8,6 +8,17 @@ global.model = require('../models/index');
 ```
 const Sequelize = require('sequelize');
 
+// 方式一
+const sequelize = new Sequelize('database', 'username', 'password', {
+    host: 'localhost',
+    dialect: /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+})
+
+// 方式二
+const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname')
+
+// 方式三
+<!-- connection pool (production) -->
 const createDb = db => new Sequelize(db, null, null, {
     dialect,
     logging,
