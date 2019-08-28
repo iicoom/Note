@@ -96,3 +96,6 @@ ADD COLUMN `last_name` VARCHAR(50) NOT NULL AFTER `nickname`,
 ADD COLUMN `first_name` VARCHAR(40) NOT NULL;
 ```
 
+### GUI 工具修改
+右击表-Design Table 就可以快速修改字段  - save
+
