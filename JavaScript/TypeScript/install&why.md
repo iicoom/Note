@@ -31,3 +31,5 @@ tsc greeter.ts
 https://sequelize.org/
 
 Sequelize 4.X 版本用JavaScript  5.X 版本使用TypeScript  可以对照学习
+
+antd dva  redux

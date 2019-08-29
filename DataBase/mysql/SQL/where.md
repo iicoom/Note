@@ -7,6 +7,8 @@ FROM table_name;
 
 
 ## WHERE 子句
+SELECT * FROM tableName WHERE condition;
+
 如需有条件地从表中选取数据，可将 WHERE 子句添加到 SELECT 语句。
 
 SELECT 列名称 FROM 表名称 WHERE 列 运算符 值
@@ -46,6 +48,23 @@ Gates	    Bill		Xuanwumen10		Beijing	1985
 
 SQL 使用单引号来环绕文本值（大部分数据库系统也接受双引号）。如果是数值，请不要使用引号。
 
+mysql> select username,age,sex from qiushi where id=66;
++--------------+------+-----+
+| username     | age  | sex |
++--------------+------+-----+
+| 无书斋主     |   41 | man |
++--------------+------+-----+
+1 row in set (0.19 sec)
+
+mysql> select username,age,sex from qiushi where `username`="无书斋主";
++--------------+------+-----+
+| username     | age  | sex |
++--------------+------+-----+
+| 无书斋主     |   41 | man |
+| 无书斋主     |   41 | man |
++--------------+------+-----+
+2 rows in set (0.18 sec)
+
 ### AND IN OR Operators
 Sequelize
 ```
@@ -78,16 +97,6 @@ WHERE (
    AND (`Projects`.`id` IN (1,2,3) OR `Projects`.`id` > 10)
 )
 LIMIT 1;
-```
-
-### COUNT
-SQL COUNT(column_name) 语法
-COUNT(column_name) 函数返回指定列的值的数目（NULL 不计入）：
-```
-SELECT COUNT(column_name) FROM table_name
-
-下面返回所有记录
-SELECT COUNT(*) FROM table_name
 ```
 
 ### SQL FOREIGN KEY
@@ -150,23 +159,6 @@ SELECT `analyses`.*,`roadmap`.sections, `roadmap`.title, `roadmap`.desc FROM `an
 SELECT `analyses`.*,`roadmap`.sections, `roadmap`.title, `roadmap`.desc FROM `analyses`,`roadmap` WHERE `analyses`.roadmap_id=`roadmap`.id AND `analyses`.id=1
 ```
 
-### SQL LIKE 操作符
-LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。
-
-SELECT column_name(s)
-FROM table_name
-WHERE column_name LIKE pattern;
-
-表中有2条数据
-1	1	1	1	地图1			2	0	2019-04-07 17:57:11	2019-04-07 17:57:16
-2	1	1	1	地图1+updated	2	0	2019-04-07 17:57:28	2019-04-07 22:21:15
-```
-SELECT name,power_score FROM analyses WHERE name LIKE '%ed';
-```
-结果：地图1+updated	2
-
-提示："%" 符号用于在模式的前后定义通配符（缺省字母）
-http://www.runoob.com/sql/sql-like.html
 
 
 
