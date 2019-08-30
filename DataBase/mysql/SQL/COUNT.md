@@ -18,3 +18,21 @@ mysql> select count(username) from qiushi;
 |             250 |
 +-----------------+
 1 row in set (0.25 sec)
+
+
+mysql> select count(username) from qiushi;
++-----------------+
+| count(username) |
++-----------------+
+|             250 |
++-----------------+
+1 row in set (0.61 sec)
+
+
+mysql> select count(username) as user from qiushi;
++------+
+| user |
++------+
+|  250 |
++------+
+1 row in set (0.27 sec)

@@ -52,15 +52,6 @@ CREATE TABLE `qiushi` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='糗事百科数据';
 
-CREATE TABLE `article` (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
-  `content` varchar(500) NOT NULL DEFAULT '' COMMENT '正文',
-  `image` varchar(200) NOT NULL DEFAULT '' COMMENT '秘籍攻略图片',
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资料礼包秘籍攻略';
-
 且 服务器端也要相应配置
 
 https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets
@@ -106,25 +97,7 @@ BEGIN;
 INSERT INTO `grade` VALUES ('grade_1', 1, 0, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
 INSERT INTO `grade` VALUES ('grade_2', 2, 501, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
 INSERT INTO `grade` VALUES ('grade_3', 3, 1001, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade` VALUES ('grade_4', 4, 2001, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade` VALUES ('grade_5', 5, 5001, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade` VALUES ('grade_6', 6, 10001, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade` VALUES ('grade_7', 7, 20001, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
 COMMIT;
-
-mysql> select * from grade;
-+---------+-------------+------------------+---------------------+---------------------+
-| id      | grade_value | experience_value | create_at           | update_at           |
-+---------+-------------+------------------+---------------------+---------------------+
-| grade_1 |           1 |                0 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_2 |           2 |              501 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_3 |           3 |             1001 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_4 |           4 |             2001 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_5 |           5 |             5001 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_6 |           6 |            10001 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_7 |           7 |            20001 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-+---------+-------------+------------------+---------------------+---------------------+
-7 rows in set (0.00 sec)
 
 ****************************************************************************************
 // 创建一张关联表grade_power
@@ -140,26 +113,26 @@ CREATE TABLE `grade_power` (
 // 插入数据
 INSERT INTO `grade_power` VALUES ('grade_1', 1, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
 INSERT INTO `grade_power` VALUES ('grade_2', 2, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade_power` VALUES ('grade_3', 3, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade_power` VALUES ('grade_4', 4, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade_power` VALUES ('grade_5', 5, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade_power` VALUES ('grade_6', 6, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-INSERT INTO `grade_power` VALUES ('grade_7', 7, '2017-01-16 22:42:35', '2017-01-16 22:42:35');
-
-mysql> select * from grade_power;
-+---------+-------------+---------------------+---------------------+
-| gid     | sheepnumber | create_at           | update_at           |
-+---------+-------------+---------------------+---------------------+
-| grade_1 |           1 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_2 |           2 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_3 |           3 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_4 |           4 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_5 |           5 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_6 |           6 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-| grade_7 |           7 | 2017-01-16 22:42:35 | 2017-01-16 22:42:35 |
-+---------+-------------+---------------------+---------------------+
-7 rows in set (0.00 sec)
 ```
+
+其他例子-注意时间字段
+CREATE TABLE `article` (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `content` varchar(500) NOT NULL DEFAULT '' COMMENT '正文',
+  `image` varchar(200) NOT NULL DEFAULT '' COMMENT '秘籍攻略图片',
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='资料礼包秘籍攻略';
+
+### GUI 工具设计表
+连接database-点击工具栏 new table
+
+- 新增主键id 下方的 Default Value  出现 Auto Increment
+
+- username 下方的 Default Value EMPTY STRING
+
+- 
 
 ## 删除表 DROP table_name
 

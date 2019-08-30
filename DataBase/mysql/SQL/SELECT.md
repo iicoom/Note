@@ -37,3 +37,16 @@ mysql> select username,sex,age from qiushi;
 | 哈和嗨                                | man   |   31 |
 +--------------------------------------+-------+------+
 250 rows in set (0.44 sec)
+
+## select as
+
+mysql> select username as user, age, sex from qiushi limit 4;
++--------------------+------+-------+
+| user               | age  | sex   |
++--------------------+------+-------+
+| tonoon             |   20 | man   |
+| 鱼歌浅唱            |   79 | woman |
+| 无书斋主            |   41 | man   |
+| 夲少姓〖劉〗         |   28 | man   |
++--------------------+------+-------+
+4 rows in set (0.29 sec)
