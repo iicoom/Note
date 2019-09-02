@@ -1,3 +1,7 @@
+Summary: in this tutorial, you will learn how to use MySQL GROUP BY to group rows into subgroups based on values of columns or expressions.
+
+You often use the GROUP BY clause with aggregate functions such as SUM, AVG, MAX, MIN, and COUNT. The aggregate function that appears in the SELECT clause provides the information about each group. 
+
 ## 创建表
 ```
 CREATE TABLE `staff` (
@@ -66,4 +70,4 @@ dept	total
 开发部	4500
 设计部	7000
 销售部	9600
-s
+
