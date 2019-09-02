@@ -180,7 +180,8 @@ class Comments extends Base {
 module.exports = Comments;
 ```
 
-### 关联查询
+### 关联查询（Eager loading）
+
 
 
 
