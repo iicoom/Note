@@ -71,3 +71,74 @@ dept	total
 设计部	7000
 销售部	9600
 
+### MIN
+mysql> select * from user;
++----+----------+------+-------+
+| id | username | age  | sex   |
++----+----------+------+-------+
+|  1 | Jack     |   18 | man   |
+|  2 | Tom      |    5 | woman |
+|  3 | Harry    |   10 | man   |
++----+----------+------+-------+
+
+mysql> select min(age) from user;
++----------+
+| min(age) |
++----------+
+|        5 |
++----------+
+1 row in set (0.19 sec)
+
+mysql> select sex, min(age) as minAgeUser from user group by sex;
++-------+------------+
+| sex   | minAgeUser |
++-------+------------+
+| man   |         10 |
+| woman |          5 |
++-------+------------+
+2 rows in set (0.21 sec)
+
+
+mysql> select * from user;
++----+----------+------+-------+---------+
+| id | username | age  | sex   | country |
++----+----------+------+-------+---------+
+|  1 | Jack     |   18 | man   | USA     |
+|  2 | Tom      |    5 | woman | India   |
+|  3 | Harry    |   10 | man   | UK      |
+|  4 | Dick     |   16 | woman | USA     |
+|  5 | Joy      |   13 | man   | USA     |
++----+----------+------+-------+---------+
+5 rows in set (0.18 sec)
+
+mysql> select country,sex,min(age) as minAgeUser from user group by sex,country;
++---------+-------+------------+
+| country | sex   | minAgeUser |
++---------+-------+------------+
+| USA     | man   |         13 |
+| India   | woman |          5 |
+| UK      | man   |         10 |
+| USA     | woman |         16 |
++---------+-------+------------+
+4 rows in set (0.21 sec)
+
+mysql> select country,sex,min(age) as minAgeUser from user group by sex,country order by country;
++---------+-------+------------+
+| country | sex   | minAgeUser |
++---------+-------+------------+
+| India   | woman |          5 |
+| UK      | man   |         10 |
+| USA     | man   |         13 |
+| USA     | woman |         16 |
++---------+-------+------------+
+4 rows in set (0.18 sec)
+
+### AVG
+mysql> select sex, avg(age) as minAgeUser from user group by sex;
++-------+------------+
+| sex   | minAgeUser |
++-------+------------+
+| man   |    14.0000 |
+| woman |     5.0000 |
++-------+------------+
+2 rows in set (0.18 sec)
