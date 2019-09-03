@@ -7,7 +7,7 @@ brew cask主要用来下载一些带界面的应用软件，下载好后会自�
 brew install curl可以安装curl第三方库，这样你在开发时就可以使用它的库来进行开发
 brew cask install chrome可以安装谷歌浏览器应用程序，可直接运行
 
-### Mac 加压rar压缩文件
+### Mac 解压rar压缩文件
 使用Homebrew安装unrar
 
 ```

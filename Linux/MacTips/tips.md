@@ -241,6 +241,11 @@ return girlRepository.findById(id).orElse(null);
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
 ### VS Code
+* 编辑器修改字体 
+    1. 下载 https://github.com/adobe-fonts/source-code-pro/downloads
+    2. 安装 https://support.apple.com/zh-cn/HT201749
+    3. 配置 Code - Preferences - Text Editor - Font  ('SourceCodePro-Semibold',Menlo, Monaco, 'Courier New', monospace)
+
 * 在打开的文件选项卡上右击 可以 Reveal in Finder、Reveal in Sidebar
 
 * 多行光标 

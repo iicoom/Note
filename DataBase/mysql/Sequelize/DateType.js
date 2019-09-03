@@ -61,24 +61,25 @@ module.exports = (sequelize, DataTypes) => {
   ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4;
  */
 
-BEGIN;
-INSERT INTO `lesson` VALUES (
-    1, 
-    '测试字体各种字体', 
-    '<h3>济等的成熟，不是全靠自己、不与 </p><p> </p>', 
-    33, 
-    '悔吉', 
-    '', 
-    '{\"url\": \"https://video.fnxy.net.cn/f4qoe1vlr47.mp4\", \"size\": 141973428, \"width\": 1920, \"height\": 1080, \"duration\": 530.76}', 
-    '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_37475369da26a4fcbdc8548013bb8c8f.mp4\", \"size\": 1342343, \"width\": 544, \"height\": 960, \"duration\": 11}', 
-    '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_a2b927e7a301b4903bd887a697e49a79.mp4\", \"size\": 1353323, \"width\": 544, \"height\": 960, \"duration\": 11}', 
-    '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_81f9e99229d83c66a4de5b070d1929bd.mp4\", \"size\": 1620968, \"width\": 544, \"height\": 960, \"duration\": 11}', 
-    '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_0934cb441d0b938b792c3550f0c30981.mp3\", \"size\": 180623, \"duration\": 11}', 
-    '[\"https://static.fnxy.net.cn/hfh1k5hp6xw.jpeg\", \"https://static.fnxy.net.cn/hrjqoo00psf.jpeg\", \"https://static.fnxy.net.cn/lwwp0hwy9e.jpeg\", \"https://static.fnxy.net.cn/9tkhsab7lat.jpeg\", \"https://static.fnxy.net.cn/lkb9hbnpbyj.jpeg\", \"https://static.fnxy.net.cn/ubp6sq4zzs.jpeg\", \"https://static.fnxy.net.cn/sixguo1muvk.jpeg\", \"https://static.fnxy.net.cn/ev75htzvtlf.jpeg\", \"https://static.fnxy.net.cn/bcbxt4hyt0o.jpeg\"]', 
-    1, 
-    '{\"transcode_request_id\": \"337C6202-1BC2-4D69-A2F1-8FC348A2BBAF\"}', 
-    '2018-12-14 19:22:46', 
-    '2019-04-29 15:36:01', 
-    '测试'
-    );
-COMMIT;
+
+// BEGIN;
+// INSERT INTO `lesson` VALUES (
+//     1, 
+//     '测试字体各种字体', 
+//     '<h3>济等的成熟，不是全靠自己、不与 </p><p> </p>', 
+//     33, 
+//     '悔吉', 
+//     '', 
+//     '{\"url\": \"https://video.fnxy.net.cn/f4qoe1vlr47.mp4\", \"size\": 141973428, \"width\": 1920, \"height\": 1080, \"duration\": 530.76}', 
+//     '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_37475369da26a4fcbdc8548013bb8c8f.mp4\", \"size\": 1342343, \"width\": 544, \"height\": 960, \"duration\": 11}', 
+//     '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_a2b927e7a301b4903bd887a697e49a79.mp4\", \"size\": 1353323, \"width\": 544, \"height\": 960, \"duration\": 11}', 
+//     '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_81f9e99229d83c66a4de5b070d1929bd.mp4\", \"size\": 1620968, \"width\": 544, \"height\": 960, \"duration\": 11}', 
+//     '{\"url\": \"https://video.fnxy.net.cn/ct7tqdgz32_0934cb441d0b938b792c3550f0c30981.mp3\", \"size\": 180623, \"duration\": 11}', 
+//     '[\"https://static.fnxy.net.cn/hfh1k5hp6xw.jpeg\", \"https://static.fnxy.net.cn/hrjqoo00psf.jpeg\", \"https://static.fnxy.net.cn/lwwp0hwy9e.jpeg\", \"https://static.fnxy.net.cn/9tkhsab7lat.jpeg\", \"https://static.fnxy.net.cn/lkb9hbnpbyj.jpeg\", \"https://static.fnxy.net.cn/ubp6sq4zzs.jpeg\", \"https://static.fnxy.net.cn/sixguo1muvk.jpeg\", \"https://static.fnxy.net.cn/ev75htzvtlf.jpeg\", \"https://static.fnxy.net.cn/bcbxt4hyt0o.jpeg\"]', 
+//     1, 
+//     '{\"transcode_request_id\": \"337C6202-1BC2-4D69-A2F1-8FC348A2BBAF\"}', 
+//     '2018-12-14 19:22:46', 
+//     '2019-04-29 15:36:01', 
+//     '测试'
+//     );
+// COMMIT;
