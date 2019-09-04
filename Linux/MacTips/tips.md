@@ -241,6 +241,14 @@ return girlRepository.findById(id).orElse(null);
 * Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
 
 ### VS Code
+* terminal 中用 vscode 打开当前目录
+  为Visual Studio Code 设置别名
+```
+echo "alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'" >> ~/.zshrc
+
+vscode ./   ## 在Visual Studio Code 中打开当前目录
+```
+
 * 编辑器修改字体 
     1. 下载 https://github.com/adobe-fonts/source-code-pro/downloads
     2. 安装 https://support.apple.com/zh-cn/HT201749
@@ -255,7 +263,12 @@ return girlRepository.findById(id).orElse(null);
 
 * vs code 会自动检测项目目录下的JavaScript函数方法，在当前文件输入getKey 如果其他文件有此方法的导出，那么按下Tab键会自动讲模块导入
 
-* 折叠代码快捷键 先按Command+K 再按Command+0   展开代码 先按 Command+K再按 Command+J
+* 折叠代码快捷键
+  - 首先F1查看帮助
+  - 搜索fold
+  - fold -- command+'-'
+  - fold all -- command+shift+'-'
+  - 折叠所有块注释
 
 * 左下角的 设置按钮 - Extention - 安装扩展
 
