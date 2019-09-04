@@ -28,18 +28,6 @@ User.hasOne(Project);
 ```
 User model (the model that the function is being invoked on) is the source. Project model (the model being passed as an argument) is the target.
 
-## Foreign Keys
-
-When you create associations between your models in sequelize, foreign key references with constraints will automatically be created. The setup below:
-```
-class Task extends Model {}
-Task.init({ title: Sequelize.STRING }, { sequelize, modelName: 'task' });
-class User extends Model {}
-User.init({ username: Sequelize.STRING }, { sequelize, modelName: 'user' });
-
-User.hasMany(Task);   // Will add userId to Task model
-Task.belongsTo(User); // Will also add userId to Task model
-```
 
 ## 使用
 ### 表结构
@@ -92,15 +80,8 @@ class Class extends Base {
     "msg": "请求成功",
     "error": "",
     "data": {
-        "create_time": "1544766346",
-        "update_time": "1566291852",
         "id": 5,
         "name": "xx学院",
-        "desc": "xx学院描述",
-        "company_id": 2,
-        "enrollment_num": 6,
-        "roadmap_id": 15,
-        "admin_user_id": 1,
         "status": 1,
         "class_groups": [
             {
@@ -128,8 +109,6 @@ class Class extends Base {
     "error": "",
     "data": [
         {
-            "create_time": "1544766346",
-            "update_time": "1566291852",
             "id": 5,
             "name": "ll学院",
             "desc": "ll学院描述",
@@ -148,17 +127,9 @@ class Class extends Base {
                     "name": "赋能1",
                     "class_id": 5
                 },
-                {
-                    "create_time": "1544766465",
-                    "id": 3,
-                    "name": "赋能2",
-                    "class_id": 5
-                },
             ]
         },
         {
-            "create_time": "1547089224",
-            "update_time": null,
             "id": 10,
             "name": "班级录入测试",
             "desc": "test",
@@ -172,16 +143,60 @@ class Class extends Base {
                 }
             ]
         },
-        {
-            "create_time": "1540539034",
-            "update_time": "1545621424",
-            "id": 1,
-            "name": "班级1",
-            "desc": "餐饮",
-            "status": 1,
-            "class_groups": []
-        },  
     ],
     "time": "1567420193",
     "request_id": "6cd7a42f3cc84dfba2e4d41fc4536a3c"
 }
+
+## Foreign Keys
+
+When you create associations between your models in sequelize, foreign key references with constraints will automatically be created. The setup below:
+```
+class Task extends Model {}
+Task.init({ title: Sequelize.STRING }, { sequelize, modelName: 'task' });
+class User extends Model {}
+User.init({ username: Sequelize.STRING }, { sequelize, modelName: 'user' });
+
+User.hasMany(Task);   // Will add userId to Task model
+Task.belongsTo(User); // Will also add userId to Task model
+```
+
+### One-To-One associations
+One-To-One associations are associations between exactly two models connected by a single foreign key.
+
+####  BelongsTo
+```
+class Player extends Model {}
+Player.init({/* attributes */}, { sequelize, modelName: 'player' });
+class Team extends Model {}
+Team.init({/* attributes */}, { sequelize, modelName: 'team' });
+
+Player.belongsTo(Team); // Will add a teamId attribute to Player to hold the primary key value for Team
+```
+
+- Foreign keys
+By default the foreign key for a belongsTo relation will be generated from the target model name and the target primary key name.
+```
+class User extends Model {}
+User.init({/* attributes */}, { sequelize, modelName: 'user' })
+class Company extends Model {}
+Company.init({/* attributes */}, { sequelize, modelName: 'company' });
+
+// will add companyId to user
+User.belongsTo(Company);
+```
+
+- Target keys
+By default the target key for a belongsTo relation will be the target model's primary key. To define a custom column, use the targetKey option.
+
+```
+class User extends Model {}
+User.init({/* attributes */}, { sequelize, modelName: 'user' })
+class Company extends Model {}
+Company.init({/* attributes */}, { sequelize, modelName: 'company' });
+
+User.belongsTo(Company, {foreignKey: 'fk_companyname', targetKey: 'name'}); 
+// Adds fk_companyname to User
+```
+
+#### HasOne
