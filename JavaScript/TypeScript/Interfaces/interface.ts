@@ -50,4 +50,37 @@ mySearch = function(source: string, subString: string) {
 }
 
 
+// ==========================================================================
+// Excess Property Checks  额外属性检查
+
+interface SquareConfig {
+    color?: string;
+    width?: number;
+}
+
+interface SquareConfig1{
+    color?: string;
+    width?: number;
+    [propName: string]: any;
+}
+
+function createSquare(config: SquareConfig): { color: string; area: number } {
+	// ...
+	return 
+}
+
+function createSquare1(config: SquareConfig1): { color: string; area: number } {
+	// ...
+	return 
+}
+
+let mySquare = createSquare({ colour: "red", width: 100 })
+
+let yourSquare = createSquare({ width: 100, opacity: 0.5 } as SquareConfig);
+
+let hisSquare = createSquare1({ colour: "red", width: 100 })
+
+
+// Function Types
+
 

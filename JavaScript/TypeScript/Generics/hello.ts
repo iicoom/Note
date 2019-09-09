@@ -18,12 +18,14 @@
 
 
 // Once we’ve written the generic identity function, we can call it in one of two ways. 
+// 1. 第一种使用泛型的方式
 // The first way is to pass all of the arguments, including the type argument, to the function:
 
 let output = identity<string>("myString");  // type of output will be 'string'
 
 
 // The second way is also perhaps the most common. 
+// 2. 第二种使用泛型的方式 更常用
 // Here we use type argument inference – that is, 
 // we want the compiler to set the value of T for us automatically based on 
 // the type of the argument we pass in:

@@ -39,3 +39,39 @@ netstat -au 使用 -u 选项列出 UDP 协议的连接
 ### netstat -s
 netstat 可以打印出网络统计数据，包括某个协议下的收发包数量。
 
+### 查看当前端口监听 Mac
+➜  ~ netstat -a
+Active Internet connections (including servers)
+Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
+tcp4       0      0  localhost.6379         localhost.52033        ESTABLISHED
+tcp4       0      0  localhost.52033        localhost.6379         ESTABLISHED
+tcp46      0      0  *.5588                 *.*                    LISTEN
+tcp6       0      0  localhost.lnvpoller    localhost.51174        ESTABLISHED
+tcp6       0      0  localhost.51174        localhost.lnvpoller    ESTABLISHED
+tcp4       0      0  localhost.cplscrambler localhost.50528        FIN_WAIT_2
+tcp4       0      0  localhost.50528        localhost.cplscrambler CLOSE_WAIT
+tcp4       0      0  localhost.cplscrambler localhost.50516        FIN_WAIT_2
+tcp4      31      0  localhost.50516        localhost.cplscrambler CLOSE_WAIT
+tcp6       0      0  localhost.sun-sr-https localhost.59404        ESTABLISHED
+tcp6       0      0  localhost.59404        localhost.sun-sr-https ESTABLISHED
+tcp4       0      0  localhost.54082        *.*                    LISTEN
+tcp4       0      0  localhost.cplscrambler *.*                    LISTEN
+tcp4       0      0  localhost.cplscrambler *.*                    LISTEN
+tcp4       0      0  bogon.53232            47.94.91.128.33306     ESTABLISHED
+tcp4       0      0  bogon.53128            47.94.91.128.33306     ESTABLISHED
+tcp4       0      0  bogon.53080            47.94.91.128.33306     ESTABLISHED
+tcp4       0      0  bogon.60198            tm-in-f188.1e100.https ESTABLISHED
+tcp4       0      0  bogon.58819            101.226.49.147.http    ESTABLISHED
+
+可以查看到本地建立的端口链接，以及远程建立的链接
+
+### 查看具体的端口监听
+➜  ~ netstat -an | grep 8080
+tcp4       0      0  *.8080                 *.*                    LISTEN
+
+➜  ~ netstat -an | grep 3306
+tcp4       0      0  192.168.0.220.53232    47.94.91.128.33306     ESTABLISHED
+tcp4       0      0  192.168.0.220.53128    47.94.91.128.33306     ESTABLISHED
+tcp4       0      0  192.168.0.220.53080    47.94.91.128.33306     ESTABLISHED
+tcp46      0      0  *.33060                *.*                    LISTEN
+tcp46      0      0  *.3306                 *.*                    LISTEN

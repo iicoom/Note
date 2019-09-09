@@ -1,0 +1,1 @@
+https://www.educba.com/typescript-type-vs-interface/
