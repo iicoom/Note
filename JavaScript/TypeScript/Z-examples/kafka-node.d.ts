@@ -1,7 +1,6 @@
 import { EventEmitter } from 'events';
 
 
-
 export class KafkaClient extends EventEmitter {
 
     constructor(options?: KafkaClientOptions);
@@ -41,7 +40,7 @@ export interface ProducerOptions {
     requireAcks?: number;
     ackTimeoutMs?: number;
     partitionerType?: number;
-  }
+}
 
 export interface ProduceRequest {
     topic: string;
@@ -67,7 +66,7 @@ export interface ConsumerOptions {
     fromOffset?: boolean;
     encoding?: 'buffer' | 'utf8';
     keyEncoding?: 'buffer' | 'utf8';
-  }
+}
 
 export type CustomPartitioner = (partitions: number[], key: string | Buffer) => number;
 
