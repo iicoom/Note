@@ -1,3 +1,7 @@
+## brew 的安装目录
+/Library
+
+
 ## brew和brew cask有什么区别
 https://zhidao.baidu.com/question/396566841548150965.html
 

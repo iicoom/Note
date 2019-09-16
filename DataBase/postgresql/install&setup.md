@@ -23,6 +23,7 @@ Or, if you don't want/need a background service you can just run:
 
 ### start Postgres
 
+以下命令Mac开机时自启动
 pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 
 Let’s check what version is running:
