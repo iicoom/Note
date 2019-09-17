@@ -79,8 +79,8 @@ http {
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
 
-        limit_conn perip 1;
-        limit_conn perserver 10;
+        # limit_conn perip 1;
+        # limit_conn perserver 10; 这两项会有问题 影响 X-Real-IP
 
         location /api/ {
                 proxy_pass http://127.0.0.1:30900;
