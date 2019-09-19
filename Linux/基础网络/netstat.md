@@ -1,6 +1,35 @@
 [netstat 的10个基本用法](https://linux.cn/article-2434-1.html)
 > Netstat 是一款命令行工具，可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。如果你想确认系统上的 Web 服务有没有起来，你可以查看80端口有没有打开。
 
+## install net-tool
+```
+[root@vultr ~]# netstat -nlp | grep LISTEN
+-bash: netstat: 未找到命令
+
+yum install net-tools
+```
+
+## 当前服务器上所有端口及进程服务
+netstat命令各个参数说明如下：
+
+　　-t : 指明显示TCP端口
+
+　　-u : 指明显示UDP端口
+
+　　-l : 仅显示监听套接字(所谓套接字就是使应用程序能够读写与收发通讯协议(protocol)与资料的程序)
+
+　　-p : 显示进程标识符和程序名称，每一个套接字/端口都属于一个程序。
+
+　　-n : 不进行DNS轮询(可以加速操作)
+
+```
+[root@localhost ~]# netstat -nlp |grep LISTEN   //查看当前所有监听端口·
+
+[root@localhost ~]# netstat -nlp |grep 80   //查看所有80端口使用情况·
+
+[root@localhost ~]# netstat -an | grep 3306   //查看所有3306端口使用情况·
+```
+
 ## netstat -lntp
 netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
 ```

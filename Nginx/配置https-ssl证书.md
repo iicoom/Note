@@ -94,3 +94,91 @@ Nginx 配置 HTTPS 并不复杂，主要有两个步骤：签署第三方可信�
 ## 配置多个443 server
 http://www.ttlsa.com/web/multiple-https-host-nginx-with-a-ip-configuration/
 
+
+## 多个二级域名共用ssl证书
+➜  ~ cd /etc/nginx
+➜  nginx ls
+cert    default.d   fastcgi_params.default  koi-win  nginx.conf.default  scgi_params.default  
+conf.d  fastcgi.conf  fastcgi_params        koi-utf  mime.types  nginx.conf   
+
+vim nginx.conf
+```
+	http {
+ 18     log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+ 19                       '$status $body_bytes_sent "$http_referer" '
+ 20                       '"$http_user_agent" "$http_x_forwarded_for"';
+ 21
+ 22     access_log  /var/log/nginx/access.log  main;
+ 23
+ 24     sendfile            on;
+ 25     tcp_nopush          on;
+ 26     tcp_nodelay         on;
+ 27     keepalive_timeout   65;
+ 28     types_hash_max_size 2048;
+ 29
+ 30     include             /etc/nginx/mime.types;
+ 31     default_type        application/octet-stream;
+ 32
+ 33     # Load modular configuration files from the /etc/nginx/conf.d directory.
+ 34     # See http://nginx.org/en/docs/ngx_core_module.html#include
+ 35     # for more information.
+ 36     include /etc/nginx/conf.d/*.conf;
+ 37
+ 38     server {
+ 39         listen       8080 default_server;
+ 40         listen       [::]:8080 default_server;
+ 41         server_name  _;
+ 42         root         /usr/share/nginx/html;
+ 43
+ 44         # Load configuration files for the default server block.
+ 45         include /etc/nginx/default.d/*.conf;
+ 46
+ 47         location / {
+ 48         }
+ 49
+ 50         error_page 404 /404.html;
+ 51             location = /40x.html {
+ 52         }
+ 53
+ 54         error_page 500 502 503 504 /50x.html;
+ 55             location = /50x.html {
+ 56         }
+ 57     }
+ ```
+
+ 以上主配置文件只是加载了 include /etc/nginx/conf.d/*.conf;
+
+➜  nginx ls conf.d
+docs.fnxy.net.cn.conf  git.fnxy.net.cn.conf  pro.fnxy.net.cn.conf  redirect.fnxy.net.cn.conf  test-mis-frontend.conf  test-pro.fnxy.net.cn.conf  upstream.fnxy.net.cn.conf  wildcard.fnxy.net.cn.conf
+
+➜  nginx vim conf.d/git.fnxy.net.cn.conf
+```
+  1 upstream gitlab {
+  2     keepalive 64;
+  3     server 172.17.0.5:443;
+  4 }
+  5
+  6 server {
+  7     listen 443 ssl http2;
+  8
+  9     gzip on;
+ 10     gzip_min_length  1k;
+ 11     gzip_buffers     4 16k;
+ 12     gzip_http_version 1.0;
+ 13     gzip_comp_level 2;
+ 14     gzip_types       text/plain application/x-javascript text/css application/xml application/json;
+ 15     gzip_vary on;
+ 16
+ 17     access_log /var/log/nginx/git.fnxy.net.cn-access.log;
+ 18
+ 19     server_name git.fnxy.net.cn;
+ 20
+ 21     location ~ {
+ 22         proxy_pass https://gitlab;
+ 23         proxy_set_header Host $host;
+ 24     }
+ 25
+ 26     ssl_certificate /data/gitlab/config/ssl/gitlab.pem;
+ 27     ssl_certificate_key /data/gitlab/config/ssl/gitlab.key;
+ 28 }
+```

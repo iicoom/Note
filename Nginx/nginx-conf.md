@@ -1,4 +1,5 @@
 ## Vultr
+现在Blog 使用的Nginx 配置：
 ```
 # For more information on configuration, see:
 #   * Official English Documentation: http://nginx.org/en/docs/
@@ -67,8 +68,8 @@ http {
         server_name  www.iwarfuck.xyz;
         root         /data/iicoompp.github.io/;
 
-        ssl_certificate "/etc/nginx/ssl/iwannerfuck.xyz.crt";
-        ssl_certificate_key "/etc/nginx/ssl/iwannerfuck.xyz.key";
+        ssl_certificate     "/etc/nginx/ssl/.xyz.crt";
+        ssl_certificate_key "/etc/nginx/ssl/.xyz.key";
         ssl_session_cache shared:SSL:1m;
         ssl_session_timeout  10m;
         ssl_ciphers HIGH:!aNULL:!MD5;
@@ -76,6 +77,7 @@ http {
 
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
+
         # Load configuration files for the default server block.
         include /etc/nginx/default.d/*.conf;
 
@@ -111,6 +113,8 @@ http {
 
 
 ## example
+// nginx.conf
+```
 user root;
 worker_processes 4;
 
@@ -141,55 +145,7 @@ http {
                 server 127.0.0.1:3002;
         }
 
-        upstream contract.webserver.yunfarm.cn {
-                server 127.0.0.1:3009;
-        }
-
-         upstream ucenter.v2.webserver.yunfarm.cn {
-                server 127.0.0.1:3004;
-        }
-
-        upstream ucenter.webserver.yunfarm.cn {
-                server 127.0.0.1:3003;
-        }
-
-        upstream ranch-api.webserver.yunfarm.cn {
-                server 127.0.0.1:3005;
-        }
-
-        upstream ranch-v2-api.webserver.yunfarm.cn {
-                server 127.0.0.1:3011;
-        }
-
-        upstream farm-erp.webserver.yunfarm.cn {
-                server 127.0.0.1:3033;
-        }
-
-        upstream shop-api.webserver.yunfarm.net {
-                server 127.0.0.1:3000;
-        }
-
-        upstream food.webserver.yunfarm.net {
-                server 127.0.0.1:8060;
-        }
-
-        upstream sina_pay.webserver.yunfarm.cn {
-                server 127.0.0.1:3007;
-        }
-
-        upstream camera.webserver.yunfarm.cn {
-                server 127.0.0.1:3050;
-        }
-
-        upstream server.erp.yunfarm.cn {
-                server 127.0.0.1:8000;
-        }
-
-        upstream msgcenter.yunfarm.cn {
-                server 127.0.0.1:3030;
-        }
-
- gzip on;
+    gzip on;
     gzip_http_version 1.0;
     gzip_disable "MSIE [1-6].";
     gzip_types text/plain application/x-javascript application/javascript text/css text/javascript;
@@ -202,28 +158,6 @@ http {
                 location ^~ / {
                         index index.html;
                         alias /mnt/projects/farm-erp-admin/dist/;
-                        try_files $uri /index.html;
-                }
-        }
-
-         server {
-                listen          80;
-                server_name     client.erp.yunfarm.cn;
-
-                location ^~ / {
-                        index index.html;
-                        alias /mnt/projects/farm-erp-client-demo/dist/;
-                        try_files $uri /index.html;
-                }
-        }
-        
-         server {
-                listen          80;
-                server_name     enterprise.erp.yunfarm.cn;
-
-                location ^~ / {
-                        index index.html;
-                        alias /mnt/projects/farm-erp-enterprise/dist/;
                         try_files $uri /index.html;
                 }
         }
@@ -246,46 +180,29 @@ http {
         }
         
         server {
-        listen          80;
-        server_name     www.yunfarm.cn;
-        proxy_set_header Host $host;
-        proxy_set_header  X-Real-IP        $remote_addr;
-        proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
+                listen          80;
+                server_name     www.yunfarm.cn;
+                proxy_set_header Host $host;
+                proxy_set_header  X-Real-IP        $remote_addr;
+                proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
 
-        access_log      /mnt/nginx_log/logs/access_www_yunfarm.cn.log;
-        error_log       /mnt/nginx_log/logs/error_www_yunfarm.cn.log;
+                access_log      /mnt/nginx_log/logs/access_www_yunfarm.cn.log;
+                error_log       /mnt/nginx_log/logs/error_www_yunfarm.cn.log;
 
-        location / {
-            proxy_pass http://127.0.0.1:3040;
+                location / {
+                        proxy_pass http://127.0.0.1:3040;
+                }
+
+                location ^~ /console {
+                        index index.html;
+                        alias /mnt/projects/farm_www/public/admin/;
+                }
         }
 
-        location ^~ /console {
-          index index.html;
-          alias /mnt/projects/farm_www/public/admin/;
-        }
-   }
-
-   server {
-          listen 80;
-          server_name pay.test.yunfarm.cn;
-
-          proxy_set_header Host $host;
-          proxy_set_header REMOTE-HOST $remote_addr;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-
-          access_log      /mnt/nginx_log/logs/access_pay_test_yunfarm.cn.log;
-          error_log       /mnt/nginx_log/logs/error_pay_test_yunfarm.cn.log;
-
-          location / {
-                  proxy_pass http://pay_center.webserver.yunfarm.net/;
-          }
-   }
-
-   server {
+        server {
                 listen 80;
                 server_name pay.yunfarm.cn;
-                proxy_set_header Host $host;
+                proxy_set_header  Host             $host;
                 proxy_set_header  X-Real-IP        $remote_addr;
                 proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
 
@@ -307,26 +224,21 @@ http {
                 location ^~ /api/unionpay/ {
                         proxy_pass http://pay.webserver.yunfarm.cn/api/unionpay/;
                 }
-
-                location ^~ /api/pay/ {
-                        proxy_pass http://pay_center.webserver.yunfarm.net/api/pay/;
-                }
-
         }
 
-         server {
+        server {
                 listen 443 ssl;
                 server_name     admin.yunfarm.cn;
 
                 ssl on;
-                ssl_certificate   cert/213973045610657.pem;
+                ssl_certificate      cert/213973045610657.pem;
                 ssl_certificate_key  cert/213973045610657.key;
                 ssl_session_timeout 5m;
                 ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
                 ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
                 ssl_prefer_server_ciphers on;
 
-                proxy_set_header Host $host;
+                proxy_set_header  Host             $host;
                 proxy_set_header  X-Real-IP        $remote_addr;
                 proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;
 
@@ -334,10 +246,104 @@ http {
                         index index.html;
                         alias /mnt/projects/cloud-ranch-admin/dist/;
                         try_files $uri /index.html;
-                 }
+                }
 
         }
 
 ｝
+```
+
+fn antd 配置：
+
+  1 server {
+  2     listen 443 ssl http2;
+  3
+  4     root /root/develop/yasuo-frontend;
+  5     server_name test-pro.fnxy.net.cn;
+  6
+  7     # gzip config
+  8     gzip on;
+  9     gzip_min_length 1k;
+ 10     gzip_comp_level 9;
+ 11     gzip_types text/plain text/css text/javascript application/json application/javascript;
+ 12     gzip_vary on;
+ 13     gzip_disable "MSIE [1-6]\.";
+ 14
+ 15     access_log /var/log/nginx/test-pro.fnxy.net.cn.log;
+ 16
+ 17     error_log /var/log/nginx/test-pro.fnxy.net.cn-error.log error;
+ 18
+ 19     error_page 405 =200 $uri; # success for upload
+ 20
+ 21     location / {
+ 22         try_files $uri $uri/ /index.html;
+ 23     }
+ 24
+ 25     location /api {
+ 26       proxy_pass http://127.0.0.1:8000;
+          proxy_set_header   X-Forwarded-Proto $scheme;
+          proxy_set_header   Host              $http_host;
+          proxy_set_header   X-Real-IP         $remote_addr;
+ 30     }
+ 31
+ 32     ssl_certificate     cert/xy.net.cn.crt;
+ 33     ssl_certificate_key cert/xy.net.cn.key;
+ 34 }
 
 
+  1 upstream test-api.fnxy.net.cn {
+  2     server 127.0.0.1:5555;
+  3 }
+  4
+  5 upstream test-yasuo.fnxy.net.cn {
+  6     server 127.0.0.1:5566;
+  7 }
+  8
+  9 upstream yapi.fnxy.net.cn {
+ 10     server 127.0.0.1:3000;
+ 11 }
+ 12
+ 13 upstream docker.fnxy.net.cn {
+ 14     server 172.17.0.3:9000;
+ 15 }
+ 16
+ 17 upstream grafana.fnxy.net.cn {
+ 18     server 172.20.0.2:3000;
+ 19 }
+ 20
+ 21 upstream wavesurfer.fnxy.net.cn {
+ 22     server 127.0.0.1:8000;
+ 23 }
+ 24
+ 25 upstream m.fnxy.net.cn {
+ 26     server 127.0.0.1:7002;
+ 27 }
+
+
+  1 server {
+  2     listen 80;
+  3     listen 443 ssl http2;
+  4
+  5     server_name .fnxy.net.cn;
+  6
+  7     gzip on;
+  8     gzip_min_length  1k;
+  9     gzip_buffers     4 16k;
+ 10     gzip_http_version 1.0;
+ 11     gzip_comp_level 2;
+ 12     gzip_types       text/plain application/x-javascript text/css application/xml application/json;
+ 13     gzip_vary on;
+ 14
+ 15     access_log /var/log/nginx/wildcard.fnxy.net.cn-access.log;
+ 16
+ 17     client_max_body_size 1024m;
+ 18
+ 19     location ~ {
+ 20         proxy_set_header X-Forwarded-Proto $scheme;
+ 21         proxy_set_header Host $host;
+ 22         proxy_pass http://$host;
+ 23     }
+ 24
+ 25     ssl_certificate     cert/fnxy.net.cn.crt;
+ 26     ssl_certificate_key cert/fnxy.net.cn.key;
+ 27 }
