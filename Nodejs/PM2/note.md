@@ -7,17 +7,6 @@ This is as simple as running:
 pm2 start app.js
 ```
 
-## Ecosystem File
-The object has two properties:
-* apps, an array that contains the configuration for each process
-* deploy, an object that contains the configuration for the deployments
-```
-module.exports = {
-  apps: [{}, {}],
-  deploy: {}
-}
-```
-
 ## Installation
 With yarn:
 
@@ -39,11 +28,6 @@ Here are some commands that are worth knowing. Just try them with a sample appli
 
 #### Fork mode
 pm2 start app.js --name my-api # Name process
-
-有配置文件的情况：
-// To start this app in a particular environment, use the --env flag:
-// pm2 start ecosystem.config.js                  # uses variables from `env`
-// pm2 start ecosystem.config.js --env production # uses variables from `env_production`
 
 #### Cluster mode
 pm2 start app.js -i 0        # Will start maximum processes with LB depending on available CPUs

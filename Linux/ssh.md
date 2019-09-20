@@ -40,6 +40,7 @@ ssh-keygen -t rsa -C "your_email@example.com"
 root@149.28.2xx.xx's password:
 id_rsa.pub                                                                                                                                      100%  404     1.0KB/s   00:00
 ```
+
 ## ssh servername 快捷登录（保存ssh的主机名和用户名ssh config)
 在linux下，要远程连接另外一台linux服务器，可以使用ssh，具体类似下面的命令：
 ```
@@ -47,27 +48,46 @@ ssh michael@192.168.0.222
 ```
 但是，如果登陆linux服务器是每天的都要做的事情，那么这样每天输入用户名和IP地址是稍微有些麻烦的。使用下面的方法，你就可以避免这种麻烦。
 
+### ~/.ssh/config
+[参考文章](https://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/)
+
 在用户根目录下的.ssh文件内创建config文件，如下：
 ```
 vi ~/.ssh/config
 ```
 在其中以类似如下的格式输入要登陆的服务器的相关信息：
+基本的写法是
 ```
-Host servername
-User username
-Hostname serverIP
+Host server1 名称(自己决定，方便输入记忆的)
+    HostName 主机名, Numeric IP addresses are also permitted.
+    User     登录的用户名
+    Port 4242
+    IdentityFile /root/.ssh/some_rsa
+
+完整示例：
+Host git.xyz.net.cn
+	User git
+	Port 10022
+	IdentityFile /root/.ssh/deploy
+Host eemo1
+	HostName 172.x7.174.y72
+	User work
+	Port 22
+Host eemo2
+	HostName 172.x7.174.y73
+	User work
+	Port 22
+Host jenkins
+	HostName 172.x7.174.y74
+	User root
+	Port 22
 ```
-其中的servername是服务器的别名，username是用户名，serverIP就是这台服务器的IP。比如最前面的那个登陆命令，就可以写成下面的形式：
-```
-Host ubuntu
-User michael
-Hostname 192.168.0.222
-```
-如果有多台服务器，可以空一行，然后以同样的格式写在这个文件中。
+
+### 部署公钥到对应服务器
 
 然后，你就可以直接使用类似下面的命令连接服务器了：
 ```
-ssh ubuntu
+ssh server1
 ```
 
 ### 添加了ssh key之后
