@@ -9,7 +9,13 @@ export class KafkaClient extends EventEmitter {
 export class Producer {
     constructor(client: KafkaClient, options?: ProducerOptions, customPartitioner?: CustomPartitioner);
 
+    on (eventName: 'ready', cb: () => any): void;
+    on (eventName: 'error', cb: (error: any) => any ): void;
+
     send(payloads: ProduceRequest[], cb:(error: any, data: any) => any): void;
+
+    createTopics(topics: string[], cb: (error: any, data: any) => any): void;
+
 }
 
 export class Consumer {
