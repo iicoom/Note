@@ -10,6 +10,11 @@ Model.findAll({
 SELECT foo, bar ...
 
 
+例子：
+```
+let entry_list   = await EntryModel.findAll({where: {id: entries}, order: [['plan_date', 'asc']]});
+```
+
 ## findAndCountAll
 
 > Search for multiple elements in the database, returns both data and total count
