@@ -313,6 +313,10 @@ vscode ./   ## 在Visual Studio Code 中打开当前目录
 * 默认zsh 启动iTerm 2 默认使用dash改用zsh解决方法：chsh -s /bin/zsh 
 [iTerm 2 && Oh My Zsh教程](https://www.jianshu.com/p/7de00c73a2bb)
 
+### CentOS 安装Zsh
+yum install zsh
+然后执行 zsh 官网首页的命令
+
 ### Ubuntu
 * clear: qingping
 * Windows Tab 切换当前进行的窗口
