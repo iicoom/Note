@@ -13,3 +13,7 @@ $ apt-get install git
 
 ## 在 Mac 上安装
 （译注：还有一种是使用 homebrew（https://github.com/mxcl/homebrew）：brew install git。）
+
+## 在 window 上安装
+直接下载官网安装程序
+https://git-scm.com/download/win
