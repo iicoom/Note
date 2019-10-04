@@ -40,16 +40,17 @@ runoob@runoob:~# docker run -d -P training/webapp python app.py
 -d:让容器在后台运行。
 
 -P:将容器内部使用的网络端口映射到我们使用的主机上。
-
+```
 runoob@runoob:~#  docker ps
 CONTAINER ID        IMAGE               COMMAND             ...        PORTS                 
 d3d5e39ed9d3        training/webapp     "python app.py"     ...        0.0.0.0:32769->5000/tcp
--
+```
 Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端口 32769 上。
 
 这时我们可以通过浏览器访问WEB应用
 
 ### docker images 
+```
 runoob@runoob:~$ docker images           
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ubuntu              14.04               90d5884b1ee0        5 days ago          188 MB
@@ -60,7 +61,7 @@ httpd               latest              02ef73cf1bc0        3 weeks ago         
 ubuntu              15.10               4e3b13c8a266        4 weeks ago         136.3 MB
 hello-world         latest              690ed74de00f        6 months ago        960 B
 training/webapp     latest              6fae60ef3446        11 months ago       348.8 MB
--
+```
 
 ### 创建镜像
 当我们从docker镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。
