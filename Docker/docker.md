@@ -24,18 +24,19 @@ CONTAINER ID:容器ID
 NAMES:自动分配的容器名称
 
 ### docker logs
+```
 [root@izm5egu9g2mfvoy5821g5xz ~]# docker logs -f 0320d22d07a9
 log: 服务已启动，请打开下面链接访问:
 http://127.0.0.1:3000/
 log: mongodb load success...
--
+```
 
 ### 运行一个web应用
 我们将在docker容器中运行一个 Python Flask 应用来运行一个web应用。
-
+```
 runoob@runoob:~# docker pull training/webapp  # 载入镜像
 runoob@runoob:~# docker run -d -P training/webapp python app.py
-
+```
 -d:让容器在后台运行。
 
 -P:将容器内部使用的网络端口映射到我们使用的主机上。
