@@ -1,8 +1,8 @@
 [Docker容器技术](https://zhuanlan.zhihu.com/p/32462416)
 
-[手把手教你用Docker部署一个MongoDB集群](https://linux.cn/article-4832-1-rel.html)
+## Docker常用指令
 
-## docker run
+### docker run
 ```
 runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo "Hello world"
 Hello world
@@ -18,19 +18,19 @@ ubuntu:15.10指定要运行的镜像，Docker首先从本地主机上查找镜�
 以上命令完整的意思可以解释为：Docker 以 ubuntu15.10 镜像创建一个新容器，然后在容器里执行 bin/echo "Hello world"，然后输出结果。
 ```
 
-## docker ps
+### docker ps
 CONTAINER ID:容器ID
 
 NAMES:自动分配的容器名称
 
-## docker logs
+### docker logs
 [root@izm5egu9g2mfvoy5821g5xz ~]# docker logs -f 0320d22d07a9
 log: 服务已启动，请打开下面链接访问:
 http://127.0.0.1:3000/
 log: mongodb load success...
 -
 
-## 运行一个web应用
+### 运行一个web应用
 我们将在docker容器中运行一个 Python Flask 应用来运行一个web应用。
 
 runoob@runoob:~# docker pull training/webapp  # 载入镜像
@@ -48,7 +48,7 @@ Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端�
 
 这时我们可以通过浏览器访问WEB应用
 
-## docker images 
+### docker images 
 runoob@runoob:~$ docker images           
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 ubuntu              14.04               90d5884b1ee0        5 days ago          188 MB
@@ -61,13 +61,13 @@ hello-world         latest              690ed74de00f        6 months ago        
 training/webapp     latest              6fae60ef3446        11 months ago       348.8 MB
 -
 
-## 创建镜像
+### 创建镜像
 当我们从docker镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。
 
 1.从已经创建的容器中更新镜像，并且提交这个镜像
 2.使用 Dockerfile 指令来创建一个新的镜像
 
-## 构建镜像
+### 构建镜像
 我们使用命令 docker build ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
 ```
 runoob@runoob:~$ cat Dockerfile 
