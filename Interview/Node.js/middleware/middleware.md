@@ -1,3 +1,9 @@
+## 常用中间件
+- tokenValidate JWT
+- responseJson (errorCode、errorMsg)
+- cors
+- bodyParser
+
 [How Node JS middleware Works?](https://medium.com/@selvaganesh93/how-node-js-middleware-works-d8e02a936113)
 
 Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle. 
