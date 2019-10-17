@@ -1,3 +1,19 @@
+## => 操作符
+### => 和 function的区别
+=>不只是关键字function的简写，它还带来了其它好处。箭头函数与包围它的代码共享同一个this,能帮你很好的解决this的指向问题。有经验的JavaScript开发者都熟悉诸如
+var self = this;
+或var that = this这种引用外围this的模式。但借助=>，就不需要这种模式了。
+
+语法：
+(参数1, 参数2, …, 参数N) => { 函数声明 }
+
+//相当于：(参数1, 参数2, …, 参数N) =>{ return 表达式; }
+(参数1, 参数2, …, 参数N) => 表达式（单一）
+
+### this 指向问题
+见 JavaScript 根目录 JS-this-call-apply-bind.md
+
+
 [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functionsv)
 
 ```
@@ -39,8 +55,3 @@ elements.map(({ length }) => length); // [8, 6, 7, 9]
 
 ```
 
-## => 操作符
-### => 和 function的区别
-=>不只是关键字function的简写，它还带来了其它好处。箭头函数与包围它的代码共享同一个this,能帮你很好的解决this的指向问题。有经验的JavaScript开发者都熟悉诸如
-var self = this;
-或var that = this这种引用外围this的模式。但借助=>，就不需要这种模式了。

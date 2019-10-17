@@ -66,3 +66,5 @@ There are two main reasons:
 
 
 process.nextTick >> setImmidate >> setTimeout/SetInterval 
+
+http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/
