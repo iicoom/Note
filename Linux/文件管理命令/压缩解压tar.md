@@ -63,3 +63,15 @@ a ./test/3ef2b999-c880-405c-b384-19b53b2a44c7.jpeg
 a ./test/timg.jpeg
 a ./test/youmiao.jpg
 ```
+
+https://www.interserver.net/tips/kb/use-tar-command-linux-examples/
+
+tar -xvzf bigfile.tar.gz
+
+x –  Extract files
+
+v – Verbose, print the file names as they are extracted one by one
+
+z – The file is a “gzipped” file
+
+f – Use the following tar archive for the operation

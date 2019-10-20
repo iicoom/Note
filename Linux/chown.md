@@ -2,18 +2,18 @@
 1、sudu -i进入root模式（需输入密码）
 
 2、chown -R 用户名 /文件夹名
-```
-sudo -i
-Password:
-shuaigedeMacBook-Pro:~ root# mkdir /interesting
-chown -R shuaige /interesting
+chown - change file owner and group
 
-给mxj授权apache-tomcat-8.5.32
-➜  apache-tomcat-8.5.32 sudo -i
-Password:
-MXJdeMBP:~ root# chown -R mxj /usr/local/apache-tomcat-8.5.32
-MXJdeMBP:~ root#
-```
+-R, --recursive
+operate on files and directories recursively
+
+Examples
+chown root /u
+Change the owner of /u to "root".
+chown root:staff /u
+Likewise, but also change its group to "staff".
+chown -hR root /u
+Change the owner of /u and subfiles to "root".
 
 ## Linux
 [Ownership and Permissions](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Step_by_Step_Guide/s1-navigating-ownership.html)

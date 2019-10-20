@@ -14,6 +14,9 @@ Zero-based index before which to end extraction. slice extracts up to but not in
 */
 
 var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+var aa = fruits.slice();
+// (5) ["Banana", "Orange", "Lemon", "Apple", "Mango"]
+
 var citrus = fruits.slice(1, 3);
 var yy = fruits.slice(2);
 var xx = fruits.slice(-2);
