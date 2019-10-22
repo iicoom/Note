@@ -50,3 +50,9 @@ HTTP error 500 is a generic HTTP status code which occurs when the web server en
 
 服务器内部错误
 
+
+## The HTTP 304
+The HTTP 304 Not Modified client redirection response code indicates that there is no need to retransmit the requested resources. It is an implicit redirection to a cached resource. This happens when the request method is safe, like a GET or a HEAD request, or when the request is conditional and uses a If-None-Match or a If-Modified-Since header.
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304
+
