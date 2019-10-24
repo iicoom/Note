@@ -1,3 +1,49 @@
+## What is the difference between “chmod +x” and “chmod 755”?
+https://askubuntu.com/questions/932713/what-is-the-difference-between-chmod-x-and-chmod-755/932719
+
+To be able to compare them, we should look at them from the same perspective, so:
+
+- chmod +x is equal to chmod ugo+x (Based on umask value)
+- chmod 755 is equal to chmod u=rwx,go=rx
+
+Explanation:
+Firstly you should know that:
+
+1. + means add this permission to the other permissions that the file already has.
+2. = means ignore all permissions, set them exactly as I provide.
+
+  * So all of the "read, write, execute, sticky bit, suid and guid" will be ignored and only the ones provided will be set.
+3. read = 4, write = 2, execute = 1
+Here is the binary logic behind it (if you're interested):
+```
+Symbolic:  r-- -w- --x  |  421
+Binary:    100 010 001  |  -------
+Decimal:    4   2   1   |  000 = 0
+                        |  001 = 1
+Symbolic:  rwx r-x r-x  |  010 = 2
+Binary:    111 101 101  |  011 = 3
+Decimal:    7   5   5   |  100 = 4
+           /   /   /    |  101 = 5
+Owner  ---/   /   /     |  110 = 6
+Group  ------/   /      |  111 = 7
+Others ---------/       |  Binary to Octal chart
+```
+Using +x you are telling to add (+) the executable bit (x) to the owner, group and others.
+
+it's equal to ugo+x or u+x,g+x,o+x
+
+When you don't specify which one of the owner, group or others is your target, in case of x it will considers all of them. 
+And as @Rinzwind pointed out, it's based on umask value, it adds the bit to the ones umask allows. remember if you specify the target like o+r then umask doesn't have any effect anymore.
+It doesn't touch the other mods (permissions).
+You could also use u+x to only add executable bit to the owner.
+
+Using 755 you are specifying:
+
+7 --> u=rwx (4+2+1 for owner)
+5 --> g=rx (4+1 for group)
+5 --> o=rx (4+1 for others)
+So chmod 755 is like: chmod u=rwx,g=rx,o=rx or chmod u=rwx,go=rx.
+
 ## MAC将根目录文件夹的权限赋给用户
 1、sudu -i进入root模式（需输入密码）
 

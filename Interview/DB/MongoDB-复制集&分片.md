@@ -57,3 +57,5 @@ https://www.centos.bz/2018/01/mongodb-%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E6%8A
 -i, --interactive
 -t, --tty (“allocate a pseudo-TTY”, i.e. a terminal)
 (see docker run --help for details)
+
+3. 安装mongodb
