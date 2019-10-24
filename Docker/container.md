@@ -1,4 +1,50 @@
-## Start a Dockerized web server
+## Docker container相关操作
+### docker ps
+查看正在运行的container：
+➜  ~ docker ps
+CONTAINER ID   IMAGE   COMMAND   CREATED  STATUS   PORTS    NAMES
+没有。。。
+
+查看包括已停止的：
+➜  ~ docker ps -a
+CONTAINER ID    IMAGE    COMMAND                  CREATED             STATUS           PORTS                  NAMES
+be312539b4d3    nginx    "nginx -g 'daemon of…"   9 months ago        Exited (255) 9 months ago   0.0.0.0:80->80/tcp   webserver
+
+### docker run
+1. 运行一个Ubuntu容器并输出 “Hello world”:
+```
+runoob@runoob:~$ docker run ubuntu:15.10 /bin/echo "Hello world"
+Hello world
+
+docker: Docker 的二进制执行文件。
+
+run:与前面的 docker 组合来运行一个容器。
+
+ubuntu:15.10指定要运行的镜像，Docker首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Docker Hub 下载公共镜像。
+
+/bin/echo "Hello world": 在启动的容器里执行的命令
+
+以上命令完整的意思可以解释为：Docker 以 ubuntu15.10 镜像创建一个新容器，然后在容器里执行 bin/echo "Hello world"，然后输出结果。
+```
+
+2. 运行一个Python Flask Web应用
+```
+runoob@runoob:~# docker pull training/webapp          # 载入镜像
+runoob@runoob:~# docker run -d -P training/webapp python app.py
+```
+-d:让容器在后台运行。
+
+-P:将容器内部使用的网络端口映射到我们使用的主机上。
+```
+runoob@runoob:~#  docker ps
+CONTAINER ID        IMAGE               COMMAND             ...        PORTS                 
+d3d5e39ed9d3        training/webapp     "python app.py"     ...        0.0.0.0:32769->5000/tcp
+```
+Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端口 32769 上。
+
+这时我们可以通过浏览器访问WEB应用
+
+3. Start a Dockerized web server
 ```
 docker run -d -p 80:80 --name webserver nginx
 
@@ -8,82 +54,44 @@ CONTAINER ID  IMAGE       COMMAND               CREATED         STATUS        PO
 be312539b4d3  nginx    "nginx -g 'daemon of…"   23 hours ago   Up 23 hours    0.0.0.0:80->80/tcp   webserver
 ```
 
-## docker logs gitlab
-docker --help
-```
-docker logs containerId
+**docker run 参数**
+➜  ~ docker run -i -t -d --name my-centos centos:6.9
+f7881fcaf265773581d7ad8ac106a97314d6186433671fbfd79572bd7d3aa833
 
-docker top containerId
-```
-### docker logs --help
-```
-Usage:	docker logs [OPTIONS] CONTAINER
+-i, --interactive
+-t, --tty (“allocate a pseudo-TTY”, i.e. a terminal)
+-d, Detached if you want to run the container in the background in a “detached” mode
 
-Fetch the logs of a container
+进入centos 容器：
+1. attach
+➜  ~ docker attach f7881fcaf265
+[root@f7881fcaf265 /]#
 
-Options:
-      --details        Show extra details provided to logs
-  -f, --follow         Follow log output
-      --help           Print usage
-      --since string   Show logs since timestamp
-      --tail string    Number of lines to show from the end of the logs (default "all")
-  -t, --timestamps     Show timestamps
-```
-查看container 日志结尾指定行数 并跟随
-[root@gitlab ~]# docker logs -f --tail 10 gitlab
-~
-[root@gitlab ~]# docker logs --tail 10 gitlab
-{"method":"GET","path":"/-/metrics","format":"html","controller":"MetricsController","action":"index","status":200,"duration":18.75,"view":0.84,"db":0.0,"time":"2019-01-16T03:53:38.870Z","params":[],"remote_ip":null,"user_id":null,"username":null,"ua":null,"correlation_id":"2ecb7aaf-d612-43e6-a69e-5e4d3216285b"}
-==> /var/log/gitlab/gitlab-workhorse/current <==
-2019-01-16_03:53:38.23888 45.76.75.55 45.76.75.55:0 - - [2019/01/16:03:53:38 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)" 0.000
-==> /var/log/gitlab/nginx/gitlab_access.log <==
-45.76.75.55 - - [16/Jan/2019:03:53:39 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)"
-==> /var/log/gitlab/gitlab-workhorse/current <==
-2019-01-16_03:53:39.73915 45.76.75.55 45.76.75.55:0 - - [2019/01/16:03:53:39 +0000] "POST /api/v4/jobs/request HTTP/1.1" 204 0 "" "gitlab-runner 11.6.0 (11-6-stable; go1.8.7; linux/amd64)" 0.000
-~
+退出容器保持容器运行：
+control+p+q
 
-## Stop and remove containers and images
-```
-➜  ~ docker stop webserver
-webserver
+2. exec -it
+➜  ~ docker exec -it f7881fcaf265 /bin/bash
+[root@f7881fcaf265 /]# exit
+exit 会关闭容器
 
-➜  ~ docker ps -a
-view stopped containers
+➜  ~ docker ps
+CONTAINER ID    IMAGE    COMMAND     CREATED             STATUS              PORTS                     NAMES
+f7881fcaf265        centos:6.9          "/bin/bash"         22 minutes ago      Up 14 minutes                                 my-centos
+d13360daac7d        training/webapp     "python app.py"     28 hours ago        Up 28 hours         0.0.0.0:32768->5000/tcp   musing_edison
 
-➜  ~ docker start webserver  再次启动
-webserver
 
-➜  ~ docker rm adoring_mccarthy  移除adoring_mccarthy container
-adoring_mccarthy
-
-➜  ~ docker image ls
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nginx               latest              568c4670fa80        3 weeks ago         109MB
-hello-world         latest              4ab4c602aa5e        3 months ago        1.84kB
-
-➜  ~ docker image rm hello-world
-Untagged: hello-world:latest
-Untagged: hello-world@sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
-Deleted: sha256:4ab4c602aa5eed5528a6620ff18a1dc4faef0e1ab3a5eddeddb410714478c67f
-Deleted: sha256:428c97da766c4c13b19088a471de6b622b038f3ae8efa10ec5a37d6d31a2df0b
-```
-
-## 链接到Docker 容器的redis
+3. 进入一个redis容器
 ```
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker ps
-CONTAINER ID        IMAGE                                         COMMAND                  CREATED             STATUS                 PORTS                                    NAMES
-de6504eeb30b        mysql:5.7                                     "docker-entrypoint..."   20 hours ago        Up 20 hours            33060/tcp, 0.0.0.0:33306->3306/tcp       mysql57
-fc7af44132a0        docker.io/twang2218/gitlab-ce-zh              "/assets/wrapper"        5 weeks ago         Up 10 days (healthy)   80/tcp, 443/tcp, 0.0.0.0:10022->22/tcp   gitlab-ce
-0320d22d07a9        registry.cn-hangzhou.aliyuncs.com/anoy/yapi   "node server/app.js"     7 weeks ago         Up 10 days             0.0.0.0:3000->3000/tcp                   yapi
-f41e85fc5078        mongo                                         "docker-entrypoint..."   7 weeks ago         Up 10 days             27017/tcp                                mongo
-80d71e032355        redis:3.2                                     "docker-entrypoint..."   7 weeks ago         Up 10 days             0.0.0.0:6379->6379/tcp                   redis
+CONTAINER ID     IMAGE           COMMAND       CREATED       STATUS        PORTS              NAMES
+80d71e032355     redis:3.2    "docker-entrypoint..."   7 weeks ago         Up 10 days             0.0.0.0:6379->6379/tcp                   redis
 
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker exec -it redis redis-cli
 127.0.0.1:6379> keys *
-
 ```
 
-## 链接到Docker mysql
+4. 链接到Docker mysql
 ```
 [root@localhost ~]# docker exec -it mysql bash
 root@eb3dbfb0958f:/# mysql -uroot -p
@@ -101,19 +109,29 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 ```
 
-## 链接到Docker gitlab
+5. 链接到Docker gitlab
 ```
 [root@iZ2ze4fk6h7q9qry6r313gZ ~]# docker exec -it gitlab-ce bash
 root@git:/# pwd
 ```
 
-## 链接阿里云内网的redis
+
+### Stop and remove containers and images
+➜  ~ docker rm be312539b4d3
+be312539b4d3
+
+
 ```
-需要通过堡垒机链接到正式环境的redis
-[root@dev ~]# redis-cli -h jjaskk-redis.redas.rds.aliyuncs.com
+➜  ~ docker stop webserver
+webserver
+
+➜  ~ docker ps -a
+view stopped containers
+
+➜  ~ docker start webserver  再次启动
+webserver
 ```
 
-## 链接到阿里云mysql
 
 
 
