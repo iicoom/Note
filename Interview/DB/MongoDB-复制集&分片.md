@@ -59,3 +59,129 @@ https://www.centos.bz/2018/01/mongodb-%E5%88%86%E7%89%87%E9%9B%86%E7%BE%A4%E6%8A
 (see docker run --help for details)
 
 3. 安装mongodb
+
+4. 启动
+```
+[mongod@f7881fcaf265 mongodb]$ for i in 28017 28018 28019 28020
+>   do
+>     bin/mongod -f /mongodb/$i/conf/mongod.conf
+> done
+```
+about to fork child process, waiting until server is ready for connections.
+forked process: 153
+child process started successfully, parent exiting
+about to fork child process, waiting until server is ready for connections.
+forked process: 176
+child process started successfully, parent exiting
+about to fork child process, waiting until server is ready for connections.
+forked process: 199
+child process started successfully, parent exiting
+about to fork child process, waiting until server is ready for connections.
+forked process: 222
+child process started successfully, parent exiting
+
+5. 登陆数据库，配置mongodb复制
+shell> mongo --port 28017
+
+config = {_id: 'my_repl', members: [
+                          {_id: 0, host: '172.17.0.3:28017'},
+                          {_id: 1, host: '172.17.0.3:28018'},
+                          {_id: 2, host: '172.17.0.3:28019'}]
+          }
+
+{
+	"_id" : "my_repl",
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "172.17.0.3:28017"
+		},
+		{
+			"_id" : 1,
+			"host" : "172.17.0.3:28018"
+		},
+		{
+			"_id" : 2,
+			"host" : "172.17.0.3:28019"
+		}
+	]
+}
+
+> rs.initiate(config);
+{ "ok" : 1 }
+my_repl:OTHER>
+
+6. 复制集管理操作
+查看复制集状态：
+rs.status();     # 查看整体复制集状态
+rs.isMaster();   #  查看当前是否是主节点
+
+添加删除节点
+rs.add("ip:port");     #  新增从节点
+rs.addArb("ip:port"); #  新增仲裁节点
+rs.remove("ip:port"); #  删除一个节点
+
+配置成功后，通过以下命令查询配置后的属性
+rs.conf();
+
+my_repl:PRIMARY> rs.conf();
+{
+	"_id" : "my_repl",
+	"version" : 1,
+	"protocolVersion" : NumberLong(1),
+	"members" : [
+		{
+			"_id" : 0,
+			"host" : "172.17.0.3:28017",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : NumberLong(0),
+			"votes" : 1
+		},
+		{
+			"_id" : 1,
+			"host" : "172.17.0.3:28018",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : NumberLong(0),
+			"votes" : 1
+		},
+		{
+			"_id" : 2,
+			"host" : "172.17.0.3:28019",
+			"arbiterOnly" : false,
+			"buildIndexes" : true,
+			"hidden" : false,
+			"priority" : 1,
+			"tags" : {
+
+			},
+			"slaveDelay" : NumberLong(0),
+			"votes" : 1
+		}
+	],
+	"settings" : {
+		"chainingAllowed" : true,
+		"heartbeatIntervalMillis" : 2000,
+		"heartbeatTimeoutSecs" : 10,
+		"electionTimeoutMillis" : 10000,
+		"getLastErrorModes" : {
+
+		},
+		"getLastErrorDefaults" : {
+			"w" : 1,
+			"wtimeout" : 0
+		},
+		"replicaSetId" : ObjectId("5db131ade63cd004bb005bf4")
+	}
+}
