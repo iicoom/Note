@@ -33,6 +33,7 @@ function bubbleSort(arr) {
         console.log('【outter for】:', arr)
     }
     console.log('【Sorted arr】:', arr);
+    return arr;
 }
 
 bubbleSort(rawArr)
