@@ -261,6 +261,14 @@ vscode ./   ## 在Visual Studio Code 中打开当前目录
     sublime 操作：鼠标中键按住，从第一行开头拖到第四行开头。
     Mac Option+Shift+鼠标左键
 
+    技巧：光标定位到第一行最前端，按住option+shift，然后鼠标点击最后一行最前端，所有行光标出现
+    - SHA-256：Bitcoins、Peercoin、Namecoin
+    - scrypt：Litecoins、Feathercoin、Novacoin、Dogecoin
+    - scrypt-cacha：Yacoin、Ethereum Classic
+    - ETHASH：Ethereum
+    - ECDSA：Ripple
+    - X11：DASH
+
 * vs code 会自动检测项目目录下的JavaScript函数方法，在当前文件输入getKey 如果其他文件有此方法的导出，那么按下Tab键会自动讲模块导入
 
 * 折叠代码快捷键

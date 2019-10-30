@@ -45,10 +45,6 @@ ECC 和 RSA 相比，在许多方面都有对绝对的优势，主要体现在�
 - 存储空间占用小。ECC 的密钥尺寸和系统参数与 RSA、DSA 相比要小得多，意味着它所占的存贮空间要小得多。这对于加密算法在 IC 卡上的应用具有特别重要的意义。
 - 带宽要求低。当对长消息进行加解密时，三类密码系统有相同的带宽要求，但应用于短消息时 ECC 带宽要求却低得多。带宽要求低使 ECC 在无线网络领域具有广泛的应用前景。
 
-
-https://medium.com/@robinwan/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95-c305942d42ca
-
-
 ## 散列算法
 单向散列函数一般用于产生消息摘要，密钥加密等，常见的有：
 - MD5（Message Digest Algorithm 5）：是 RSA 数据安全公司开发的一种单向散列算法；
@@ -68,12 +64,12 @@ SHA-1 与 MD5 的比较
 ## 加密货币加密算法
 笔者根据 加密电子货币列表 整理了如下的加密算法：
 
-SHA-256：Bitcoins、Peercoin、Namecoin
-scrypt：Litecoins、Feathercoin、Novacoin、Dogecoin
-scrypt-cacha：Yacoin、Ethereum Classic
-ETHASH：Ethereum
-ECDSA：Ripple
-X11：DASH
+- SHA-256：Bitcoins、Peercoin、Namecoin
+- scrypt：Litecoins、Feathercoin、Novacoin、Dogecoin
+- scrypt-cacha：Yacoin、Ethereum Classic
+- ETHASH：Ethereum
+- ECDSA：Ripple
+- X11：DASH
 
 ### SHA-256
 安全散列算法（英语：Secure Hash Algorithm，缩写为 SHA）是一个密码散列函数家族，是 FIPS 所认证的安全散列算法。
@@ -99,3 +95,5 @@ X11 采用了 11 轮哈希算法，包括 blake, bmw, groestl, jh, keccak, skein
 - 机枪池阻力
 - 均衡发展的 CPU 和 GPU 挖矿
 - 减少图形处理器能耗和热量输出
+
+[原文](https://medium.com/@robinwan/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E5%B8%B8%E8%A7%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95-c305942d42ca)
