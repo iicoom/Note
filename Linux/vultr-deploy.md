@@ -62,6 +62,17 @@ round-trip min/avg/max/stddev = 281.139/341.726/397.752/33.623 ms
 ### 安装工具
 yum -y install git-core vim net-tools redis nginx 
 
+异常
+yum install 没有可用软件包 nginx
+
+原因是nginx位于第三方的yum源里面，而不在centos官方yum源里面
+
+解决方法：
+
+安装
+
+sudo yum install epel-release
+
 ### 修改配置
 
 - firewall

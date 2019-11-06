@@ -32,6 +32,12 @@ ssh-keygen -t rsa -C "your_email@example.com"
 
 ## ssh 免密登录
 [Linux下实现免密码登录(超详细)](https://www.cnblogs.com/yixue2017/p/7559970.html)
+
+如果远程主机没有.ssh文件夹，报错如下：
+scp: /root/.ssh/authorized_keys: No such file or directory
+
+首先要ssh-keygen 生成.ssh 和秘钥对
+
 ```
 通过scp将内容写到对方的文件中
 命令：scp -p ~/.ssh/id_rsa.pub root@<remote_ip>:/root/.ssh/authorized_keys

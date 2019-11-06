@@ -22,13 +22,9 @@ Most of the time you don’t need to worry about CPU loads. They’re rarely a d
 
 大多数情况你不需要担心CPU的负载。 需要做的是创建多个子进程来处理CPU密集型任务降低CPU的使用。
 例如：你的web服务器处理请求。避免线程阻塞，你可以创建出子进程处理CPU密集型任务。
-
+I/O 密集型 vs CPU 密集型 详见 ../使用场景.md
 
 Fixing CPU intensive code is the first step to increase the performance and stability of your Node.js server. The metrics to watch out for are:
-
-- CPU Usage
-- CPU Load
-
 首先修复CPU密集型的代码可以提高Node.js服务的想能和稳定性，可以监控的性能指标如下：
 
 - CPU Usage
@@ -124,3 +120,6 @@ Your Node.js application will never run by itself without supporting services li
 
 开源工具-生产环境下的Node.js——开源监控工具
 https://juejin.im/post/5cf4f8bd6fb9a07ef562210c
+
+[Pandora](https://midwayjs.org/pandora/zh-cn/)
+[appmetrics-dash](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/)
