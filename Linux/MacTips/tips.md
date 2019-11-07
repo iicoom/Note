@@ -330,18 +330,6 @@ yum install zsh
 * Windows Tab 切换当前进行的窗口
 * ctrl + q  退出程序
 
-### PhotoShop
-* 图片取反色 选中取反色的区域 ctrl+i（windows） Command+i(Mac) 
-
-* F12恢复
-
-* 印章模糊：
-Photoshop的问题：不能完成请求，因为它不用于所以索引言色图像（将图像转换为RGB颜色模色再编辑）
-
-把 模式改成 RGB 就可以编辑了！ 图像》》模式》》RGB 在上面设置
-
-滤镜 - 模糊 
-
 ### Sketch
 * 拖动整个画布 space+鼠标拖动
 
