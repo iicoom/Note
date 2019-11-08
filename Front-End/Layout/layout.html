@@ -24,6 +24,23 @@
 			margin: auto;  
 		}
 
+		.flex-parent {
+			background-color: #992211;
+			height: 100px;
+			margin-top: 10px;
+			display: flex;
+			align-items: center;       /* 垂直方向居中 */
+			justify-content: center;
+			padding: 0 100px 0 100px;  
+		}
+
+		.flex-child {
+			background-color: #ff2211;
+			/* width: 50%; */
+			width: 100%;
+
+		}
+
 		.img_layout {
 			background-color: rgba(255,233,0, 0.3);
 
@@ -37,6 +54,9 @@
 	<div class="box">Div在body中居中</div>
 	<div class="parent">
 		<div class="child">child</div>
+	</div>
+	<div class="flex-parent">
+		<div class="flex-child">flex-child</div>
 	</div>
 	<div class="img_layout">
 		<h4>img在父容器中自适应水平居中对齐</h4>
