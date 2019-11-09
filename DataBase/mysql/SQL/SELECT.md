@@ -1,6 +1,13 @@
+## SQL SELECT 语句
+
 - The SQL SELECT keyword is used to query data from the database and it's the most commonly used command.
+最常用的语句
+
 - The simplest form has the syntax "SELECT * FROM tableName;"
+最简单的用法 查询出 某个表中所有列、所有行
+
 - The SQL SELECT command can also have other optional parameters such as WHERE, GROUP BY, HAVING, ORDER BY. They will be discussed later.
+select后面还可以跟其他的语句，如 WHERE, GROUP BY, HAVING, ORDER BY
 
 https://www.guru99.com/select-statement.html
 
@@ -38,7 +45,7 @@ mysql> select username,sex,age from qiushi;
 +--------------------------------------+-------+------+
 250 rows in set (0.44 sec)
 
-## select as
+## select as 重命名所选字段
 
 mysql> select username as user, age, sex from qiushi limit 4;
 +--------------------+------+-------+
@@ -50,3 +57,4 @@ mysql> select username as user, age, sex from qiushi limit 4;
 | 夲少姓〖劉〗         |   28 | man   |
 +--------------------+------+-------+
 4 rows in set (0.29 sec)
+
