@@ -5,6 +5,7 @@
 	<style type="text/css">
 		.box {
 			background-color: #112234;
+			color: #ff0000;
 			height: 100px;
 			width: 50%;
 			margin: auto;		/*这个属性可以使当前box在父容器中随浏览缩放居中显示*/
@@ -41,6 +42,14 @@
 
 		}
 
+		.calc {
+			background-color: #ee1122;
+			margin-top: 10px;
+			height: 100px;
+			width: 50%;
+			margin-left: calc(50% - 25%);
+		}
+
 		.img_layout {
 			background-color: rgba(255,233,0, 0.3);
 
@@ -51,13 +60,14 @@
 	</style>
 </head>
 <body>
-	<div class="box">Div在body中居中</div>
+	<div class="box">1. margin: auto; Div在body中居中</div>
 	<div class="parent">
-		<div class="child">child</div>
+		<div class="child">2. 父子布局，2侧固定宽，中间child自适应</div>
 	</div>
 	<div class="flex-parent">
-		<div class="flex-child">flex-child</div>
+		<div class="flex-child">3. flex自适应居中布局</div>
 	</div>
+	<div class="calc">css-cacl()函数动态计算居中- margin-left: calc(50% - 25%)</div>
 	<div class="img_layout">
 		<h4>img在父容器中自适应水平居中对齐</h4>
 		<img src="http://pic3.nipic.com/20090702/918855_174429094_2.jpg" width="30%">
