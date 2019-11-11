@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React-app</title>
+</head>
+<div id="root"></div>
+<body>
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<!-- 1. 适用用快速嵌入react，demo测试 -->
+<!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="text/babel">
+    class Clock extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {data: new Date()};
+        }
+
+        render() {
+            return (
+                <div>
+                    <h1>Hello, world!</h1>
+                    <h2>It is {this.state.data.toLocaleTimeString()}.</h2>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <Clock />,
+        document.getElementById('root')
+    );
+</script> -->
+
+<!-- 2. 使用JSX Preprocessor 处理JSX文件 -->
+<!-- Run JSX Preprocessor
+npx babel --watch src --out-dir . --presets react-app/prod  -->
+<script src="clock.js"></script>
+</body>
+</html>

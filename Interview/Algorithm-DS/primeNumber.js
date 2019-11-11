@@ -7,7 +7,7 @@ function getPrime() {
     var count = 0;
     var result = [];
     for(var i = 2; i < 100; i++){
-        for(var j = 1; j <= Math.sqrt(i); j++){
+        for(var j = 1; j <= Math.sqrt(i); j++){    // 用到把自身开方的技巧
             if(i % j == 0){
                 count++;
             }
@@ -23,6 +23,9 @@ function getPrime() {
 console.log(getPrime())
 
 /*
+1. 需要一个循环来遍历给定范围内的数字
+2. 需要一个条件判断是否只能被1和本身整除：反向考虑 如果还可以被1和本身之外的数整除那就不符合
+3. 需要一个变量记录
 i = 4  4%1 == 0; 4%2 == 0; count=2
 i = 6  6%1 == 0; 6%2 == 0; count=2
 
