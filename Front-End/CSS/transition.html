@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3-transtion</title>
+    <style> 
+        .trans
+        {
+            width:100px;
+            height:100px;
+            background:red;
+            transition: width 2s ease-in-out;
+            -webkit-transition: width 2s ease-in-out; /* Safari */
+        }
+        
+        .trans:hover
+        {
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="trans">鼠标移入</div>
+    <p>transition: property duration timing-function delay;</p>
+    <p>transition: width 2s ease-in-out;</p>
+    <a href="https://www.runoob.com/cssref/css3-pr-transition.html">css3-transtion</a>
+</body>
+</html>
