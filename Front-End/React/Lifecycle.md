@@ -35,7 +35,42 @@ re-rendering（更新）和 Unmounting（卸载）。
 Mounting个过程是在组件初始化的流程，所以其中的生命周期只会执行一次。
 re-rendering的过程会根据出发更新的条件不同，经历不同的生命周期。
 
-### Re-rendering过程
+### 执行顺序
+旧生命周期在各个阶段的调用情况
+挂载 
+constructor
+componentWillMount
+render
+componentDidMount
+
+更新
+componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+render
+componentDidUpdate
+
+卸载
+componentWillUnmount
+
+新生命周期在各个阶段的调用情况
+挂载
+constructor
+getDerivedStateFromProps
+render
+componentDidMount
+
+更新
+getDerivedStateFromProps
+shouldComponentUpdate
+render
+getSnapshotBeforeUpdate
+componentDidUpdate
+
+卸载
+componentWillUnmount
+
+### Re-rendering过程 组件重新渲染的情况
 1. Props Change
 
 2. State Change
@@ -72,3 +107,4 @@ shouldComponentUpdate(nextProps, nextState, nextContext)
 - 典型场景：性能优化（自己可以决定什么时候需要更新）
 - 不要造成任何副作用 (如AJAX 请求等)
 - 不要 call this.setState()
+
