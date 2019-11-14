@@ -137,3 +137,7 @@ var a2 = a1.sort();
 a1; // ['A', 'B', 'C']
 a2; // ['A', 'B', 'C']
 a1 === a2; // true, a1和a2是同一对象 
+
+
+// Higher-order functions in Javascript
+// https://dev.to/damcosset/higher-order-functions-in-javascript-4j8b

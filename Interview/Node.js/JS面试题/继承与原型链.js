@@ -1,16 +1,15 @@
-> (在 ES2015/ES6 中引入了 class 关键字，但那只是语法糖，JavaScript 仍然是基于原型的）
-
+/**
+ * (在 ES2015/ES6 中引入了 class 关键字，但那只是语法糖，JavaScript 仍然是基于原型的）
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
-
 https://medium.com/awebdeveloper/inheritance-in-javascript-608b263be29f
-
 
 [A Guide To Prototype-Based Class Inheritance In JavaScript](https://medium.com/@js_tut/a-guide-to-prototype-based-class-inheritance-in-javascript-849d3c3ddca)
 
 Prototype-based Object Inheritance
 JavaScript supports object inheritance via something known as prototype. There is an object property called prototype attached to each object.
 Working with class and extends keywords is easy - but actually understanding how prototype-based inheritance works is not trivial.
-```
+ */
+
 // Define a Bird Class
 function Bird(type, color) {
     this.type = type;
@@ -27,14 +26,15 @@ function Bird(type, color) {
     }
 }
 
-You could have alternatively attached the lay egg method directly to Bird.prototype as shown in the next example:
+// You could have alternatively attached the lay egg method directly to 
+// Bird.prototype as shown in the next example:
 // Define method lay_egg() via prototype property
 Bird.prototype.lay_egg = function() {
     this.eggs ++;
     console.log(`${this.color} ${this.type} is laid an egg!`)
 }
 
-Let’s create a Parrot and inherit it from Bird:
+// Let’s create a Parrot and inherit it from Bird:
 function Parrot() {
     // We must call parent constructor and pass this to it 
     Bird.call(this, type, color);
@@ -43,13 +43,12 @@ function Parrot() {
     }
 }
 
-Now parrot can fly, walk, lay eggs and talk! 
-But we never had to define fly walk and lay_eggs methods inside Parrot itself.
+// Now parrot can fly, walk, lay eggs and talk! 
+// But we never had to define fly walk and lay_eggs methods inside Parrot itself.
 
-```
 
-Luckily we now have class and extends keywords to accomplish exactly the same thing we just did in the previous section.
-```
+// Luckily we now have class and extends keywords to accomplish exactly the same thing 
+// we just did in the previous section.
 class Bird {
     constructor(type, color) {
         this.type = type;
@@ -66,8 +65,7 @@ class Parrot extends Bird {
         super(type, color);
         this.type = type;
         this.color = color;
-
-        talk() {}
     }
+
+    talk() { console.log('Parrot is talking!') };
 }
-```

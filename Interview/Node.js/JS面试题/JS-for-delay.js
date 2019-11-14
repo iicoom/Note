@@ -1,3 +1,10 @@
+/**
+ * https://www.freecodecamp.org/news/thrown-for-a-loop-understanding-for-loops-and-timeouts-in-javascript-558d8255d8a4/
+ * 上面全面的解释的 js单线程，同步异步，var, let, event loop, call stack, Web API
+
+ */
+
+
 // 想要顺序输出0-5
 // for (var i = 0; i < 5; i ++) {
 //     console.log(i)
@@ -15,17 +22,32 @@
 //         console.log(i)
 //     }, 1000*i)
 // }
-// 结果：会在一秒后 一下子输出5个5
+// 结果：每隔一秒输出一个 5 共输出5次
 
 
 // for(var i = 0; i < 5; i ++) {
-//     (function(j) {
+//     (function(i) {
 //         setTimeout(function() {       // for循环为同步，setTimeout 为异步执行，所以打印i的时候值已经累计到5
-//             console.log(j)
-//         }, 1000*j)
+//             console.log(i)
+//         }, 1000*i)
 //     })(i)
 // }
 
+// 结果 每个一秒输出一个
+// 0
+// 1
+// 2
+// 3
+// 4
+
+// function task(i) {
+//     setTimeout(() => {
+//         console.log(i)
+//     }, i*1000)
+// }
+// for(var i = 0; i < 5; i ++) {
+//     task(i)
+// }
 // 结果 每个一秒输出一个
 // 0
 // 1
@@ -56,4 +78,21 @@
 // arr[4]()
 
 // 用let声明才会输出对应的i，用var全是5
+
+
+console.log("before for", i)
+for(var i = 0; i < 5; i ++) {
+    setTimeout(function() {
+        console.log(i)
+    })
+}
+console.log("after for:", i)
+
+// before for undefined
+// after for: 5
+// 5
+// 5
+// 5
+// 5
+// 5
 
