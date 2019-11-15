@@ -35,3 +35,14 @@ var temp = JSON.stringify(obj)
 // "{"name":"Jack","age":28,"sex":"man"}"
 JSON.parse(temp)
 // {name: "Jack", age: 28, sex: "man"}
+
+
+/**
+ * for in 操作数组
+ */
+for(item in arr) {console.log(item)}
+// 0
+// 1
+// 2
+// 3
+// 4
