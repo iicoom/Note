@@ -1,4 +1,4 @@
-//Page地址  
+// 例1：Page地址  
 var pageUrl = {  
         menu            :   "loadPage.htm?url=/collect/menu.page",          // 进入菜单页面  
         guangfaPage     :   "loadPage.htm?url=/collect/menu.page",          // 进入广发信息收集页面  
@@ -16,7 +16,22 @@ for(var key in pageUrl){
    console.log(key+" : "+ pageUrl[key]);  
 }  
 
-console.log('========dash========')
-for(var value in pageUrl){  
-   console.log(value+" : "+ pageUrl[value]);
-}  
+/**
+ * 例2：
+ * 在js中经常需要知道Object中的所有属性及值，然而若是直接弹出Object，则是直接显示一个对象，它的属性和值没有显示出来，
+   不是我们想要的结果，从而需要遍历Object的所有属性。
+ */
+var obj = { name: "Jack", age: 28, sex: "man" }
+
+var str="";
+for (var key in obj){
+	// console.log(key)
+	str += (key +": "+obj[key] + "\n");	
+}
+console.log(str);
+
+// 也可以用 JSON.stringify()
+var temp = JSON.stringify(obj)
+// "{"name":"Jack","age":28,"sex":"man"}"
+JSON.parse(temp)
+// {name: "Jack", age: 28, sex: "man"}

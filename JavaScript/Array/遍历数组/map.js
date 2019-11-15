@@ -1,52 +1,35 @@
-const tags = [{id: 12, type_id: 9, value: 12, label: "A-积极心理学"},
-{id: 21, type_id: 4, value: 21, label: "Addd"}]
+/**
+ * map() 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+ */
+var numbers = [1, 4, 9];
+var roots = numbers.map(Math.sqrt);
+// roots的值为[1, 2, 3], numbers的值仍为[1, 4, 9]
+
+
+/**
+ * 对collection的遍历
+ */
+const tags = [{id: 12, type_id: 9, value: 12, label: "A-积极心理学"}, {id: 21, type_id: 9, value: 12, label: "A-积极心理学"}];
+// {id: 21, type_id: 4, value: 21, label: "Addd"}]
 
 tags.map(tag => tag.id)
-(2) [12, 21]
+// [12, 21]
 
 
-console.log('==========例1输出===========')
-var obj ={
-	"name":"牛棚001",
-	"desc":"海景牛棚，",
-	"category_items":[
-		{
-			"field" : "扩展字段约束项",
-			"name" : "🐂棚的尺寸把控在这里我们追求完美",
-			"type" : "int",
-			"priority" : 1,
-			"desc" : "牛棚的尺寸参数，在这里精确到毫米",
-			"is_required" : false,
-			"is_display" : true,
-			"max":10,
-			"min":1,
-			"max_length":6,
-			"mix_length":1
-		},
-		{
-			"field" : "假装换了一个",
-			"name" : "🐂棚的尺寸把控在这里我们追求完美",
-			"type" : "int",
-			"priority" : 1,
-			"desc" : "牛棚的尺寸参数，在这里精确到毫米",
-			"is_required" : false,
-			"is_display" : true,
-			"max":10,
-			"min":1,
-			"max_length":6,
-			"mix_length":1
-		}
-	]
-}
+var userArr = [
+    { id:1,userName:"laozhang"},
+    { id:2,userName:"laowang" },
+    { id:3,userName:"laoliu" },
+]
 
-const categoryItemIds = [];
-obj.category_items.map(function(item){
-	item.create_by = 'Mr.mao';
-	item.category_id = Math.random();
-	console.log(item)
-	categoryItemIds.push(item.category_id)
-})
-console.log(categoryItemIds)
+userArr.map(item => item.id)
+[1, 2, 3]
+
+userArr.map(item => item.userName)
+["laozhang", "laowang", "laoliu"]
+
+userArr.map(item => item.id === 2)
+[false, true, false]
 
 
 console.log('==========例2输出===========')
@@ -117,23 +100,6 @@ function returnInt(element) {
 const intArr = ['1', '2', '3'].map(Number); // [1, 2, 3]
 console.log(intArr)
 
-
-
-
-var userArr = [
-    { id:1,userName:"laozhang"},
-    { id:2,userName:"laowang" },
-    { id:3,userName:"laoliu" },
-]
-
-userArr.map(item => item.id)
-[1, 2, 3]
-
-userArr.map(item => item.userName)
-["laozhang", "laowang", "laoliu"]
-
-userArr.map(item => item.id === 2)
-[false, true, false]
 
 
 

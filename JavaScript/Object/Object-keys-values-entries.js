@@ -1,23 +1,3 @@
-// Note: You call this method directly on the Object constructor rather than on an instance of type Object.
-
-// JavaScript Demo: Object.defineProperty()
-// Object.defineProperty(obj, prop, descriptor)
-
-const object1 = {};
-
-Object.defineProperty(object1, 'property1', {
-  value: 42,
-  writable: false
-});
-
-object1.property1 = 77;
-// throws an error in strict mode
-
-console.log(object1.property1);
-// expected output: 42
-
-
-
 /**
  * 1. Object.keys(obj)
  */
@@ -79,27 +59,7 @@ Object.entries(obj).forEach(([key, value]) => {
 });
 
 
-/**
- * 在js中经常需要知道Object中的所有属性及值，然而若是直接弹出Object，则是直接显示一个对象，它的属性和值没有显示出来，
-   不是我们想要的结果，从而需要遍历Object的所有属性。
- */
-var obj = { name: "Jack", age: 28, sex: "man" }
-
-var str="";
-for (var key in obj){
-	// console.log(key)
-	str += (key +": "+obj[key] + "\n");	
-}
-console.log(str);
-
-// 也可以用 JSON.stringify()
-var temp = JSON.stringify(obj)
-// "{"name":"Jack","age":28,"sex":"man"}"
-JSON.parse(temp)
-// {name: "Jack", age: 28, sex: "man"}
-
-
-
+// 对象到collection的转换
 /**
  * 实现对象的改造
  */
@@ -109,20 +69,8 @@ this.state.ProductList = Object.keys(ProductType_F).map((key) => {
       return { key: parseInt(key, 0), value: ProductType_F[key] };
     });
 
-
-Object.keys(ProductType_F)
-// =>
-["6", "7"]
+// Object.keys(ProductType_F)
+// // =>
+// ["6", "7"]
 
 [{key: 6, value: "果蔬类"},{key: 7, value: "叶菜类"}]
-
-
-
-
-
-
-
-
-
-
-
