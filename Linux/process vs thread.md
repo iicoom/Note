@@ -17,7 +17,7 @@ Another difference between a thread and a process is that threads within the sam
 
 线程和进程的另一个不同是在相同进程中的线程会共享一些地址空间，不同的进程之间则不会。这就使得线程可以在相同的数据结构和变量进行读写，
 方便的在线程间交换。
-进程间通信也被称作 IPC，进程内通信就相当不同-资源密集。
+进程间通信也被称作 IPC，进程内通信就比较难了 而且是 资源密集的。
 
 
 ## MultiThreading
