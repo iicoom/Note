@@ -2,7 +2,7 @@
  * 数组去重
  * @param {*} arr 
  */
-// 1. for loop 配合object key: true 数组去重
+// 方法1. for loop 配合object key: true 数组去重
 function unique(arr){
     var obj = {}
     var result = []
@@ -25,6 +25,23 @@ unique(arr1)
 
 
 
-// 2. ES6 新增了 Set 这一数据结构，类似于数组，但 Set 的成员具有唯一性
+// 方法2. ES6 新增了 Set 这一数据结构，类似于数组，但 Set 的成员具有唯一性
 Array.from(new Set(arr1))
 // [1, "abc", 34, null, undefined, ""]
+
+// 方法3. lodash
+_.uniq([2, 1, 2]);
+// => [2, 1]
+_.uniqBy([2.1, 1.2, 2.3], Math.floor);
+// => [2.1, 1.2]
+ 
+// The `_.property` iteratee shorthand.
+_.uniqBy([{ 'x': 1 }, { 'x': 2 }, { 'x': 1 }], 'x');
+// => [{ 'x': 1 }, { 'x': 2 }]
+
+
+/**
+ * 求数组并集
+ */
+_.union([2], [1, 2]);
+// => [2, 1]

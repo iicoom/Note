@@ -19,6 +19,19 @@ Another difference between a thread and a process is that threads within the sam
 方便的在线程间交换。
 进程间通信也被称作 IPC，进程内通信就比较难了 而且是 资源密集的。
 
+进程是系统进行资源分配和调度的一个独立单位，同一个进程中的多个线程之间可以并发执行.
+
+
+## 线程的状态（生命周期）
+Java中线程的状态分为6种：
+1. 初始(NEW)：新创建了一个线程对象，但还没有调用start()方法。
+2. 运行(RUNNABLE)：Java线程中将就绪（ready）和运行中（running）两种状态笼统的称为“运行”。线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取CPU的使用权，此时处于就绪状态（ready）。就绪状态的线程在获得CPU时间片后变为运行中状态（running）。
+
+3. 阻塞(BLOCKED)：表示线程阻塞于锁。
+4. 等待(WAITING)：进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）。
+5. 超时等待(TIMED_WAITING)：该状态不同于WAITING，它可以在指定的时间后自行返回。
+6. 终止(TERMINATED)：表示该线程已经执行完毕。
+
 
 ## MultiThreading
 Threads, of course, allow for multi-threading. A common example of the advantage of multithreading is the fact that you can have a word processor that prints a document using a background thread, but at the same time another thread is running that accepts user input, so that you can type up a new document.
