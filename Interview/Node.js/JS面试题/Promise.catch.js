@@ -95,3 +95,44 @@ var p3 = new Promise(function(resolve, reject) {
 p3.catch(function(e) {
     console.error(e); // This is never called
 });
+
+
+/**
+ * Promise 错误捕获
+ */
+/*
+new Promise((resolve, reject) => {
+  throw new Error("Whoops!");
+}).catch(console.error); 
+// Error: Whoops!
+//     at /Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:104:9
+//     at new Promise (<anonymous>)
+//     at Object.<anonymous> (/Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:103:1)
+
+new Promise((resolve, reject) => {
+  reject(new Error("Whoops!"));
+}).catch(console.error); 
+// Error: Whoops!
+//     at /Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:104:9
+//     at new Promise (<anonymous>)
+//     at Object.<anonymous> (/Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:103:1)
+*/
+
+new Promise((resolve, reject) => {
+  reject("Whoops!");
+}).catch(console.error); // Whoops!
+
+new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    throw new Error("Whoops!");
+  }, 1000);
+}).catch(console.error);
+
+// /Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:127
+//     throw new Error("Whoops!");
+//     ^
+
+// Error: Whoops!
+//     at Timeout._onTimeout (/Users/mxj/Repo/Note/Interview/Node.js/JS面试题/Promise.catch.js:127:11)
+//     at listOnTimeout (internal/timers.js:531:17)
+//     at processTimers (internal/timers.js:475:7)
