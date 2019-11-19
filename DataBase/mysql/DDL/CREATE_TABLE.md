@@ -37,6 +37,22 @@ CREATE TABLE `grade` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='等级表';
 
+CREATE TABLE `student` (
+  `id` varchar(50) NOT NULL,
+  `number` int(11) NOT NULL COMMENT '学号',
+  `name` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `les_num` int(11) DEFAULT NULL COMMENT '课程编号',
+  `les_name` varchar(50) DEFAULT NULL COMMENT '课程名称',
+  `score` int(11) NOT NULL COMMENT '分数',
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='学生表';
+
+INSERT INTO `student` VALUES ('1', 2005001, '张三', '0001', '数学', 69, '2019-11-18 14:44:18', '2019-11-18 14:44:18');
+INSERT INTO `student` VALUES ('2', 2005002, '李四', '0001', '数学', 89, '2019-11-18 14:45:15', '2019-11-18 14:45:15');
+INSERT INTO `student` VALUES ('3', 2005001, '张三', '0001', '数学', 69, '2019-11-18 14:45:46', '2019-11-18 14:45:46');
+
 若果插入内容有表情需要注意表的 CHARSET=utf8mb4
 CREATE TABLE `qiushi` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
