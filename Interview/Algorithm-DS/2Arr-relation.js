@@ -36,3 +36,6 @@ function minus(arr1, arr2) {
 function complement(arr1, arr2) {
     return arr1.filter((item) => arr2.indexOf(item) > -1)
 }
+
+console.log(__filename)
+console.log(__dirname)
