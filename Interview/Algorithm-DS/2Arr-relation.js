@@ -29,13 +29,41 @@ function minus(arr1, arr2) {
 
 
 /**
- * 求2个数组 的补集
+ * 求2个数组 【2个数组自己独有的元素的集合】的补集
  * @param {*} arr1 
  * @param {*} arr2 
  */
 function complement(arr1, arr2) {
-    return arr1.filter((item) => arr2.indexOf(item) > -1)
+    // return arr1.filter((item) => arr2.indexOf(item) == -1)  // [ 1, 3, 5 ]
+    // return arr2.filter((item) => arr1.indexOf(item) == -1)  // [ 6, 8, 10 ]
+    return arr1.filter((item) => arr2.indexOf(item) == -1)
+    .concat(arr2.filter((item) => arr1.indexOf(item) == -1)) 
 }
+// console.log(complement(a, b))
+// [ 1, 3, 5, 6, 8, 10 ]
 
-console.log(__filename)
-console.log(__dirname)
+
+/**
+ * 求2个数组的 并集
+ * @param {*} arr1 
+ * @param {*} arr2 
+ */
+function union(arr1, arr2) {
+    return arr1.concat(arr2.filter(item => arr1.indexOf(item) == -1))
+}
+// console.log(union(a, b))
+// [ 1, 2, 3, 4, 5, 6, 8, 10 ]
+
+
+/**
+ * 借助扩展运算符（...）以及 Set 的特性实现相关计算
+ */
+var sa = new Set(a);
+var sb = new Set(b);
+
+const intersection1 = a.filter(item => sb.has(item))
+const minus1 = a.filter(item => !sb.has(item))
+const complement1 = [...a.filter(item => !sb.has(item)), ...b.filter(item => !sa.has(item))]
+const union1 = Array.from([...sa, ...sb])
+
+console.log(complement1)
