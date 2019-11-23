@@ -9,3 +9,6 @@ https://hexo.io/
 ## hexo 基本命令
 https://hexo.io/docs/commands
 
+### server
+
+

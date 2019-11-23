@@ -88,3 +88,23 @@ for(let i=0; i<5; i++) {
 // 2
 // 3
 // 4
+
+/**
+ * 题目四
+ */
+var i = 0;
+while(i<5) {
+    setTimeout(function() {console.log('1')}, 0)
+    i++;
+}
+// 1
+// 1
+// 1
+// 1
+// 1
+
+// while(true) {
+//     setTimeout(function() {console.log('1')}, 0)
+// }
+// 这种就不会有任何输出，因为while 为同步代码，而setTimeout为异步，不再一个周期内
+// 只是会不停的创建出异步任务
