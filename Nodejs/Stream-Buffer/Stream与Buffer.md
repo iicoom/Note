@@ -21,21 +21,21 @@ const http = require('http');
 const fs = require('fs');
 const zlib = require('zlib');
 
-	const server = http.createServer((req, res) => {
-		const filename = req.headers.filename;
-		console.log('File request received: ' + filename);
-		req
-			.pipe(zlib.createGunzip())
-			.pipe(fs.createWriteStream(filename))
-			.on('finish', () => {
-				res.writeHead(201, {
-					'Content-Type': 'text/plain'
-				});
-				res.end('That\'s it\n');
-	      		console.log(`File saved: ${filename}`);
+const server = http.createServer((req, res) => {
+	const filename = req.headers.filename;
+	console.log('File request received: ' + filename);
+	req
+		.pipe(zlib.createGunzip())
+		.pipe(fs.createWriteStream(filename))
+		.on('finish', () => {
+			res.writeHead(201, {
+				'Content-Type': 'text/plain'
 			});
-	});
+			res.end('That\'s it\n');
+			console.log(`File saved: ${filename}`);
+		});
+});
 
-	server.listen(3000, () => console.log('Listening'));
+server.listen(3000, () => console.log('Listening'));
 
 服务器从网络接收数据块，将其解压缩，并在接收到数据块后立即保存，这要归功于Node.js的Streams。
