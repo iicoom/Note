@@ -2,39 +2,38 @@
 The arrow function has resolved one very confusing aspect of JavaScript — the one I like to call the this pointer uncertainty.
 箭头函数解决了一个令人困扰的问题，就是this指向问题。
 
-```
-var message = "Hello World";
+```JavaScript
+const message = "Hello World";
+
 function printMessage(){
- console.log(this.message);
+    const innerMsg = "Hello, from inner"
+    console.log(this.message);
+    console.log(this.innerMsg);
 };
+printMessage();    
+// undefined
+// undefined             
+
 
 var jsObject = {
- printMessageES5:function (){
-  console.log(this.message);
- }
+    message: "print in jsObject",
+    printMessageES5:function (){
+     console.log('printMessageES5', this.message);
+    },
+    printMessageES6:() => {
+     console.log('printMessageES6', this.message);
+    },
+    printDelayES5: function (){
+        setTimeout(function(){console.log('printDelayES5', this.message)}, 0)
+    },
+    printDelayES6: function (){
+        setTimeout(() => { console.log('printDelayES6', this.message)}, 0)
+    }
 };
-printMessage();               // output: Hello World
-jsObject.printMessageES5();   // output: undefined
-
-
-var message = "Hello World";
-function printMessage(){
- console.log(this.message);
-};
-var jsObject = {
- message: "Hello Object",
- printMessageES5:function (){
-  console.log(this.message);
- },
- printMessageES6:() => {
-  console.log(this.message);
- }
-};
-printMessage();               // output: Hello World
-jsObject.printMessageES5();   // output: Hello Object
-jsObject.printMessageES6();   // output: Hello World
-
-function 声明的函数中的this会指向包裹它的那层，箭头函数中的this会指向包裹它那层的父级
+jsObject.printMessageES5();      // printMessageES5 print in jsObject
+jsObject.printMessageES6();      // printMessageES6 undefined
+jsObject.printDelayES5();        // printDelayES5 undefined
+jsObject.printDelayES6();        // printDelayES6 print in jsObject
 ```
 
 ### => 和 function的区别
@@ -71,7 +70,7 @@ In classic function expressions, the this keyword is bound to different values b
 在传统的函数表达式中，this关键字随着被调用的上下文环境的不同会被绑定不同的值。箭头函数中的this则是指向包含的的地方。
 
 ES5中解决this绑定的方法：
-```
+```JavaScript
 var obj = {
     id: 42,
     counter: function counter() {
@@ -81,9 +80,9 @@ var obj = {
     }
 };
 console.log(obj.counter())
-counter 没有this.id 属性，打印出的是undefined
+// counter 没有this.id 属性，打印出的是undefined
 
-In the ES5 example, .bind(this) is required to help pass the this context into the function. Otherwise, by default this would be undefined.
+// In the ES5 example, .bind(this) is required to help pass the this context into the function. Otherwise, by default this would be undefined.
 
 var obj = {
   id: 42,
@@ -95,7 +94,7 @@ var obj = {
 };
 
 
-可以用下面方法实现
+// 可以用下面方法实现
 var obj = {
     id: 42,
     counter: function counter() {
@@ -107,12 +106,12 @@ var obj = {
     }
 };
 console.log(obj.counter())
-that.id 42
+// that.id 42
 
-ES6 箭头函数
-ES6 arrow functions can’t be bound to a this keyword, so it will lexically go up a scope, 
-and use the value of this in the scope in which it was defined.
-ES6 箭头函数中 this会自动到上级作用域中查找this
+// ES6 箭头函数
+// ES6 arrow functions can’t be bound to a this keyword, so it will lexically go up a scope, 
+// and use the value of this in the scope in which it was defined.
+// ES6 箭头函数中 this会自动到上级作用域中查找this
 var obj = {
     id: 42,
     counter: function counter() {
@@ -121,11 +120,13 @@ var obj = {
         }, 1000)
     }
 };
+obj.counter()
+// this.id: 42
 ```
 
 - When you should not use Arrow Functions 什么时候不该用箭头函数
   1. Object methods
-  ```
+  ```JavaScript
   var cat = {
     lives: 9,
     jumps: () => {
@@ -133,9 +134,9 @@ var obj = {
       this.lives--;
     }
   }
-  这里的this.lives是undefined, 因为他会指向cat对象的父级
+  <!-- 这里的this.lives是undefined, 因为他会指向cat对象的父级 -->
 
-  反而使用命名函数可以达到效果
+  <!-- 反而使用命名函数可以达到效果 -->
   var cat = {
     lives: 9,
     jumps: function () {
@@ -166,44 +167,4 @@ Despite the fact that they are anonymous, I also like using them with methods su
 见 JavaScript 根目录 ../JS-this-call-apply-bind.md
 
 
-[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functionsv)
-
-```
-var elements = [
-  'Hydrogen',
-  'Helium',
-  'Lithium',
-  'Beryllium'
-];
-
-elements.map(function(element) {
-  return element.length;
-}); // this statement returns the array: [8, 6, 7, 9]
-
-// The regular function above can be written as the arrow function below
-elements.map((element) => {
-  return element.length;
-}); // [8, 6, 7, 9]
-
-// When there is only one parameter, we can remove the surrounding parenthesies:
-elements.map(element => {
-  return element.length;
-}); // [8, 6, 7, 9]
-
-// When the only statement in an arrow function is `return`, we can remove `return` and remove
-// the surrounding curly brackets
-elements.map(element => element.length); // [8, 6, 7, 9]
-
-// In this case, because we only need the length property, we can use destructuring parameter:
-// Notice that the string `"length"` corresponds to the property we want to get whereas the
-// obviously non-special `lengthFooBArX` is just the name of a variable which can be changed
-// to any valid variable name you want
-elements.map(({ "length": lengthFooBArX }) => lengthFooBArX); // [8, 6, 7, 9]
-
-// This destructuring parameter assignment can be written as seen below. However, note that there
-// is no specific `"length"` to select which property we want to get. Instead, the literal name
-// itself of the variable `length` is used as the property we want to retrieve from the object.
-elements.map(({ length }) => length); // [8, 6, 7, 9]
-
-```
 
