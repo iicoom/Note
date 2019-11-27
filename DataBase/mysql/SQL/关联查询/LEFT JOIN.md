@@ -1,3 +1,5 @@
+> 有2张表,user和user_challenge,关联字段user_id。user左连接user_challenge从操作如下：
+
 mysql> desc user;
 +----------+-------------+------+-----+---------+-------+
 | Field    | Type        | Null | Key | Default | Extra |

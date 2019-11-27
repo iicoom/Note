@@ -38,6 +38,8 @@ vscode ./   ## 在Visual Studio Code 中打开当前目录
   - fold all -- command+shift+'-'
   - 折叠所有块注释
 
+* 自定义快捷键  Code-Preferences-KeyBoard ShortCuts
+
 * 左下角的 设置按钮 - Extention - 安装扩展
 
 - Flutter plugin for VS Code has a command for creating Flutter apps

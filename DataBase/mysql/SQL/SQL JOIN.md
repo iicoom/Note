@@ -6,22 +6,24 @@ Join 和 Key
 
 ## Key
 请看 "Persons" 表：
-Id_P	LastName	FirstName	Address	City
-1	Adams	John	Oxford Street	London
-2	Bush	George	Fifth Avenue	New York
-3	Carter	Thomas	Changan Street	Beijing
+Id_P	LastName	FirstName	Address	        City
+1	     Adams	     John	    Oxford Street	London
+2	     Bush	     George	    Fifth Avenue	New York
+3	     Carter	     Thomas	    Changan Street	Beijing
 
-请注意，"Id_P" 列是 Persons 表中的的主键。这意味着没有两行能够拥有相同的 Id_P。即使两个人的姓名完全相同，Id_P 也可以区分他们。
+请注意，"Id_P" 列是 Persons 表中的的主键。这意味着没有两行能够拥有相同的 Id_P。
+即使两个人的姓名完全相同，Id_P 也可以区分他们。
 
 接下来请看 "Orders" 表：
-Id_O	OrderNo	Id_P
-1	  	77895	3
-2	  	44678	3
-3	  	22456	1
-4	  	24562	1
-5	  	34764	65
+Id_O	OrderNo	  Id_P
+1	  	77895	  3
+2	  	44678	  3
+3	  	22456	  1
+4	  	24562	  1
+5	  	34764	  65
 
-请注意，"Id_O" 列是 Orders 表中的的主键，同时，"Orders" 表中的 "Id_P" 列用于引用 "Persons" 表中的人，而无需使用他们的确切姓名。
+请注意，"Id_O" 列是 Orders 表中的的主键，同时，"Orders" 表中的 "Id_P" 列用于引用 "Persons" 表中的人，
+而无需使用他们的确切姓名。
 
 请留意，"Id_P" 列把上面的两个表联系了起来。
 
@@ -29,7 +31,7 @@ Id_O	OrderNo	Id_P
 我们可以通过引用两个表的方式，从两个表中获取数据：
 
 谁订购了产品，并且他们订购了什么产品？
-```
+```sql
 SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
 FROM Persons, Orders
 WHERE Persons.Id_P = Orders.Id_P 
