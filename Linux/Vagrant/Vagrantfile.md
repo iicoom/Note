@@ -6,5 +6,9 @@ The value here should be the name of an installed box or a shorthand name of a b
 
 - config.vm.box_url (string, array of strings) - The URL that the configured box can be found at.
 
+- config.vm.hostname (string) - The hostname the machine should have. Defaults to nil. If nil, Vagrant will not manage the hostname. If set to a string, the hostname will be set on boot. If set, Vagrant will update /etc/hosts on the guest with the configured hostname.
+要注意是sudo su切换到root用户才有 /etc/hosts
+
+
 ##Config namespace: config.ssh
 - config.ssh.host (string) - The hostname or IP to SSH into. By default this is empty, because the provider usually figures this out for you.
