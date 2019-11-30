@@ -8,3 +8,9 @@
 ```
 vim /etc/hosts
 ```
+
+## Windows host 
+C:\Windows\System32\drivers\etc
+
+没有权限修改解决方法：
+将文件先复制到别的路径下，接着将复制出来的文件，先修改，修改完后，再将文件拷入到C:\Windows\System32\drivers\etc 下，将之前的文件替换掉即可
