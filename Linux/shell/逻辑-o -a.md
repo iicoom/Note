@@ -10,6 +10,14 @@ else
   echo "Generate game configuration files if not exist"
   CMD="cp -n"
 fi
+
+$CMD $BASEDIR/gameConfig.bak.json $BASEDIR/gameConfig.json
 ```
 
 如果命令行第一个参数等于"-f"或者"--force"
+
+if中的CMD是声明的一个变量 cp命令  
+cp -n  
+-n ，-no-clobber ： 不要覆盖已存在的文件(使前面的 -i 选项失效)
+
+最后一行完成了将$BASEDIR/gameConfig.bak.json 文件内容复制一份到$BASEDIR/gameConfig.json
