@@ -1,3 +1,19 @@
+## unzip
+1. 解压zip文件到当前目录
+unzip filename.zip
+
+2. unzip -o -d /home/sunny myfile.zip
+把myfile.zip文件解压到 /home/sunny/
+-o:不提示的情况下覆盖文件；（自选可有可无）
+-d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；（自选可有可无，但是有些文件解压后直接放在当前文件夹下，所以建议-d 这个命令加上去，保险一些）
+
+3. zip
+zip -d myfile.zip smart.txt
+删除压缩文件中smart.txt文件
+zip -m myfile.zip ./rpm_info.txt
+向压缩文件中myfile.zip中添加rpm_info.txt文件
+
+
 ### tar 解压  https://blog.csdn.net/x_iya/article/details/72889456
 tar zxvf nginx-1.6.2.tar.gz
 -c: 建立压缩档案
