@@ -1,4 +1,8 @@
 ## 安装ssh
+### Windows ssh
+```
+C:\Users\Admin\.ssh
+```
 ### 安装openssh(for Ubuntu)
 首先需要在Ubuntu_gitserver:14.04上安装openssh服务端，这里我们将 服务端 和 客户端 都同时安装：
 
