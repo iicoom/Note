@@ -1,6 +1,7 @@
 ## 连接服务器登录
 ### 无密码连接 (本地连接)
 如果全局安装的 执行 
+```
 ➜  ~ redis-cli
 Could not connect to Redis at 127.0.0.1:6379: Connection refused
 Could not connect to Redis at 127.0.0.1:6379: Connection refused
@@ -14,6 +15,7 @@ Could not connect to Redis at 127.0.0.1:6379: Connection refused
 重新连接
 ➜  ~ redis-cli
 127.0.0.1:6379>
+```
 
 ### 有密码验证 (远程连接)
 在本地连接远程或者在服务器上连接都用下面的命令
