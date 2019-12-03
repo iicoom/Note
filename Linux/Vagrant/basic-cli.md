@@ -112,7 +112,7 @@ VM must be running to open SSH connection. Run `vagrant up`
 to start the virtual machine.
 ```
 4. 启动之前的环境
-```shell
+```bash
 vagrant up
 
 启动后可以通过vagrant ssh 连接， 之前配置的公钥登录也可以登录
