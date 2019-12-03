@@ -39,11 +39,20 @@ $ vagrant halt 1334fb2
 
 ```
 
+## Command: vagrant reload [name|id]
+The equivalent of running a halt followed by an up.
+This command is usually required for changes made in the Vagrantfile to take effect. After making any modifications to the Vagrantfile, a reload should be called.
+这个命令相当于先执行vagrant halt 在执行vagrant up. 用于Vagrantfile修改之后，使之生效。
+
+
 ## Command: vagrant suspend [name|id]
 This suspends the guest machine Vagrant is managing, rather than fully shutting it down or destroying it.
 
 A suspend effectively saves the exact point-in-time state of the machine, so that when you resume it later, it begins running immediately from that point, rather than doing a full boot.
 
 This generally requires extra disk space to store all the contents of the RAM within your guest machine, but the machine no longer consumes the RAM of your host machine or CPU cycles while it is suspended.
+
+## Command: vagrant resume [name|id]
+This resumes a Vagrant managed machine that was previously suspended, perhaps with the suspend command.
 
 
