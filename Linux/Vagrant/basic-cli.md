@@ -26,6 +26,20 @@ up-to-date. To interact with any of the machines, you can go to
 that directory and run Vagrant, or you can use the ID directly
 with Vagrant commands from any directory. For example:
 "vagrant destroy 1a2b3c4d"
+
+Admin@PS2019DXNBJQRZ MINGW64 /e/Joy/server (master)
+$ vagrant global-status
+id       name    provider   state    directory
+-------------------------------------------------------------------------
+1334fb2  default virtualbox poweroff E:/Joy/server
+
+The above shows information about all known Vagrant environments
+on this machine. This data is cached and may not be completely
+up-to-date. To interact with any of the machines, you can go to
+that directory and run Vagrant, or you can use the ID directly
+with Vagrant commands from any directory. For example:
+"vagrant destroy 1a2b3c4d"
+状态变为 poweroff
 ```
 
 ## Command: vagrant halt [name|id]
