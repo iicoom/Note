@@ -69,4 +69,52 @@ This generally requires extra disk space to store all the contents of the RAM wi
 ## Command: vagrant resume [name|id]
 This resumes a Vagrant managed machine that was previously suspended, perhaps with the suspend command.
 
+## 操作流程
+Windows关机不需要对vagrant做任何处理
+1. 开机查看
+```
+Admin@PS2019DXNBJQRZ MINGW64 ~
+$ vagrant box list
+doraemonkart (virtualbox, 0)
+
+全局状态
+Admin@PS2019DXNBJQRZ MINGW64 ~
+$ vagrant global-status
+id       name    provider   state   directory
+------------------------------------------------------------------------
+1334fb2  default virtualbox aborted E:/Joy/server
+
+The above shows information about all known Vagrant environments
+on this machine. This data is cached and may not be completely
+up-to-date. To interact with any of the machines, you can go to
+that directory and run Vagrant, or you can use the ID directly
+with Vagrant commands from any directory. For example:
+"vagrant destroy 1a2b3c4d"
+
+状态变成 aborted
+```
+2. 尝试连接
+```
+Admin@PS2019DXNBJQRZ MINGW64 ~
+$ vagrant ssh
+A Vagrant environment or target machine is required to run this
+command. Run `vagrant init` to create a new Vagrant environment. Or,
+get an ID of a target machine from `vagrant global-status` to run
+this command on. A final option is to change to a directory with a
+Vagrantfile and to try again.
+没有在环境目录下操作出现上面问题
+```
+3. 切换目录
+```
+Admin@PS2019DXNBJQRZ MINGW64 /e/Joy/server (master)
+$ vagrant ssh
+VM must be running to open SSH connection. Run `vagrant up`
+to start the virtual machine.
+```
+4. 启动之前的环境
+```
+vagrant up
+```
+
+
 
