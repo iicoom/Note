@@ -22,3 +22,8 @@ $ pwd
 /e/Joy/server
 ```
 
+## 清屏
+clear
+
+快捷键ctrl+l
+
