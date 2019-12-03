@@ -27,3 +27,23 @@ that directory and run Vagrant, or you can use the ID directly
 with Vagrant commands from any directory. For example:
 "vagrant destroy 1a2b3c4d"
 ```
+
+## Command: vagrant halt [name|id]
+Vagrant will first attempt to gracefully shut down the machine by running the guest OS shutdown mechanism. If this fails, or if the --force flag is specified, Vagrant will effectively just shut off power to the machine.
+-f or --force - Do not attempt to gracefully shut down the machine. This effectively pulls the power on the guest machine.
+```shell
+Admin@PS2019DXNBJQRZ MINGW64 /e/Joy/server (master)
+$ vagrant halt 1334fb2
+==> default: Attempting graceful shutdown of VM...
+==> default: Forcing shutdown of VM...
+
+```
+
+## Command: vagrant suspend [name|id]
+This suspends the guest machine Vagrant is managing, rather than fully shutting it down or destroying it.
+
+A suspend effectively saves the exact point-in-time state of the machine, so that when you resume it later, it begins running immediately from that point, rather than doing a full boot.
+
+This generally requires extra disk space to store all the contents of the RAM within your guest machine, but the machine no longer consumes the RAM of your host machine or CPU cycles while it is suspended.
+
+
