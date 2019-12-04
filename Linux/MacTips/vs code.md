@@ -1,4 +1,8 @@
-### VS Code
+## VS Code
+### windows 
+- 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
+
+### Mac
 * 向下、向上复制当前行  shift+option+方向键
 
 * terminal 中用 vscode 打开当前目录
