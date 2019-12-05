@@ -1,4 +1,14 @@
 ## VS Code
+* 折叠代码快捷键
+  - 首先F1查看帮助
+  - 搜索fold
+  - fold -- command+'-'
+  - fold all -- command+shift+'-'
+  - 折叠所有块注释
+
+* 自定义快捷键  Code-Preferences-KeyBoard ShortCuts
+  1. 设置文件侧边栏定位
+
 ### windows 
 - 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
 
@@ -34,15 +44,6 @@ vscode ./   ## 在Visual Studio Code 中打开当前目录
     - X11：DASH
 
 * vs code 会自动检测项目目录下的JavaScript函数方法，在当前文件输入getKey 如果其他文件有此方法的导出，那么按下Tab键会自动讲模块导入
-
-* 折叠代码快捷键
-  - 首先F1查看帮助
-  - 搜索fold
-  - fold -- command+'-'
-  - fold all -- command+shift+'-'
-  - 折叠所有块注释
-
-* 自定义快捷键  Code-Preferences-KeyBoard ShortCuts
 
 * 左下角的 设置按钮 - Extention - 安装扩展
 
