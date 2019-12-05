@@ -1,5 +1,12 @@
 ## 查看系统进程相关信息
 [10个重要的Linux ps命令实战](https://linux.cn/article-4743-1.html)
+### kilall
+killall可以根据名字来杀死进程，它会给指定名字的所有进程发送信息。如果没有指定信号名，则发送SIGTERM
+
+```
+killall node
+```
+
 ### ps
 Linux作为Unix的衍生操作系统，Linux内建有查看当前进程的工具ps。ps命令能够给出当前系统中进程的快照.
 ps - report a snapshot of the current processes.
