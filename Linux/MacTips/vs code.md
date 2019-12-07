@@ -12,6 +12,8 @@
 ### windows 
 - 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
 
+- 删除行ctrl+backspace, 默认ctrl+shift+k
+
 ### Mac
 * 向下、向上复制当前行  shift+option+方向键
 
