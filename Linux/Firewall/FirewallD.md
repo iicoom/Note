@@ -11,6 +11,7 @@ running
 ```
 
 ### 查看所有控制项
+```
 [root@vultr ~]# firewall-cmd --list-all
 public (active)
   target: default
@@ -25,6 +26,7 @@ public (active)
   source-ports:
   icmp-blocks:
   rich rules:
+```
 
 ### 开启services
 For instance, if we are running a web server serving conventional HTTP traffic, we can allow this traffic for interfaces in our “public” zone for this session by typing:
