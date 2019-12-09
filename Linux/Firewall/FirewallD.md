@@ -5,8 +5,10 @@ https://linuxize.com/post/how-to-setup-a-firewall-with-firewalld-on-centos-7/
 ## CentOS-7 防火墙常用操作
 
 ### 查看是否开启防火墙
+```
 [root@vultr ~]# firewall-cmd --state
 running
+```
 
 ### 查看所有控制项
 [root@vultr ~]# firewall-cmd --list-all
