@@ -93,6 +93,12 @@ rabbitmqadmin --help for help
 ➜  ~
 ```
 
+### / ：根目录
+cd /  :  从任何用户执行该命令都会进入同一个目录，即所有用户共享，其下文件如图
+
+### /home
+/home ：家目录（我觉得还不如叫用户列表目录）
+
 ### 当前用户HOME
 cd ~
 Mac 的家目录
@@ -104,3 +110,6 @@ Mac 的家目录
 .vim
 .nvm
 这些隐藏目录都在这里
+
+[doraemon@mxj .ssh]$ cd
+[doraemon@mxj ~]$
