@@ -1,6 +1,6 @@
 https://github.com/coreybutler/nvm-windows/releases
 
-1. 上面官网下载
+1. 上面官网下载 或去百度云
 nvm-setup.zip
 
 2. 随意选择安装目录nvm和node.js的安装目录
