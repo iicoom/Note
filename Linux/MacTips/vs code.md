@@ -1,4 +1,12 @@
 ## VS Code
+### Windows 
+- 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
+
+- 文件内 查找替换ctrl+h  全局查找替换 ctrl+shift+h
+
+- 删除行ctrl+backspace, 默认ctrl+shift+k
+
+
 ### Mac
 * 折叠代码快捷键
   - 首先F1查看帮助
@@ -9,15 +17,6 @@
 
 * 自定义快捷键  Code-Preferences-KeyBoard ShortCuts
   1. 设置文件侧边栏定位
-
-### Windows 
-- 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
-
-- 文件内 查找替换ctrl+h  全局查找替换 ctrl+shift+h
-
-- 删除行ctrl+backspace, 默认ctrl+shift+k
-
-### Mac
 * 向下、向上复制当前行  shift+option+方向键
 
 * terminal 中用 vscode 打开当前目录
