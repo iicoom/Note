@@ -1,4 +1,5 @@
 ## VS Code
+### Mac
 * 折叠代码快捷键
   - 首先F1查看帮助
   - 搜索fold
@@ -9,8 +10,10 @@
 * 自定义快捷键  Code-Preferences-KeyBoard ShortCuts
   1. 设置文件侧边栏定位
 
-### windows 
+### Windows 
 - 文件内搜索 ctrl+f  全局搜索 ctrl+shift+f
+
+- 文件内 查找替换ctrl+h  全局查找替换 ctrl+shift+h
 
 - 删除行ctrl+backspace, 默认ctrl+shift+k
 
