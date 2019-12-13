@@ -53,3 +53,25 @@ ${MONTH_NAME_FULL} - 月份全称，例如: January, February, etc.
 
 * Command+shift+R 全局替换
 * Webstorm 右键文件 => Git => show history => 双击某次提交 查看对比
+
+### Eslint配置
+先全局安装
+npm i eslint -g
+
+然后
+file-setting-Other Setting-Eslint Setting 、
+
+1. 设置node执行目录
+2. Eslint 目录 C:\Users\Admin\AppData\Roaming\npm\eslint.cmd
+3. 项目配置文件.eslintrc.js
+
+### Code Style
+Editor-Code Styles
+
+1. 选择line-seprator格式 
+2. 选择js - 设置 tab and indent
+
+
+
+
+
