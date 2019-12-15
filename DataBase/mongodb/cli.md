@@ -48,6 +48,7 @@ mongodb bin/mongo 在mongodb的安装目录下运行mongo文件
 
 ### 连接数据库（远程）
 本地命令行执行
+```
 ➜  ~ mongo 101.201.192.165:27017
 MongoDB shell version v3.4.6
 connecting to: 101.201.192.165:27017
@@ -66,9 +67,10 @@ MongoDB shell version v3.4.6
 connecting to: mongodb://47.94.154.154:9011/Ranch
 MongoDB server version: 2.6.5
 WARNING: shell and server versions do not match
-
+```
 
 ### show dbs
+```
 > show dbs
 Express-api  0.000GB
 admin        0.000GB
@@ -76,6 +78,7 @@ comments     0.000GB
 koa-test     0.000GB
 local        0.000GB
 nodedb       0.000GB
+```
 
 ### use db
 > use koa-test
