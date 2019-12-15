@@ -1,3 +1,4 @@
+```
 .sidebar .right-box .right-list li a {
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -5,3 +6,4 @@
 	width: 100%;
 	display: inline-block;
 }
+```
