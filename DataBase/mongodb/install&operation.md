@@ -35,8 +35,10 @@ sudo yum install -y mongodb-org
 brew install mongodb
 
 sudo service mongod start
+```
 
 然后使用 链接至数据库
+```
 ➜  ~ mongo
 MongoDB shell version v4.0.4
 connecting to: mongodb://127.0.0.1:27017
