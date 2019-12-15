@@ -2,44 +2,9 @@
 mongodb/bin/mongod 在mongodb的安装目录下运行mongod文件
 [官网启动server](http://mongodb.github.io/node-mongodb-native/2.2/quick-start/quick-start/)
 
-启动mongodb Server实例的参数：
+### Mac 下
 ```
-➜  mongodb mongod -h
-Options:
-
-General options:
-  -h [ --help ]                         show this usage information
-  --version                             show version information
-  -f [ --config ] arg                   configuration file specifying
-                                        additional options
-  -v [ --verbose ] [=arg(=v)]           be more verbose (include multiple times
-                                        for more verbosity e.g. -vvvvv)
-  --quiet                               quieter output
-  --port arg                            specify port number - 27017 by default
-  --bind_ip arg                         comma separated list of ip addresses to
-                                        listen on - all local ips by default
-  --maxConns arg                        max number of simultaneous connections
-                                        - 1000000 by default
-  --logpath arg                         log file to send write to instead of
-                                        stdout - has to be a file, not
-                                        directory
-  --fork                                fork server process
-
-  --auth                                run with security
-  --slowms arg (=100)                   value of slow for profile and console
-                                        log
-  --profile arg                         0=off 1=slow, 2=all
-  --dbpath arg                          directory for datafiles - defaults to
-                                        /data/db
-
-  Replication options:
-  --oplogSize arg                       size to use (in MB) for replication op
-                                        log. default is 5% of disk space (i.e.
-                                        large is good)
-
-  Replica set options:
-  --replSet arg                         arg is <setname>[/<optionalseedhostlist
-                                        >]
+mongod
 ```
 
 ## CLI
