@@ -69,3 +69,16 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
 </body>
 </html>
 ```
+
+## onclick 返回一个confirm
+```
+<a href="/apply_notice" role="button" class="btn btn-success" data-toggle="modal"
+ onclick="return confirm('Sending the announcement ,are you sure?');">
+发送
+</a>
+<br>
+<button onclick="return confirm('Sending the announcement ,are you sure?');">send</button>
+<br>
+<div onclick="return confirm('Sending the announcement ,are you sure?');">div click</div>
+```
+3种点击都会触发 confirm, 只有<a> 点击确定后会跳转href="/apply_notice"
