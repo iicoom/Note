@@ -1,6 +1,23 @@
+## 传统form提交数据
+```
+<form class="form-inline" action="/rankList">
+    <div class="form-group mx-sm-3 mb-2">
+      <input type="text" class="form-control" name="serverId" placeholder="serverID">
+      <input type="text" class="form-control" name="mapId" placeholder="mapID">
+      <input type="text" class="form-control" name="userId" placeholder="userID">
+      <button type="submit" class="btn btn-primary mb-2"><%= localizationData.Search %></button>
+    </div>
+</form>
+```
+提交的url
+https://mxj-s.doraemonkart.com:3000/rankList?serverId=1001&mapId=2230003&userId=1001%40d4f7dbb801a5fff74011a416a147d23c
+
+后端服务可以从req.query获取相关参数
+
+
 ## 阻止表单默认提交
 input type="submit" 才可以利用HTML5的表单required 验证支持
-
+```
 <form name="commentForm" onsubmit="return false;">
     <input type="text" placeholder="名字" required name="username">
     <input type="email" placeholder="邮箱" required name="email">
@@ -36,9 +53,10 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
         });
     }
 </script>
-
+```
 
 ## input 禁止复制
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,3 +68,4 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
     <textarea onpaste="return false"></textarea>
 </body>
 </html>
+```
