@@ -20,3 +20,10 @@ C:\Windows\System32\drivers\etc
 不能设置etc目录的权限，可以设置hosts 文件访问权限，右击-属性-安全
 
 然后就可以用switchhost管理了
+
+### windows10 企业版激活
+1. 以管理员身份运行cmd
+C:\Windows\System32\cmd.exe 
+右击管理员运行
+
+2. https://www.win10gw.com/win10wenzhang/1477.html
