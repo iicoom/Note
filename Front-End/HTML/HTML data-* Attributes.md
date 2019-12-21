@@ -43,7 +43,7 @@ data-* 属性允许我们在标准内于HTML元素中存储额外的信息，而
 
 ## Use the data-* attribute to embed custom data:
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
