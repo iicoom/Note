@@ -137,7 +137,7 @@ The first item, which specifies the file type, will probably be one of the follo
 
 * d — a directory
 
-* - (dash) — a regular file (rather than directory or link)
+* (- dash) — a regular file (rather than directory or link)
 
 * l — a symbolic link to another program or file elsewhere on the system
 
@@ -150,7 +150,7 @@ Beyond the first item, in each of the following three sets, you may see one of t
 
 * x — file can be executed (if it is a program)
 
-* - (dash) — specific permission has not been assigned
+* (- dash) — specific permission has not been assigned
 
 When you see a dash in owner, group, or others, it means that particular permission has not been granted. Look again at the first column of foo.txt and identify its permissions.
 
