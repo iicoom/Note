@@ -39,3 +39,5 @@ hexo
 pandora
 
 mysqldump
+
+@types express
