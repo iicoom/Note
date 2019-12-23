@@ -13,6 +13,14 @@ mysqldump -u <user_name> -h <server> -p -d <db_name> > schema.sql
 mysqldump -u <user_name> -h <server> -p --no-data <db_name> <table_name> > schema.sql
 ```
 
+### 导出备份并压缩
+```shell
+mysqldump -h主机名 -P端口 -u用户名 -p密码 --database 数据库名 | gzip > 文件名.sql.gz
+
+例如： 
+mysqldump -h 192.168.1.100 -p 3306 -uroot -ppassword --database cmdb | gzip > /data/backup/cmdb.sql.gz
+```
+
 ## npm mysqldump
 https://www.npmjs.com/package/mysqldump
 
