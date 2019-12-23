@@ -1,5 +1,5 @@
 https://www.html.cn/book/css/properties/positioning/z-index.htm
-
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,3 +42,5 @@ https://www.html.cn/book/css/properties/positioning/z-index.htm
 	<div class="masker"></div>
 </body>
 </html>
+```
+child 无法浮到最上层，它以父级为准
