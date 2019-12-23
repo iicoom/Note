@@ -1,5 +1,5 @@
 ## 传统form提交数据
-```
+```html
 <form class="form-inline" action="/rankList">
     <div class="form-group mx-sm-3 mb-2">
       <input type="text" class="form-control" name="serverId" placeholder="serverID">
@@ -17,7 +17,7 @@ https://mxj-s.doraemonkart.com:3000/rankList?serverId=1001&mapId=2230003&userId=
 
 ## 阻止表单默认提交
 input type="submit" 才可以利用HTML5的表单required 验证支持
-```
+```html
 <form name="commentForm" onsubmit="return false;">
     <input type="text" placeholder="名字" required name="username">
     <input type="email" placeholder="邮箱" required name="email">
@@ -71,7 +71,7 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
 ```
 
 ## onclick 返回一个confirm
-```
+```html
 <a href="/apply_notice" role="button" class="btn btn-success" data-toggle="modal"
  onclick="return confirm('Sending the announcement ,are you sure?');">
 发送
