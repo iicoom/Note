@@ -1,5 +1,6 @@
 Invocation Syntax
 There are in general three ways to use mysqldump—in order to dump a set of one or more tables, a set of one or more complete databases, or an entire MySQL server—as shown here:
+
 有3种方式用于导出一个库的一张或多张表，或者一个或多个完整的db，或者一个完整的mysql server全部数据库所有数据表。
 ```
 shell> mysqldump [options] db_name [tbl_name ...]
