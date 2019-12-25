@@ -41,6 +41,9 @@ mysqldump -h主机名 -P端口 -u用户名 -p密码 --database 数据库名 | gz
 mysqldump -h 192.168.1.100 -p 3306 -uroot -ppassword --database cmdb | gzip > /data/backup/cmdb.sql.gz
 ```
 
+### 定时备份&恢复备份
+https://www.linode.com/docs/databases/mysql/use-mysqldump-to-back-up-mysql-or-mariadb/
+
 ## npm mysqldump
 https://www.npmjs.com/package/mysqldump
 
