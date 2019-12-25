@@ -26,16 +26,11 @@ mysqldump -u root -p --databases DB_NAME >databasename.sql
 [doraemon@mxj-s ~]$ mysqldump -udkffart -p'w#ur&3eph' db_dk_user gm_cdkey_rule > /doraemon/server/gmtool/dump.sql
 ```
 
-
+加入一些只导出表结构不导出数据的参数
 ```
+--no-data
 - To export a MySQL database to a dump file without any data, you can use —no-data in mysqldump:
-mysqldump -u <user_name> -h <server> -p --no-data <db_name> > schema.sql
-
-- Or you can use -d to empty all the tables before dumping:
-mysqldump -u <user_name> -h <server> -p -d <db_name> > schema.sql
-
-- If you want to extract a specific table with schema only:
-mysqldump -u <user_name> -h <server> -p --no-data <db_name> <table_name> > schema.sql
+  mysqldump -u <user_name> -h <server> -p --no-data <db_name> > schema.sql
 ```
 
 ### 导出备份并压缩
