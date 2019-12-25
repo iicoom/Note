@@ -3,7 +3,7 @@ https://nodejs.org/dist/latest-v12.x/docs/api/child_process.html
 ## child_process.exec(): 
 spawns a shell and runs a command within that shell, passing the stdout and stderr to a callback function when complete.
 
-```
+```js
 const { exec } = require('child_process');
 
 router.get('/cdkey/rule/cd-key.sql', async (req, res, next) => {
