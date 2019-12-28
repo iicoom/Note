@@ -1,6 +1,5 @@
 ## 获取DOM元素自定义属性
 ```
-### 自定义标签属性
 如何获取Input标签自定义属性的值?
 HTML代码：
 <input type="hidden" value="${Name?if_exists}" id='ID' busCode = "${busCode?if_exists}" />
