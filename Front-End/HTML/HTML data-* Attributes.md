@@ -1,3 +1,25 @@
+## 获取DOM元素自定义属性
+```
+### 自定义标签属性
+如何获取Input标签自定义属性的值?
+HTML代码：
+<input type="hidden" value="${Name?if_exists}" id='ID' busCode = "${busCode?if_exists}" />
+
+JavaScript代码：
+
+因为busCode不是input标签原生的属性，所以不能使用"点"操作。
+
+非标准属性，要用：obj.getAttribute("busCode");的方式。
+
+错误的用法：var data = obj.busCode;
+
+var data = document.getElementById("ID").getAttribute('busCode');
+
+jQuery 可以使用$(e).attr('busCode')
+
+自定义属性是比较好用的，尤其是表单中用来存放数据信息。
+```
+
 ## HTML Global Attributes
 https://www.w3schools.com/tags/ref_standardattributes.asp
 
