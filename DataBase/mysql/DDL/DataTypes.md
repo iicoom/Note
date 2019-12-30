@@ -55,4 +55,5 @@ TIME(FROM_UNIXTIME(time_t))          //时间
 
 ### String Data Types
 CHAR and VARCHAR Types,BLOB and TEXT Types
+
 https://dev.mysql.com/doc/refman/8.0/en/string-types.html
