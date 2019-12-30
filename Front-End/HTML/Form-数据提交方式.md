@@ -74,12 +74,12 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
 	<th><input type="button" onclick="confirmHandler(this)" value="确认" /></th>
 </tr>
 <tr>
-	<td>January</td>
-	<td>$100</td>
-</tr>
-<tr>
-	<td>February</td>
-	<td>$80</td>
+	<form></form>
+	<th><input type="radio" name="godMode" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="godMode" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="button" onclick="confirmHandler(this)" value="确认" /></th>
 </tr>
 </table>
 <form name="myForm" action="/e:">
