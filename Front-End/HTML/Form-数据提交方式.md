@@ -56,7 +56,7 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
 ```
 
 ## table 和 form 的结合验证提交
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
