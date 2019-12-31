@@ -1,5 +1,5 @@
 ## Table of contents
-- [打开editor tab数量限制](### 打开editor tab数量限制)
+- [打开editor tab数量限制](###打开editor tab数量限制)
 - [文件模板](### 文件模板)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [License](#license)
