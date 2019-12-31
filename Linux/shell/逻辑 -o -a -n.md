@@ -22,7 +22,7 @@ cp -n
 
 最后一行完成了将$BASEDIR/gameConfig.bak.json 文件内容复制一份到$BASEDIR/gameConfig.json
 
-### -n
+### -n 字符串非空
 shell 中利用 -n 来判定字符串非空。
 
 ```shell
