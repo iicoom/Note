@@ -68,6 +68,7 @@ mysql -u root -p
 grant all privileges on *.* to dkart@"%" identified by "w#uZ!cuw83eph";
 flush privileges;
 ```
+all privileges 包括所有表操作的权限，唯独没有grant权限。 要授予GRANT权限，使用下面的语句。
 
 ### GRANT 语法规则
 ```
