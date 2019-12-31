@@ -30,6 +30,7 @@ esac
 ```
 
 ## 语法
+```
 case expression in
     pattern1)
         statement1
@@ -44,7 +45,7 @@ case expression in
     *)
         statementn
 esac
-
+```
 case、in 和 esac 都是 Shell 关键字，expression 表示表达式，pattern 表示匹配模式。
 
 
