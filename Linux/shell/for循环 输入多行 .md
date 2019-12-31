@@ -1,4 +1,5 @@
 ## item 自动粘贴多行
+```
 for  i in 28017 28018 28019 28020
     do 
       mkdir -p /mongodb/$i/conf  
@@ -7,7 +8,7 @@ for  i in 28017 28018 28019 28020
 done 
 
 粘贴
-```
+
 [mongod@f7881fcaf265 ~]$ for  i in 28017 28018 28019 28020
 >     do
 >       mkdir -p /mongodb/$i/conf
