@@ -1,6 +1,7 @@
 - [aaa](#aaa)
 - [bbb](#bbb)
 - [ccc](#ccc)
+- [打开editor tab数量限制](#打开editor tab数量限制)
 
 # aaa
 ![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
