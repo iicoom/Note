@@ -11,16 +11,16 @@ litan    pts/0    121.69.73.122    15:43    1.00s  0.14s  0.14s -bash
 ```
 
 ## who
+The who command prints information about all users who are currently logged in.
 ```
-➜  Tomcat who
-mxj      console  Aug  6 09:31
-mxj      ttys000  Aug  6 13:18
-mxj      ttys001  Aug  6 13:26
-mxj      ttys002  Aug  6 16:18
-mxj      ttys003  Aug  6 17:59
-mxj      ttys005  Aug  6 18:22
+[doraemon@mxj-s ~]$ who
+doraemon pts/0        2019-12-25 14:05 (192.168.40.137)
+doraemon pts/1        2019-12-25 14:07 (192.168.40.137)
+doraemon pts/2        2019-12-25 17:04 (192.168.40.137)
 ```
 
 ## whoami
-➜  Tomcat whoami
-mxj
+```
+[doraemon@mxj-s ~]$ whoami
+doraemon
+```
