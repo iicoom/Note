@@ -1,17 +1,3 @@
-- [aaa](#aaa)
-- [bbb](#bbb)
-- [ccc](#ccc)
-- [打开editortab数量限制](#打开editortab数量限制)
-
-# aaa
-![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
-
-# bbb
-![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
-
-# ccc
-![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
-
 ### 打开editor tab数量限制
 settings -> editor -> editor tabs -> tab limit 可以调节可现实的tab数量
 
