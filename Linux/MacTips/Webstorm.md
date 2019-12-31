@@ -1,4 +1,7 @@
-### webstorm
+### 打开editor tab数量限制
+settings -> editor -> editor tabs -> tab limit 可以调节可现实的tab数量
+
+### 文件模板
 
 * webstorm preference 搜索 Templates 设置各种文件的文件头 注释
 
