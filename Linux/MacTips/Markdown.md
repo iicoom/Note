@@ -1,6 +1,3 @@
-- [aaa](#aaa)
-- [bbb](#bbb)
-- [ccc](#ccc)
 - [editortab数量限制](#打开editortab数量限制)
 - [Heading](#heading)
   * [Sub-heading](#sub-heading)
@@ -11,7 +8,7 @@
 - [Heading](#heading-2)
   * [Sub-heading](#sub-heading-2)
     + [Sub-sub-heading](#sub-sub-heading-2)
-
+- [aaa](#aaa)
 
 # Heading levels
 
@@ -58,13 +55,3 @@ This is an h3 heading
 # aaa
 ![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
 
-# bbb
-![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
-
-# ccc
-![picture](http://dmimg.5054399.com/allimg/pkm/pk/22.jpg)
-
-# 打开editortab数量限制
-
-### Example 1 Heading
-Using '-' for blanks works for me.
