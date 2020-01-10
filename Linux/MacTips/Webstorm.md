@@ -33,6 +33,24 @@ ${PRODUCT_NAME} - 将被创建文件所在的IDE名称
 ${MONTH_NAME_SHORT} - 月份名称的前3个字母，例如: Jan, Feb, etc.
 ${MONTH_NAME_FULL} - 月份全称，例如: January, February, etc.
 
+### Eslint配置
+先全局安装
+npm i eslint -g
+
+然后
+file-setting-Other Setting-Eslint Setting 、
+
+1. 设置node执行目录
+2. Eslint 目录 C:\Users\Admin\AppData\Roaming\npm\eslint.cmd
+3. 项目配置文件.eslintrc.js
+
+### Code Style
+Editor-Code Styles
+
+1. 选择line-seprator格式 
+2. 选择js - 设置 tab and indent
+
+### Mac快捷键
 * <View></View>  标签补全 输入完<View 按住shift+> 即可补全
 * command + +/- 折叠展开代码块
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
@@ -57,24 +75,8 @@ ${MONTH_NAME_FULL} - 月份全称，例如: January, February, etc.
 * Command+shift+R 全局替换
 * Webstorm 右键文件 => Git => show history => 双击某次提交 查看对比
 
-### Eslint配置
-先全局安装
-npm i eslint -g
-
-然后
-file-setting-Other Setting-Eslint Setting 、
-
-1. 设置node执行目录
-2. Eslint 目录 C:\Users\Admin\AppData\Roaming\npm\eslint.cmd
-3. 项目配置文件.eslintrc.js
-
-### Code Style
-Editor-Code Styles
-
-1. 选择line-seprator格式 
-2. 选择js - 设置 tab and indent
-
-
+### Windows 快捷键
+* 格式化代码 Ctrl+Alt+L
 
 
 
