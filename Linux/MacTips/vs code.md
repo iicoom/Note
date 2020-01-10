@@ -6,7 +6,7 @@
 
 - 删除行ctrl+backspace, 默认ctrl+shift+k
 
-- 操作多行 shift+alt+不表左键滑动
+- 操作多行 shift+alt+鼠标左键滑动
 
 
 ### Mac
