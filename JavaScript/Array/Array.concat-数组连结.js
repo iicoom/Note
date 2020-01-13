@@ -43,3 +43,16 @@ console.log(moreVegs)
 // 若是 var moreVegs = ['potato', 'celery', 'beetroot'];
 console.log(vegetables);
 // 不会去重["parsnip", "potato", "potato", "celery", "beetroot"]
+
+
+//**************************************************
+//数组扩展符...
+//**************************************************
+var alpha = ['a', 'b', 'c'];
+var numeric = [1, 2, 3];
+var newArr = alpha.concat(numeric);
+//["a", "b", "c", 1, 2, 3]
+
+var num = [3, 4, 5]
+[...newArr, ...num]
+//["a", "b", "c", 1, 2, 3, 3, 4, 5]
