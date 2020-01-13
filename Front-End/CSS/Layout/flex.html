@@ -59,3 +59,10 @@ Note: this property has no effect when there is only one line of flex items.
 }
 -->
 
+下面的input和button在div内水平均匀分布
+<td class='col-md-2 text-center'>
+  <div style="display: flex; justify-content: space-evenly;">
+    <input type="text" class="form-control" style="width: 100px" value="<%= pve.statisticData[i].status[j] %>">
+    <button type="button" class="btn btn-primary">确认</button>
+  </div>
+</td>
