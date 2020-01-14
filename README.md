@@ -28,6 +28,8 @@ SMTP.
 * WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。它于2011年6月1日开源并在Google、Mozilla、Opera支持下被纳入万维网联盟的W3C推荐标准。
 https://webrtc.org/
 
+* 下沉市场：下沉市场是指的是三线以下城市、县镇与农村地区的市场，其基本特征在于范围广而散、服务成本更高。
+
 * ADSL （Asymmetric Digital Subscriber Line ，非对称 数字用户环路）是一种新的数据传输方式。它因为上行和下行带宽不对称，因此称为非对称数字用户线环路。它采用频分复用技术把普通的电话线分成了电话、上行和下行三个相对独立的信道，从而避免了相互之间的干扰。
 
 * STEM 是科学（Science），技术（Technology），工程（Engineering），数学（Mathematics）四门学科英文首字母的缩写
