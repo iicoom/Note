@@ -83,6 +83,9 @@ CTO(Chief technology officer)首席技术官 类似总工程师 https://zhidao.b
 * HDMI 是（High Definition Multimedia Interface）的缩写，意思是高清晰度多媒体接口，是一种数字化视频/音频接口技术，适合影像传输的专用型数字化接口，可同时传送音频和影像信号，最高数据传输速度为48Gbps（2.1版）
 
 * ORM 对象关系映射（英语：(Object Relational Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换 [1]  。从效果上说，它其实是创建了一个可在编程语言里使用的--“虚拟对象数据库”。
+  - What is the difference between an ORM and an ODM?
+  - MySQL is an example of a relational database - you would use an ORM to translate between your objects in code and the relational         representation of the data.
+  - MongoDB is an example of a document database - you would use an ODM to translate between your objects in code and the document       representation of the data
 
 * SOA 全英文是Service-Oriented Architecture，中文意思是中文面向服务编程，是一种思想，一种方法论，一种分布式的服务架构。
 [微服务架构 vs. SOA架构](https://blog.csdn.net/chszs/article/details/78515231)
