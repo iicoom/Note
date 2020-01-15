@@ -42,3 +42,23 @@ The number is 7
 The number is 8
 The number is 9
 */
+
+const list = [{id: 1, count: 0}, {id: 2, count: 1}, {id: 3, count: 0}, {id: 4, count: 1}]
+
+for (let i = 0; i < list.length; i ++) {
+	console.log(i)
+	if (list[i].count <= 0) {
+		list.splice(i, 1);
+		i --;
+		continue;
+	}
+	console.log(list[i])
+}
+
+// PS F:\Documents> node break.js
+// 0
+// 0
+// { id: 2, count: 1 }
+// 1
+// 1
+// { id: 4, count: 1 }
