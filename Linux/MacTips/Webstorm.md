@@ -78,5 +78,5 @@ Editor-Code Styles
 ### Windows 快捷键
 * 格式化代码 Ctrl+Alt+L
 
-* 快速关闭打开文件的选项卡 file-setting-Keymap 在搜索框右边的图标 中 搜索Ctrl+w 结果为 Extend Selection, 将此项快捷键删除
+* 快速关闭打开文件的选项卡 file-setting-Keymap 在搜索框右边的图标 中 搜索Ctrl+w 结果为 Extend Selection, 将此项快捷键删除。输入框搜索Close 修改为CTRL+w
 
