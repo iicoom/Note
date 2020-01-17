@@ -3,8 +3,8 @@
 * npm cache clean --force 即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
 * npm -v 查看版本
 * npm install package
-* npm install package --save
-* npm i package --save-dev
+* npm install package --save / npm insatll -s
+* npm i package --save-dev / npm install -d
 * npm uninstall package
 * npm install --global gulp-cli 全局安装
 * npm rm --global gulp 移除
