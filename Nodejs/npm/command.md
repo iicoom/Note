@@ -2,13 +2,19 @@
 * npm init 初始化一个package.json文件
 * npm cache clean --force 即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
 * npm -v 查看版本
-* npm install package
-* npm install package --save / npm insatll -s
-* npm i package --save-dev / npm install -d
-* npm uninstall package
-* npm install --global gulp-cli 全局安装
-* npm rm --global gulp 移除
-* npm outdated
+* 模块（包）相关操作
+  - 安装
+  - npm install package
+  - npm install package --save / npm insatll -s
+  - npm i package --save-dev / npm install -d
+  - 移除
+  - npm uninstall package
+  - npm install --global gulp-cli 全局安装
+  - npm rm --global gulp 移除
+  - 更新
+  - npm outdated
+  - npm i styled-components@latest \\更新到最新版
+  - npm i styled-components@2.2.1 \\更新到具体某个版本
 
 Dependencies - not installed error (npm WARN optional SKIPPING OPTIONAL DEPENDENCY:
 fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents)
