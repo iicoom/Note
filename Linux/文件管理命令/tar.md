@@ -1,17 +1,13 @@
 > Most Linux and open source software files are distributed in either .tgz or .tar.gz extensions format over the Internet. These files are gzipd tar balls and include multiple files and sub-directories into a single file using tar command. To save the bandwidth tar files are cpmpressed using gzip program.
 大多数的Linux开源软件都是以.tgz or .tar.gz扩展名文件进行传播。通过gzip压缩，节省带宽。
 
+### tar 解压.tgz
 Unpacking .tgz files command
 ```
 tar zxvf fileNameHere.tgz
 ```
--z : Uncompress the resulting archive with gzip command.
--x : Extract to disk from the archive.
--v : Produce verbose output i.e. show progress and file names while extracting files.
--f backup.tgz : Read the archive from the specified file called backup.tgz.
--C /tmp/data : Unpack/extract files in /tmp/data instead of the default current directory.
 
-### tar 解压  https://blog.csdn.net/x_iya/article/details/72889456
+### tar 解压.tar.gz
 tar zxvf nginx-1.6.2.tar.gz
 -c: 建立压缩档案
 -x：解压
@@ -46,17 +42,6 @@ a Users/mxj/test/picture3.tar: Can't add archive to itself
 a Users/mxj/test/timg.jpeg
 a Users/mxj/test/youmiao.jpg
 
-// 这样会把用户目录也打进去
-➜  ~ tar -cvPf ~/test/picture4.tar ~/test/
-a /Users/mxj/test
-a /Users/mxj/test/.DS_Store
-a /Users/mxj/test/3ef2b999-c880-405c-b384-19b53b2a44c7.jpeg
-a /Users/mxj/test/picture.tar
-a /Users/mxj/test/picture3.tar
-a /Users/mxj/test/picture4.tar: Can't add archive to itself
-a /Users/mxj/test/timg.jpeg
-a /Users/mxj/test/youmiao.jpg
-
 // 打包当前相对路径下的test目录及文件
 ➜  ~ tar -cvPf ~/test/picture4.tar ./test
 a ./test
@@ -76,15 +61,3 @@ a ./test/3ef2b999-c880-405c-b384-19b53b2a44c7.jpeg
 a ./test/timg.jpeg
 a ./test/youmiao.jpg
 ```
-
-https://www.interserver.net/tips/kb/use-tar-command-linux-examples/
-
-tar -xvzf bigfile.tar.gz
-
-x –  Extract files
-
-v – Verbose, print the file names as they are extracted one by one
-
-z – The file is a “gzipped” file
-
-f – Use the following tar archive for the operation
