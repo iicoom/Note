@@ -1,18 +1,15 @@
-## unzip
-1. 解压zip文件到当前目录
-unzip filename.zip
+> Most Linux and open source software files are distributed in either .tgz or .tar.gz extensions format over the Internet. These files are gzipd tar balls and include multiple files and sub-directories into a single file using tar command. To save the bandwidth tar files are cpmpressed using gzip program.
+大多数的Linux开源软件都是以.tgz or .tar.gz扩展名文件进行传播。通过gzip压缩，节省带宽。
 
-2. unzip -o -d /home/sunny myfile.zip
-把myfile.zip文件解压到 /home/sunny/
--o:不提示的情况下覆盖文件；（自选可有可无）
--d:-d /home/sunny 指明将文件解压缩到/home/sunny目录下；（自选可有可无，但是有些文件解压后直接放在当前文件夹下，所以建议-d 这个命令加上去，保险一些）
-
-3. zip
-zip -d myfile.zip smart.txt
-删除压缩文件中smart.txt文件
-zip -m myfile.zip ./rpm_info.txt
-向压缩文件中myfile.zip中添加rpm_info.txt文件
-
+Unpacking .tgz files command
+```
+tar zxvf fileNameHere.tgz
+```
+-z : Uncompress the resulting archive with gzip command.
+-x : Extract to disk from the archive.
+-v : Produce verbose output i.e. show progress and file names while extracting files.
+-f backup.tgz : Read the archive from the specified file called backup.tgz.
+-C /tmp/data : Unpack/extract files in /tmp/data instead of the default current directory.
 
 ### tar 解压  https://blog.csdn.net/x_iya/article/details/72889456
 tar zxvf nginx-1.6.2.tar.gz
