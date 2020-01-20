@@ -35,11 +35,28 @@ a ./test/3ef2b999-c880-405c-b384-19b53b2a44c7.jpeg
 a ./test/timg.jpeg
 a ./test/youmiao.jpg
 ```
-
-### tar 解压.tgz
-Unpacking .tgz files command
+### tar 压缩
 ```
-tar zxvf fileNameHere.tgz
+[doraemon@mxj-s ~]$ ls
+addTwo.sh  myproject 
+
+[doraemon@mxj-s ~]$ tar -cvzf backup-$(date +%F).tar.gz /home/doraemon/myproject
+tar: Removing leading `/' from member names
+/home/doraemon/myproject/
+/home/doraemon/myproject/1.txt
+/home/doraemon/myproject/2.sql
+
+把/home/doraemon/myproject目录和其中的文件打包到当前执行命令的目录
+
+[doraemon@mxj-s ~]$ ls
+addTwo.sh  myproject backup-2020-01-20.tar.gz  
+
+删除掉myproject 解压backup-2020-01-20.tar.gz：
+[doraemon@mxj-s ~]$ rm -rf myproject
+[doraemon@mxj-s ~]$ ls
+addTwo.sh  backup-2020-01-20.tar.gz
+发现之前压缩的文件解压到了 新创建的home目录中
+addTwo.sh  backup-2020-01-20.tar.gz home
 ```
 
 ### tar 解压.tar.gz
@@ -69,6 +86,12 @@ $ gunzip < file.tar.gz | tar xvf - $ gunzip < file.tgz | tar xvf -
 If you have GNU tar (Linux system) you can use the z option directly:
 $ tar xvzf file.tar.gz
 $ tar xvzf file.tgz
+```
+
+### tar 解压.tgz
+Unpacking .tgz files command
+```
+tar zxvf fileNameHere.tgz
 ```
 
 ## gzip 压缩
