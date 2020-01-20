@@ -37,8 +37,19 @@ mysqldump -u root -p --databases DB_NAME >databasename.sql
 ```shell
 mysqldump -h主机名 -P端口 -u用户名 -p密码 --database 数据库名 | gzip > 文件名.sql.gz
 
-例如： 
+远程导出备份例如： 
 mysqldump -h 192.168.1.100 -p 3306 -uroot -ppassword --database cmdb | gzip > /data/backup/cmdb.sql.gz
+
+本地导出：
+mysqldump -udkart -p'w#uZ!cuw8cr&3eph' --databases db_dk_user | gzip > myschema.sql.tgz
+自定义导出文件名：
+mysqldump -udkart -p'w#uZ!cuw8cr&3eph' --databases db_dk_user | gzip > backup-$(date +%F).sql.tgz
+[doraemon@mxj-s ~]$ ls
+addTwo.sh  backup-2020-01-19.sql.tgz
+不指定导出路径，在当前执行mysqldump 的目录存放导出文件
+mysqldump -udkart -p'w#uZ!cuw8cr&3eph' --databases db_dk_user | gzip > /home/backup-$(date +%F).sql.gz  
+还原时解压备份文件：
+[root@mxj-s db-bak]# gunzip < backup-2020-01-20.sql.gz | mysql -udkart -p'w#uZ!cuw8cr&3eph' db_dk_bk_user
 ```
 
 ### 定时备份&恢复备份
