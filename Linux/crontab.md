@@ -38,6 +38,12 @@ Jan 16 11:20:02 mxj-s.doraemonkart.com crond[2583]: (CRON) INFO (RANDOM_DELAY wi
 Jan 16 11:20:02 mxj-s.doraemonkart.com crond[2583]: (CRON) INFO (running with inotify support)
 ```
 
+## 使用-l参数列出crontab文件:
+```
+[root@mxj-s example_user]# crontab -l
+no crontab for root
+```
+
 每月1、10、22日的4 : 45重启smb 
 ```
 45 4 1,10,22 * * /etc/init.d/smb restart
