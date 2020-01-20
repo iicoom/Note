@@ -6,7 +6,6 @@
 tar -cf all.tar *.jpg
 这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。
 
-
 ➜  ~ tar -cvf ~/test/picture3.tar ~/test/
 tar: Removing leading '/' from member names
 a Users/mxj/test
@@ -51,7 +50,6 @@ tar zxvf nginx-1.6.2.tar.gz
 -t：查看内容
 -r：向压缩归档文件末尾追加文件
 -u：更新原压缩包中的文件
-```
 
 以上这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个
 -z：有gzip属性的
@@ -63,6 +61,15 @@ tar zxvf nginx-1.6.2.tar.gz
 下面的参数-f是必须的
 
 -f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。
+
+Files with extension tar.gz or .tgz are tar files compressed with gzip. On Unix system extract them with following command:
+
+$ gunzip < file.tar.gz | tar xvf - $ gunzip < file.tgz | tar xvf -
+
+If you have GNU tar (Linux system) you can use the z option directly:
+$ tar xvzf file.tar.gz
+$ tar xvzf file.tgz
+```
 
 ## gzip 压缩
 gzip是在Linux系统中经常使用的一个对文件进行压缩和解压缩的命令，既方便又好用。gzip不仅可以用来压缩大的、较少使用的文件以节省磁盘空间，还可以和tar命令一起构成Linux操作系统中比较流行的压缩文件格式。据统计，gzip命令对文本文件有60%～70%的压缩率。减少文件大小有两个明显的好处，一是可以减少存储空间，二是通过网络传输文件时，可以减少传输的时间。
