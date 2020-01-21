@@ -46,32 +46,3 @@ const mobile = '18231088765';
 // key是ctoken ，field是captcha，value是code
 
 
-const times = client.multi().incr(ctoken).execAsync();
-
-// (async () => {
-// 	const value = await client.multi().hmget(ctoken, ['mobile', 'captcha']).execAsync();
-// 	console.log(value);
-// })();
-
-(async () => {
-	const value = await client.multi().get(ctoken).execAsync();
-	console.log(value);
-})();
-
-// =>
-// [ [ '18231088765', '123456' ] ]
-
-/*
-
-*/
-
-
-
-
-
-
-
-
-
-
-
