@@ -41,3 +41,33 @@
 </p>
 <%- include('footer'); -%>
 ```
+
+## 模板内插入函数
+```html
+<form class="form-horizontal" name="parkingLotForm" id="parkingLotForm" action="/player/edit/parkingLot" method="post">
+    <input type="hidden" class="form-control" id="id" name="uid" value="<%= id %>">
+    <input type="hidden" class="form-control" id="sid" name="sid" value="<%= sid %>">
+    <%
+        function getRow(obj) {
+            if(!obj || typeof obj !== 'object'){
+                return 1;
+            }
+            let str = JSON.stringify(obj);
+            return Math.ceil(str.length / 100);
+        }
+    %>
+    <% if(ParkingLot){ %>
+        <table class="table row table-hover table-condensed">
+            <tbody>  
+            <tr>
+                <th><%= localizationData.hostParkVehicles %></th>
+                <td>
+                    <label for="hostParkVehicles"></label>
+                    <textarea class="form-control" id="hostParkVehicles" name="hostParkVehicles" cols="30" rows="<%= getRow(ParkingLot.hostParkVehicles)%>"><%= JSON.stringify(ParkingLot.hostParkVehicles) %></textarea>
+                </td>
+            </tr>
+        </table>
+    <% } %>
+</form>
+```
+getRow 只能在渲染时使用，一旦页面渲染完成，则不能调用。

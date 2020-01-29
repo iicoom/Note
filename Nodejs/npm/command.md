@@ -2,13 +2,19 @@
 * npm init 初始化一个package.json文件
 * npm cache clean --force 即可解决pm install出现”Unexpected end of JSON input while parsing near”错误。
 * npm -v 查看版本
-* npm install package
-* npm install package --save
-* npm i package --save-dev
-* npm uninstall package
-* npm install --global gulp-cli 全局安装
-* npm rm --global gulp 移除
-* npm outdated
+* 模块（包）相关操作
+  - 安装
+  - npm install package
+  - npm install package --save / npm insatll -s
+  - npm i package --save-dev / npm install -d
+  - 移除
+  - npm uninstall package
+  - npm install --global gulp-cli 全局安装
+  - npm rm --global gulp 移除
+  - 更新
+  - npm outdated
+  - npm i styled-components@latest \\更新到最新版
+  - npm i styled-components@2.2.1 \\更新到具体某个版本
 
 Dependencies - not installed error (npm WARN optional SKIPPING OPTIONAL DEPENDENCY:
 fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents)
@@ -16,6 +22,7 @@ fsevents@^1.0.0 (node_modules\chokidar\node_modules\fsevents)
 Use --no-optional on all environments excepts OSX effectively disabling the cause of the warning.
 npm install --no-optional
 
+```
 ➜  Server git:(master) npm outdated
 Package               Current  Wanted  Latest  Location
 babel-eslint            8.2.1   8.2.2   8.2.2  Server
@@ -43,7 +50,7 @@ nodemon               1.14.12  1.17.2  1.17.2  Server
 request                2.83.0  2.85.0  2.85.0  Server
 uuid                    3.1.0   3.2.1   3.2.1  Server
 xss                     0.3.3   0.3.7   0.3.7  Server
-
+```
 
 
 ### 安装原理
@@ -60,13 +67,6 @@ npm install <packageName> --force
 ```
 npm i koa-generic-session@2.0.1 --save
 ```
-
-### 更新
-如果想更新已安装模块，就要用到npm update命令。
-```
-npm update <packageName>
-```
-它会先到远程仓库查询最新版本，然后查询本地版本。如果本地版本不存在，或者远程版本较新，就会安装
 
 ### 发布模块
 [Cnode](https://cnodejs.org/topic/5364dcde31a870830700b847)

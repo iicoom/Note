@@ -55,6 +55,72 @@ input type="submit" 才可以利用HTML5的表单required 验证支持
 </script>
 ```
 
+## table 和 form 的结合验证提交
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/1.8.0/jquery-1.8.0.js"></script>
+<body>
+<table  border="2" align="center">
+<tr>
+	<form></form>
+	<th><input type="radio" name="godMode" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="godMode" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="button" onclick="confirmHandler(this)" value="确认" /></th>
+</tr>
+<tr>
+	<form></form>
+	<th><input type="radio" name="godMode" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="godMode" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="1" onclick="changeHandler(this)" />关</th>
+	<th><input type="radio" name="iosFunctionSwitch" value="0" onclick="changeHandler(this)" />开</th>
+	<th><input type="button" onclick="confirmHandler(this)" value="确认" /></th>
+</tr>
+</table>
+<form name="myForm" action="/e:">
+	<input type="text" name="name">
+	<input type="text" name="age">
+	<input type="submit" value="submitBtn">
+	<input type="button" value="Click Me" onclick="formHandler()">
+</form>
+<script type="text/javascript">
+	function changeHandler(e) {
+		console.log("e.name", e.name)
+		console.log($(e).attr("name"))
+		console.log($(e).parent().siblings("form").attr($(e).attr("name"), $(e).val()))
+	}
+
+	function confirmHandler(e) {
+		console.log(validate(e))
+	}
+
+	function formHandler() {
+		console.log(myForm)  				// 打印出的就是DOM中的form元素
+		console.log(myForm.name)			// 打印出input元素
+		console.log(myForm.name.value)		// 拿到input的输入值，不填为空""
+		console.log(myForm.name.value === "")  // true
+	}
+
+	function validate(ele) {
+		const godMode = $(ele).parent().siblings("form").attr("godMode")
+		const iosFunctionSwitch = $(ele).parent().siblings("form").attr("iosFunctionSwitch")
+		if(!godMode) {
+			alert("godMode 不能为空")
+		} else if(!iosFunctionSwitch) {
+			alert("iosFunctionSwitch 不能为空")
+		}
+		return {godMode, iosFunctionSwitch}
+	}
+</script> 
+</body>
+</html>
+```
+
 ## input 禁止复制
 ```html
 <!DOCTYPE html>

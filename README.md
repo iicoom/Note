@@ -1,9 +1,6 @@
 > 不积跬步无以至千里.
 
 ### Words
-* PVP，指玩家对战玩家（Player versus player），即玩家互相利用游戏资源攻击而形成的互动竞技。
-与其相对的是PVE（玩家对战环境，Player VS Environment）。
-
 * SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on application layer protocols, most often Hypertext Transfer Protocol (HTTP), although some legacy systems communicate over Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.
 简单对象访问协议,计算机网络中用于交换结构化信息的通信协议。 使用XML的消息格式，依赖于应用层协议，最常见的是http，有时候也会依赖
 SMTP.
@@ -30,6 +27,8 @@ SMTP.
 
 * WebRTC，名称源自网页即时通信（英语：Web Real-Time Communication）的缩写，是一个支持网页浏览器进行实时语音对话或视频对话的API。它于2011年6月1日开源并在Google、Mozilla、Opera支持下被纳入万维网联盟的W3C推荐标准。
 https://webrtc.org/
+
+* 下沉市场：下沉市场是指的是三线以下城市、县镇与农村地区的市场，其基本特征在于范围广而散、服务成本更高。
 
 * ADSL （Asymmetric Digital Subscriber Line ，非对称 数字用户环路）是一种新的数据传输方式。它因为上行和下行带宽不对称，因此称为非对称数字用户线环路。它采用频分复用技术把普通的电话线分成了电话、上行和下行三个相对独立的信道，从而避免了相互之间的干扰。
 
@@ -84,6 +83,9 @@ CTO(Chief technology officer)首席技术官 类似总工程师 https://zhidao.b
 * HDMI 是（High Definition Multimedia Interface）的缩写，意思是高清晰度多媒体接口，是一种数字化视频/音频接口技术，适合影像传输的专用型数字化接口，可同时传送音频和影像信号，最高数据传输速度为48Gbps（2.1版）
 
 * ORM 对象关系映射（英语：(Object Relational Mapping，简称ORM，或O/RM，或O/R mapping），是一种程序技术，用于实现面向对象编程语言里不同类型系统的数据之间的转换 [1]  。从效果上说，它其实是创建了一个可在编程语言里使用的--“虚拟对象数据库”。
+  - What is the difference between an ORM and an ODM?
+  - MySQL is an example of a relational database - you would use an ORM to translate between your objects in code and the relational         representation of the data.
+  - MongoDB is an example of a document database - you would use an ODM to translate between your objects in code and the document       representation of the data
 
 * SOA 全英文是Service-Oriented Architecture，中文意思是中文面向服务编程，是一种思想，一种方法论，一种分布式的服务架构。
 [微服务架构 vs. SOA架构](https://blog.csdn.net/chszs/article/details/78515231)

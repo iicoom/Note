@@ -4,6 +4,7 @@
 MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。
 http://www.runoob.com/mysql/mysql-data-types.html
 
+```sql
 CREATE TABLE `model` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` smallint(2) DEFAULT NULL COMMENT '类型 1:qq 2:ww 3:ee 4:rr 5:tt',
@@ -17,6 +18,7 @@ CREATE TABLE `model` (
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
 
 ### 日期类型
 * date:你直接就可以理解为2017-3-21 不带时分秒的
@@ -51,3 +53,7 @@ FROM_UNIXTIME(time_t)                //将unix的时间戳转换成mysql
 DATE(FROM_UNIXTIME(time_t))          //日期
 TIME(FROM_UNIXTIME(time_t))          //时间
 
+### String Data Types
+CHAR and VARCHAR Types,BLOB and TEXT Types
+
+https://dev.mysql.com/doc/refman/8.0/en/string-types.html

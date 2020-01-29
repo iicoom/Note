@@ -46,3 +46,28 @@ $("p").css("background-color","yellow");
 
 $("p").css("display","none");
 ```
+
+## jQuery ajax()
+```js
+function oneKeyPve(e) {
+    const playerInfo = JSON.parse($("#userInfo").attr("data-user"));
+    const type = $(e).attr("data-debugType");
+    $.ajax({
+      url: `/player/debug`,
+      method: 'POST',
+      data: {
+        uid: playerInfo.id,
+        sid: playerInfo.server_id,
+        debugType: type,
+      },
+      success: (data, status, xhr) => {
+        // console.log('+++++++++++++++data', data)
+        layer.msg(data);
+      },
+      error: (xhr , status, error) => {
+        console.log(xhr, status, error)
+      }
+    });
+  }
+```
+[更多参数参考](https://www.w3schools.com/jquery/ajax_ajax.asp)

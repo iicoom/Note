@@ -1,12 +1,14 @@
 ## 语法
+```sql
 DELETE FROM table_name;
 
 或
 
 DELETE * FROM table_name;
-
+```
 
 ## 具体操作
+```
 mysql> select * from student;
 +----+---------+--------+---------+----------+-------+---------------------+---------------------+
 | id | number  | name   | les_num | les_name | score | create_at           | update_at           |
@@ -75,14 +77,15 @@ mysql> select id, name from student where id not in (select min(id) from student
 +----+--------+
 2 rows in set (0.00 sec)
 
-```
+
 mysql> delete from student where id not in (select min(id) from student group by number, name, les_num, les_name, score);
 这种写法是不可以的
 
 mysql> delete from student where id not in (1, 2, 3);
 Query OK, 1 row affected (0.01 sec)
 这样可以
-```
+
 删除一条：
 mysql> delete from student where id = 4;
 Query OK, 1 row affected (0.01 sec)
+```
