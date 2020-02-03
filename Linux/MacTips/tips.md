@@ -1,14 +1,3 @@
-## 查看本机ip
-[zhihu](https://zhuanlan.zhihu.com/MacTips/20202310)
-
-## shortcuts
-[cheatsheet](https://www.cnblogs.com/abeen/p/4104158.html)
-
-## 小米手机共享移动网络
-* 热点 - 不好用
-* Bluetooth - 在设置的More下面
-* USB
-
 ### Mac系统
 * 隐藏、显示Dock  option+Command+d
 * MAC 电脑互传文件 Finder-AirDrop(隔空传送) shift+command+r
@@ -110,124 +99,11 @@ sudo spctl --master-disable
 
 * Safari 控制台 需要在偏好设置里显示 开发
 
-### Sublime
-* 多行光标拖动 alt+鼠标
-* 多行光标定位 行首 => 行尾 Command+arrow
-* 多行光标定位 单词首 => 单词尾 alt+arrowRight
-* 多行光标定位 行首 => 行位 并选中 Command+shift+arrow
-* 多行光标定位 单词首 => 单词尾 并选中 Command+shift+alt+arrow
-* 全局搜索替换 Find => Find in Files => Add folder(搜索替换范围)
-* 全局保存 File => Save all(alt+command+S)
-* 代码折叠 Edit => Code Folding => level 3 折叠只剩函数名
-
-* Package Contril https://packagecontrol.io/  需要先安装
-```
-* Sublime Text console: control+`
-
-* Sublime Text - prference - Package control
-```
-* 安装了 TypeScript 之后可以对 js 语法做自动检测
-
-* Package Control 用法  command+shift+p
-
-1. Open Package Control: Preferences -> Package Control
-2. Select Package Control: Install Package
-3. Type DocBlockr into the search box and select the package to install it
-
-* Package Control 无法安装插件解决方法，
-在Sublime Text - prference - Package Setting - Package control - Setting-user 中更改源
-```
-"channels":
-[
-    "http://static.bolin.site/channel_v3.json",
-],
-```
-覆盖default
 
 
-### intelliJ IDEA
-* 定位到方法+ alt+command+b: 查看引用 
-* 生成构造方法 control + enter 弹出选择框 同样可以快速生成Getter Setter方法
-* 生成interface中的override control + enter 选择对应的方法
-
-* Linux  生成构造方法 alt + insert  
-* 在某个目录下创建新文件： 光标定位到该目录 Command+N
-* product_not_exist => PRODUCT_NOT_EXIST : Command+shift+U
-
-* Intellij IDEA 提示Cannot resolve symbol 'log' 的解决方法
-https://blog.csdn.net/gao_shuang/article/details/79494002
-Lombok Plugin 的作用 http://plugins.jetbrains.com/plugin/6317-lombok-plugin
-
-linux setting plugin
-
-* Inferred type 'S' 解决办法
-报错 Inferred type 'S' for type parameter 'S' is not within its bound; 解决办法
-Inferred type 'S' for type parameter 'S' is not within its bound;
-
-should extends xxxxxx
-出现这种问题的原因是，springboot 版本问题，将 2。1 版本换成 1。5。4 版本。
-或者是将代码改写一下
-return girlRepository.findOne(id);
-=> 改为
-return girlRepository.findById(id).orElse(null);
-
-* 断点调试
-	在需要出打断点，使用debug方式运行方法，程序停在断点处会显示出所有变量的值
-
-* 设置作者注释：preference - editor - file and template - includes - fileHeader 添加如下内容：
-```
-/** 
- * Created by ${USER} on ${DATE} ${TIME}
- */ 
-``` 
-
-* 关闭打开侧边栏：Command + 1
-
-* Java Interface 上 option+command+鼠标点击 查看接口的实现类 或者 option+Command+B
-
-### PyCharm
-* shift + enter 下一行
-* ctrl + shift + arrow 移动行
-* alt + 鼠标  点选拖拽多行
-* shift + delete 删除行
-* ctrl + D 复制此行到下一行
-* shift + 3次 ”“” 可以生产多行注释
-
-### iTerm2 Mac terminal 替代方案
-* Ctrl+a: 光标移动到行首
-* Ctrl+e: 光标移动到行末
-* Ctrl+k: 删除光标之后整行
-
-* Command + w: 关闭当前标签
-* Command + T: 打开新的标签
-* 右键Tab Duplicate 可以完全复制一个窗口 包括路径
-
-* Tab 查看候选命令
-* Command+/ 绚丽的定位光标位置
-
-* 输入自动补全提示 方向右键
-
-* 默认zsh 启动iTerm 2 默认使用dash改用zsh解决方法：chsh -s /bin/zsh 
-[iTerm 2 && Oh My Zsh教程](https://www.jianshu.com/p/7de00c73a2bb)
-
-### CentOS 安装Zsh
-yum install zsh
-然后执行 zsh 官网首页的命令
-
-### Ubuntu
-* clear: qingping
-* Windows Tab 切换当前进行的窗口
-* ctrl + q  退出程序
-
-### Sketch
-* 拖动整个画布 space+鼠标拖动
 
 
-粘贴 ctrl+v =ctrl + paste ,使用字母“V”是因为在
-1、最初开发是程序员以“copy”为中心便捷实用为目的延伸出的快捷方式.
-2、恰巧该字母“v”有一个约同于粘连的因为单词“Viscidity”（粘性的）.
-3、象形的以漏斗形态比喻对准目标释放.正如剪切中“ctrl+x”中“x”象征剪刀一样.
-4、代表“paste”的 P 键被占用（打印 crtl+paint）
+
 
 
 
