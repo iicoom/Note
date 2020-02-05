@@ -1,4 +1,5 @@
 ## 查看远程分支
+```
 git branch -r
 
 origin/HEAD -> origin/master
@@ -8,6 +9,7 @@ origin/HEAD -> origin/master
   origin/hotfix/#26
   origin/hotfix/#27
   origin/hotfix/2.1.1
+```
 
 ### 拉去远程分支
 ```
@@ -26,6 +28,29 @@ Switched to a new branch 'feature/deleteContract'
 
 [sudo] password for xiaomao: 
 error: You have local changes to 'routes/api/order.js'; cannot switch branches.
+
+使用短id
+Admin@MXJ-PC MINGW64 /e/Joy/server-s (experiment01)
+$ git checkout e47a145
+Note: switching to 'e47a145'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at e47a14551 KART-3698：新增任务类型
+
 ```
 
 ## Checkout an Existing Branch
