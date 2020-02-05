@@ -24,12 +24,13 @@ Switched to a new branch 'feature/deleteContract'
 
 ## Checkout a specific commit
 ```
+**使用长id**
 [xiaomao@iZ258wvzn92Z cloud_bin]$ sudo git checkout d848ed5e43577cb62622329c48ea3a5a15f25834
 
 [sudo] password for xiaomao: 
 error: You have local changes to 'routes/api/order.js'; cannot switch branches.
 
-使用短id
+**使用短id**
 Admin@MXJ-PC MINGW64 /e/Joy/server-s (experiment01)
 $ git checkout e47a145
 Note: switching to 'e47a145'.
