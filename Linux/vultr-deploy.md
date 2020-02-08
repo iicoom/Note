@@ -1,3 +1,9 @@
+## 新建实例后
+- 修改域名解析
+- 启动 systemctl start nginx
+- 启动 service redis start
+- 启动 pm2 start ecosystem.config.js
+
 ## vultr 全球节点速度比较
 
 - New Jersey 美国新泽西州
