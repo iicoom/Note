@@ -5,6 +5,10 @@
 简单对象访问协议,计算机网络中用于交换结构化信息的通信协议。 使用XML的消息格式，依赖于应用层协议，最常见的是http，有时候也会依赖
 SMTP.
 
+* AR：增强现实(Augmented Reality)技术是一种将虚拟信息与真实世界巧妙融合的技术，广泛运用了多媒体、三维建模、实时跟踪及注册、智能交互、传感等多种技术手段，将计算机生成的文字、图像、三维模型、音乐、视频等虚拟信息模拟仿真后，应用到真实世界中，两种信息互为补充，从而实现对真实世界的“增强”。
+
+* VR：虚拟现实技术(英文名称：Virtual Reality，缩写为VR)，又称灵境技术，是20世纪发展起来的一项全新的实用技术。虚拟现实技术囊括计算机、电子信息、仿真技术于一体，其基本实现方式是计算机模拟虚拟环境从而给人以环境沉浸感。随着社会生产力和科学技术的不断发展，各行各业对VR技术的需求日益旺盛。VR技术也取得了巨大进步，并逐步成为一个新的科学技术领域。
+
 * Verbose mode [Verbose mode](https://www.computerhope.com/jargon/v/verbose-mode.htm)
 
 * Credits  In general, the term credit in the artistic or intellectual sense refers to an acknowledgement of those who contributed to a work, whether through ideas or in a more direct sense.
