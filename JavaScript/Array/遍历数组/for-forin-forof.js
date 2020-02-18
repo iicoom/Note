@@ -1,11 +1,12 @@
+//for in 操作对象的，for of 、forEach操作数组
+
 /**
 for in
 */
 const obj = {
-	'a': '1',
-	'b': '2'
+   'a': '1',
+   'b': '2'
 }
-
 for ( const prop in obj) {
 	console.log("obj." + prop + " = " + obj[prop])
 }
@@ -15,18 +16,20 @@ for ( const prop in obj) {
 for of
 */
 const arr = [{'a':'1'},{'a':'2'}]
-for ( const index of arr) {
-	index.b = '3'
-	console.log(index)
+for (const item of arr) {
+	item.b = '3'
+	console.log(item)
 }
-/*
-=>
-obj.a = 1
-obj.b = 2
-{ a: '1', b: '3' }
-{ a: '2', b: '3' }
-*/
-//for in 操作对象的，for of 、forEach操作数组
+// { a: '1', b: '3' }
+// { a: '2', b: '3' }
+// 结合数组解构
+const arr3 = [['astr', 'bstr'], ['cstr', 'dstr']]
+for (let [a, b] of arr3) {
+    console.log(a, b)
+}
+// astr bstr
+// cstr dstr
+
 
 /**
 for
