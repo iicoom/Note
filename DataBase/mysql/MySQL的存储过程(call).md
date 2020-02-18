@@ -6,7 +6,7 @@ show procedure status where Db='db_dk_user';
 ```
 
 ## 创建一个带参数的存储过程
-
+https://www.runoob.com/w3cnote/mysql-stored-procedure.html
 
 ## 看怎么调用它
 ```js
