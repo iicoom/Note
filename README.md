@@ -1,6 +1,7 @@
 > 不积跬步无以至千里.
 
 ### Words
+
 * SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on application layer protocols, most often Hypertext Transfer Protocol (HTTP), although some legacy systems communicate over Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.
 简单对象访问协议,计算机网络中用于交换结构化信息的通信协议。 使用XML的消息格式，依赖于应用层协议，最常见的是http，有时候也会依赖
 SMTP.
@@ -33,6 +34,8 @@ SMTP.
 https://webrtc.org/
 
 * 下沉市场：下沉市场是指的是三线以下城市、县镇与农村地区的市场，其基本特征在于范围广而散、服务成本更高。
+
+* DAU(Daily Active User)日活跃用户数量。常用于反映网站、互联网应用或网络游戏的运营情况。DAU通常统计一日（统计日）之内，登录或使用了某个产品的用户数（去除重复登录的用户），这与流量统计工具里的访客（UV）概念相似。
 
 * ADSL （Asymmetric Digital Subscriber Line ，非对称 数字用户环路）是一种新的数据传输方式。它因为上行和下行带宽不对称，因此称为非对称数字用户线环路。它采用频分复用技术把普通的电话线分成了电话、上行和下行三个相对独立的信道，从而避免了相互之间的干扰。
 
