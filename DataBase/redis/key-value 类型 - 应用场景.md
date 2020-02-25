@@ -43,13 +43,13 @@ Redis为了平衡空间和时间效率，针对value的具体类型在底层会�
 消息队列： redis的lpush+brpop命令组合即可实现阻塞队列，生产者客户端是用lupsh从列表左侧插入元素，
          多个消费者客户端使用brpop命令阻塞时的“抢”列表尾部的元素，多个客户端保证了消费的负载均衡
          和高可用性
-```         
+      
 使用列表技巧： 
 lpush+lpop=Stack(栈) 
 lpush+rpop=Queue（队列） 
 lpush+ltrim=Capped Collection（有限集合） 
 lpush+brpop=Message Queue（消息队列）
-```js
+
 return this._client.lpush(queueName, sqlStringData);
 
 return this._client.brpop(queueName, timeout);
