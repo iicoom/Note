@@ -53,12 +53,12 @@ function createRedisKey(key, serverId, guid) {
       }
       str += ':' + arguments[i];
     }
-	} while (false);
+  } while (false);
 
-	// console.log(typeof arguments)  // object
-	for (let key in arguments) {
-		console.log(`arguments[${key}]`, arguments[key])
-	}
+  // console.log(typeof arguments)  // object
+  for (let key in arguments) {
+     console.log(`arguments[${key}]`, arguments[key])
+  }
 	
   return str;
 }
