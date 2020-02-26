@@ -1,5 +1,3 @@
-https://www.jianshu.com/p/c6927e80a01d
-
 ## Git Reset 三种模式
 git reset 命令可以将当前的HEAD重置到特定的状态。
 首先要搞清楚下面几个概念
