@@ -16,7 +16,7 @@
 
 然后在feature上提交，完成到develop上然后合并到master上就好了
 
-## 常用分支操作
+## 列出分支
 ```
 列出本地分支：
 
@@ -35,7 +35,8 @@ git branch -l
 git branch -r
 ```
 
-## git checkout -b 分支名
+## 检出分支
+git checkout -b 分支名
 ```
 新建分支:
 git checkout -b new
