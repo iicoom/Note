@@ -15,3 +15,52 @@
 在master上未提交前，可以checkout 新的feature，这样你做的新功能会迁移到新分支上，master回到了之前的状态
 
 然后在feature上提交，完成到develop上然后合并到master上就好了
+
+## 常用分支操作
+```
+列出本地分支：
+
+git branch
+
+查看全部分支：
+
+git branch -a
+
+查看本地分支：
+
+git branch -l
+
+查看远程分支：
+
+git branch -r
+```
+
+## git checkout -b 分支名
+```
+新建分支:
+git checkout -b new
+```
+
+## 删除分支
+1. 删除本地
+```
+git branch -D BranchName
+
+其中-D也可以是--delete，如：
+
+git branch --delete BranchName
+```
+2. 删除远程
+```
+删除本地的远程分支：
+
+git branch -r -D origin/BranchName
+
+远程删除git服务器上的分支：
+
+git push origin -d BranchName
+
+其中-d也可以是--delete，如：
+
+git push origin --delete BranchName
+```
