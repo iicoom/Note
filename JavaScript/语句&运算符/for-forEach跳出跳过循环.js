@@ -1,4 +1,4 @@
-// break 语句用于跳出循环。
+// break 语句用于跳出结束循环。
 for (let i = 0; i < 10; i ++) {
   if (i === 3)
     {
@@ -48,3 +48,24 @@ console.log(list)
 // 1
 // { id: 4, count: 1 }
 // [{ id: 2, count: 1 }, { id: 4, count: 1 }]
+
+
+// forEach 跳过某次迭代
+var arr = [1,2,3,4,5,6,7,8,9];
+var newArr = [];
+
+arr.forEach((item) => {
+   if (item < 5) {
+	return;
+   } else {
+	newArr.push(item);
+   }
+})
+
+console.log('newArr:', newArr)
+// newArr: [ 5, 6, 7, 8, 9 ]
+
+// forEach()无法在所有元素都传递给调用的函数之前终止遍历，
+
+
+
