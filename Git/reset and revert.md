@@ -47,6 +47,7 @@ git reset --hard commitid
 然后执行
 git push -f
 ```
+https://www.cnblogs.com/Super-scarlett/p/8183348.html
 
 ## git revert 【git】误提交回滚
 
