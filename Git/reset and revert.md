@@ -33,7 +33,20 @@ git reset --hard HEAD~3：将最近3次的提交回滚
 
 原理：先将本地分支退回到某个commit，删除远程分支，再重新push本地分支
 
+1. 在最新的一次提交执行
+```
+git revert
+此时本地会落后于远程提交，然后使用
+git push -f
+强行推送到远程, 可以恢复到错误提交之前的状态，但是会产生一次无用的 revert 提交
+```
+2. 在本地先执行 git reset, 重置到某次提交
+```
+git reset --hard commitid
 
+然后执行
+git push -f
+```
 
 ## git revert 【git】误提交回滚
 
