@@ -19,6 +19,8 @@ git reset [<mode>] [<commit>]
 
 3. 使用 --hard同时也会修改working tree，也就是当前的工作目录，如果我们执行git reset --hard HEAD~，那么最后一次提交的修改，包括本地文件的修改都会被清楚，彻底还原到上一次提交的状态且无法找回。所以在执行reset --hard之前一定要小心
 
+在sourceTree中操作，选定某次之前的提交，右击 重置当前分支到此次提交，选择 使用模式-对应上边三种
+
 ### 本地代码库回滚
 
 git reset --hard commit-id :回滚到commit-id，讲commit-id之后提交的commit都去除
@@ -43,6 +45,7 @@ git push -f
 2. 在本地先执行 git reset, 重置到某次提交
 ```
 git reset --hard commitid
+此时本地已经重置回之前的版本，出现落后于远程 几次 提交，此时远程的提交记录依然存在
 
 然后执行
 git push -f
