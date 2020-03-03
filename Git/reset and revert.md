@@ -47,9 +47,12 @@ git push -f
 git reset --hard commitid
 此时本地已经重置回之前的版本，出现落后于远程 几次 提交，此时远程的提交记录依然存在
 
-然后执行
+不需要拉去落后版本，然后执行
 git push -f
+执行完成，远程之前的错误提交不见了，这个不安全的操作仅限操作自己的分支
 ```
+3. 团队公有远程分支的回退
+
 https://www.cnblogs.com/Super-scarlett/p/8183348.html
 
 ## git revert 【git】误提交回滚
