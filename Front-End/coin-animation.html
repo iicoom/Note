@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container-sm mt-5">
+		<div class="progress mb-2">
+			<div id="bar" class="progress-bar bg-warning" role="progressbar" style="width: 80%" >0</div>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">获得金币</label>
+			<input type="email" class="form-control mb-1" id="exampleInputEmail1" aria-describedby="emailHelp" value="0">
+			<button type="submit" class="btn btn-primary btn-sm" onclick="coinChange()">Submit</button>
+		</div>
+	</div>
+	<script>
+		// 储量 10000
+
+		// 数字动画
+		function renderNum(coinNum, curNum) {
+			const bar = document.getElementById("bar")
+			if(parseInt(coinNum) > 0) {
+				for(let i = 0; i < 10; i ++) {
+					curNum += coinNum/10
+					bar.innerHTML = curNum
+				}
+			} else {
+				for(let i = 0; i < 10; i ++) {
+					curNum -= coinNum/10
+					bar.innerHTML = curNum
+				}
+			}
+		}
+		
+		// 渲染bar
+		function renderBar() {
+			
+		}
+
+		function coinChange() {
+			const coin = parseInt(document.getElementById("exampleInputEmail1").value)
+			const cur = parseInt(document.getElementById("bar").innerText)
+			renderNum(coin, cur)
+		}
+	</script>
+</body>
+</html>
