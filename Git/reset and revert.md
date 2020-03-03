@@ -52,14 +52,17 @@ git push -f
 执行完成，远程之前的错误提交不见了，这个不安全的操作仅限操作自己的分支
 ```
 3. 团队公有远程分支的回退
+程序员A 在共有分支上进行2次提交，B进行一次提交, 如下：
+A1-A2-B1
+现在A发现 A2提交有误，团队成员现在都拉去了最新的远程提交，A执行了从B1回退到A1的操作，不仅A2的错误提交内容不见了，B1的提交也不见了
+所以这顿操作很不安全，需要告知所有有关成员，做好自己分支的本分，需要在回到A1后，重新合并到共有分支。
 
-https://www.cnblogs.com/Super-scarlett/p/8183348.html
+[参考](https://www.cnblogs.com/Super-scarlett/p/8183348.html)
 
 ## git revert 【git】误提交回滚
-
 使用git revert也能起到回退版本的作用，不同之处在于
 - git revert <commit>会回退到<commit>之前的那次提交，比如git revert HEAD~3会回退到最近的第4个提交的状态，而不是第3个
 - git revert会产生一个新的commit，将这次回退作为一次修改记录提交，这样的好处是不修改历史提交记录。
 
-https://blog.csdn.net/bingleihenshang/article/details/80619004
+[参考](https://blog.csdn.net/bingleihenshang/article/details/80619004)
 
