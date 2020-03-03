@@ -9,7 +9,7 @@
 <body>
 	<div class="container-sm mt-5">
 		<div class="progress mb-2">
-			<div id="bar" class="progress-bar bg-warning" role="progressbar" style="width: 80%" >0</div>
+			<div id="bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%" >0</div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail1">获得金币</label>
@@ -20,20 +20,16 @@
 	<script>
 		// 储量 10000
 
-		// 数字动画
-		function renderNum(coinNum, curNum) {
-			const bar = document.getElementById("bar")
-			if(parseInt(coinNum) > 0) {
-				for(let i = 0; i < 10; i ++) {
-					curNum += coinNum/10
-					bar.innerHTML = curNum
-				}
-			} else {
-				for(let i = 0; i < 10; i ++) {
-					curNum -= coinNum/10
-					bar.innerHTML = curNum
-				}
-			}
+		function numRock(target, n) {
+			let mun = 0;
+			const timer = setInterval(() => {
+				target.innerHTML = `<b>${Math.floor(Math.random()*10)}</b>`
+				target.style.width = `${mun += 1}%`
+			}, 80)
+				
+			setTimeout(() => {
+				clearInterval(timer)
+			}, 1500)
 		}
 		
 		// 渲染bar
@@ -42,9 +38,9 @@
 		}
 
 		function coinChange() {
-			const coin = parseInt(document.getElementById("exampleInputEmail1").value)
-			const cur = parseInt(document.getElementById("bar").innerText)
-			renderNum(coin, cur)
+			// const coin = parseInt(document.getElementById("exampleInputEmail1").value)
+			// const cur = parseInt(document.getElementById("bar").innerText)
+			numRock(document.getElementById("bar"), 2)
 		}
 	</script>
 </body>
