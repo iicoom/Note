@@ -15,3 +15,18 @@ console.log(path.resolve('db.js'))
 console.log("path.resolve(__dirname, '..'):",path.resolve(__dirname, '..'))
 console.log("path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'):",
 path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif'))
+
+/**
+自动加载路由文件
+**/
+const path = require('path')
+const fs = require('fs')
+
+let dir = path.resolve(__dirname, './routes/')
+console.log(dir)
+console.log(fs.readdirSync(dir))
+// E:\Joy\express\routes
+// [ 'index.js', 'mysqlDump.js', 'users.js' ]
+
+
+
