@@ -1,3 +1,4 @@
+## 通用
 ### 打开editor tab数量限制
 settings -> editor -> editor tabs -> tab limit 可以调节可现实的tab数量
 
@@ -53,7 +54,7 @@ Editor-Code Styles
 1. 选择line-seprator格式 
 2. 选择js - 设置 tab and indent
 
-### Mac快捷键
+## Mac快捷键
 * <View></View>  标签补全 输入完<View 按住shift+> 即可补全
 * command + +/- 折叠展开代码块
 * command + shift + +/- 折叠展开所有可以操作的代码块  可以针对选中的代码进行操作
@@ -78,7 +79,7 @@ Editor-Code Styles
 * Command+shift+R 全局替换
 * Webstorm 右键文件 => Git => show history => 双击某次提交 查看对比
 
-### Windows 快捷键
+## Windows 快捷键
 * 格式化代码 Ctrl+Alt+L
 
 * 快速关闭打开文件的选项卡 file-setting-Keymap 在搜索框右边的图标 中 搜索Ctrl+w 结果为 Extend Selection, 将此项快捷键删除。输入框搜索Close 修改为CTRL+w
