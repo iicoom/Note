@@ -15,10 +15,8 @@ let payInfo = {
     };
 
 
-console.log("payInfo:\n", payInfo)
 console.log("typeof payInfo:", typeof(payInfo)) // object
 console.log("util.inspect(payInfo):\n", util.inspect(payInfo))
-console.log("typeof util.inspect(payInfo):", typeof(util.inspect(payInfo))) // string
 
 // util.inspect(object[, options])
 console.log("util.inspect(payInfo):\n", util.inspect(payInfo, {colors: true}))

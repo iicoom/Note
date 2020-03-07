@@ -2,22 +2,6 @@ util 模块主要用于支持 Node.js 内部 API 的需求。 大部分实用工
 
 const util = require('util');
 
-
-## 
-```
-const util = require('util');
-
-async function fn() {
-  return 'hello world';
-}
-const callbackFunction = util.callbackify(fn);
-
-callbackFunction((err, ret) => {
-  if (err) throw err;
-  console.log(ret);
-});
-```
-
 ## util.inherits(constructor, superConstructor)
 注意，不建议使用 util.inherits()。 请使用 ES6 的 class 和 extends 关键词获得语言层面的继承支持。 注意，这两种方式是语义上不兼容的。
 
