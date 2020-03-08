@@ -8,6 +8,9 @@ root@127.0.0.1
 root@localhost
 ```
 dkart有在任何ip连接到数据库的权限，root用户只有在本地的连接权限
+但是 dkart@%  和 dkart@localhost 两个角色同时存在，从远程ip连接时会出现下面的错误：
+ERROR 1045 (28000): Access denied for user 'dkart'@'localhost' (using password: YES)
+是因为dkart@%  和  dkart@localhost 冲突，选取了dkart@localhost 只能从本地连接作为验证，把dkart@localhost删除 就可以从远程连接
 
 command line 查看
 ```
