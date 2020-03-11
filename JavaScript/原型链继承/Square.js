@@ -35,6 +35,6 @@ class Square extends Polygon {
 let s = new Square(5);
 
 s.sayName();  // 继承自基类的sayName方法this.name已经由Polygon => Square
-console.log('The area of this square is ' + s.area);
 // Hi, I am a  Square.
+console.log('The area of this square is ' + s.area);
 // The area of this square is 25

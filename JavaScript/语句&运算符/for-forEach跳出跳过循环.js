@@ -68,4 +68,66 @@ console.log('newArr:', newArr)
 // forEach()无法在所有元素都传递给调用的函数之前终止遍历，
 
 
+/**
+ * for 语句 内执行 与 for 外执行的关系
+ */
+const arr = [{i: 1, n: 0, r: 1}, {i: 2, n: 0, r: 0}, {i: 3, n: 0, r: 0}, {i:4, n: 0, r: 0}]
+
+for(let j = 0; j < arr.length; j ++) {
+	if(arr[j].r > 0) {
+		continue
+	}
+	if(arr[j].i === 3) {
+		arr[j].r = 1
+		break
+	}
+	console.log("current j:", j)
+}
+console.log("final arr:", arr)
+
+// 没有break
+/*
+current j: 1
+current j: 2
+current j: 3
+final arr: [
+  { i: 1, n: 0, r: 1 },
+  { i: 2, n: 0, r: 0 },
+  { i: 3, n: 0, r: 1 },
+  { i: 4, n: 0, r: 0 }
+]
+*/
+
+// 有break
+/*
+current j: 1
+final arr: [
+  { i: 1, n: 0, r: 1 },
+  { i: 2, n: 0, r: 0 },
+  { i: 3, n: 0, r: 1 },
+  { i: 4, n: 0, r: 0 }
+]
+*/
+
+
+/**
+ * for 语句 与函数 return 的关系
+ */
+const arr = [1, -1, 2, 3, 4]
+function getResult() {
+  for(let j = 0; j < arr.length; j ++) {
+    if(arr[j] < 0) {
+      continue
+    }
+    if(arr[j] === 3) {
+      return arr[j]
+      // break 这里的break是执行不到的
+    }
+    console.log("current j:", j)
+  }
+}
+
+// current j: 0
+// current j: 2
+// 3
 

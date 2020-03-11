@@ -31,8 +31,8 @@ class Polygon {
 // 实例化
 // let p = new Polygon(300, 400);
 // p.sayName();
-// console.log('The width of this polygon is ' + p.width);
 // Hi, I am a  Polygon.
+// console.log('The width of this polygon is ' + p.width);
 // The width of this polygon is 400
 
 // export default Polygon;
