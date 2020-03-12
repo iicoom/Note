@@ -1,3 +1,11 @@
+> JavaScript 是一种弱类型或者说动态语言。这意味着你不用提前声明变量的类型，在程序运行过程中，类型会被自动确定。这也意味着你可以使用同一个变量保存不同类型的数据：
+
+```js
+var foo = 42;    // foo is a Number now
+foo = "bar"; // foo is a String now
+foo = true;  // foo is a Boolean now
+```
+
 ## JavaScript 数据类型
 值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
 
@@ -26,17 +34,9 @@ typeof Number
 typeof Boolean
 "function"
 
-typeof Null
-"undefined"
+typeof Null => "undefined"   --- ---    typeof null => "object"
 
-typeof null
-"object"
-
-typeof Undefind
-"undefined"
-
-typeof undefined
-"undefined"
+typeof Undefind => "undefined"  --- ---  typeof undefined => "undefined"
 
 typeof Symbol
 "function"
@@ -50,10 +50,10 @@ typeof Object
 typeof Number
 "function
 
-undefined == null
-true
+undefined == null => true   --- --- undefined === null => false
 
 ## 数据类型判断
+```js
 typeof 'safa'
 "string"
 typeof 234
@@ -66,29 +66,22 @@ typeof {}
 "object"
 typeof []
 "object"
+```
 
 所以 typeof 能检测出六种类型的值，但是，除此之外 Object 下还有很多细分的类型呐，
 如 Array、Function、Date、RegExp、Error 等
 
 自己封装方法：
-```
-var class2type = {};
+```js
+let class2type = {};
 
 // 生成class2type映射
-"Boolean Number String Function Array Date RegExp Object Error".split(" ").map(function(item, index) {
+let typeStr = "Boolean Function Array Date RegExp Object Error";
+
+typeStr.split(" ").map(function(item, index) {
     class2type["[object " + item + "]"] = item.toLowerCase();
 })
 
-function type(obj) {
-    // 一箭双雕
-    if (obj == null) {
-        return obj + "";
-    }
-    return typeof obj === "object" || typeof obj === "function" ?
-        class2type[Object.prototype.toString.call(obj)] || "object" :
-        typeof obj;
-}
-```
 class2type:
 {
 	[object Array]: "array"
@@ -96,11 +89,26 @@ class2type:
 	[object Date]: "date"
 	[object Error]: "error"
 	[object Function]: "function"
-	[object Number]: "number"
 	[object Object]: "object"
 	[object RegExp]: "regexp"
-	[object String]: "string"
 }
+// Object.prototype.toString.call(123)
+// "[object Number]"
+
+function type(obj) {
+    // 一箭双雕
+    if (obj === null) {
+        return obj + "";
+		} else if (typeof obj === "number" || (typeof obj === "string") {
+			  return typeof obj;
+		} else if (typeof obj === "object" || typeof obj === "function") {
+				return class2type[Object.prototype.toString.call(obj)]
+		} else {
+			return "Unknown Type"
+		}
+}
+```
+
 
 ## 引用传递
 > js 中什么类型是引用传递, 什么类型是值传递? 如何将值类型的变量以引用的方式传递?
@@ -125,38 +133,6 @@ class2type:
 　　（5）如果两个值都引用同一个对象或是函数，那么相等，否则不相等
 
 　　（6）如果两个值都是null，或是undefined，那么相等
-
-例子：
-```
-number类型的比较：
-var a = 1;
-var b =1
-
-a == b
-true
-a === b
-true
-
-string类型的比较：
-var c = '123'
-var d = '123'
-
-c == d
-true
-c === d
-true
-
-Object类型的比较：
-var arr = [1]
-var d = arr
-var e = arr
-
-d == e
-true
-d === e
-true
-
-```
 
 ### 然后再问 [1] == [1] 是 true 还是 false
 [1] == [1]

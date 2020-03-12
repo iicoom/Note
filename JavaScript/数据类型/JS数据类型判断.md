@@ -1,4 +1,4 @@
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures
+[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures)
 > JavaScript 是一种弱类型或者说动态语言。这意味着你不用提前声明变量的类型，在程序运行过程中，类型会被自动确定。这也意味着你可以使用同一个变量保存不同类型的数据：
 
 
@@ -8,25 +8,30 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures
 编码中很少直接使用到 NaN。通常都是在计算失败时，作为 Math 的某个方法的返回值出现的（例如：Math.sqrt(-1)）或者尝试将一个字符串解析成数字但失败了的时候（例如：parseInt("blabla")）。
 
 等号运算符（== 和 ===） 不能被用来判断一个值是否是 NaN。必须使用 Number.isNaN()或 isNaN() 函数。
-
+```js
 NaN === NaN;        // false
 Number.NaN === NaN; // false
 isNaN(NaN);         // true
 isNaN(Number.NaN);  // true
+```
 
 ## typeof检测
-https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof
-
+[MDN typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
+```js
 // 数值
 typeof 37 === 'number';
 typeof 3.14 === 'number';
 typeof(42) === 'number';
-typeof Math.LN2 === 'number';
-typeof Infinity === 'number';
-typeof NaN === 'number'; // 尽管它是 "Not-A-Number" (非数值) 的缩写
+typeof Math.LN2 === 'number'; // =>true
+typeof Infinity === 'number'; // =>true
+typeof NaN === 'number';      // =>true 尽管它是 "Not-A-Number" (非数值) 的缩写
 typeof Number(1) === 'number'; // Number 会尝试把参数解析成数值
 
-typeof 42n === 'bigint';
+typeof 42n === 'bigint';      // =>true
+
+Number.isInteger()            // 能判断整数或浮点 
+1.26.toFixed(1)               // "1.3" 四舍五入修正
+
 
 // 字符串
 typeof '' === 'string';
@@ -76,27 +81,4 @@ typeof Math.sin === 'function';
 
 // JavaScript 诞生以来便如此
 typeof null === 'object';
-
-## 封装一个准确判断数据类型的函数
 ```
-function getType(obj){
-  let type  = typeof obj;
-  if(type != "object"){
-    return type;
-  }
-  return Object.prototype.toString.call(obj).replace(/^\[object (\S+)\]$/, '$1');
-}
-```
-getType({})
-"Object"
-getType([])
-"Array"
-getType(Date)
-"function"
-getType(new Date())
-"Date"
-getType(Math)
-"Math"
-getType(/regex/)
-"RegExp"
-
