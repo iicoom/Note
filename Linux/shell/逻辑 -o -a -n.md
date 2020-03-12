@@ -41,6 +41,8 @@ print " without argument"
 
 ## 应用
 ```shell
+#!/bin/sh
+
 if [ -n "$1" -a "$1" = "debug" ]
 then
 	node --inspect-brk http_server.js name=TimerServer route=timer
