@@ -88,13 +88,13 @@ const kvArray = [{key: 1, value: 10},
                {key: 3, value: 30}];
 
 var reformattedArray = kvArray.map((obj) => { 
-   var rObj = {};
-   rObj[obj.key] = obj.value;
-   return rObj;
+   return {
+     param: obj.value
+   }
 });
 console.log(reformattedArray)
 
-// reformattedArray 数组为： [ { '1': 10 }, { '2': 20 }, { '3': 30 } ], 
+// reformattedArray 数组为： [ { param: 10 }, { param: 20 }, { param: 30 } ], 
 
 // kvArray 数组未被修改: 
 // [{key: 1, value: 10}, 

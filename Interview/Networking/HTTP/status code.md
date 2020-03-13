@@ -4,7 +4,7 @@ https://www.checkupdown.com/status/E403.html
 
 The Web server (running the Web site) thinks that the data stream sent by the client (e.g. your Web browser or our CheckUpDown robot) was 'malformed' i.e. did not respect the HTTP protocol completely. So the Web server was unable to understand the request and process it.
 
-Web服务器认为客户端发起的HTTP连接是不完整的。
+Web服务器认为客户端发起的HTTP连接是不完整的。请求出现语法错误. 例如缺少参数,参数写错等.. 
 
 ## HTTP Error 401 Unauthorized
 
