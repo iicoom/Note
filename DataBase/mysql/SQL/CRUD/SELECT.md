@@ -1,55 +1,65 @@
-CREATE TABLE `user` (
-  `id` int(50) NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
-  `age` int(20) DEFAULT NULL COMMENT '年龄',
-  `sex` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '性别',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+## SQL SELECT 语句
+
+- The SQL SELECT keyword is used to query data from the database and it's the most commonly used command.
+最常用的语句
+
+- The simplest form has the syntax "SELECT * FROM tableName;"
+最简单的用法 查询出 某个表中所有列、所有行
+
+- The SQL SELECT command can also have other optional parameters such as WHERE, GROUP BY, HAVING, ORDER BY. They will be discussed later.
+select后面还可以跟其他的语句，如 WHERE, GROUP BY, HAVING, ORDER BY
+
+https://www.guru99.com/select-statement.html
+
+mysql> show tables;
++------------------+
+| Tables_in_spider |
++------------------+
+| lagou_job        |
+| qiushi           |
++------------------+
+2 rows in set (0.24 sec)
 
 
-## insert 单行数据插入
-INSERT INTO `user` VALUES (1, 'Jack', 18, 'man');
+## select * from `table_name`
+The Star symbol is used to select all the columns in table.
 
-## insert 多行
-1. 创建表
 ```
-create table student(
-    s_id varchar(10),
-    s_name varchar(20),
-    s_age date,
-    s_sex varchar(10)
-);
-这种简单的创建会导致插入中文时报错：
-mysql> insert into student (s_id, s_name, s_age, s_sex)
-    -> values  ('01' , '赵雷' , '1990-01-01' , '男');
-ERROR 1366 (HY000): Incorrect string value: '\xE8\xB5\xB5\xE9\x9B\xB7' for column 's_name' at row 1
-
-create table student(
-    s_id varchar(10),
-    s_name varchar(20),
-    s_age date,
-    s_sex varchar(10)
-) CHARSET=utf8 COMMENT='学生表';
-把整张表的字符集设置为 CHARSET=utf8，下面插入数据就不会报错：
-
-insert into student (s_id, s_name, s_age, s_sex)
-values  ('01' , '赵雷' , '1990-01-01' , '男'),
-        ('02' , '钱电' , '1990-12-21' , '男'),
-        ('03' , '孙风' , '1990-05-20' , '男'),
-        ('04' , '李云' , '1990-08-06' , '男'),
-        ('05' , '周梅' , '1991-12-01' , '女'),
-        ('06' , '吴兰' , '1992-03-01' , '女'),
-        ('07' , '郑竹' , '1989-07-01' , '女'),
-        ('08' , '王菊' , '1990-01-20' , '女');
-这样创建的表结构仍有问题：
-1. 
-There is no primary key here. Update will only use exact matching of the old values of the columns here. Thus, it may update more than one record.
-
-没有主键，更新时可能会更新多条记录
-
-2. 字段没有注释，不容易理解
+mysql> select * from qiushi;
 ```
+数据很多很慢 列出250条
 
+## select column1,column2,column3 from `table_name`
+
+mysql> select username,sex,age from qiushi;
++--------------------------------------+-------+------+
+| username                             | sex   | age  |
++--------------------------------------+-------+------+
+| tonoon                               | man   |   20 |
+| 鱼歌浅唱                              | woman |   79 |
+| 无书斋主                              | man   |   41 |
+| 夲少姓〖劉〗                           | man   |   28 |
+| zqwxmh                               | man   |   28 |
+| 婉若い清风                             | woman |   99 |
+| 哈和嗨                                | man   |   31 |
++--------------------------------------+-------+------+
+250 rows in set (0.44 sec)
+
+## select as 重命名所选字段
+
+mysql> select username as user, age, sex from qiushi limit 4;
++--------------------+------+-------+
+| user               | age  | sex   |
++--------------------+------+-------+
+| tonoon             |   20 | man   |
+| 鱼歌浅唱            |   79 | woman |
+| 无书斋主            |   41 | man   |
+| 夲少姓〖劉〗         |   28 | man   |
++--------------------+------+-------+
+4 rows in set (0.29 sec)
+
+
+## 较复杂的查询语句
 回顾一下现在有4张表：
 mysql> desc student;
 +--------+-------------+------+-----+---------+-------+
@@ -211,3 +221,4 @@ where s1>s2;
 | 04   | 50     | 30     |
 +------+--------+--------+
 2 rows in set (0.00 sec)
+

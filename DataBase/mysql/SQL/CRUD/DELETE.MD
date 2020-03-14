@@ -89,3 +89,11 @@ Query OK, 1 row affected (0.01 sec)
 mysql> delete from student where id = 4;
 Query OK, 1 row affected (0.01 sec)
 ```
+
+## node.js
+关联查询删除
+```js
+let deleteSql = 'DELETE t1, t2 FROM gm_cdkey_rule t1 LEFT JOIN gm_cdkey_detail t2 ON t1.id = t2.id where t1.id = ?';
+let parameters = [id];
+await sqlStringQuery(deleteSql, parameters);
+```
