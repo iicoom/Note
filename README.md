@@ -316,3 +316,5 @@ Users interact with mobile apps mainly through touch.
 the one component you will most likely be interested in is the basic Button.
 
 
+## Blog
+[Software Engineering Thoughts](https://anasshekhamis.com/)
