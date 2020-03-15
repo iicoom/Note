@@ -1,33 +1,5 @@
 ## 连接服务器登录
-### 无密码连接 (本地连接)
-如果全局安装的 执行 
-```
-➜  ~ redis-cli
-Could not connect to Redis at 127.0.0.1:6379: Connection refused
-Could not connect to Redis at 127.0.0.1:6379: Connection refused
-是数据库没有开启
-
-➜  ~ redis-server
-26694:M 17 Aug 10:07:53.915 # Server initialized
-26694:M 17 Aug 10:07:53.916 * DB loaded from disk: 0.002 seconds
-26694:M 17 Aug 10:07:53.916 * Ready to accept connections
-
-重新连接
-➜  ~ redis-cli
-127.0.0.1:6379>
-```
-
-### 有密码验证 (远程连接)
-在本地连接远程或者在服务器上连接都用下面的命令
-redis-cli -h 101.201.194.165 -p 6379
-
-101.201.194.165:6379> auth eGd3cEn38tYCQisafx7aasdfO
-OK
-
-101.201.197.163:6379> exit 退出登录
-
-
-## 查看数据库信息
+### 查看数据库信息
 101.201.194.165:6379> info
 ```
 # Server
@@ -104,9 +76,6 @@ var queue = kue.createQueue({
     }
 });
 ```
-
-## redis.conf
-[redis密码设置、访问权限控制等安全设置](https://www.cnblogs.com/langtianya/p/5189234.html)
 
 ## key 命令
 
