@@ -20,3 +20,16 @@ $ node process-args.js one two=three four
 2: one
 3: two=three
 4: four
+
+## 参数为数组形式
+```js
+node --experimental-report http_server.js route=user config_file=./config.json config_file=./config.patch.json config="{\"client\":{\"port\":8182}}"
+```
+[user_server] [
+[user_server]   '/home/doraemon/.nvm/versions/node/v12.13.0/bin/node',
+[user_server]   '/doraemon/server/user_server/http_server.js',
+[user_server]   'route=user',
+[user_server]   'config_file=./config.json',
+[user_server]   'config_file=./config.patch.json',
+[user_server]   'config={"client":{"port":8182}}'
+[user_server] ]

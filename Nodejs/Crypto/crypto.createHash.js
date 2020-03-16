@@ -11,3 +11,7 @@ hash.update('some data to hash');
 console.log(hash.digest('hex'));
 // Prints:
 //   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50
+
+console.log(crypto.createHash('md5').update('mxj038').digest('hex'));
+// b8ee39f4e2f839f1a630b8b05aa5da4d
+// 每次都是固定的值
