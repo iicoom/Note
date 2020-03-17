@@ -1,7 +1,7 @@
 //for in 操作对象的，for of 、forEach操作数组
 
 /**
-for in
+1. for in
 */
 const obj = {
    'a': '1',
@@ -13,7 +13,7 @@ for ( const prop in obj) {
 
 
 /**
-for of
+2. for of
 */
 const arr = [{'a':'1'},{'a':'2'}]
 for (const item of arr) {
@@ -30,9 +30,25 @@ for (let [a, b] of arr3) {
 // astr bstr
 // cstr dstr
 
+// for in 与 for of 操作数组的差异
+let ar = [ 1, 2, 3, 4, 5 ]
+for(let item in ar) {console.log(item)}
+// 0
+// 1
+// 2
+// 3
+// 4
+
+for(let item of ar) {console.log(item)}
+// 1
+// 2
+// 3
+// 4
+// 5
+
 
 /**
-for
+3. for
 */
 for (let i = 0; i < arr.length; i ++) {
    console.log(arr[i].a)

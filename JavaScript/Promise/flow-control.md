@@ -15,7 +15,7 @@ console.log(arr)
 // [ 1, 2, 3, 4, 5 ]
 
 async function repeatWork() {
-	for(let item in arr) {
+	for(let item of arr) {
 		await asyncOperation(item)
 	}
 }
