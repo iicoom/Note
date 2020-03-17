@@ -54,3 +54,10 @@ var myFunction = function() {
 (function() {
   statements
 })();
+
+
+
+/**
+ * 函数的形参仍然可以时函数，传入的回调函数就是一种
+ */
+// 参考Promise/并发框架/frameElement.js
