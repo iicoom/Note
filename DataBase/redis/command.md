@@ -1,51 +1,9 @@
 ## 连接服务器登录
-### 查看数据库信息
-101.201.194.165:6379> info
 ```
-# Server
-redis_version:3.2.0
-redis_git_sha1:00000000
-redis_git_dirty:0
-redis_build_id:a8ede3354183419d
-redis_mode:standalone
-os:Linux 2.6.32-431.23.3.el6.x86_64 x86_64
-arch_bits:64
-multiplexing_api:epoll
-gcc_version:4.4.7
-process_id:1596
-run_id:bcb3de8dd85cd502857e7a7c1a988f9665e1f87d
-tcp_port:6379
-uptime_in_seconds:15893662
-uptime_in_days:183
-hz:10
-lru_clock:5604385
-executable:/usr/local/bin/redis-server
-config_file:/usr/local/redis32/redis.conf
-
-# Clients
-connected_clients:1392
-client_longest_output_list:0
-client_biggest_input_buf:296
-blocked_clients:111
-
-# Memory
-used_memory:33698616
-used_memory_human:32.14M
-used_memory_rss:31633408
-used_memory_rss_human:30.17M
-used_memory_peak:34186328
-used_memory_peak_human:32.60M
-total_system_memory:4018876416
-total_system_memory_human:3.74G
-used_memory_lua:44032
-used_memory_lua_human:43.00K
-maxmemory:0
-maxmemory_human:0B
-maxmemory_policy:noeviction
-mem_fragmentation_ratio:0.94
-mem_allocator:jemalloc-4.0.3
+[dormon@mxj-s ~]$ redis-cli
+127.0.0.1:6379> auth 3E=2DHem7n1
+OK
 ```
-可以查看到 config_file:/usr/local/redis32/redis.conf 配置文件的位置
 
 ## Redis Select
 redis默认有db0~db15之多。
