@@ -26,3 +26,7 @@ console.log(myFish)
 console.log(removed)
 // [ 'funcky', 'guitar', 'drum' ]
 
+let data = ['1001@edf04735582deb42df597f77aabc5243','0160ece0-2fb6-4c2c-b809-f226ba2b96aa']
+// let rid = data.splice(0, 1) => ["1001@edf04735582deb42df597f77aabc5243"]
+	
+

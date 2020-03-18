@@ -79,3 +79,15 @@ Redis Cluster着眼于扩展性，在单个redis内存不足时，使用Cluster�
 4、Redis可以实现主从复制，实现故障恢复。
 
 5、Redis的Sharding技术： 很容易将数据分布到多个Redis实例中
+
+## 常见问题
+为什么要用 redis /为什么要用缓存（高性能、高并发）
+为什么要用 redis 而不用 map/guava 做缓存?
+redis 常见数据结构以及使用场景分析（String、Hash、List、Set、Sorted Set）
+redis 内存淘汰机制（MySQL里有2000w数据，Redis中只存20w的数据，如何保证Redis中的数据都是热点数据？）
+redis 持久化机制（怎么保证 redis 挂掉之后再重启数据可以进行恢复）
+Redis 常见异常及解决方案（缓存穿透、缓存雪崩、缓存预热、缓存降级）
+分布式环境下常见的应用场景（分布式锁、分布式自增 ID）
+Redis 集群模式（主从模式、哨兵模式、Cluster 集群模式）
+如何解决 Redis 的并发竞争 Key 问题？
+如何保证缓存与数据库双写时的数据一致性？
