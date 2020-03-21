@@ -1,7 +1,7 @@
 /**
  * Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
  * Object.assign 方法只会拷贝源对象自身的并且可枚举的属性到目标对象。
- * 该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。
+ * 该方法使用源对象的[[Get]]和目标对象的[[Set]]，所以它会调用相关 getter 和 setter。详见 ./getter-setter.js
  * String类型和 Symbol 类型的属性都会被拷贝。
  * 
  * 语法：Object.assign(target, ...sources)

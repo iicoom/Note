@@ -33,26 +33,14 @@ console.log(a); // 10
 console.log(b); // 20
 
 
-// Stage 3 proposal
-({a, b, ...rest} = {a: 10, b: 20, c: 30, d: 40});
-console.log(a); // 10
-console.log(b); // 20
-console.log(rest); //{c: 30, d: 40}
-
-
-/***** 例4 ***************************************/
-const { ProductStorageDetail: PSD } = this.props.common;
-// 把ProductStorageDetail重命名为较短的PSD
-
-
 // 对象也能直接取key
-const ProductStorageAction: {
-      1: '任务奖励',
-      2: '回购',
-      3: '提取',
-      4: '提取失败',
-      5: '更新库存'
-    },
+const ProductStorageAction = {
+  1: '任务奖励',
+  2: '回购',
+  3: '提取',
+  4: '提取失败',
+  5: '更新库存'
+}
 
 console.log(ProductStorageAction[1])
 // =>

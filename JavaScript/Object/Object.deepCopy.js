@@ -41,6 +41,28 @@ console.info('⬇️ shallow cloning 🌈')
 console.info('✏️ Notice the i.color property we changed on original is also changed in the shallow copy')
 console.log(original)
 console.log(cloned)
+/**
+⬇ shallow cloning 🌈
+✏ Notice the i.color property we changed on original is also changed in the shallow copy
+{ a: 2019-11-15T01:47:13.540Z,
+  b: NaN,
+  c: [Function: anonymous],
+  d: undefined,
+  e: [Function: e],
+  f: [Function: Number],
+  g: false,
+  h: Infinity,
+  i: { color: 'blue' } }
+{ a: 2019-11-15T01:47:13.540Z,
+  b: NaN,
+  c: [Function: anonymous],
+  d: undefined,
+  e: [Function: e],
+  f: [Function: Number],
+  g: false,
+  h: Infinity,
+  i: { color: 'blue' } }
+ */
 
 const deepcloned = clonedeep(original)
 
@@ -51,28 +73,6 @@ console.info('✏️ Notice the i.color property does not propagate any more')
 console.log(original)
 console.log(deepcloned)
 /*
-⬇ shallow cloning 🌈
-✏ Notice the i.color property we changed on original is also changed in the shal
-low copy
-{ a: 2019-11-15T01:47:13.540Z,
-  b: NaN,
-  c: [Function: anonymous],
-  d: undefined,
-  e: [Function: e],
-  f: [Function: Number],
-  g: false,
-  h: Infinity,
-  i: { color: 'blue' } }
-{ a: 2019-11-15T01:47:13.540Z,
-  b: NaN,
-  c: [Function: anonymous],
-  d: undefined,
-  e: [Function: e],
-  f: [Function: Number],
-  g: false,
-  h: Infinity,
-  i: { color: 'blue' } }
-
 ⬇ deep cloning 🌈
 ✏ Notice the i.color property does not propagate any more
 { a: 2019-11-15T01:47:13.540Z,
@@ -107,14 +107,15 @@ const copied = Object.assign({}, original)
 original.name = 'Focus'
 original.car.color = 'yellow'
 
-copied.name //Fiesta
-copied.car.color //yellow
+copied.name //Fiesta          一次嵌套不会影响
+copied.car.color //yellow     深层 会随原对象的复制发生变化 所以非深拷贝
 
 
-// 3. Using the Object Spread operator
+// 3. Using the Object Spread operator 与 Object.assign() 相同都是浅拷贝
 // The spread operator is a ES6/ES2015 feature that provides a very convenient way to 
 // perform a shallow clone, equivalent to what Object.assign() does.
 const copied = { ...original }
+
 
 /**
  * Wrong solutions

@@ -30,10 +30,10 @@ stringObject.split(separator,howmany)
 var str="How are you doing today?"
 str.split(" ")
 
-=> ["How", "are", "you", "doing", "today?"]
+// => ["How", "are", "you", "doing", "today?"]
 
 str.split(" ", 3)
-=> ["How", "are", "you"]
+// => ["How", "are", "you"]
 
 "2:3:4:5".split(":")	//将返回["2", "3", "4", "5"]
 "|a|b|c".split("|")		//将返回["", "a", "b", "c"]
