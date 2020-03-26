@@ -127,6 +127,14 @@ yum install mysql-community-server
 5. 启动MySQL服务
 systemctl start mysqld.service
 
+停止mysql：
+方式一：sudo /etc/init.d/mysql stop 
+方式二：sudo stop mysql
+方式三：sudo service mysql stop
+
+重启mysql:
+systemctl restart mysqld.service
+
 6. 查看服务状态
 ```
 [root@vultr ~]# systemctl status mysqld.service

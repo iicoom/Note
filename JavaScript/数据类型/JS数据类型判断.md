@@ -82,3 +82,8 @@ typeof Math.sin === 'function';
 // JavaScript 诞生以来便如此
 typeof null === 'object';
 ```
+
+```js
+if(0&&0){alert('ppp')}      不弹
+if('0'&&'0'){alert('ppp')}  弹
+```

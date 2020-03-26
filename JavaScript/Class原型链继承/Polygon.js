@@ -24,7 +24,27 @@ class Polygon {
       'and gonia (angle).');
   }
 
-  // We will look at static and subclassed methods shortly
+  // 探讨this指向问题
+  get to() {
+    let container = {};
+    let self = this;    // Polygon { name: 'Polygon', height: 300, width: 400 }
+    return {
+      category: function(category) {
+        container.category = category;
+        return this;   // { category: [Function: category], group: [Function: group] }
+      },
+      group: function(group) {
+        container.group = group;
+        return this;
+      },
+      request: async function() {
+        let args = arguments;
+        let client = await self.getClient(container);
+        return client.request(...args);
+      },
+    };
+  }
+
 }
 
 // Classes are used just like ES5 constructor functions:
@@ -34,6 +54,12 @@ class Polygon {
 // Hi, I am a  Polygon.
 // console.log('The width of this polygon is ' + p.width);
 // The width of this polygon is 400
+
+
+// 探讨this指向问题
+let p = new Polygon(300, 400);
+const what = p.to.category('gate')
+// what: { category: [Function: category], group: [Function: group] }
 
 // export default Polygon;
 module.exports = Polygon;

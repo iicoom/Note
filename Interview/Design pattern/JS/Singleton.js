@@ -1,3 +1,39 @@
+// ../common/model/Switch.js
+class FunctionSwitchManager {
+  constructor() { //默认配置的serverId=0
+    this._config = null;
+    this.initState = false;
+  }
+  get config() {
+    if (!this.initState) {
+      throw new Error(`this module:${this.constructor.name} haven't init`);
+    }
+    return this._config;
+  }
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new this();
+    }
+    return this.instance;
+  }
+  init(group, dbConn) {
+    this.group = group;
+    this.dbConn = dbConn;
+    this.initState = true;
+  }
+
+}
+
+module.exports = new FunctionSwitchManager();
+
+// 调用
+require('../common/model/Switch').init(app.config.group, MF.UserMysql);
+
+
+
+
+
+
 /**
  * The Singleton is one of the most well known and hated design patterns amongst developers.
  */

@@ -40,4 +40,18 @@ innodb_file_per_table
 innodb_file_format = Barracuda
 ```
 
+## 一般都在 /var/log 下查找
+```js
+[doraemon@mxj-s log]$ sudo tail -f mysqld.log 
+InnoDB: Restoring possible half-written data pages from the doublewrite
+InnoDB: buffer...
+200323 19:37:32  InnoDB: Waiting for the background threads to start
+200323 19:37:33 InnoDB: 5.5.51 started; log sequence number 672819356
+200323 19:37:33 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+200323 19:37:33 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+200323 19:37:33 [Note] Server socket created on IP: '0.0.0.0'.
+200323 19:37:33 [Note] Event Scheduler: Loaded 0 events
+200323 19:37:33 [Note] /usr/sbin/mysqld: ready for connections.
+Version: '5.5.51'  socket: '/var/lib/mysql/mysql.sock'  port: 3306  MySQL Community Server (GPL)
+```
 

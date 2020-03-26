@@ -20,7 +20,7 @@ https://www.yiibai.com/mysql/roles.html
 在表上右击，导出向导，可以选择导出的文件类型，Text json file
 
 ## 导出表结构和数据
-表上右击 Dump SQL
+英文版：表上右击 Dump SQL   中文版：转储 SQL 文件 
 ```
 
 /*
