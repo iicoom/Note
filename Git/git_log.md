@@ -12,3 +12,10 @@ Author: 毛小杰 <maoxiaojie@yunfarm.cn>
 Date:   Mon Sep 17 11:12:43 2018 +0800
 
     Merge branch 'master' into develop
+
+
+## 简洁显示
+$ git log --oneline -3
+04e7ec45 (HEAD -> master, origin/master, origin/HEAD) 修改历史未推到远程的记录
+3cfbe44e 修改最近一次提交成功
+ef146775 最近提交---
