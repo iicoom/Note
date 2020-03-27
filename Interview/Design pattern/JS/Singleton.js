@@ -1,72 +1,60 @@
 // ../common/model/Switch.js
-class FunctionSwitchManager {
+class SwitchManager {
   constructor() { //默认配置的serverId=0
     this._config = null;
-    this.initState = false;
+    this.initState = false;  // 记录类是否已经初始化
   }
+  
+  // static getInstance() {
+  //   if (!this.instance) {
+  //     this.instance = new this();
+  //   }
+  //   return this.instance;
+  // }
+
+  init(group, dbConn) {
+    this.group = group;
+    this.dbConn = dbConn;
+    this.initState = true;
+    return this;  // 链式调用
+  }
+
   get config() {
     if (!this.initState) {
       throw new Error(`this module:${this.constructor.name} haven't init`);
     }
     return this._config;
   }
-  static getInstance() {
-    if (!this.instance) {
-      this.instance = new this();
-    }
-    return this.instance;
+
+  loadFile() {
+    this.loadFromDB();
+    return this;
   }
-  init(group, dbConn) {
-    this.group = group;
-    this.dbConn = dbConn;
-    this.initState = true;
+
+  getSwitch() {
+    let cof = this.config; // 如果没有实例化会抛出错误
+    if (!cof) {
+      return 1;
+    }
+    return cof;
   }
 
 }
 
-module.exports = new FunctionSwitchManager();
+module.exports = new SwitchManager(); // 这样的导出方式就不需要再调用 getInstance方法实例化
 
-// 调用
-require('../common/model/Switch').init(app.config.group, MF.UserMysql);
+// 初始化调用
+require('../common/model/Switch').init(app.config.group, MF.UserMysql).loadFile();
 
-
-
+// 其他模块使用
+// let switch = require('../common/model/Switch');
+// switch.getSwitch()
 
 
 
 /**
  * The Singleton is one of the most well known and hated design patterns amongst developers.
  */
-
-var myInstance = {
-    method1: function () {
-      // ...
-    },
-    method2: function () {
-      // ...
-    }
-  };
-
-// If you want private members on your singleton instance, you can do something like this:
-var myInstance = (function() {
-    var privateVar = '';
-  
-    function privateMethod () {
-      // ...
-    }
-  
-    return { // public interface
-      publicMethod1: function () {
-        // all private members are accesible here
-      },
-      publicMethod2: function () {
-      }
-    };
-  })();
-
-//   This has been called the module pattern, it basically allows you to encapsulate 
-//   private members on an object, by taking advantage of the use of closures.
-
 
 // Perhaps the cleanest approach is to use a combination of ES6 classes, const and Object.freeze():
 class Singleton {
@@ -90,23 +78,6 @@ Object.freeze(singletonInstance);
 // with the ES6 export functionality.
 export default singletonInstance;
 
-// Then use that singleton by importing it:
-// import mySingleton from './path-to-my-singleton-definition.js'; 
-// mySingleton.method_1() // Now use your singletons
-
-/*
-Let’s start with the most basic implementation. 
-Here’s (a cleaner and more powerful) modern interpretation of the above example:
-*/
-const _data = [];
-
-const UserStore = {
-  add: item => _data.push(item),
-  get: id => _data.find(d => d.id === id)
-}
-
-Object.freeze(UserStore);
-export default UserStore;
 
 /**
  * it really shines is in the constraint imposed upon code that 
