@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #000;
+		}
+		#flight {
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			background: radial-gradient(#fff 0%, transparent 100%);;
+			position: absolute;
+			z-index: -2;
+		}
+		.grid {
+			width: 300px;
+			height: 300px;
+			box-sizing: content-box;
+			background-color: rgba(0, 0, 0, 0.1);
+			margin: 100px auto;
+			display: flex;
+			flex-wrap: wrap;
+			border: 2px solid #ccc;
+			overflow: hidden;
+		}
+		.grid .child {
+			width: 54px;
+			height: 54px;
+			border: 2px solid rgba(0, 0, 0, 0.5);
+			background-color: #000;
+			margin: 1px;
+		}
+		.grid .child:hover {
+			border: 2px solid rgba(255, 255, 255, 0.5);
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+	</style>
+</head>
+<body>
+	<!-- <div id="flight"></div> -->
+	<div class="grid">
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div class="child"></div>
+		<div id="flight"></div>
+	</div>
+<script>
+	document.onmousemove = function (event) {
+			console.log(event)
+			document.getElementById("flight").style.left = `${event.clientX - 60}px`;
+			document.getElementById("flight").style.top = `${event.clientY - 60}px`;
+	}
+</script>
+</body>
+</html>
