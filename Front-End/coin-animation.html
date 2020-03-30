@@ -5,43 +5,101 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<title>Document</title>
+	<style>
+		#bar {
+			color: black;
+		}
+
+		/* 数字滚动样式 */
+		@keyframes _rqfzup {
+			0% {
+				transform: translateY(-10px);
+			}
+
+			100% {
+				transform: translateY(-190px);
+			}
+		}
+		ul.coin {
+				list-style:none; 
+				margin: 0; 
+				padding: 0; 
+				width: 12px;
+		}
+		#wrap {
+				height: 21px; 
+				overflow: hidden; 
+				display: flex;
+		}
+		#wrap .coin {
+				animation: _rqfzup 1.5s ease-out 0s infinite;
+		}
+		.hidden {
+				display: none;
+		}
+		#wrap {
+				position: absolute;
+		}
+		#realCoin {
+			letter-spacing: 2px;
+			color: black;
+		}
+		
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 </head>
 <body>
 	<div class="container-sm mt-5">
 		<div class="progress mb-2">
-			<div id="bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%" >0</div>
+			<div id="bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%" ></div>
+			<div id="wrap">
+        <span id="realCoin" class="">56</span>
+        <!-- <ul class="coin">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul> -->
+    </div>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputEmail1">获得金币</label>
-			<input type="email" class="form-control mb-1" id="exampleInputEmail1" aria-describedby="emailHelp" value="0">
-			<button type="submit" class="btn btn-primary btn-sm" onclick="coinChange()">Submit</button>
+			<input type="email" class="form-control mb-1" id="addValue" aria-describedby="emailHelp" value="0">
+			<button type="submit" class="btn btn-primary btn-sm" onclick="animation()">Submit</button>
 		</div>
 	</div>
 	<script>
 		// 储量 10000
 
-		function numRock(target, n) {
-			let mun = 0;
-			const timer = setInterval(() => {
-				target.innerHTML = `<b>${Math.floor(Math.random()*10)}</b>`
-				target.style.width = `${mun += 1}%`
-			}, 80)
-				
-			setTimeout(() => {
-				clearInterval(timer)
-			}, 1500)
-		}
-		
-		// 渲染bar
-		function renderBar() {
-			
-		}
+		function animation() {
+        $("#realCoin").addClass("hidden")
+        let n = $("#realCoin").text().length
+        console.log(n)
+        const ele = '<ul class="coin"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul>';
+        for(let i = 0; i < n; i ++) {
+            setTimeout(function() {      
+                $("#wrap").prepend(ele)
+            }, 80*i)
+        }
+        setTimeout(() => {
+            removeAnimation()
+            $("#realCoin").removeClass("hidden")
+				}, 1500)
 
-		function coinChange() {
-			// const coin = parseInt(document.getElementById("exampleInputEmail1").value)
-			// const cur = parseInt(document.getElementById("bar").innerText)
-			numRock(document.getElementById("bar"), 2)
-		}
+				let updateValue = parseInt($("#realCoin").text()) + parseInt($("#addValue").val())
+				$("#realCoin").text(updateValue)
+				document.getElementById("bar").style.width = `${updateValue/1000 *100}%`
+    }
+
+    function removeAnimation() {
+        $("#wrap").children(".coin").detach()
+    }
 	</script>
 </body>
 </html>

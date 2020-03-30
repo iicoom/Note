@@ -31,7 +31,42 @@
             background-color: yellow;
             text-align: right;
         }
+
+        
+
+        /* 数字滚动样式 */
+        @keyframes _rqfzup {
+			0% {
+				transform: translateY(-10px);
+			}
+
+            100% {
+				transform: translateY(-190px);
+			}
+		}
+        ul.coin {
+            list-style:none; 
+            margin: 0; 
+            padding: 0; 
+            width: 12px;
+        }
+        #container {
+            height: 21px; 
+            overflow: hidden; 
+            background-color: antiquewhite;
+            display: flex;
+        }
+        #container .coin {
+            animation: _rqfzup 1.5s ease-out 0s infinite;
+        }
+        .hidden {
+            display: none;
+        }
+        #realCoin {
+            letter-spacing: 2px
+        }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 </head>
 <body>
     <div class="rotate"><div class="child">看俺老孙的金箍棒</div></div>
@@ -51,5 +86,42 @@
         <li>perspective(n) 为 3D 转换元素定义透视视图。</li>
 
     </ul>
+    <div id="container">
+        <span id="realCoin" class="">5689</span>
+        <!-- <ul class="coin">
+            <li>0</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul> -->
+    </div>
+    <button onclick="animation()">insert</button>
+<script>
+    function animation() {
+        $("#realCoin").addClass("hidden")
+        let n = $("#realCoin").text().length
+        console.log(n)
+        const ele = '<ul class="coin"><li>0</li><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li></ul>';
+        for(let i = 0; i < n; i ++) {
+            setTimeout(function() {      
+                $("#container").prepend(ele)
+            }, 80*i)
+        }
+        setTimeout(() => {
+            removeAnimation()
+            $("#realCoin").removeClass("hidden")
+        }, 1500)
+    }
+
+    function removeAnimation() {
+        $("#container").children(".coin").detach()
+    }
+</script>
 </body>
 </html>

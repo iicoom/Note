@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+				margin: 0;
+				padding: 0;
+		}
+		ul li{
+				width: 300px;
+				margin-top: 10px;
+				background: #ff0000;
+		}
+		ul li:hover{
+				background: #000000;
+		}
+
+		.container{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #ff9f5a;
+				margin-top: 10px;
+		}
+		.content{
+				width: 100px;
+				height: 100px;
+				background: #27e7ff;
+		}
+		.container:hover .content{
+				background: #000000;
+		}
+
+		.sibling1{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #115cff;
+			margin-top: 10px;
+		}
+		.sibling1:hover +.sibling2{
+				background: #f5eabbdc;
+		}
+</style>
+</head>
+<body>
+	<ul>
+		<li>设置元素自身的hover</li>
+	</ul>
+
+	<div class="container">
+		父元素
+		<div class="content">父元素设置hover 改变子元素属性</div>
+		子级：hover改变不了父级的样式
+	</div>
+
+	<div class="sibling1">sibling1</div>
+	<div class="sibling2">sibling2</div>
+</body>
+</html>
