@@ -1,4 +1,8 @@
 ## VS Code
+### 缺陷
+1. 查找文件引用不方便 find reference
+2. 没有文件本地修改历史记录(相比较于webstorm)
+
 ### 插件
 * 左下角的 设置按钮 - Extention - 安装扩展
 

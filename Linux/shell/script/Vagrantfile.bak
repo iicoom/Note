@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "kart"
+  config.vm.box_url = "ftp://ftp.ftang.cn/server/vagrant/kart-v14.box"
+
+  config.ssh.username = "doraemon"
+
+  config.vm.hostname = "kart"
+
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8081, host: 8081
+  config.vm.network "forwarded_port", guest: 8082, host: 8082
+  config.vm.network "forwarded_port", guest: 8083, host: 8083
+  config.vm.network "forwarded_port", guest: 8084, host: 8084
+  config.vm.network "forwarded_port", guest: 8086, host: 8086
+  config.vm.network "forwarded_port", guest: 8091, host: 8091
+  config.vm.network "forwarded_port", guest: 8092, host: 8092
+  config.vm.network "forwarded_port", guest: 8093, host: 8093
+  config.vm.network "forwarded_port", guest: 8094, host: 8094
+  config.vm.network "forwarded_port", guest: 8096, host: 8096
+
+  config.vm.network "public_network",
+    bridge: [
+      "en0: Ethernet",
+      "en1: Wi-Fi",
+      "en6: Broadcom NetXtreme Gigabit Ethernet Controller",
+    ],
+    use_dhcp_assigned_default_route: true
+
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", "/doraemon/server"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "kart"
+    vb.memory = "2048"
+    vb.cpus = "2"
+  end
+end
