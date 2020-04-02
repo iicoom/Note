@@ -20,6 +20,26 @@ console.log(5 == "5"); // true
 console.log(0 == "");  // true
 ```
 
+## 常用命令
+```
+tsc
+
+Options:
+ -h, --help                                         Print this message.
+ -w, --watch                                        Watch input files.
+ --pretty                                           Stylize errors and messages using color and context (experimental).
+ --all                                              Show all compiler options.
+ -v, --version                                      Print the compiler's version.
+ --init                                             Initializes a TypeScript project and creates a tsconfig.json file.
+ -p FILE OR DIRECTORY, --project FILE OR DIRECTORY  Compile the project given the path to its configuration file, or to a folder with a 'tsconfig.json'.
+ -b, --build                                        Build one or more projects and their dependencies, if out of date
+ -t VERSION, --target VERSION                       Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'.
+ -m KIND, --module KIND                             Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'.
+ --lib                                              Specify library files to be included in the compilation.
+```
+1. 使用 tsc --init 创建tsconfig  [配置参数详情](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html)
+2. 使用 tsc -w 监听项目目录下所有.ts 文件 并编译成.js  可以配合tsconfig 缩小监听范围
+
 ## 编译 .ts
 At the command line, run the TypeScript compiler:
 
