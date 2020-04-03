@@ -22,5 +22,5 @@ function Router(opts) {
 
 
 /**
- * var router = Router() will be same as  new Router()
+ * var router = Router() will be same as  new Router() 其实就是个单例模式
  */

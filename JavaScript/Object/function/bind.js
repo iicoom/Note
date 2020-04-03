@@ -6,11 +6,14 @@ var module = {
 
 console.log(module.getX()); // 返回 81
 
-var retrieveX = module.getX;
+var retrieveX = module.getX;  
+// retrieveX 为一个module上的一个方法，但与module的this无关
 // 返回 undefined, 在这种情况下，"this"指向全局作用域
 console.log(retrieveX());
 
-// 创建一个新函数，将"this"绑定到module对象
+
+// 创建一个新函数retrieveX，将"this"绑定到module对象
+
 // 新手可能会被全局的x变量和module里的属性x所迷惑
 var boundGetX = retrieveX.bind(module);
 // 返回 81
