@@ -1,26 +1,15 @@
 package logic
 
-import (
-	
-)
+import "fangtang/doraemon/server/battle"
 
-func (controller *MatchController) handlePlayerFinishAllLaps(player *Player) {
-	racingTime := util.DurationToSecond(time.Since(controller.racingStartTime))
-	player.Match.FinishAllLaps(racingTime)
-	controller.updateRanking()
-	controller.debugoutRanking()
+func (controller *MatchController) generatePvpBattleResult(
+	ply *Player) *battle.ResultMsg {
 
-	controller.room.Release("player %v ends game, ranking = %v, time = %v",
-		player.Name(), player.Match.CurrentRanking, racingTime)
+	msg := new(battle.ResultMsg)
+	b := controller.room.GetBattle()
+	msg.RoomCapacity = b.GetPlayerCount()
+	msg.StartPlayerCount = b.GetHumanPlayerCount()
+	msg.EndPlayerCount = controller.room.GetCurrentHumanPlayerCapacity()
 
-	if player.Match.CurrentRanking == len(controller.room.Players) {
-		controller.endMatch()
-	} else {
-		controller.room.BufferedRPCToAll(0,
-			"PlayerFinishMatch", player.Index(), racingTime, player.Ranking())
-
-		if player.Match.CurrentRanking == 1 {
-			controller.startEndGameCountdown(10)
-		}
-	}
+	return msg
 }

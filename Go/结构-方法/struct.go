@@ -1,23 +1,45 @@
 // 组成结构体类型的那些数据称为 字段（fields）。每个字段都有一个类型和一个名字；在一个结构体中，字段名字必须是唯一的。
 
-type MatchController struct {
-	room     *Room
-	cheatMgr *CheatMgr
-	trackMgr *TrackMgr
 
-	rankingLoopStop      chan bool
-	endGameCountdownStop chan bool
-	racingStartTime      time.Time
-	totalMatchTime       time.Duration
-
-	rankingToScore          []int
-	blueTeamScore           int
-	redTeamScore            int
-	isBlueTeamWinner        bool
-	playerToLeagueScoreVary map[string]int
-
-	mvpToPlayer map[int]int
-
-	isMatchEnded  bool
-	isMatchLocked bool
+// 结构体的创建
+type struct1 struct {
+	field1 type1
+	field2 type2
+	…
 }
+ms := new(struct1)
+
+// 初始化：
+ms := &struct1{10, 15.5, "Chris"}
+
+
+
+// 结构体的字段可以是任何类型，甚至是结构体本身（参考第 10.5 节），也可以是函数或者接口（参考第 11 章）
+
+type BattleResultServer struct {
+	UnsentRecords []*UnsentRecord
+}
+
+var BattleResultInstance *BattleResultServer
+
+// 以上定义的指针变量可以存储结构体变量的地址
+
+type RoomMgr struct {
+	nextIndex    int
+	agentToRoom  map[gate.Agent]*Room
+	rooms        map[int]*Room
+	maxRoomCount int
+}
+
+func CreateRoomMgr(maxRoomCount int) *RoomMgr {
+	roomMgr := &RoomMgr{}
+	roomMgr.maxRoomCount = maxRoomCount
+	roomMgr.agentToRoom = make(map[gate.Agent]*Room)
+	roomMgr.rooms = make(map[int]*Room, 0)
+	roomMgr.nextIndex = 0
+
+	return roomMgr
+}
+
+// roomMgr := &RoomMgr{}  具体含义是什么？
+

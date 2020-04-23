@@ -1,0 +1,88 @@
+{
+	"_all": [
+			{
+					"ID": 2230001,
+					"NameID": 22300013,
+					"DifficultyLevel": 5,
+					"DifficultyScore": 100.0,
+					"DifficultyNameId": 22300005,
+					"RoadType": 1,
+					"RoadTypeNameID": 22300011,
+					"RoadTypeIconName": "RoadType_Nomal",
+					"LapTime": 20,
+					"LapCount": 2,
+					"SceneName": "MiniWorld_Interior_Tutorial",
+					"PrevieId": "MiniWorld_Interior_Tutorial",
+					"PrevieIdBG": "MiniWorld_Interior_Tutorial",
+					"ShortCutCount": 0,
+					"ThumbnailID": "MiniWorld_Interior_Tutorial",
+					"PossibleSceneStyle": [
+							1
+					],
+					"RecommendVehicleAttribute": 0.0,
+					"BgmName": "Assets/Update/Sound/BGM/BGM_CandyRush.mp3",
+					"BgmVolume": 0.4000000059604645,
+					"PlayerLevelNeed": 0,
+					"DayToUnlock": 0,
+					"State": 0,
+					"DefaultMinimapId": "MiniWorld_Interior_Tutorial_MiniPath",
+					"FarClipPlane": 2000.0
+			},
+			{
+					"ID": 2230002,
+					"NameID": 22300023,
+					"DifficultyLevel": 5,
+					"DifficultyScore": 100.0,
+					"DifficultyNameId": 22300005,
+					"RoadType": 1,
+					"RoadTypeNameID": 22300011,
+					"RoadTypeIconName": "RoadType_Nomal",
+					"LapTime": 20,
+					"LapCount": 2,
+					"SceneName": "F1_Squre",
+					"PrevieId": "F1_Squre",
+					"PrevieIdBG": "F1_Squre",
+					"ShortCutCount": 0,
+					"ThumbnailID": "F1_Squre",
+					"PossibleSceneStyle": [
+							1
+					],
+					"RecommendVehicleAttribute": 0.0,
+					"BgmName": "Assets/Update/Sound/BGM/BGM_PreviewOnMap.mp3",
+					"BgmVolume": 0.4000000059604645,
+					"PlayerLevelNeed": 0,
+					"DayToUnlock": 0,
+					"State": 0,
+					"DefaultMinimapId": "F1_Squre_MiniPath",
+					"FarClipPlane": 2000.0
+			},
+			{
+					"ID": 2230003,
+					"NameID": 22300033,
+					"DifficultyLevel": 1,
+					"DifficultyScore": 100.0,
+					"DifficultyNameId": 22300001,
+					"RoadType": 1,
+					"RoadTypeNameID": 22300011,
+					"RoadTypeIconName": "RoadType_Nomal",
+					"LapTime": 40,
+					"LapCount": 2,
+					"SceneName": "MiniWorld_Yard_01",
+					"PrevieId": "MiniWorld_Yard_01",
+					"PrevieIdBG": "MiniWorld_Yard_01",
+					"ShortCutCount": 3,
+					"ThumbnailID": "MiniWorld_Yard_01",
+					"PossibleSceneStyle": [
+							1
+					],
+					"RecommendVehicleAttribute": 3.5,
+					"BgmName": "Assets/Update/Sound/BGM/BGM_MiniWorld_Yard_01.mp3",
+					"BgmVolume": 0.4000000059604645,
+					"PlayerLevelNeed": 0,
+					"DayToUnlock": 0,
+					"State": 0,
+					"DefaultMinimapId": "MiniWorld_Yard_01_MiniPath",
+					"FarClipPlane": 2000.0
+			}
+	]
+}
