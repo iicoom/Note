@@ -4,5 +4,8 @@ dirname命令可以取给定路径的目录部分，如果给定的参数本身�
 ```bash
 BASEDIR=$(dirname "$0")
 
+echo $BASEDIR
+.
+
 cd $BASEDIR
 ```
