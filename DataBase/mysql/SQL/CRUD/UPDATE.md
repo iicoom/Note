@@ -6,6 +6,12 @@ UPDATE table_name SET field1=new-value1, field2=new-value2
 
 mysql> UPDATE runoob_tbl SET runoob_title='学习 C++' WHERE runoob_id=3;
 Query OK, 1 rows affected (0.01 sec)
+
+
+mysql> UPDATE gm_function_switch SET payment=1, localPayment=1 WHERE id=1;
+UPDATE gm_function_switch SET payment=1, localPayment=1 WHERE id=1
+> Affected rows: 1
+> 时间: 0.001s
 ```
 
 ```js

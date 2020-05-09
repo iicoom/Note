@@ -80,13 +80,13 @@
 // 用let声明才会输出对应的i，用var全是5
 
 
-console.log("before for", i)
-for(var i = 0; i < 5; i ++) {
-    setTimeout(function() {
-        console.log(i)
-    })
-}
-console.log("after for:", i)
+// console.log("before for", i)
+// for(var i = 0; i < 5; i ++) {
+//     setTimeout(function() {
+//         console.log(i)
+//     })
+// }
+// console.log("after for:", i)
 
 // before for undefined
 // after for: 5
@@ -96,3 +96,13 @@ console.log("after for:", i)
 // 5
 // 5
 
+
+
+// for(var i = 0; i < 5; i ++) {
+//     setTimeout(i => console.log(i), 1000)
+// }
+// undefined
+// undefined
+// undefined
+// undefined
+// undefined
