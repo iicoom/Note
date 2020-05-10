@@ -23,57 +23,71 @@
  * 变量提升是js的机制，在变量和函数被使用或执行之前，他们会被提升到作用域的顶端。
  */
 
-// 1. 
+// 1. JS 中变量的声明 var let 是否可以重复声明？
+var greeter = "hey hi";
+var greeter = "say Hello instead";
+console.log(greeter)
+// say Hello instead
+// var 可以被重复声明 后边的会覆盖前面的
+
+let greeter = "hey hi";
+let greeter = "say Hello instead";
+// Uncaught SyntaxError: Identifier 'greeter' has already been declared
+
+
+// 2. 使用声明后未赋值使用时的 var let 表现相同
+(function() {
+    var aV;
+    let aL;
+    console.log(aV)  // undefined
+    console.log(aL)  // undefined
+}())
+
+// 使用未声明的变量 var let 变现有差异
+(function() {
+    console.log(aV)  // undefined  这里有变量提升 使用未声明的变量aV 会被最顶部 aV = undefined
+    console.log(aL)  // Uncaught ReferenceError: Cannot access 'aL' before initialization
+    var aV = 'av';
+    let aL = 'al';
+}())
+// var 不会报错，但是let 直接报错了
+
+
+// 3. JS 中 var let 声明变量的作用域
+// var 和 let 表现一致的情况：
 var tester = "hey hi";
 
 function newFunction() {
     var hello = "hello";
-    console.log(tester);
+    console.log(tester);  // 函数内可以访问函数外声明的变量 函数外无法使用函数内定义的变量 let相同
 }
 newFunction()       // hey hi
 console.log(hello); // Uncaught ReferenceError: hello is not defined
 
-// 2.
-var greeter = "hey hi";
-var greeter = "say Hello instead";
-
-// or
-// greeter = "say Hello instead";
-
-console.log(greeter)
-// say Hello instead
-
-// 3.
-console.log (greeter);
-var greeter = "say hello"
-
-// it is interpreted as this：
-var greeter;
-console.log(greeter);        //greeter is undefined
-greeter = "say hello"
-
-// So var variables are hoisted to the top of its scope and initialized with a value of undefined.
-
-
-/**
- * 1. let is block scoped
- * A block is chunk of code bounded by {}. A block lives in curly braces. 
- * Anything within curly braces is a block. 
- * So a variable declared in a block with the let is only available for use within that block.
- * 
- * 2. let can be updated but not re-declared.
- * 
- */
-// However, if the same variable is defined in different scopes, there will be no error.
-let greeting = "say Hi";
-if (true) {
-    let greeting = "say Hello instead";
-    console.log(greeting);//"say Hello instead"
+// var 和 let 表现不一致的情况：
+var greetingV = "say Hi";
+let greetL = "out if block";
+if (true) {   // if 块结构
+    var greetingV = "say Hello instead";
+    let greetL = "in if block";
+    // console.log(greetingV); //"say Hello instead"
+    // console.log(greetL);    //"in if block"
 }
-console.log(greeting);//"say Hi"
+console.log(greetingV);  //say Hello instead
+console.log(greetL);  // out if block
+// 总结：var 表现出的是一种全局作用域  let 表现出的是块级作用域
 
-// This fact makes let a better choice than var.
-
+// 下面的例子同样说明 块级作用域var let 表现的差异
+(function() {
+    var varT = 'test var OK.';
+    let letT = 'test let OK.';
+    {
+      var varT = 'varT changed.';
+      let letT = 'letT changed.';
+    }  
+    console.log(varT); //输出"varT changed."，内部"{}"中声明的varT变量覆盖外部的letT声明
+    console.log(letT); //输出"test let OK."，内部"{}"中声明的letT和外部的letT不是同一个变量
+}())  
 
 
 /**
