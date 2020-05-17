@@ -32,6 +32,9 @@ func main() {
 }
 
 // The value of "Beijing" in map1 is: 20
+
 // Is "Paris" in map1 ?: false
+
 // Value is: 0
+
 // map1 does not contain Washington
