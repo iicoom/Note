@@ -1,6 +1,7 @@
 > 不积跬步无以至千里.
 
 ### Words
+* REPL：Read-Eval-Print Loop，“读取-求值-输出” 循环。是一个简单的交互式的编程环境。
 
 * SOAP (abbreviation for Simple Object Access Protocol) is a messaging protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on application layer protocols, most often Hypertext Transfer Protocol (HTTP), although some legacy systems communicate over Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.
 简单对象访问协议,计算机网络中用于交换结构化信息的通信协议。 使用XML的消息格式，依赖于应用层协议，最常见的是http，有时候也会依赖

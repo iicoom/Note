@@ -1,3 +1,5 @@
+// 更详尽的讨论在 JavaScript/JS-this-call-apply-bind.md
+
 const myObject = {
 	foo: 'bar',
 	myFunc: function() {

@@ -1,21 +1,10 @@
 /**
- * 1. function中的 this
- */
-const message = "Hello World";
-
-function printMessage(){
-    const innerMsg = "Hello, from inner"
-    console.log(this.message);
-    console.log(this.innerMsg);
-};
-// printMessage();    
-// undefined
-// undefined  
-// 一项结果是在nodejs环境下测试，在浏览器环境下  使用const let 声明message都都在函数内部打印undefined
-// 使用var 声明则会挂到Window对象上  并可以打印出 this.message 为Window.message      
+ * 箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或new.target。
+ * 箭头函数表达式 更适用于 那些本来需要匿名函数的地方，并且它不能用作构造函数。
+ */ 
 
 /**
- * 2. 对象中的 this 在浏览器中测试: Window; node 测试this指向: {}
+ * 2. 对象中的 【this 在浏览器中测试: Window;】 【node 测试this指向: {}】
  */
 var obj2 = {
     id: 2333,
@@ -43,33 +32,56 @@ var jsObject = {
         setTimeout(function(){console.log('printDelayES5', this.message)}, 0)
     },
     printDelayES6: function (){
-        setTimeout(() => { console.log('printDelayES6', this.message)}, 0)
+        setTimeout(() => { console.log('printDelayES6', this.message) }, 0)
     }
 };
 // jsObject.printMessageES5();      // printMessageES5 print in jsObject
-// jsObject.printMessageES6();      
-// printMessageES6 undefined   
-// printMessageES6-es6Inner undefined  
-// printMessageES6-this {}
+
+// jsObject.printMessageES6();      // printMessageES6 undefined   // printMessageES6-es6Inner undefined  // printMessageES6-this {}
+
 // jsObject.printDelayES5();        // printDelayES5 undefined
+
 // jsObject.printDelayES6();        // printDelayES6 print in jsObject
 
 /**
- * 4.
+ * 4. 赋给临时变量
  */
-let sayColor = () => {
-　　return this.color;
-};
-console.log("arrow-function sayColor", sayColor())
-// arrow-function sayColor undefined  
-// 这样的写法 this同样指向{}
+var obj = {
+    a : 1,
+    foo : function(){
+        setTimeout(
+            function(){console.log(this.a),3000}) 
+    }
+}
+obj.foo(); //undefined
 
-// 总结：
+// that
+var obj = {
+    a : 1,
+    foo : function(){
+        var that = this
+        setTimeout(
+            function(){console.log(that.a),3000}) 
+    }
+}
+obj.foo(); //1
+
+// arrow
+var obj = {
+    a : 1,
+    foo : function(){
+        setTimeout(() => console.log(this.a), 0) 
+    }
+}
+obj.foo(); //1
+
+// 总结：======================================================================
 /**
  * 1. 对象内部属性的箭头函数 指向对象外围 nodejs环境执行时一个{} 浏览器环境指向 Window
  * 2. 对象内部属性函数中的setTimeout中的箭头函数 指向对象本身
  * 3. 箭头函数无法使用 call（）或 apply（）来改变其运行的作用域
  */
+// ===========================================================================
 
 // 箭头函数的优缺点
 /**
