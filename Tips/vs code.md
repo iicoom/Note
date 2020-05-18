@@ -1,4 +1,10 @@
 ## VS Code
+### markdown
+插入连接
+复制网址-选中目标词-CTRL V
+channel 
+[channel](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/14.2.md)
+
 ### 缺陷
 1. 查找文件引用不方便 find reference
 2. 没有文件本地修改历史记录(相比较于webstorm)
