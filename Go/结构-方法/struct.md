@@ -1,6 +1,6 @@
 // 组成结构体类型的那些数据称为 字段（fields）。每个字段都有一个类型和一个名字；在一个结构体中，字段名字必须是唯一的。
 
-
+```go
 // 结构体的创建
 type struct1 struct {
 	field1 type1
@@ -8,7 +8,7 @@ type struct1 struct {
 	…
 }
 ms := new(struct1)
-
+// 上下2种写法是等价的 下边的还进行了赋值
 // 初始化：
 ms := &struct1{10, 15.5, "Chris"}
 
@@ -21,8 +21,8 @@ type BattleResultServer struct {
 }
 
 var BattleResultInstance *BattleResultServer
-
 // 以上定义的指针变量可以存储结构体变量的地址
+
 
 type RoomMgr struct {
 	nextIndex    int
@@ -32,7 +32,7 @@ type RoomMgr struct {
 }
 
 func CreateRoomMgr(maxRoomCount int) *RoomMgr {
-	roomMgr := &RoomMgr{}
+	roomMgr := &RoomMgr{}					// 相当于 roomMgr := new(RoomMgr) 表达式 new(Type) 和 &Type{} 是等价的
 	roomMgr.maxRoomCount = maxRoomCount
 	roomMgr.agentToRoom = make(map[gate.Agent]*Room)
 	roomMgr.rooms = make(map[int]*Room, 0)
@@ -40,6 +40,6 @@ func CreateRoomMgr(maxRoomCount int) *RoomMgr {
 
 	return roomMgr
 }
-
-// roomMgr := &RoomMgr{}  具体含义是什么？
+```
+// roomMgr := &RoomMgr{}  具体含义是什么？ 已经解决
 
