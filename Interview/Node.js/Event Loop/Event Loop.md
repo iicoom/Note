@@ -24,6 +24,7 @@ Event loop repeatedly takes events and executes event listeners.
 
 ## Event Loop Explained: 执行过程 经历阶段
 When Node.js starts, it initializes the event loop, schedule timers, or call process.nextTick()
+当 Node.js 启动后，它会初始化事件轮询,它可能会调用一些异步的 API、调度定时器，或者调用 process.nextTick()，然后开始处理事件循环。
 
 incoming connections => poll 
 
