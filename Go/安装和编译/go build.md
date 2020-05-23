@@ -1,0 +1,1 @@
+[go build](http://c.biancheng.net/view/120.html)
