@@ -39,7 +39,6 @@ To understand this you need to know how the event loop handles tasks and microta
 
 https://segmentfault.com/a/1190000011198232 反而是这篇文章给出了一个清晰的划分
 
-## JavaScript 异步、栈、事件循环、任务队列
 
 ### 任务队列
 Js 中，有两类任务队列：宏任务队列（macro tasks）和微任务队列（micro tasks）。宏任务队列可以有多个，微任务队列只有一个。

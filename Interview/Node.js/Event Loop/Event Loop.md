@@ -22,6 +22,16 @@ Event loop repeatedly takes events and executes event listeners.
 事件循环就是 重复的获取这些被放入队列的事件 并且 执行事件对应的处理函数 handler
 ```
 
+## 什么是 Event Loop 和 Event Emitter ?
+Event Loop
+Node.js 虽是单线程应用程序，但是其基于 events and callbacks 机制，可以很好的完成并发操作。Node thread 会保持一个 EventLoop（事件循环）当任何任务完成时该节点都会触发相应的回调。
+
+Event Emitter
+每当完成任何任务、发生任何错误、添加一个 listener 或删除一个 listener 时，EventEmitter 都会触发一个事件。它提供了 on 和 emit 等属性，on 用于绑定函数，emit 用于触发事件。
+
+## 浏览器中的 Event Loop
+JavaScript 是单线程的，当发起一个请求时会通过回调函数来接收后续的事件响应，不会造成阻塞，继续接收下一次请求操作。
+
 ## Event Loop Explained: 执行过程 经历阶段
 When Node.js starts, it initializes the event loop, schedule timers, or call process.nextTick()
 ```
@@ -79,7 +89,54 @@ There are two main reasons:
 1. Allow users to handle errors, cleanup any then unneeded resources, or perhaps try the request again before the event loop continues.
 2. At times it's necessary to allow a callback to run after the call stack has unwound but before the event loop continues.
 
+## process.nextTick 与 setTimeout 递归调用区别？
+process.nextTick 属于微任务，是在当前执行栈的尾部，Event Loop 之前触发，下面两个都是递归调用，test1 中 process.nextTick 是在当前执行栈调用，是一次性执行完，相当于 while(true){}，主线程陷入了死循环，阻断 IO 操作。
 
-process.nextTick >> setImmidate >> setTimeout/SetInterval 
+test2 方法中，setTimeout 属于宏任务，在任务队列中同样也是递归，但是它并不是一次性的执行而是会多次 Event Loop，不会阻断 IO 操作，另外注意 setTimeout 有一个最小的时间 4ms。
+```js
+function test1() {
+    process.nextTick(() => test());
+}
+
+function test2() {
+    setTimeout(() => test(), 0);
+}
+```
+
+process.nextTick 将会阻塞 IO，setImmediate 不会输出
+```js
+function test() {
+    return process.nextTick(() => test());
+}
+
+test();
+
+setImmediate(() => {
+    console.log('setImmediate');
+})
+```
+下面使用 setTimeout 不会造成 IO 阻塞，会输出 setImmediate
+```js
+function test() { 
+    setTimeout(() => test(), 0);
+}
+
+test()
+
+setImmediate(() => {
+    console.log('setImmediate');
+})
+```
+
+## Node.js 中定时功能的顺序是怎样的？
+Node.js 的定时器模块提供了在一段时间之后执行一些函数的功能。
+
+setTimeout/clearTimeout - 用于在指定的毫秒数后执行代码块（仅执行一次）
+setInterval/clearInterval - 用于在指定的毫秒数后循环执行代码块（循环执行）
+setImmediate/clearImmediate - 在当前事件循环周期结束后执行代码块
+process.nextTick - 在当前执行栈尾部，Event-Loop 之前触发
+timer 的执行顺序
+
+process.nextTick > setImmidate > setTimeout / SetInterval
 
 http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/
