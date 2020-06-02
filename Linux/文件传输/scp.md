@@ -109,5 +109,58 @@ Conclusion
 As you can see, once you understand how things work, it will be quite easy to move your files around. That’s what Linux is all about, just invest your time in understanding some basics, then it’s a breeze!
 
 
+## 从Linux服务器下载文件夹到本地
+```
+1、使用scp命令
 
+scp /home/work/source.txt work@192.168.0.10:/home/work/ #把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下
 
+scp work@192.168.0.10:/home/work/source.txt /home/work/ #把192.168.0.10机器上的source.txt文件拷贝到本地的/home/work目录下
+
+scp work@192.168.0.10:/home/work/source.txt work@192.168.0.11:/home/work/ #把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下
+
+scp -r /home/work/sourcedir work@192.168.0.10:/home/work/ #拷贝文件夹，加-r参数
+```
+
+### 实例
+假设从Windows登录到JumpServer,再从JumpServer登录到目标主机,现在要从目标主机回传文件到Windows,操作思路如下（使用git bash）
+
+JumpServer ~/.ssh/config 如下：
+```
+Host alpha
+    HostName 10.10.60.49
+    Port 31122
+    User doraemon
+```
+要下载的目标问价再 alpha 服务器的路径
+```
+[doraemon@alpha server]$ pwd
+/doraemon/server/data.zip
+```
+
+在JumpServer上进行如下操作
+```
+[maoxiaojie@jumpserver ~]$ scp doraemon@alpha:/doraemon/server/data.zip ./
+
+[maoxiaojie@jumpserver ~]$ ls
+data.zip
+
+就可以把data.zip 放到 Jump指定的 ./ 目录下
+```
+
+然后，回到Windows 使用同样的套路 把Jump上的 data.zip 下载
+```
+$ scp -P 32222 maoxiaojie@192.138.40.220:/home/maoxiaojie/data.zip ./
+maoxiaojie@192.168.40.210's password:
+data.zip          
+```
+下载完成！
+
+传输前可能会用到文件打包：
+## zip
+zip命令可以用来解压缩文件，或者对文件进行打包操作。zip是个使用广泛的压缩程序，文件经它压缩后会另外产生具有“.zip”扩展名的压缩文件。
+
+将/home/Blinux/html/这个目录下所有文件和文件夹打包为当前目录下的html.zip：
+```
+zip -q -r html.zip /home/Blinux/html
+```
