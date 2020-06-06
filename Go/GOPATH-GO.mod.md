@@ -66,54 +66,54 @@ In Go 1.14, module support is considered ready for production use
 
 https://github.com/golang/go/wiki/Modules#example
 
-## 使用go mod创建项目
-1. 创建项目目录，初始化go.mod
-Admin@MXJ-PC MINGW64 /e
-$ mkdir Hello
+### leafserver实例项目结构如下：
+```
+leafserver
+	- bin
+	- src
+  	- server
+			- conf
+			- game
+			- gate
+			- login
+			- mian.go
+```
 
-Admin@MXJ-PC MINGW64 /e
-$ cd Hello
-
-Admin@MXJ-PC MINGW64 /e/Hello
-$ go mod init example.com/user/hello
-go: creating new go.mod: module example.com/user/hello
-
-Admin@MXJ-PC MINGW64 /e/Hello
-$ ls
-go.mod
-
-Admin@MXJ-PC MINGW64 /e/Hello
-$ cat go.mod
-module example.com/user/hello
+// go.mod
+```go
+module myLeaf
 
 go 1.14
 
-2. The first statement in a Go source file must be package name. Executable commands must always use package main.
+require (
+	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/name5566/leaf v0.0.0-20191028103944-deca55354100
+)
+```
+
 ```go
 package main
 
 import (
-     "fmt"
-     "time"
+	"github.com/name5566/leaf"
+	lconf "github.com/name5566/leaf/conf"
+	"myLeaf/conf"
+	"myLeaf/game"
+	"myLeaf/gate"
+	"myLeaf/login"
 )
 
 func main() {
-	fmt.Println("Hello, world.")
-	time.Sleep(time.Second)
+	lconf.LogLevel = conf.Server.LogLevel
+	lconf.LogPath = conf.Server.LogPath
+	lconf.LogFlag = conf.LogFlag
+	lconf.ConsolePort = conf.Server.ConsolePort
+	lconf.ProfilePath = conf.Server.ProfilePath
+
+	leaf.Run(
+		game.Module,
+		gate.Module,
+		login.Module,
+	)
 }
 ```
-
-- go run hello.go
-Admin@MXJ-PC MINGW64 /e/Hello
-$ go run hello.go
-Hello, world.
-
-- go build
-Admin@MXJ-PC MINGW64 /e/Hello
-$ ls
-go.mod  hello.exe*  hello.go
-
-双击打开hello.exe* 输出Hello, world. 1秒后关闭
-
-
-## go install
