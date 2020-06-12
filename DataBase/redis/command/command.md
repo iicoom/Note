@@ -1,133 +1,3 @@
-## 连接服务器登录
-```
-[dormon@mxj-s ~]$ redis-cli
-127.0.0.1:6379> auth 3E=2DHem7n1
-OK
-```
-
-## Redis Select
-redis默认有db0~db15之多。
-Redis Select 命令用于切换到指定的数据库，数据库索引号 index 用数字值指定，以 0 作为起始索引值。默认库为0
-```
-127.0.0.1:6379> select 5
-OK
-127.0.0.1:6379[5]> keys *
-1) "queue:job:1"
-2) "queue:jobs:inactive"
-3) "queue:job:types"
-4) "queue:job:2"
-5) "queue:ids"
-6) "queue:jobs"
-7) "queue:order/line-0:jobs"
-8) "queue:jobs:order/line-0:inactive"
-```
-
-```
-// 消息队列
-var queue = kue.createQueue({
-    prefix: 'queue',
-    redis: {
-        db: 5,
-        port: rcc.port,
-        host: rcc.host,
-        auth: rcc.auth_pass
-    }
-});
-```
-
-## key 命令
-
-0. TYPE key
-127.0.0.1:6379[5]> type queue:job:14
-hash
-
-127.0.0.1:6379[5]> type "queue:job:14"
-hash
-返回key所存储的value的数据结构类型，它可以返回string, list, set, zset 和 hash等不同的类型。
-
-1. keys pattern  拿出数据库中匹配的键的值
-如： keys *
-=>
-
-2896) "sid:It6jw6BB78gW-SxPlFti3sM4KegYv-QK"
-2897) "e45a659da57789ff6da1a2e3d9d758f3"
-2898) "sid:4X9_881oAr8SnbmL224SIiFIJ2QzjHn1"
-2899) "sid:Ud-HkGtaHEcKZtr_pbmAVrxf0tqDyA1_"
-2900) "7f2ba083-a655-4fc2-95cf-4a619a7a63e8"
-2901) "task_consume_registerFinish:370024fc96ffeae22fac94e83bb1cc06::1634"
-2902) "13522689508_modify_pwd_SMS_201711021434"
-2903) "115.34.153.112_signup_SMS_201709261627"
-2904) "task_consume_registerFinish:47791965e364175fe8c344747f7c7aea"
-2905) "sid:uz50NSXXKgZkPKuA7uQl8ckntYsLI8Bm"
-
-redis> keys *o*
-1) "four"
-2) "two"
-3) "one"
-
-10.101.111.185:6379[5]> keys *task_consume_importSheep*
-1) "task_consume:task_consume_importSheep:jobs"
-2) "task_consume:jobs:task_consume_importSheep:failed"
-3) "task_consume:jobs:task_consume_importSheep:inactive"
-10.101.111.185:6379[5]> type "task_consume:task_consume_importSheep:jobs"
-list
-
-2. get key
-```
-101.201.197.163:6379> get sid:-_D4KmjM7bd79KpH1ECoMWrViyu6CQ_z
-"{\"cookie\":{\"httpOnly\":true,\"path\":\"/\",\"overwrite\":true,\"signed\":true,\"maxage\":86400000},\"user-agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36\"}"
-
-
-127.0.0.1:6379[5]> type "queue:ids"
-string
-127.0.0.1:6379[5]> get "queue:ids"
-"8"
-```
-
-3. HGET key field
-返回 key 指定的哈希集中该字段所关联的值
-```
-127.0.0.1:6379[5]> hget queue:job:14 data
-"{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
-```
-
-4. hgetall key
-返回 key 指定的哈希集中所有的字段和值。返回值中，每个字段名的下一个是它的值，所以返回值的长度是哈希集大小的两倍
-```
-127.0.0.1:6379[5]> hgetall q:job:2
- 1) "type"
- 2) "order/line-0"
- 3) "promote_at"
- 4) "1516591572310"
- 5) "priority"
- 6) "0"
- 7) "state"
- 8) "failed"
- 9) "error"
-10) "TTL exceeded"
-11) "ttl"
-12) "5000"
-13) "data"
-14) "{\"user_id\":\"uid\",\"batch_id\":\"batch_id\",\"sheep_num\":\"sheep_num\",\"presentInfo\":{}}"
-15) "started_at"
-16) "1516591584774"
-17) "attempts"
-18) "3"
-19) "created_at"
-20) "1516591572310"
-21) "failed_at"
-22) "1516591589788"
-23) "workerId"
-24) "kue:MXJdeMacBook-Pro.local:25730:order/line-0:1"
-25) "max_attempts"
-26) "3"
-27) "backoff"
-28) "true"
-29) "updated_at"
-30) "1516591589788"
-127.0.0.1:6379[5]>
-```
-
 5. 查看key数量及清空key
 ```
 127.0.0.1:6379[5]> dbsize
@@ -275,4 +145,64 @@ multi-bulk-reply: 每个元素与原子事务中的指令一一对应 当使用W
 (integer) 590
 ```
 
+待处理
+## Redis 集群
+
+### keys pattern
+127.0.0.1:6379> keys api:cache:lesson*
+1) "api:cache:lesson:33"
+2) "api:cache:lesson:36"
+3) "api:cache:lesson:34"
+4) "api:cache:lesson:32"
+
+1. keys pattern  拿出数据库中匹配的键的值
+如： keys *
+=>
+
+2896) "sid:It6jw6BB78gW-SxPlFti3sM4KegYv-QK"
+2897) "e45a659da57789ff6da1a2e3d9d758f3"
+2898) "sid:4X9_881oAr8SnbmL224SIiFIJ2QzjHn1"
+2899) "sid:Ud-HkGtaHEcKZtr_pbmAVrxf0tqDyA1_"
+
+redis> keys *o*
+1) "four"
+2) "two"
+3) "one"
+
+
+### 删除单个或多个key
+127.0.0.1:6379> del "uid:5a92ba9dfecffa6b1fb8f086"
+
+127.0.0.1:6379> del key1 key2
+
+### 返回0 1 状态含义
+127.0.0.1:6379> keys *
+1) "yasuo:data:token:5"
+2) "fuck"
+127.0.0.1:6379> get fuck
+"you"
+127.0.0.1:6379> del fuck
+(integer) 1
+127.0.0.1:6379> del fuck
+(integer) 0
+127.0.0.1:6379>
+
+1表示成功 0表示失败
+
+
+### 批量删除指定的key
+注意先得退出redis-cli
+
+```
+redis-cli keys "*" | xargs redis-cli del  
+//如果redis-cli没有设置成系统变量，需要指定redis-cli的完整路径  
+//如：/opt/redis/redis-cli keys "*" | xargs /opt/redis/redis-cli del  
+
+➜  ~ redis-cli keys "*" | xargs redis-cli DEL
+```
+
+如下面查找表名下的show类型的keys 
+keys db:table:[a-zA-Z_/d]*:show:* 
+
+keys "$PATTERN" | xargs redis-cli del  
 
