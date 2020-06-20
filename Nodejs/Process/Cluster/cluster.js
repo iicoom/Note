@@ -83,3 +83,6 @@ Worker 5981 started
 Worker 5982 started
 */
 
+// The worker processes are spawned using the child_process.fork() method, 
+// so that they can communicate with the parent via IPC(Inter-Process Communication 进程间通信) and pass server handles back and forth.
+

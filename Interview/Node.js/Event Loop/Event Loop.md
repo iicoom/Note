@@ -140,3 +140,75 @@ timer 的执行顺序
 process.nextTick > setImmidate > setTimeout / SetInterval
 
 http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/
+
+
+## 主进程中的event loop阻塞
+```js
+const http = require('http');
+
+const longComputation = () => {
+  let sum = 0;
+  for (let i = 0; i < 1e9; i++) {
+    sum += i;
+  };
+  return sum;
+};
+
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+  if (req.url === '/compute') {
+    const sum = longComputation();
+    return res.end(`Sum is ${sum}`);
+  } else {
+    res.end('Ok')
+  }
+});
+
+server.listen(3000);
+```
+This program has a big problem; when the the /compute endpoint is requested, 
+the server will not be able to handle any other requests because the event loop is busy with the long for loop operation.
+
+We first move the whole longComputation function into its own file and make it invoke that function when instructed via a message from the main process:
+
+In a new compute.js file:
+```js
+const longComputation = () => {
+  let sum = 0;
+  for (let i = 0; i < 1e9; i++) {
+    sum += i;
+  };
+  return sum;
+};
+
+process.on('message', (msg) => {
+  const sum = longComputation();
+  process.send(sum);
+});
+```
+
+Now, instead of doing the long operation in the main process event loop,
+we can fork the compute.js file and use the messages interface to communicate messages between the server and the forked process.
+```js
+const http = require('http');
+const { fork } = require('child_process');
+
+const server = http.createServer();
+
+server.on('request', (req, res) => {
+  if (req.url === '/compute') {
+    const compute = fork('compute.js');
+    compute.send('start');
+    compute.on('message', sum => {
+      res.end(`Sum is ${sum}`);
+    });
+  } else {
+    res.end('Ok')
+  }
+});
+
+server.listen(3000);
+```
+When a request to /compute happens now with the above code, we simply send a message to the forked process to start executing the long operation. 
+The main process’s event loop will not be blocked.
