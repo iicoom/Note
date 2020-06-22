@@ -22,39 +22,9 @@ Event loop repeatedly takes events and executes event listeners.
 事件循环就是 重复的获取这些被放入队列的事件 并且 执行事件对应的处理函数 handler
 ```
 
-## 什么是 Event Loop 和 Event Emitter ?
-Event Loop
-Node.js 虽是单线程应用程序，但是其基于 events and callbacks 机制，可以很好的完成并发操作。Node thread 会保持一个 EventLoop（事件循环）当任何任务完成时该节点都会触发相应的回调。
-
-Event Emitter
-每当完成任何任务、发生任何错误、添加一个 listener 或删除一个 listener 时，EventEmitter 都会触发一个事件。它提供了 on 和 emit 等属性，on 用于绑定函数，emit 用于触发事件。
-
-## 浏览器中的 Event Loop
-JavaScript 是单线程的，当发起一个请求时会通过回调函数来接收后续的事件响应，不会造成阻塞，继续接收下一次请求操作。
-
-## Event Loop Explained: 执行过程 经历阶段
-When Node.js starts, it initializes the event loop, schedule timers, or call process.nextTick()
-```
-当 Node.js 启动后，它会初始化事件轮询,它可能会调用一些异步的 API、调度定时器，或者调用 process.nextTick()，然后开始处理事件循环。
-```
-
-incoming connections => poll 
-
-Since any of these operations may schedule more operations and new events processed in the poll phase are queued by the kernel
-
-As a result, long running callbacks can allow the poll phase to run much longer than a timer's threshold
-
-**poll**: The poll phase has two main functions:
-1. Calculating how long it should block and poll for I/O, then
-2. Processing events in the poll queue.
-
-**check**:
-
-
-
 ## setImmediate() vs setTimeout()
 However, if you move the two calls within an I/O cycle, the immediate callback is always executed first:
-```
+```js
 // timeout_vs_immediate.js
 const fs = require('fs');
 
@@ -75,58 +45,6 @@ timeout
 -->
 ```
 
-## process.nextTick()
-
-You may have noticed that process.nextTick() was not displayed in the diagram, even though it's a part of the asynchronous API. 
-This is because process.nextTick() is not technically part of the event loop. 
-
-Looking back at our diagram, any time you call process.nextTick() in a given phase, all callbacks passed to process.nextTick() will be resolved before the event loop continues. 
-
-process.nextTick() fires more immediately than setImmediate()
-
-### Why use process.nextTick()?
-There are two main reasons:
-1. Allow users to handle errors, cleanup any then unneeded resources, or perhaps try the request again before the event loop continues.
-2. At times it's necessary to allow a callback to run after the call stack has unwound but before the event loop continues.
-
-## process.nextTick 与 setTimeout 递归调用区别？
-process.nextTick 属于微任务，是在当前执行栈的尾部，Event Loop 之前触发，下面两个都是递归调用，test1 中 process.nextTick 是在当前执行栈调用，是一次性执行完，相当于 while(true){}，主线程陷入了死循环，阻断 IO 操作。
-
-test2 方法中，setTimeout 属于宏任务，在任务队列中同样也是递归，但是它并不是一次性的执行而是会多次 Event Loop，不会阻断 IO 操作，另外注意 setTimeout 有一个最小的时间 4ms。
-```js
-function test1() {
-    process.nextTick(() => test());
-}
-
-function test2() {
-    setTimeout(() => test(), 0);
-}
-```
-
-process.nextTick 将会阻塞 IO，setImmediate 不会输出
-```js
-function test() {
-    return process.nextTick(() => test());
-}
-
-test();
-
-setImmediate(() => {
-    console.log('setImmediate');
-})
-```
-下面使用 setTimeout 不会造成 IO 阻塞，会输出 setImmediate
-```js
-function test() { 
-    setTimeout(() => test(), 0);
-}
-
-test()
-
-setImmediate(() => {
-    console.log('setImmediate');
-})
-```
 
 ## Node.js 中定时功能的顺序是怎样的？
 Node.js 的定时器模块提供了在一段时间之后执行一些函数的功能。
@@ -212,3 +130,17 @@ server.listen(3000);
 ```
 When a request to /compute happens now with the above code, we simply send a message to the forked process to start executing the long operation. 
 The main process’s event loop will not be blocked.
+
+## [不要阻塞你的事件循环（或是工作线程池）](https://nodejs.org/zh-cn/docs/guides/dont-block-the-event-loop/)
+
+Node.js 是用很少量的线程来处理大量客户端请求的。 在 Node.js 中，有两种类型的线程：一个事件循环线程（也被称为主循环，主线程，事件线程等）。
+另外一个是在工作线程池里的 k 个工作线程（也被称为线程池）。
+
+请记住，事件循环线程只负责协调客户端的请求，而不是独自执行完所有任务。 对一个复杂的任务，最好把它从事件循环线程转移到工作线程池上。
+
+### 阻塞
+如果一个线程执行一个回调函数（事件轮询线程）或者任务（工作线程）需要耗费很长时间，我们称之为“阻塞”。 当一个线程在处理某一个客户端请求时被阻塞了，它就无法处理其它客户端的请求了。 这里给出两个不能阻塞事件轮询线程和工作线程的理由：
+
+- 性能：如果你在任意类型的线程上频繁处理繁重的任务，那么你的服务器的 吞吐量（请求/秒）将面临严峻考验。
+- 安全性：如果对于特定的输入，你的某种类型的线程可能会被阻塞，那么恶意攻击者可以通过构造类似这样的“恶意输入”，故意让你的线程阻塞，然后使其它客户端请求得不到处理。这就是拒绝服务攻击。
+
