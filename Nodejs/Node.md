@@ -1,10 +1,5 @@
-## terminal（使用node）
-
-输入 node 即可进入node 环境
-
-control+d 退出 同时清除之前 声明的变量
-
-
+## https://v8.dev/
+v8 engine
 
 > Node.js is built upon libuv, a cross-platform library that abstracts apis/syscalls for asynchronous (non-blocking) input/output provided by the supported OSes (Unix, OS X and Windows at least).
 
