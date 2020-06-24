@@ -3,7 +3,7 @@ https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 ## What is the Event Loop?
 The event loop is what allows Node.js to perform non-blocking I/O operations
 ```
-Event loop 是 Node.js 实现非阻塞I/O操作的机制。
+Event loop 是 Node.js 实现异步非阻塞I/O操作的机制。
 ```
 
 Two types: events and event handlers：
@@ -22,43 +22,10 @@ Event loop repeatedly takes events and executes event listeners.
 事件循环就是 重复的获取这些被放入队列的事件 并且 执行事件对应的处理函数 handler
 ```
 
-## setImmediate() vs setTimeout()
-However, if you move the two calls within an I/O cycle, the immediate callback is always executed first:
-```js
-// timeout_vs_immediate.js
-const fs = require('fs');
-
-fs.readFile(__filename, () => {
-  setTimeout(() => {
-    console.log('timeout');
-  }, 0);
-  setImmediate(() => {
-    console.log('immediate');
-  });
-});
+**异步I/O的好处,适用于什么场景？与其他语言处理并发方式的差异？查看[0.NodeJS-使用场景](../0.%20NodeJS-使用场景.md)**
 
 
-<!-- 
-$ node timeout_vs_immediate.js
-immediate
-timeout 
--->
-```
-
-
-## Node.js 中定时功能的顺序是怎样的？
-Node.js 的定时器模块提供了在一段时间之后执行一些函数的功能。
-
-setTimeout/clearTimeout - 用于在指定的毫秒数后执行代码块（仅执行一次）
-setInterval/clearInterval - 用于在指定的毫秒数后循环执行代码块（循环执行）
-setImmediate/clearImmediate - 在当前事件循环周期结束后执行代码块
-process.nextTick - 在当前执行栈尾部，Event-Loop 之前触发
-timer 的执行顺序
-
-process.nextTick > setImmidate > setTimeout / SetInterval
-
-http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/
-
+> 具体event loop如何工作，查看[**libuv**](./libuv.md)
 
 ## 主进程中的event loop阻塞
 ```js
