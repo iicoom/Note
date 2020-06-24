@@ -22,6 +22,7 @@ https://github.com/libuv/libuv
 
 ## libuv的事件循环机制
 ![11](https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/nodejs/libuv3.png)
+
 因为Libuv处理fs I/O和网络I/O用了两套机制去实现，或者说更全面的讲应该是fs I/O和 DNS等实现的方式和网络 I/O是不一样的。为什么这么说呢？
-![22](https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/nodejs/libuv5.png?x-oss-process=style/addWaterMarkBottom)
+![22](https://blogimages2016.oss-cn-hangzhou.aliyuncs.com/nodejs/libuv5.png)
 
