@@ -200,7 +200,9 @@ mysql>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '1234445' WITH GRA
 输入后使修改生效还需要下面的语句
 mysql>FLUSH PRIVILEGES;
 
-上面的授权提示语法和当前版本不符，8.x版本采取以下授权方式
+#########################################################################################################
+【上面的授权提示语法和当前版本不符，8.x版本采取以下授权方式】
+#########################################################################################################
 mysql> use mysql;
 
 mysql> select user,authentication_string,host from user;
@@ -234,7 +236,7 @@ mysql> select user,authentication_string,host from user;
 mysql> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
 ```
-这步一定要做，否则无法生效。
+这步一定要做，否则无法生效。如果使用Navicat还是无法远程连接到3306，要检查一下centos7 的防火墙端口有没有打开
 
 远程连接mysql8.0，Error No.2058 Plugin caching_sha2_password could not be loaded
 

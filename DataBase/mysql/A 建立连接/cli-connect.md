@@ -30,3 +30,30 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql>
 
+## npm-mysql 使用用户名密码连接MySQL 8.0 报错
+MySQL 8.0 - Client does not support authentication protocol requested by server; consider upgrading MySQL client
+
+MySQL 8 has supports pluggable authentication methods. By default, one of them named caching_sha2_password is used rather than our good old mysql_native_password (source). It should be obvious that using a crypto algorithm with several handshakes is more secure than plain password passing that has been there for 24 years!
+MySQL 8支持可插入的身份验证方法。默认情况下，使用其中一个名为caching_sha2_password的密码，而不是我们原来的mysql_native_password (source)。显然，使用多次握手的加密算法比使用24年的简单密码传递更安全!
+
+- Option 1)
+Downgrade "MySQL" to authenticate using good old "native_password"
+That's what everybody suggests here (e.g. top answer above). You just get into mysql and run a query saying root is fine using old native_password method for authnetication:
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
+```
+Where root as your user localhost as your URL and password as your password
+
+Then run this query to refresh privileges:
+```sql
+flush privileges;
+```
+Try connecting using node after you do so.
+
+也可以尝试在GUI navicat - 用户 - 编辑 - 常规 - 插件 中修改 这种方式好像有点问题会提示你需要先重置密码(可能是因为出于安全性考虑，修改认证方式后需要重置密码) 
+还是直接执行上边的ALTER比价靠谱，结果证明也不用flush privileges; 就已经生效了
+
+- Option 2) 
+Replace "Node" package with MySQL Connecter X DevAPI
+使用更高级的支持新的认证方式的客户端
+
