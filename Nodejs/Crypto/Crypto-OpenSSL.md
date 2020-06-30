@@ -27,6 +27,12 @@ console.log(hash);
 //   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e
 ```
 
+### Hmac
+The Hmac class is a utility for creating cryptographic HMAC digests. It can be used in one of two ways:
+
+Hmac类是用于创建加密Hmac摘要的实用程序
+
+
 
 https://www.openssl.org/
 

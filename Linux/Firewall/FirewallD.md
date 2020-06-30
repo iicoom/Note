@@ -59,9 +59,15 @@ firewall-cmd --zone=public --add-port=5000/tcp   注意：这个需要加--perma
 output
 success
 
+需要先执行 firewall-cmd --reload, 才能看到新添加的端口
 firewall-cmd --zone=public --list-ports
 output
 5000/tcp
+```
+
+### 关闭端口
+```
+firewall-cmd --zone= public --remove-port=80/tcp --permanent  # 删除
 ```
 
 ### reload
