@@ -67,7 +67,7 @@ output
 
 ### 关闭端口
 ```
-firewall-cmd --zone= public --remove-port=80/tcp --permanent  # 删除
+firewall-cmd --zone=public --remove-port=80/tcp --permanent  # 删除
 ```
 
 ### reload
