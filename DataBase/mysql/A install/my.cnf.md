@@ -1,3 +1,4 @@
+vi /etc/my.cnf
 ## 查找配置文件路径
 ```
 [root@vultr ~]# mysql --help|grep 'my.cnf' 

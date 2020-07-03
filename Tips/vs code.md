@@ -1,9 +1,14 @@
 ## VS Code
-### markdown
-插入连接
+### markdown (Markdown All in One 这个插件很方便)
+#### 插入连接
 复制网址-选中目标词-CTRL V
 channel 
 [channel](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/14.2.md)
+
+#### 加粗文本快捷键
+ctrl+b
+
+可以到插件介绍中查看更多实用的功能
 
 ### 缺陷
 1. 查找文件引用不方便 find reference
