@@ -59,6 +59,16 @@ Parallax effects are awesome. Having elements move in the different speed during
 《互联网信息服务管理办法》指出互联网信息服务分为经营性和非经营性两类。国家对经营性互联网信息服务实行许可制度；对非经营性互联网信息服务实行备案制度。未取得许可或者未履行备案手续的，不得从事互联网信息服务
 
 * ERP (Enterprise Resource Planning) 企业资源计划 是一种主要面向制造行业进行物质资源、资金资源和信息资源集成一体化管理的企业信息管理系统。
+  ERP的六大核心思想图示
+  - Engineering Data Management： 工程数据管理
+  - Production Management： 生产管理
+  - Project Management： 项目管理
+  - Customer Service Management： 客户服务管理
+  - Materials Management： 物资管理
+  - Financial Management： 财务管理
+
+* [CRM](https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86/254554?fromtitle=CRM&fromid=165070&fr=aladdin)  1999年，Gartner Group Inc公司提出了CRM概念（Customer Relationship Management 客户关系管理）。Gartner Group Inc在早些提出的ERP概念中，强调对供应链进行整体管理。而客户作为供应链中的一环，为什么要针对它单独提出一个CRM概念呢？
+原因之一在于，在ERP的实际应用中人们发现，由于ERP系统本身功能方面的局限性，也由于IT技术发展阶段的局限性，ERP系统并没有很好地实现对供应链下游（客户端）的管理，针对3C因素中的客户多样性，ERP并没有给出良好的解决办法。
 
 *  邓氏编码（D-U-N-S® Number）是一种实时动态的企业身份标识。它源自于一个独一无二的9位数字全球编码系统DUNS，相当于企业的身份识别码 （就像是个人的身份证），被广泛应用于企业识别、商业信息的组织及整理。可以帮助识别和迅速定位全球2.4亿家企业的信息。
 https://baike.baidu.com/item/%E9%82%93%E6%B0%8F%E7%BC%96%E7%A0%81/10822659?fr=aladdin
@@ -113,6 +123,14 @@ Software as a service (SaaS) is a software distribution model in which a third-p
 https://searchcloudcomputing.techtarget.com/definition/Software-as-a-Service
 
 * [cloud computing](https://searchcloudcomputing.techtarget.com/definition/cloud-computing)
+
+* O2O 即Online To Offline，是指将线下的商务机会与互联网结合，让互联网成为线下交易的前台，这个概念最早来源于美国。O2O的概念非常广泛，只要产业链中既可涉及到线上，又可涉及到线下，就可通称为O2O。一种观点是，一家企业能兼备网上商城及线下实体店两者，并且网上商城与线下实体店全品类价格相同，即可称为O2O；也有观点认为，O2O是B2C（ Business To Customers）的一种特殊形式。O2O引用较多的一种解释是：O2O（Online To Offline）即线上到线下，其核心是把线上的消费者带到现实的商店中去，也就是让用户在线支付购买线下的商品和服务后，到线下去享受服务。O2O适用的行业 餐饮业，服务业，团购几乎采取O2O模式.百度地图被视为O2O的重要入口之一，并相继提供了地图+出行、餐饮、酒店、门票、电影等各类生活服务，糯米和百度外卖也正从单一的餐饮扩展到更多的服务场景，已经在医疗、上门服务等领域有所动作。
+
+* B2B 企业对企业(B2B，在一些国家，BtoB)是指一家企业与另一家企业进行商业交易。这通常发生在以下情况:
+  例如:向另一家公司提供原材料，以便生产产品
+  一个企业因经营原因需要另一个企业的服务(例如，一个食品制造商雇用会计事务所审计其财务)。
+  转售他人生产的商品和服务的企业(例如，零售商从食品制造商那里购买最终产品)。
+  B2B经常与企业对消费者(B2C)进行对比。在B2B商务,双方关系具有可比性的议价能力,即使他们不这样做,每一方通常需要专业人员和法律顾问谈判的条款,而B2C的形状更大程度上信息不对称的经济影响。
 
 * IPO 首次公开募股（Initial Public Offerings，简称IPO）是指一家企业或公司 （股份有限公司）第一次将它的股份向公众出售（首次公开发行，指股份公司首次向社会公众公开招股的发行方式）。通常，上市公司的股份是根据相应证监会出具的招股书或登记声明中约定的条款通过经纪商或做市商进行销售。一般来说，一旦首次公开上市完成后，这家公司就可以申请到证券交易所或报价系统挂牌交易,有限责任公司在申请IPO之前，应先变更为股份有限公司。
 
