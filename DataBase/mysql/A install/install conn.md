@@ -357,5 +357,7 @@ mysql>
 ## node-mysql
 [用Nodejs连接MySQL](http://blog.fens.me/nodejs-mysql-intro/)
 
+## [MySQL 通讯协议](https://jin-yang.github.io/post/mysql-protocol.html)
+
 
 
