@@ -12,37 +12,6 @@
 ## table CHARSET 和 column CHARSET
 在设计数据表时，一定要注意该字段存储的内容，如果允许设置表情，则一定不能使用utf8，而是使用utf8mb4。
 
-## table 中的约束类型
-外键约束、唯一约束、非空约束、默认值约束
-
-### [外键约束FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.6/en/create-table-foreign-keys.html)
-MySQL supports foreign keys, which permit cross-referencing related data across tables, and foreign key constraints, which help keep the related data consistent.
-MySQL支持通过外键跨表索引数据 保持相关数据的一致性
-A foreign key relationship involves a parent table that holds the initial column values, and a child table with column values that reference the parent column values. A foreign key constraint is defined on the child table.
-外键关系涉及保存初始列值的父表和引用父列值的列值的子表。在子表上定义了外键约束。
-
-当更新或删除操作影响子表中具有匹配行的父表中的键值时，结果取决于外键子句的on UPDATE和on DELETE子句指定的引用操作。引用的行为包括:
-#### Referential Actions:
-- CASCADE:删除或更新父表中的行，并自动删除或更新子表中的匹配行。支持删除级联和更新级联。在两个表之间，不要定义几个作用于父表或子表中的同一列的ON UPDATE CASCADE子句。
-- RESTRICT: 拒绝父表的删除或更新操作。指定RESTRICT(或NO ACTION)与省略ON DELETE或ON UPDATE子句相同。
-
-```sql
-CREATE TABLE parent (
-  id INT NOT NULL,
-  PRIMARY KEY (id)
-) ENGINE=INNODB;
-
-CREATE TABLE child (
-    id INT,
-    parent_id INT,
-    INDEX par_ind (parent_id),
-    FOREIGN KEY (parent_id)
-        REFERENCES parent(id)
-        ON DELETE CASCADE
-) ENGINE=INNODB;
-```
-以上这种结构就是parent的行被删除后，匹配到的child会被删除
-
 
 ## SQL CREATE TABLE 语法
 ```

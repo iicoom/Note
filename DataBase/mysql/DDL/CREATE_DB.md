@@ -39,7 +39,13 @@ CREATE DATABASE IF NOT EXISTS next_joy DEFAULT CHARACTER SET utf8mb4;
 ### 数据库命名规范
 看一下数据库自带的命名方式都是小写字母，词组之间用下划线分割
 
-### 数据库CHARACTER
+### 数据库CHARACTER SET
+```sql
+-- 使用这条语句可以查看mysql database 支持的 CHARACTER SET 有200多个
+SELECT id, collation_name FROM information_schema.collations ORDER BY id;
+```
+
+<!-- 着重说下面2个 -->
 - utf8
 - utf8mb4
 
