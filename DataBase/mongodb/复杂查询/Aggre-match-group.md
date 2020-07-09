@@ -11,7 +11,7 @@ https://docs.mongodb.com/manual/aggregation/
 
 ### $match (aggregation)¶ 聚合管道
 例1: 订单处理
-```
+```sql
 { "_id" : ObjectId("512bc95fe835e68f199c8686"), "author" : "dave", "score" : 80, "views" : 100 }
 { "_id" : ObjectId("512bc962e835e68f199c8687"), "author" : "dave", "score" : 85, "views" : 521 }
 { "_id" : ObjectId("55f5a192d4bede9ac365b257"), "author" : "ahn", "score" : 60, "views" : 1000 }
@@ -42,7 +42,7 @@ db.articles.aggregate( [
 
 
 例2: articles collection 处理
-```
+```sql
 db.orders.find() // orders collection 有如下数据：
 
 { 

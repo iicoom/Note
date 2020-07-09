@@ -102,6 +102,21 @@ BulkWriteResult({
 }
 ```
 
+#### count
+Count all Documents that Match a Query¶
+```
+db.orders.count( { ord_dt: { $gt: new Date('01/01/2012') } } )
+
+The query is equivalent to the following:
+
+db.orders.find( { ord_dt: { $gt: new Date('01/01/2012') } } ).count()
+```
+IMPORTANT
+
+Avoid using the db.collection.count() method without a query predicate since without the query predicate, the method returns results based on the collection’s metadata, which may result in an approximate count. In particular,
+
+避免使用没有查询条件的count
+
 #### update
 db.collection.updateOne(filter, update, options)
 ```

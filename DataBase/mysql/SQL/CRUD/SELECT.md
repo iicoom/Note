@@ -58,6 +58,65 @@ mysql> select username as user, age, sex from qiushi limit 4;
 +--------------------+------+-------+
 4 rows in set (0.29 sec)
 
+### select distinct
+```sql
+mysql> select * from oauths;
++----+---------+------------+----------+---------+------------+
+| id | user_id | oauth_type | oauth_id | unionid | credential |
++----+---------+------------+----------+---------+------------+
+|  1 |       1 | weibo      | openid   | 123456  |            |
+|  2 |       4 | weibo      | openid   | 654321  |            |
+|  3 |       5 | qq         | uid      | 222222  |            |
++----+---------+------------+----------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct oauth_type as type from oauths;
++-------+
+| type  |
++-------+
+| weibo |
+| qq    |
++-------+
+2 rows in set (0.00 sec)
+```
+
+### select count
+```sql
+mysql> select count(*) from oauths;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.09 sec)
+
+mysql> select count(*) as total from oauths;
++-------+
+| total |
++-------+
+|     3 |
++-------+
+1 row in set (0.06 sec)
+
+mysql> select count(distinct oauth_type) as type_total from oauths;
++------------+
+| type_total |
++------------+
+|          2 |
++------------+
+1 row in set (0.00 sec)
+
+加上where 限制
+mysql> select count(*) as total from users where avatar_url != '';
++-------+
+| total |
++-------+
+|     5 |
++-------+
+1 row in set (0.01 sec)
+```
+[参考](../where.md)
+
 
 ## 较复杂的查询语句
 回顾一下现在有4张表：
