@@ -22,6 +22,8 @@ SMTP.
 * Software engineer （A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.）
 使用软件设计原则 设计，开发，维护，测试，评估软件的 person。
 
+* DLL 动态链接库（英语：Dynamic-link library，缩写为DLL）是微软公司在微软视窗操作系统中实现共享函数库概念的一种实现方式。这些库函数的扩展名是.DLL、.OCX所谓动态链接，就是把一些经常会共享的代码（静态链接的OBJ程序库）制作成DLL档，当可执行文件调用到DLL档内的函数时，Windows操作系统才会把DLL档加载存储器内，DLL档本身的结构就是可执行档，当程序有需求时函数才进行链接。通过动态链接方式，存储器浪费的情形将可大幅降低。
+
 * Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved so that the tests pass. This is opposed to software development that allows software to be added that is not proven to meet requirements.
 一种软件开发流程，依赖重复短周期的开发，需求转化为特定的测试用例。
 
@@ -108,14 +110,11 @@ CTO(Chief technology officer)首席技术官 类似总工程师 https://zhidao.b
 * SOA 全英文是Service-Oriented Architecture，中文意思是中文面向服务编程，是一种思想，一种方法论，一种分布式的服务架构。
 [微服务架构 vs. SOA架构](https://blog.csdn.net/chszs/article/details/78515231)
 
-* daemon 守护进程(daemon)是一类在后台运行的特殊进程，用于执行特定的系统任务。很多守护进程在系统引导的时候启动，并且一直运行直到系统关闭。
-
 * “i.e.”是拉丁词ID EST的缩写，它的意思是 "that is"(那是) 以及“in other words” (换句话说)。
 
-* e.g. 
-(=exempli gratia)例如
-adv.
-举例来说（等于for example）
+* e.g. (=exempli gratia)例如  举例来说（等于for example）
+
+* aka  又叫做，亦称（also known as）
 
 * SaaS是Software-as-a-Service（软件即服务）的简称
 [如何理解云计算？IaaS、PaaS和SaaS](http://www.chinacloud.cn/show.aspx?id=19758&cid=18)
@@ -164,6 +163,8 @@ powered by Web technologies and delivered with Web infrastructure.
 
 * Verbose mode [link](https://www.computerhope.com/jargon/v/verbose-mode.htm)
 A verbose mode is an option available in many computer operating systems, including Microsoft Windows, macOS and Linux that provides additional details as to what the computer is doing and what drivers and software it is loading during startup. This level of detail can be very helpful for troubleshooting problems with hardware or software, if errors are occurring during startup or after the operating system has loaded.
+
+* daemon 守护进程(daemon)是一类在后台运行的特殊进程，用于执行特定的系统任务。很多守护进程在系统引导的时候启动，并且一直运行直到系统关闭。
 
 * cron
 读音英 ['krɔ:n]/美 ['krɒn] 计划任务，是任务在约定的时间执行已经计划好的工作，这是表面的意思。在Linux中，我们经常用到 cron 服务器来完成这项工作。cron服务器可以根据配置文件约定的时间来执行特定的作务。
@@ -239,8 +240,6 @@ CGI全称是“通用网关接口”(Common Gateway Interface)，HTTP服务器�
 
 * AMQP，即Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准,为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端/中间件不同产品，不同的开发语言等条件的限制。Erlang中的实现有 RabbitMQ等。
 
-* aka  又叫做，亦称（also known as）
-
 * 斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
 如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：F(n)=F(n-1)+F(n-2)
 The Fibonacci function:
@@ -259,6 +258,8 @@ We declare our fibonacci function. It assumes only valid positive integer input.
 Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang's runtime system has built-in support for concurrency, distribution and fault tolerance.
 
 * ICMP是“Internet Control Message Protocol”（Internet控制消息协议）的缩写。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用。
+
+* 世界主要货币符号bai如下：人民币：￥  美元：$  欧元：€  巴西雷亚尔：R$  英镑：￡ 
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？

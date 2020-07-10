@@ -7,3 +7,47 @@
 go env -w GO111MODULE=on
 go env -w GOPROXY=https://goproxy.io,direct
 ```
+
+## 实例 go get
+```
+go get github.com/google/flatbuffers
+```
+执行完成后 在项目External Libraries - Go Modules 已经存在，接下来导入
+
+### import
+```go
+package logic
+
+import (
+	sample "myLeaf/msg/MyGame/Sample"   // 这个相对路径模块的引入 myLeaf go.mod
+	flatbuffers "github.com/google/flatbuffers/go"
+)
+
+func WriteToFlat() {
+	builder := flatbuffers.NewBuilder(0)
+
+	// Create some weapons for our Monster ("Sword" and "Axe").
+	weaponOne := builder.CreateString("Sword")
+	weaponTwo := builder.CreateString("Axe")
+
+	sample.WeaponStart(builder)
+	sample.WeaponAddName(builder, weaponOne)
+	sample.WeaponAddDamage(builder, 3)
+	sword := sample.WeaponEnd(builder)
+}
+```
+// go.mod
+```
+module myLeaf
+
+go 1.14
+
+require (
+	github.com/google/flatbuffers v1.12.0
+	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/mattn/go-colorable v0.1.6
+	github.com/name5566/leaf v0.0.0-20191028103944-deca55354100
+	github.com/sirupsen/logrus v1.6.0
+	go.uber.org/zap v1.15.0 // indirect
+)
+```
