@@ -85,3 +85,4 @@ vscode ./   ## 在Visual Studio Code 中打开当前目录
 * After adding the packages to ./pubspec.yaml VS Code 会自动执行 flutter packages get
 
 * 模拟器运行快捷键 fn + touchBar (F5)
+* 解决快捷键shift+-占用问题：默认是缩小代码字体，导致无法输入 _,所以要移除这个快捷键 F1帮助，输入short ,选择open keyboard shortcuts, 搜索shift+-，将其移除。缩小和放大字体可使用 cmd+-;cmd++

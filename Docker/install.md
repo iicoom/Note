@@ -1,4 +1,85 @@
-## Installation of Docker on CentOS 7
+## [官网安装方法](https://docs.docker.com/engine/install/centos/)
+```
+$ sudo yum install -y yum-utils
+
+
+$ sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+
+$ sudo yum install docker-ce docker-ce-cli containerd.io
+
+
+$ sudo systemctl start docker
+
+
+$ sudo docker run hello-world
+
+
+[vagrant@localhost ~]$ sudo docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+
+## 一些其他问题
+```
+[vagrant@localhost ~]$ docker version
+Client: Docker Engine - Community
+ Version:           19.03.12
+ API version:       1.40
+ Go version:        go1.13.10
+ Git commit:        48a66213fe
+ Built:             Mon Jun 22 15:46:54 2020
+ OS/Arch:           linux/amd64
+ Experimental:      false
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.40/version: dial unix /var/run/docker.sock: connect: permission denied
+
+// 把vagrant用户添加到docker组中
+[vagrant@localhost ~]$ sudo gpasswd -a vagrant docker
+Adding user vagrant to group docker
+
+// 重启Docker进程
+[vagrant@localhost ~]$ sudo service docker restart
+Redirecting to /bin/systemctl restart docker.service
+
+// 重新登录
+[vagrant@localhost ~]$ docker version
+Client: Docker Engine - Community
+ Version:           19.03.12
+ API version:       1.40
+ Go version:        go1.13.10
+ Git commit:        48a66213fe
+ Built:             Mon Jun 22 15:46:54 2020
+ OS/Arch:           linux/amd64
+ Experimental:      false
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          19.03.12
+  API version:      1.40 (minimum version 1.12)
+  Go version:       go1.13.10
+  Git commit:       48a66213fe
+  Built:            Mon Jun 22 15:45:28 2020
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.2.13
+  GitCommit:        7ad184331fa3e55e52b890ea95e65ba581ae3429
+ runc:
+  Version:          1.0.0-rc10
+  GitCommit:        dc9208a3303feef5b3839f4323d9beb36df0a9dd
+ docker-init:
+  Version:          0.18.0
+  GitCommit:        fec3683
+```
+
+
+
+
+
+## Installation of Docker on CentOS 7(begore 20200709)
 https://www.linuxtechi.com/install-docker-on-centos-7/
 Docker package is included in the default CentOS-Extras repository. So to install docker , simply run below yum command :
 

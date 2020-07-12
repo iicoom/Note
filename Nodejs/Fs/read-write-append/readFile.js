@@ -20,6 +20,7 @@ var configDir = path.join(__dirname + '/config/custom.js');
 // 	console.log(data.toString());
 // })
 
+/* 打印出文件内容如下 */
 // const functionalConfig = {
 // 	logdir: __dirname + '/logs/', // 日志文件夹
 // 	redis: {
@@ -42,6 +43,8 @@ var configDir = path.join(__dirname + '/config/custom.js');
 // 	if (err) throw err;
 // 	console.log(data.toString());
 // })
+
+/* 打印出文件内容如下 */
 // const functionalConfig = {
 // 	logdir: __dirname + '/logs/', // 日志文件夹
 // 	redis: {

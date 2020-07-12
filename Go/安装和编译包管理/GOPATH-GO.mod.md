@@ -86,10 +86,15 @@ module myLeaf
 go 1.14
 
 require (
+	github.com/google/flatbuffers v1.12.0 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/mattn/go-colorable v0.1.6 // indirect
 	github.com/name5566/leaf v0.0.0-20191028103944-deca55354100
+	github.com/sirupsen/logrus v1.6.0 // indirect
+	go.uber.org/zap v1.15.0 // indirect
 )
 ```
+**如果发现无论go.mod放在哪一级目录都无法识别，很可能是Goland的Go Module模式没有打开**
 
 ```go
 package main
@@ -117,3 +122,34 @@ func main() {
 	)
 }
 ```
+
+### go mod
+```
+➜  leaf git:(master) ✗ go mod
+Go mod provides access to operations on modules.
+
+Note that support for modules is built into all the go commands,
+not just 'go mod'. For example, day-to-day adding, removing, upgrading,
+and downgrading of dependencies should be done using 'go get'.
+See 'go help modules' for an overview of module functionality.
+
+Usage:
+
+        go mod <command> [arguments]
+
+The commands are:
+
+        download    download modules to local cache
+        edit        edit go.mod from tools or scripts
+        graph       print module requirement graph
+        init        initialize new module in current directory
+        tidy        add missing and remove unused modules
+        vendor      make vendored copy of dependencies
+        verify      verify dependencies have expected content
+        why         explain why packages or modules are needed
+
+Use "go help mod <command>" for more information about a command.
+```
+1. go mod download: 安装所有go.mod中的依赖
+   需要切换到有go.mod 存才的目录
+2. 
