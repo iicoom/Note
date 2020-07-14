@@ -30,7 +30,7 @@ namespace RectangleApplication
             Rectangle r = new Rectangle();
             r.Acceptdetails();
             r.Display();
-            Console.ReadLine();
+            Console.ReadLine(); // 这行使打开的窗口保持
         }
     }
 }
