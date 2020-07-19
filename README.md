@@ -261,6 +261,11 @@ Erlang is a programming language used to build massively scalable soft real-time
 * ICMP是“Internet Control Message Protocol”（Internet控制消息协议）的缩写。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用。
 
 * 世界主要货币符号bai如下：人民币：￥  美元：$  欧元：€  巴西雷亚尔：R$  英镑：￡ 
+  
+* 项目管理工具JIRA，redmine
+
+## ss
+- 192.241.215.191 11838 ssx.re-73119929 aes-256-cfb
 
 [如何有效提升留存率促进用户活跃](https://www.zhihu.com/question/60040696/answer/171704136)
 ## 如何有效提升留存率促进用户活跃？
