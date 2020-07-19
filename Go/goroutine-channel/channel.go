@@ -36,3 +36,15 @@ func getData(ch chan string) {
 
 Washington Tripoli London Beijing tokyo
 **/
+
+/**
+Don't communicate by share memory; share memory by communicating
+不要通过共享内存来通信，通过通信来共享内存
+**/
+
+func worker(id int, c chan int) {
+	for n := range c {
+		time.Sleep(time.Second)
+		fmt.Printf("Worker %d received %d\n", id, n)
+	}
+}
