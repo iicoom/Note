@@ -64,16 +64,16 @@ COMMAND: 运行进程所使用的命令。
   ```
   Zhong@LAPTOP-S26GFGQ7 MINGW64 /
   $ ps -ef|grep node|awk '{print $2}'
-  3384
-  3382
-  3386
-  3385
+    3384
+    3382
+    3386
+    3385
   ```
 - ps -ef|grep node|awk '{print $2}'|xargs
   ```
   Zhong@LAPTOP-S26GFGQ7 MINGW64 /
   $ ps -ef|grep node|awk '{print $2}'|xargs
-  3384 3382 3386 3385
+    3384 3382 3386 3385
   ```
 - ps -ef|grep node|awk '{print $2}'|xargs kill -9
   ```
