@@ -57,6 +57,30 @@ trigger("start")
 // ["start"]
 // start
 
+// 例2.1
+function print(a) {
+  console.log(...a)
+  // { mobile: 1 } { unique: true }
+  const o = [...a]
+  console.log(o)
+  // [ { mobile: 1 }, { unique: true } ]
+  inner(...a)
+  // [ { mobile: 1 }, { unique: true } ]
+
+  // print中的...a就如同直接传a一样, 如果要重新组合参数为一个更大的数组, 这种方式可能比较方便：
+  inner([1, 2, {}, ...a])
+  // [ [ 1, 2, {}, { mobile: 1 }, { unique: true } ] ]
+}
+
+const arr = [{mobile:1},{unique:true}]
+function inner(...args) {
+  console.log(args)
+}
+print(arr)
+
+// 传入print的参数必须是可迭代的，因为内部要执行 ...a, 可以传入 const arr = 'string1'  => ['s', 't', 'r','i', 'n', 'g','1'] 但不能传入对象（报错）
+
+
 
 // 例3 处理不定数量的参数
 function createRedisKey(key, serverId, guid) {

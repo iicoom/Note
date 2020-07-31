@@ -70,38 +70,6 @@ BulkWriteResult({
 })
 ```
 
-#### find
-```
-> db.users.find()
-{ 
-    "_id" : ObjectId("5efc3ca79a4816c93b72841b"), 
-    "name" : "a", 
-    "age" : 15.0, 
-    "status" : "pending"
-}
-// ----------------------------------------------
-{ 
-    "_id" : ObjectId("5efc3ca79a4816c93b72841c"), 
-    "name" : "b", 
-    "age" : 18.0, 
-    "status" : "pending"
-}
-// ----------------------------------------------
-{ 
-    "_id" : ObjectId("5efc3ca79a4816c93b72841d"), 
-    "name" : "c", 
-    "age" : 20.0, 
-    "status" : "pending"
-}
-
-> db.users.find({age: {$gt: 15}}, {name: 1, age: 1}).limit(1)
-{ 
-    "_id" : ObjectId("5efc3ca79a4816c93b72841c"), 
-    "name" : "b", 
-    "age" : 18.0
-}
-```
-
 #### count
 Count all Documents that Match a Query¶
 ```
