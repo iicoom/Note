@@ -18,4 +18,7 @@ user-agent = "npm/6.12.1 node/v12.13.1 linux x64"
 npm config set registry https://registry.npm.taobao.org
 查看config的registry方法
 npm config get registry
+
+默认这个
+=> https://registry.npmjs.org/
 ```
