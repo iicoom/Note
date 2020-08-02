@@ -9,6 +9,7 @@
 <body>
 	<div id="app">
 		{{ message }}
+		<button v-on:click="reverseMessage">reverse</button>
 		<div id="example-4">
 			<input type="radio" id="one" value="One" v-model="picked">
 			<label for="one">One</label>
@@ -18,13 +19,117 @@
 			<br>
 			<span>Picked: {{ picked }}</span>
 		</div>
+
+		<ul>
+			<li v-for="product in products">
+				<!-- {{ product.quantity }} {{ product.name }} -->
+				<input type="number" v-model.number="product.quantity">
+					{{ product.name }}
+				<span v-if="product.quantity === 0">
+					- OUT OF STOCK
+				</span>
+				<button @click="product.quantity += 1">
+					Add
+				</button>
+			</li>
+		</ul>
+		<h2>Total Inventory: {{ totalProducts }}</h2>
+	</div>
+
+	<div id="app1">
+		<ol>
+			<todo-item
+				v-for="item in groceryList"
+				v-bind:todo="item"
+				v-bind:key="item.id"
+			></todo-item>
+		</ol>
+	</div>
+
+	<div id="app2-emit-example-simple">
+		<div>
+			<button-group v-on:welcome="sayHi" v-on:give-advice="showAdvice"></button-group>
+		</div>
 	</div>
 <script>
 	var app = new Vue({
 		el: '#app',
 		data: {
 			message: 'Hello Vue!',
-			picked: ''
+			picked: '',
+			products: []
+		},
+		computed: {
+			totalProducts () {
+				return this.products.reduce((sum, product) => {
+					return sum + product.quantity
+				}, 0) 
+			}
+		},
+		created () {
+			fetch('https://www.fastmock.site/mock/e97f4dd046d2190242a75c287fc38d2d/myjson/api/products')
+			.then(res => res.json())
+			.then(json => {
+				console.log(json)
+				this.products = json.products
+			})
+		},
+		methods: {
+			reverseMessage: function () {
+				this.message = this.message.split('').reverse().join('')
+			}
+		}
+	})
+
+	// Vue 自定义组件注册
+	Vue.component('todo-item', {
+		props: ['todo'],
+		template: '<li>{{ todo.text }}</li>'
+	})
+	Vue.component('button-group', {
+		data: function () {
+			return {
+				possibleAdvice: ['Yes', 'No', 'Maybe']
+			}
+		},
+		methods: {
+			giveAdvice: function () {
+				var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+				this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+			}
+		},
+		template: `
+		<div>
+			<button v-on:click="$emit('welcome')">
+			Click me to be welcomed
+			</button>
+			<button v-on:click="giveAdvice">
+			Click me for advice
+			</button>
+		</div>
+		`
+	})
+	
+	var app1 = new Vue({
+		el: "#app1",
+		data: {
+			groceryList: [
+				{ id: 0, text: '蔬菜' },
+				{ id: 1, text: '奶酪' },
+				{ id: 2, text: '随便其它什么人吃的东西' }
+			]
+		}
+	})
+	
+	var app2 = new Vue({
+		el: "#app2-emit-example-simple",
+		methods: {
+			sayHi: function () {
+				alert('Hi!')
+			},
+			showAdvice: function (advice) {
+				alert(advice)
+			}
 		}
 	})
 </script>
