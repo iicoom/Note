@@ -12,6 +12,8 @@ A data structure commonly used by database management systems to store indexes. 
 ## BSON
 A serialization format used to store documents and make remote procedure calls in MongoDB. “BSON” is a portmanteau of the words “binary” and “JSON”. Think of BSON as a binary representation of JSON (JavaScript Object Notation) documents.
 
+用于RPC的序列化格式
+
 ## collection
 A grouping of MongoDB documents. A collection is the equivalent of an RDBMS table. 
 
