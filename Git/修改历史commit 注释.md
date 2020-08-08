@@ -114,3 +114,8 @@ Admin@MXJ-PC MINGW64 /e/Joy/Note (master|REBASE-i 1/2)
   Successfully rebased and updated refs/heads/master.
 
 ```
+
+## [git filter-branch](https://blog.csdn.net/WPwalter/article/details/100157721)
+```
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch walterlv.xml' --prune-empty --tag-name-filter cat -- --all
+```

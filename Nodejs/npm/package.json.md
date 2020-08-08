@@ -14,9 +14,44 @@ The key is the lifecycle event, and the value is the command to run at that poin
     "tsc:w": "tsc -w",
     "lite": "lite-server --baseDir=ts",
     "compile": "npm run tsc:w",
-    "cpuprofile": "flamegraph -t cpuprofile -f cpuprofile-1588002371817.cpuprofile -o cpuprofile.svg"
+    "cpuprofile": "flamegraph -t cpuprofile -f cpuprofile-1588002371817.cpuprofile -o cpuprofile.svg",
+    "test": "cross-env MODE=test node ./node_modules/mocha/bin/mocha ./dist/test",
   },
 ```
+
+### cross-env
+如果在window平台使用
+```
+"test": "MODE=test node ./node_modules/mocha/bin/mocha ./dist/test",
+
+运行npm test会卡住
+
+可以安装 npm i --save-dev cross-env
+cross-env能跨平台地设置及使用环境变量, cross-env让这一切变得简单，不同平台使用唯一指令，无需担心跨平台问题
+
+"test": "cross-env MODE=test node ./node_modules/mocha/bin/mocha ./dist/test",
+```
+
+### [npm-run-all](https://github.com/mysticatea/npm-run-all/blob/master/docs/npm-run-all.md)
+It's "scripts" field of package.json. For example:
+```
+{
+    "scripts": {
+        "clean": "rimraf dist",
+        "lint":  "eslint src",
+        "build": "babel src -o lib"
+    }
+}
+```
+$ npm-run-all clean lint build
+
+This is same as npm run clean && npm run lint && npm run build.
+
+前边的任务失败，后边的不会执行
+
+ & operator does not work on Windows' cmd.exe. But npm-run-all --parallel works fine there.
+
+不过有了cross-env 似乎不用担心 & 问题
 
 ## package-lock.json
 In version 5, npm introduced the package-lock.json file.
