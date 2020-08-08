@@ -1,4 +1,8 @@
 ## 通用
+### Git 操作
+- Annotate 在行号唤出menu旁边勾选，显示当前文件每一行的修改提交
+- Command+k 弹出提交框和修改文件 填写commit信息即可提交
+
 ### 打开editor tab数量限制
 settings -> editor -> editor tabs -> tab limit 可以调节可现实的tab数量
 
@@ -6,7 +10,6 @@ settings -> editor -> editor tabs -> tab limit 可以调节可现实的tab数量
 右击-Git-Show History 可以查看该文件的Git 提交和修改历史
 
 ### 文件模板
-
 * webstorm preference 搜索 Templates 设置各种文件的文件头 注释
 
 The following example shows the default template for creating a JavaScript class in WebStorm:
