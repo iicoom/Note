@@ -1,6 +1,8 @@
 ## TEST
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
+- Git查看远程提交状态的方法
+
 ## Go
 - leafserver
 - 理解 pvp 接口交互
