@@ -1,6 +1,14 @@
 ## TEST
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
+:thumbsdown:
+
+<br/>
+
+<details><summary>✏ <b>代码示例</b></summary>
+
+<br/>
+
 - Git查看远程提交状态的方法
 
 ## Go
