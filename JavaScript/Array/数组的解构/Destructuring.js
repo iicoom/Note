@@ -35,3 +35,13 @@ console.log(a); // 1
 console.log(b); // 7
 
 
+// 数组元素为对象 Object.assign 第三个数据源会覆盖前面的
+const defaultConfig = {NODE_ENV: 'dev', port: 3008}
+const configList = [defaultConfig]
+
+const customConfig = {NODE_ENV: 'test', port: 3009, db_host: '127.0.0.1'}
+configList.push(customConfig)
+
+const finalConfig = Object.assign({}, ...configList)
+console.log(finalConfig)
+// {NODE_ENV: "test", port: 3009, db_host: "127.0.0.1"}

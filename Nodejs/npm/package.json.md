@@ -32,6 +32,11 @@ cross-env能跨平台地设置及使用环境变量, cross-env让这一切变得
 "test": "cross-env MODE=test node ./node_modules/mocha/bin/mocha ./dist/test",
 ```
 
+### 在进程环境中获取环境变量
+```
+const MODE = process.env.MODE
+```
+
 ### [npm-run-all](https://github.com/mysticatea/npm-run-all/blob/master/docs/npm-run-all.md)
 It's "scripts" field of package.json. For example:
 ```
