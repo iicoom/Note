@@ -11,8 +11,7 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
 <details>
 <summary>✏ <b>代码示例</b></summary>
-```js
-  describe("Customer classifier", () => {
+describe("Customer classifier", () => {
   test("When customer spent more than 500$, should be classified as premium", () => {
     //Arrange
     const customerToClassify = { spent: 505, joined: new Date(), id: 1 };
@@ -25,5 +24,4 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
     expect(receivedClassification).toMatch("premium");
   });
 });
-```
 </details>
