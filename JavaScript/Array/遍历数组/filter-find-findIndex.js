@@ -32,6 +32,8 @@ var collection = [{ name: 'Jack', age: 25 }, { name: 'Tom', age: 28 }, { name: '
 const bellow20 = collection.filter(item => item.age < 20)
 console.log(bellow20)
 // [ { name: 'Harry', age: 18 } ]
+const bellow20 = collection.filter(item => item.age > 30)
+// []
 
 /**
  * Array.prototype.find()
@@ -44,6 +46,12 @@ const found = array1.find(element => element > 10);
 
 // console.log(found);
 // expected output: 12
+
+var collection = [{ name: 'Jack', age: 25 }, { name: 'Tom', age: 28 }, { name: 'Harry', age: 18 }]
+const bellow20 = collection.find(item => item.age > 20)
+// { name: 'Jack', age: 25 }
+const bellow20 = collection.find(item => item.age > 30)
+// undefined
 
 
 /**

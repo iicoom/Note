@@ -1,3 +1,202 @@
+## 分支操作
+### 列出分支
+```
+列出本地分支及标记处当前分支：
+git branch    与 git branch -l 效果一样
+  HEAD
+  develop
+  feature/new_feature
+  hotfix/hotfix-1.0.1
+* master
+
+查看全部分支：会列出本地和远程所有分支
+git branch -a
+
+查看远程分支：
+git branch -r
+
+origin/HEAD -> origin/master
+  origin/develop
+  origin/feature/#22
+  origin/feature/#29
+  origin/hotfix/#26
+  origin/hotfix/#27
+  origin/hotfix/2.1.1
+```
+
+### 本地切换分支
+```
+git checkout branchname
+
+本地检出新分支
+git checkout -b 分支名
+```
+
+### 拉去远程分支
+```
+要检出的本地分支名称feature/deleteContract  远程分支名称origin/feature/deleteContract
+该方法会检出分支后自动切换到检出的分支
+[xiaomao@iZ258wvzn92Z cloud_ranch]$ sudo git checkout -b feature/deleteContract origin/feature/deleteContract
+[sudo] password for xiaomao:
+
+Branch feature/deleteContract set up to track remote branch feature/deleteContract from origin.
+Switched to a new branch 'feature/deleteContract'
+与远程分支关联,并且自动切换到新的分支上
+
+拉取远程分支但不切换
+git fetch origin feature/deleteContract:feature/deleteContract
+```
+
+### 推送本地分支到远程
+```
+➜  Note git:(master) ✗ git checkout -b feature/cli_fuck
+M	Git/command.md
+Switched to a new branch 'feature/cli_fuck'
+➜  Note git:(feature/cli_fuck) ✗ git push
+fatal: The current branch feature/cli_fuck has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature/cli_fuck
+
+与远程关联
+git push --set-upstream origin feature/cli_fuck
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/iicoom/Note.git
+ * [new branch]      feature/cli_fuck -> feature/cli_fuck
+Branch feature/cli_fuck set up to track remote branch feature/cli_fuck from origin.
+```
+
+### 删除分支
+```
+删除本地分支：
+git branch -d HEAD
+
+Deleted branch HEAD (was 8ba8409).
+
+
+git branch -D feature/exchange
+
+删除远程分支：
+➜  Note git:(feature/cli_fuck) ✗ git branch -r
+ origin/HEAD -> origin/master
+  origin/develop
+  origin/feature/cli_fuck
+  origin/feature/new_feature
+  origin/hotfix/hotfix-1.0.1
+  origin/hotfix/hotfix-1.0.2
+  origin/master
+  origin/release/release-1.0
+➜  Note git:(feature/cli_fuck) ✗ git branch -r -d origin/feature/cli_fuck
+Deleted remote-tracking branch origin/feature/cli_fuck (was f51e08c).
+```
+
+### 查看当前分支状态并且提交更改【git commit -am "video"】
+```
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+➜  Note git:(feature/cli_fuck) ✗ git add -A
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  modified:   Git/command.md
+
+commit:
+➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
+[feature/cli_fuck 42c4d8d] just a fuck feature
+ 1 file changed, 55 insertions(+)
+
+
+➜  tool git:(master) ✗ git commit -am "video"
+[master d5d9717] video
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+### git commit -m 与 git commit -am 的区别
+当修改已经通过git add <change file>将其添加到stage，可以通过git commit -m "<message>"为这所有已经进入stage的改变添加一个commit信息。什么是在stage中？
+
+如果你的文件之前已经提交过，但这次的改动还没有进stage
+可以直接使用git commit -am "<message>"，将所有修改，但未进stage的改动加入stage，并记录commit信息。
+
+### 切换分支，合并分支，解决冲突
+```
+➜  Note git:(master) ✗ git merge feature/cli_fuck
+出现冲突提示：
+Auto-merging Git/command.md
+CONFLICT (content): Merge conflict in Git/command.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+到冲突文件Git/command.md查看，如下：
+
+```
+
+从<<<<<<< HEAD开始到=========之上，是当前所在分支的文档内容，
+从===========到>>>>>>> feature/cli_fuck是要合并的分支内容，决定留下一个即可
+
+修改后需要提交当前文件的改变，然后再次合并
+➜  Note git:(master) ✗ git add -A
+➜  Note git:(master) ✗ git commit -m "fix conflicts"
+[master 61369d2] fix conflicts
+➜  Note git:(master) git merge feature/cli_fuck
+Already up-to-date.
+
+如下是冲突文件标记：
+<<<<<<< HEAD
+```
+
+查看当前分支状态
+```
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+➜  Note git:(feature/cli_fuck) ✗ git add -A
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  modified:   Git/command.md
+
+commit:
+➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
+[feature/cli_fuck 42c4d8d] just a fuck feature
+ 1 file changed, 55 insertions(+)
+```
+=======
+```
+
+查看当前分支状态
+```
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+➜  Note git:(feature/cli_fuck) ✗ git add -A
+➜  Note git:(feature/cli_fuck) ✗ git status
+On branch feature/cli_fuck
+Your branch is up-to-date with 'origin/feature/cli_fuck'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  modified:   Git/command.md
+
+commit:
+➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
+[feature/cli_fuck 42c4d8d] just a fuck feature
+ 1 file changed, 55 insertions(+)
+>>>>>>> feature/cli_fuck
+```
+
+
+
 (非常不规范的小团队git操作)
 ## 不小心在master分支上开发了怎么办？
 
@@ -166,201 +365,7 @@ http://blog.jobbole.com/76854/
 ## 持续集成是什么？
 http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html
 
-## 分支操作
-### 列出分支
-```
-列出本地分支：
-git branch    与 git branch -l 效果一样
-  HEAD
-  develop
-  feature/new_feature
-  hotfix/hotfix-1.0.1
-* master
 
-查看全部分支：会列出本地和远程所有分支
-git branch -a
-
-查看远程分支：
-git branch -r
-
-origin/HEAD -> origin/master
-  origin/develop
-  origin/feature/#22
-  origin/feature/#29
-  origin/hotfix/#26
-  origin/hotfix/#27
-  origin/hotfix/2.1.1
-```
-
-### 检出分支
-git checkout -b 分支名
-```
-新建分支:
-git checkout -b new
-```
-
-### 拉去远程分支
-```
-要检出的本地分支名称feature/deleteContract  远程分支名称origin/feature/deleteContract
-该方法会检出分支后自动切换到检出的分支
-[xiaomao@iZ258wvzn92Z cloud_ranch]$ sudo git checkout -b feature/deleteContract origin/feature/deleteContract
-[sudo] password for xiaomao:
-Branch feature/deleteContract set up to track remote branch feature/deleteContract from origin.
-Switched to a new branch 'feature/deleteContract'
-[xiaomao@iZ258wvzn92Z cloud_ranch]$
-
-
-拉取远程分支但不切换
-git fetch origin feature/deleteContract:feature/deleteContract
-```
-
-### 推送本地分支到远程
-```
-➜  Note git:(master) ✗ git checkout -b feature/cli_fuck
-M	Git/command.md
-Switched to a new branch 'feature/cli_fuck'
-➜  Note git:(feature/cli_fuck) ✗ git push
-fatal: The current branch feature/cli_fuck has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin feature/cli_fuck
-
-与远程关联
-git push --set-upstream origin feature/cli_fuck
-Total 0 (delta 0), reused 0 (delta 0)
-To https://github.com/iicoom/Note.git
- * [new branch]      feature/cli_fuck -> feature/cli_fuck
-Branch feature/cli_fuck set up to track remote branch feature/cli_fuck from origin.
-```
-
-### 删除分支
-```
-删除本地分支：
-git branch -d HEAD
-
-Deleted branch HEAD (was 8ba8409).
-
-
-git branch -D feature/exchange
-
-删除远程分支：
-➜  Note git:(feature/cli_fuck) ✗ git branch -r
- origin/HEAD -> origin/master
-  origin/develop
-  origin/feature/cli_fuck
-  origin/feature/new_feature
-  origin/hotfix/hotfix-1.0.1
-  origin/hotfix/hotfix-1.0.2
-  origin/master
-  origin/release/release-1.0
-➜  Note git:(feature/cli_fuck) ✗ git branch -r -d origin/feature/cli_fuck
-Deleted remote-tracking branch origin/feature/cli_fuck (was f51e08c).
-```
-
-### 查看当前分支状态并且提交更改【git commit -am "video"】
-```
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-➜  Note git:(feature/cli_fuck) ✗ git add -A
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-  modified:   Git/command.md
-
-commit:
-➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
-[feature/cli_fuck 42c4d8d] just a fuck feature
- 1 file changed, 55 insertions(+)
-
-
-➜  tool git:(master) ✗ git commit -am "video"
-[master d5d9717] video
- 1 file changed, 1 insertion(+), 1 deletion(-)
-```
-### git commit -m 与 git commit -am 的区别
-当修改已经通过git add <change file>将其添加到stage，可以通过git commit -m "<message>"为这所有已经进入stage的改变添加一个commit信息。什么是在stage中？
-
-如果你的文件之前已经提交过，但这次的改动还没有进stage
-可以直接使用git commit -am "<message>"，将所有修改，但未进stage的改动加入stage，并记录commit信息。
-
-### 切换分支，合并分支，解决冲突
-```
-➜  Note git:(master) ✗ git merge feature/cli_fuck
-出现冲突提示：
-Auto-merging Git/command.md
-CONFLICT (content): Merge conflict in Git/command.md
-Automatic merge failed; fix conflicts and then commit the result.
-
-到冲突文件Git/command.md查看，如下：
-
-```
-
-从<<<<<<< HEAD开始到=========之上，是当前所在分支的文档内容，
-从===========到>>>>>>> feature/cli_fuck是要合并的分支内容，决定留下一个即可
-
-修改后需要提交当前文件的改变，然后再次合并
-➜  Note git:(master) ✗ git add -A
-➜  Note git:(master) ✗ git commit -m "fix conflicts"
-[master 61369d2] fix conflicts
-➜  Note git:(master) git merge feature/cli_fuck
-Already up-to-date.
-
-如下是冲突文件标记：
-<<<<<<< HEAD
-```
-
-查看当前分支状态
-```
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-➜  Note git:(feature/cli_fuck) ✗ git add -A
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-  modified:   Git/command.md
-
-commit:
-➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
-[feature/cli_fuck 42c4d8d] just a fuck feature
- 1 file changed, 55 insertions(+)
-```
-=======
-```
-
-查看当前分支状态
-```
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-➜  Note git:(feature/cli_fuck) ✗ git add -A
-➜  Note git:(feature/cli_fuck) ✗ git status
-On branch feature/cli_fuck
-Your branch is up-to-date with 'origin/feature/cli_fuck'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-  modified:   Git/command.md
-
-commit:
-➜  Note git:(feature/cli_fuck) ✗ git commit -m "just a fuck feature"
-[feature/cli_fuck 42c4d8d] just a fuck feature
- 1 file changed, 55 insertions(+)
->>>>>>> feature/cli_fuck
-```
 
 
 

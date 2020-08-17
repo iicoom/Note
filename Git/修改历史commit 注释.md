@@ -1,6 +1,8 @@
-https://www.jianshu.com/p/098d85a58bf1
+## 提交部分文件
+可以在本地添加部分文件commit提交到远程
 
-## Git 修改已提交的commit注释
+
+## [Git 修改已提交的commit注释](https://www.jianshu.com/p/098d85a58bf1)
 ### amend-只能修改最近一次-并且时本地未提交远程的
 ```
 git commit --amend
