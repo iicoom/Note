@@ -91,6 +91,15 @@ Host jenkins
 	HostName 172.x7.174.y74
 	User root
 	Port 22
+
+也可以以下格式忽略端口:
+host app11
+HostName 192.168.1.89
+User root
+
+host app12
+HostName 192.168.1.88
+User root
 ```
 
 ### 部署公钥到对应服务器
