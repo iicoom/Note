@@ -48,6 +48,52 @@ MongoDB server version: 2.6.5
 WARNING: shell and server versions do not match
 ```
 
+## MongoDB 服务器和客户端分别查询版本号
+服务器端：
+
+mongo --version
+
+客户端：
+
+db.version()
+<!-- 4.0.13 -->
+
+## 查看数据库和空间占用
+```
+> show dbs
+admin   0.000GB
+config  0.000GB
+cr3m     0.002GB
+fak4ao   1.615GB
+local   0.000GB
+scho4ol  0.001GB
+us2     0.005GB
+```
+
+## 查看当前锁用库
+```
+> db
+usniubi
+```
+
+## 查询
+```
+> db.users.find().limit(2)
+这样的输出内容被压缩
+
+> db.users.find().limit(2).pretty()
+优化输出格式
+```
+A limit() value of 0 (i.e. .limit(0)) is equivalent to setting no limit. 
+
+## 删除
+The following example deletes all documents from the student collection:
+```
+> db.student.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 7 }
+```
+
+
 ## 连接异常处理
 ### centos 服务器mongodb远程连接被拒绝
 各种百度，远程连接mongodb失败，网上资料显示原因有两个：
@@ -91,42 +137,81 @@ mongo --host 127.0.0.1:27017
 mongo --port 12345
 ```
 
-## MongoDB 服务器和客户端分别查询版本号
-服务器端：
-
-mongo --version
-
-客户端：
-
-db.version()
-<!-- 4.0.13 -->
-
-## 查看数据库和空间占用
+## 修改默认端口
 ```
-> show dbs
-admin   0.000GB
-config  0.000GB
-cr3m     0.002GB
-fak4ao   1.615GB
-local   0.000GB
-scho4ol  0.001GB
-us2     0.005GB
+vim /etc/mongod.conf
+
+修改
+net:
+	port: 27017
+	bindIp: 0.0.0.0
 ```
 
-## 查询
-```
-> db.users.find().limit(2)
-这样的输出内容被压缩
+ps -ef | grep mongod
+kill process_id
 
-> db.users.find().limit(2).pretty()
-优化输出格式
+重启MongoDB
 ```
-A limit() value of 0 (i.e. .limit(0)) is equivalent to setting no limit. 
-
-## 删除
-The following example deletes all documents from the student collection:
-```
-> db.student.deleteMany({})
-{ "acknowledged" : true, "deletedCount" : 7 }
+service mongod start
 ```
 
+链接测试：
+```
+本地链接 
+mongo --port 28015
+
+远程链接
+mongo mongodb://mongodb0.example.com:28015
+
+也可以
+mongo --host mongodb0.example.com --port 28015
+```
+
+如果仍然无法远程连接，报错
+[thread1] Error: couldn't connect to server 45.77.oo8.23x:27220, connection attempt failed :
+
+是应为CentOS7 防火墙拦截了
+
+查看防火墙状态
+```
+[root@vultr etc]# firewall-cmd --state
+running
+```
+
+查看已经开放的端口：
+```
+[root@vultr etc]# firewall-cmd --list-ports
+8070/tcp 8070/udp 3306/tcp
+```
+
+端口放行
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+命令含义：
+
+–zone #作用域
+
+–add-port=80/tcp #添加端口，格式为：端口/通讯协议
+
+–permanent #永久生效，没有此参数重启后失效
+
+```
+
+重启防火墙
+```
+firewall-cmd --reload #重启firewall
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+```
+
+## 增加链接验证 MongoDB Instance with Authentication
+//指定用户名和密码连接到指定的MongoDB数据库test
+mongo 192.168.1.200:27017/test -u user -p password
+
+[使用用户管理员帐户连接和授权](https://www.jianshu.com/p/27fffcd68afe)
+➜  ~ mongo 47.92.153.154:90100/Ranch -u Ranch -p yunfarm_000 --authenticationDatabase "admin"
+MongoDB shell version v3.4.6
+connecting to: mongodb://47.94.154.154:9011/Ranch
+MongoDB server version: 2.6.5
+WARNING: shell and server versions do not match

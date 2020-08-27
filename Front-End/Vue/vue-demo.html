@@ -5,6 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
 	<div id="app">
@@ -49,6 +53,13 @@
 	<div id="app2-emit-example-simple">
 		<div>
 			<button-group v-on:welcome="sayHi" v-on:give-advice="showAdvice"></button-group>
+			<input v-on:keyup.enter="keyme">
+			<el-input placeholder="请输入管理员姓名" v-model="searchModel.name" 
+				@change="keyme" 
+				@keyup.enter.native="keyme"
+				maxlength="10" 
+				show-word-limit>
+			</el-input>
 		</div>
 	</div>
 <script>
@@ -123,12 +134,18 @@
 	
 	var app2 = new Vue({
 		el: "#app2-emit-example-simple",
+		data: {
+			searchModel: {}
+		},
 		methods: {
 			sayHi: function () {
 				alert('Hi!')
 			},
 			showAdvice: function (advice) {
 				alert(advice)
+			},
+			keyme: function (e) {
+				console.log(e)
 			}
 		}
 	})
