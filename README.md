@@ -203,7 +203,7 @@ SMTP.
 * SMTP
 SMTP（Simple Mail Transfer Protocol）即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP协议属于TCP/IP协议簇，它帮助每台计算机在发送或中转信件时找到下一个目的地。通过SMTP协议所指定的服务器,就可以把E-mail寄到收信人的服务器上了，整个过程只要几分钟。SMTP服务器则是遵循SMTP协议的发送邮件服务器，用来发送或中转发出的电子邮件。
 
-* crud 是指在做计算处理时的增加(Create)、读取查询(Retrieve)、更新(Update)和删除(Delete)几个单词的首字母简写。crud主要被用在描述软件系统中数据库或者持久层的基本操作功能。
+* crud 是指在做计算处理时的增加(Create)、读取查询(Retrieve)、更新(Update)和删除(Delete)几个单词的首字母简写。crud主要被用在描述软件系统中数据库或者持久层的基本操作功能。Create, Read, Update and Delete (CRUD)
 
 * .NET 就是微软用来实现XML，Web Services，SOA（面向服务的体系结构service-oriented architecture）和敏捷性的技术。对技术人员，想真正了解什么是.NET，必须先了解.NET技术出现的原因和它想解决的问题，必须先了解为什么他们需要XML,Web Services 和 SOA。
 
