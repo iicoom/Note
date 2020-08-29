@@ -48,49 +48,6 @@ MongoDB server version: 2.6.5
 WARNING: shell and server versions do not match
 ```
 
-## 连接异常处理
-### centos 服务器mongodb远程连接被拒绝
-各种百度，远程连接mongodb失败，网上资料显示原因有两个：
-提高安全性：https://blog.csdn.net/qq_34964399/article/details/80260782
-修改配置文件：
-/etc/mongod.conf
-1、mongodb的配置文件中的bind_ip 默认为127.0.0.1，默认只有本机可以连接。  此时，需要将bind_ip配置为0.0.0.0，表示接受任何IP的连接。
-
-2、防火墙阻止了27017端口。
-
-于是，先修改mongodb配置文件，并重启mongod服务。
-
-* Start MongoDB
-```
-sudo service mongod start
-```
-
-* Stop MongoDB
-```
-sudo service mongod stop
-```
-
-* Restart MongoDB
-```
-sudo service mongod restart
-```
-
-* Begin using MongoDB.
-Start a mongo shell on the same host machine as the mongod. Use the --host command line option to specify the localhost address (in this case 127.0.0.1) and port that the mongod listens on:
-```
-mongo --host 127.0.0.1:27017
-```
-
-### 更多参数
-使用 mongo --help 查看
-```
---port arg                          port to connect to
---host arg                          server to connect to
-
-指定连接端口
-mongo --port 12345
-```
-
 ## MongoDB 服务器和客户端分别查询版本号
 服务器端：
 
@@ -113,6 +70,12 @@ scho4ol  0.001GB
 us2     0.005GB
 ```
 
+## 查看当前锁用库
+```
+> db
+usniubi
+```
+
 ## 查询
 ```
 > db.users.find().limit(2)
@@ -120,8 +83,17 @@ us2     0.005GB
 
 > db.users.find().limit(2).pretty()
 优化输出格式
-```
+
 A limit() value of 0 (i.e. .limit(0)) is equivalent to setting no limit. 
+
+findOne()方法默认做了pretty处理
+> db.order.findOne({idNumber: '123'})
+{
+        "_id" : ObjectId("5f3e4810d895024790371e30"),
+        "classDepartmentNo" : 100,
+        "classYear" : "2020",
+}
+```
 
 ## 删除
 The following example deletes all documents from the student collection:
@@ -130,3 +102,28 @@ The following example deletes all documents from the student collection:
 { "acknowledged" : true, "deletedCount" : 7 }
 ```
 
+## [distinct](https://docs.mongodb.com/manual/reference/method/db.collection.distinct/#db.collection.distinct)
+```
+> db.order.distinct("tradeNo")
+[
+        "BM2020082017533331103",
+        "BM2020082110095779060",
+        "BM2020082110461378664",
+        "BM2020082116061970038",
+        "BM2020082116107464008",
+        "BM2020082418362784812"
+]
+
+
+Specify Query with distinct
+db.inventory.distinct( "item.sku", { dept: "A" } )
+```
+
+## count
+```
+db.orders.count( { ord_dt: { $gt: new Date('01/01/2012') } } )
+
+The query is equivalent to the following:
+
+db.orders.find( { ord_dt: { $gt: new Date('01/01/2012') } } ).count()
+```

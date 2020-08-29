@@ -1,3 +1,37 @@
+## Environment management 环境管理
+### Node环境变量
+```js
+NODE_ENV=development node ./bin/www
+```
+shell脚本类似 sh ./init.sh env   因脚本中有数据库连接配置所以需要指定环境
+```shell
+#!/bin/sh
+env=$1
+if [ "$env" = "" ];then
+  echo "missing env param!"
+  exit
+fi
+cd ./dist
+NODE_ENV=$env node ./scripts/index.js
+```
+
+### package.json script env
+```
+"scripts": {
+    "start": "npm run babel-node",
+    "dev": "NODE_ENV=dev nodemon ./app.js",
+    "test": "cross-env MODE=test node ./node_modules/mocha/bin/mocha ./dist/test",
+    "doc": "apidoc -i ./src/router -o public/",
+    "init-data": "./node_modules/.bin/babel-node ./src/scripts",
+  },
+```
+cross-env 用于处理跨平台差异
+
+### PM2环境变量
+[When starting a new process](http://pm2.keymetrics.io/docs/usage/environment/#when-starting-a-new-process)
+[root@cache task_consume]# NODE_ENV=development pm2 start bin/development.js --name task_consume
+
+
 > pm2 = P (rocess) M (anager)2，是可以用于生产环境的Nodejs的进程管理工具，并且它内置一个负载均衡。它不仅可以保证服务不会中断一直在线，并且提供0秒reload功能，还有其他一系列进程管理、监控功能。
 
 Forever Alive
@@ -76,12 +110,6 @@ pm2 sendSignal SIGUSR2 my-app # Send system signal to script
 pm2 start app.js --no-daemon
 pm2 start app.js --no-vizion
 pm2 start app.js --no-autorestart
-
-#### Environment management 环境管理
-[When starting a new process](http://pm2.keymetrics.io/docs/usage/environment/#when-starting-a-new-process)
-[root@cache task_consume]# NODE_ENV=development pm2 start bin/development.js --name task_consume
-
-NODE_ENV=development node ./bin/www
 
 
 ## 任务启停

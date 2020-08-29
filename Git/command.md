@@ -181,7 +181,7 @@ To github.com:iicoom/girl.git
 Branch master set up to track remote branch master from origin.
 ```
 
-
+### git fetch / git pull
 
 
 

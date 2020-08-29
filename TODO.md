@@ -2,6 +2,11 @@
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
 - Git查看远程提交状态的方法
+- moment 时间格式化工具
+- 钉钉接入gitlab jira机器人
+- index 分析
+- 给数量很大的order加platform
+- Gitlab 的tag
 
 ## Go
 - leafserver
