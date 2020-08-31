@@ -60,6 +60,9 @@
 				maxlength="10" 
 				show-word-limit>
 			</el-input>
+			<span>{{counter}}</span>
+			</br>
+			<span>{{counterFormat}}</span>
 		</div>
 	</div>
 <script>
@@ -135,7 +138,12 @@
 	var app2 = new Vue({
 		el: "#app2-emit-example-simple",
 		data: {
-			searchModel: {}
+			searchModel: {},
+			counter: 3600,
+			counterFormat: ''
+		},
+		created() {
+			this.cutdown()			
 		},
 		methods: {
 			sayHi: function () {
@@ -146,6 +154,19 @@
 			},
 			keyme: function (e) {
 				console.log(e)
+			},
+			cutdown: function () {
+				let t1 = setInterval(() => {
+					this.counter --
+					const h = Math.floor(this.counter/3600)
+					const m = Math.floor((this.counter - h*3600)/60)
+					const s = this.counter - h*3600 - m*60
+					this.counterFormat = `${h}h:${m}m:${s}s`
+				}, 1000)
+				if(this.counter < 0) {
+					this.counter = 0
+					clearInterval(t1)
+				}
 			}
 		}
 	})
