@@ -36,6 +36,9 @@ document.cookie = "user_name=Ire Aderinokun;expires=Thu, 01 Jan 1970 00:00:01 GM
 * 潜在的 安全问题
 * 自从有 Web Storage API (Local and Session Storage)，cookies 就不再被推荐用于存储数据了
 
+
+> Web storage can be viewed simplistically as an improvement on cookies, providing much greater storage capacity (10 MB per origin in Google Chrome(https://plus.google.com/u/0/+FrancoisBeaufort/posts/S5Q9HqDB8bh), Mozilla Firefox, and Opera; 10 MB per storage area in Internet Explorer) and better programmatic interfaces.
+
 ### Local Storage
 > Local Storage 是 Web Storage API 的一种类型，能在浏览器端存储键值对数据。Local Storage 因提供了更直观和安全的API来存储简单的数据，被视为替代 Cookies 的一种解决方案。
 从技术上说，尽管 Local Storage 只能存储字符串，但是它也是可以存储字符串化的JSON数据。这就意味着，Local Storage 能比 Cookies 存储更复杂的数据。
@@ -43,7 +46,7 @@ document.cookie = "user_name=Ire Aderinokun;expires=Thu, 01 Jan 1970 00:00:01 GM
 Local Storage 的 基本CRUD 操作
 
 通过下面的语法，我们可以创建，读取，更新和删除 Local Storage:
-
+```js
 // Create 
 const user = { name: 'Ire Aderinokun', age: 25 }   
 localStorage.setItem('user', JSON.stringify(user)); 
@@ -57,6 +60,7 @@ localStorage.setItem('user', JSON.stringify(updatedUser));
  
 // Delete 
 localStorage.removeItem('user');  
+```
 Local Storage 的优点
 
 相比于Cookies：

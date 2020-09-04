@@ -226,6 +226,7 @@ To return all operations except command operations ($cmd), run a query similar t
 db.system.profile.find( { op: { $ne : 'command' } } ).pretty()
 ```
 
+db.slowlogstatistic.findOne()
 ## 下一步规划
 1. 试验记录慢查询（包括单节点mongod和replica）
 2. 分析db.system.profile

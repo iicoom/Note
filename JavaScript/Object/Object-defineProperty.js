@@ -17,6 +17,11 @@ console.log(object1.property1);
 // expected output: 42
 
 
+// 一般情况使用点就可以赋值
+object1['abc'] = {}
+object1['abc']['cbd'] = '1234'
+
+
 
 
 

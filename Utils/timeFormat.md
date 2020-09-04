@@ -87,6 +87,14 @@ isBetween,isAfter
 /**********************************************
 	Supported ISO 8601 strings  "create_at" : ISODate("2018-02-25T13:31:09.645Z"),
 ***************************************************/
+new Date()
+moment().toDate()
+
+// 存入到mongodb 就是ISODate 格式
+"updatedAt" : ISODate("2020-09-04T09:12:50.850Z")
+
+
+// 解析 ISODate
 Date.parse('2017-12-15T08:30:50.913Z')
 // => 1513326650913
 moment('2018-02-25T13:31:09.645Z').format('YYYY-MM-DD HH:mm:ss')

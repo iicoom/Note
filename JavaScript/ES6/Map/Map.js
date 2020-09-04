@@ -19,6 +19,7 @@ map.set(true, 'bool1'); // a boolean key
 // Map keeps the type, so these two are different:
 alert( map.get(1)   ); // 'num1'
 alert( map.get('1') ); // 'str1'
+alert( map.get('2') ); // undefined
 alert( map.size ); // 3
 
 // Map can also use objects as keys.
