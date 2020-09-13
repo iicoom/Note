@@ -1,4 +1,4 @@
-1. Cannot stop or restart a docker container
+1. Cannot stop or restart a docker container 不能停止或重启Container
 https://stackoverflow.com/questions/31365827/cannot-stop-or-restart-a-docker-container
 
 ```
