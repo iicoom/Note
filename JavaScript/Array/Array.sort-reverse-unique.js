@@ -51,10 +51,17 @@ function unique(arr) {
  * 元素为number或string的默认比较方法
  * https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
+/*************************************************
+ * // 1. 字母顺序排序
+ *************************************************/
 const months = ['March', 'Jan', 'Feb', 'Dec'];
 console.log(months.sort());
 // ["Dec", "Feb", "Jan", "March"]
 
+
+/*************************************************
+ * // 2. 数字排序需要特殊处理
+ *************************************************/
 const array1 = [1, 30, 4, 21, 100000];
 console.log(array1.sort());
 // [1, 100000, 21, 30, 4]
@@ -97,6 +104,23 @@ console.log(arr.reverse())
 
 // ES6 箭头函数写法
 arr.sort((a, b) => a.fee - b.fee)
+
+
+
+/*************************************************
+ * // 3. 汉字排序需要特殊处理
+ *************************************************/
+var arr = ['南京', '北京', '上海', '杭州', '深圳'];
+function sortChinese (arr) { // 参数： 排序的数组
+  arr.sort((item1, item2) => item1.localeCompare(item2, 'zh-CN'))
+}
+sortChinese(arr)
+console.log(arr); //  ["北京", "杭州", "南京", "上海", "深圳"]
+
+let arr1 = ["a1a", "a3y", "s1", "啊", "毛", "陈"]
+sortChinese(arr1)
+console.log(arr1); //  ["啊", "陈", "毛", "a1a", "a3y", "s1"]
+
 
 
 let arr1 = ['zad', 'cdd', 'acc']
@@ -146,3 +170,16 @@ console.log(a); // [1, 2, 3]
 a.reverse(); 
 
 console.log(a); // [3, 2, 1]
+
+
+/**
+ * uniq
+ */
+const b = [1, 2, 2, 3]
+const c = [...new Set(b)]  //[1, 2, 3]
+
+// lodash
+_.uniq([2, 1, 2]);
+// => [2, 1]
+_.sortedUniq([1, 1, 2]);
+// => [1, 2]

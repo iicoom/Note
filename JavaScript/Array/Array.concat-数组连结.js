@@ -20,9 +20,11 @@ var b = [3,4,5,6];
 
 console.log(a.concat(4,5))
 console.log(a.concat(b))
+console.log([...a, ...b])
 /*
 =>
 [ 1, 2, 3, 4, 5 ]
+[ 1, 2, 3, 3, 4, 5, 6 ]
 [ 1, 2, 3, 3, 4, 5, 6 ]
 */
 
@@ -54,5 +56,5 @@ var newArr = alpha.concat(numeric);
 //["a", "b", "c", 1, 2, 3]
 
 var num = [3, 4, 5]
-[...newArr, ...num]
+console.log([...newArr, ...num])
 //["a", "b", "c", 1, 2, 3, 3, 4, 5]
