@@ -15,6 +15,13 @@ cd ./dist
 NODE_ENV=$env node ./scripts/index.js
 ```
 
+```js
+// ./index.js
+$ NODE_ENV=dev flag=role node index.js
+process.env.NODE_ENV: dev
+process.env.flag: role
+```
+
 ### package.json script env
 ```
 "scripts": {

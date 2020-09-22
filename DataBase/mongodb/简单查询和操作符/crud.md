@@ -167,16 +167,10 @@ The updated document is the following:
 ```
 
 #### deleteMany 是针对collection中的数据进行操作
-db.collection.deleteMany()
+db.collection.deleteMany() 需要传入条件 传入{}删除全部文档
 ```
-db.collection.deleteMany(
-   <query>,
-   {
-     justOne: <boolean>,
-     writeConcern: <document>,
-     collation: <document>
-   }
-)
+> db.adminHabits.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 5 }
 
 db.students.deleteOne({_id: 3})
 ```

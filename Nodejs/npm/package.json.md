@@ -1,3 +1,6 @@
+## Node命令行加入
+[PM2/note-env](../PM2/note-env.md)
+
 [package.json](https://docs.npmjs.com/files/package.json)
 
 ## scripts

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wraper {
+            width: 200px;
+            height: 100px;
+            background-color: antiquewhite;
+            overflow-x: scroll;
+        }
+        .wraper::-webkit-scrollbar{
+            display: none;
+        }
+        .inner {
+            width: 1000px;
+            height: 50px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="wraper">
+        <div class="inner">123</div>
+    </div>
+    <ul id="printer"></uk>
+<script>
+    // 文档加载后获取window高度
+    function findDimensions() //函数：获取尺寸
+    {
+        var point = {};
+        //获取窗口宽度
+        window.innerWidth && (point.width = window.innerWidth);
+        window.innerHeight && (point.height = window.innerHeight);
+        /*       
+                    //document.body.clientWidth   网页可见区域宽
+        //document.body.clientHeight   网页可见区域高：
+                    //document.body.clientWidth;
+        //document.documentElement.clientHeight
+                document.body.clientWidth && (point.width = document.body.clientWidth);
+                    document.body.clientHeight && (point.height =document.body.clientHeight); */
+
+        //winHeight = document.body.clientHeight;
+        console.log('window.innerWidth', window.innerWidth, 'window.innerHeight', window.innerHeight)
+        document.getElementById("printer").innerHTML = `<li>window.innerWidth:${window.innerWidth}; window.innerHeight:${window.innerHeight}</li>`
+        return point;
+    }
+    findDimensions()
+    window.addEventListener("resize", findDimensions);
+</script>
+</body>
+</html>
+
+<!-- 滚动条样式设置 
+https://segmentfault.com/a/1190000012800450?utm_source=tag-newest
+
+-->
