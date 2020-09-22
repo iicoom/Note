@@ -116,7 +116,7 @@ root@git:/# pwd
 ```
 
 
-### Stop and remove containers and images
+### restart Stop and remove containers and images
 ➜  ~ docker rm be312539b4d3
 be312539b4d3
 
@@ -130,6 +130,9 @@ view stopped containers
 
 ➜  ~ docker start webserver  再次启动
 webserver
+
+➜  ~ docker container restart 1fd572d3bc5f
+1fd572d3bc5f
 ```
 
 

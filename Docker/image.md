@@ -24,7 +24,20 @@ training/webapp     latest              6fae60ef3446        11 months ago       
 ```
 
 ### 移除某个nginx镜像
+```
 ➜  ~ docker rmi 6f8d099c3adc
 Error response from daemon: conflict: unable to delete 568c4670fa80 (must be forced) - image is being used by stopped container be312539b4d3
+```
 
 当前镜像还在被已经停止的container使用
+
+先移除Container
+```
+➜  ~ docker rm d13360daac7d
+```
+再移除镜像
+
+或者 You can also use --force , -f Force removal of the image
+```
+docker rmi -f <image_id> 
+```
