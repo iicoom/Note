@@ -36,7 +36,43 @@ console.log(obj);                  // { a : 1, [Symbol("foo")]: 2 }
 Object.getOwnPropertySymbols(obj); // [Symbol(foo)]
 
 
-// 3. 深拷贝问题
+// 3. Spread operator 操作符 逼格更高一点的对象合并
+var obj = { name: 'coco' }
+var obj1 = { age: 27 }
+var newObj = { ...obj, ...obj1 };
+console.log(newObj); // { name: "coco", age: 27 }
+
+var obj2 = {gender: 'male', detail: {nickname: 'sugar', hobby: 'hiking'}}
+newObj = {...newObj, ...obj2} // { age: 27, detail: {nickname: "sugar", hobby: "hiking"}, gender: "male", name: "coco" }
+// 覆盖
+newObj = {...newObj, ...{name: 'baby'}} // { age: 27, detail: {nickname: "sugar", hobby: "hiking"}, gender: "male", name: "baby" }
+
+// 4. 深拷贝问题
 // 详见 ./Object.deepCopy.js
+
+// 5. 拓展
+// 另外，lodash 和 underscore 都使用下划线_，这里根据“先来后到”的顺序，用 _ 指代underscore，用 l 指代 lodash。方法如下。拷贝方法：
+
+// JSON.parse(JSON.stri)ngify()
+// $.extend
+// _.clone
+// l.clone
+// l.cloneDeep
+// l.cloneWith
+// l.cloneDeepWith
+
+// 合并方法：
+// {…x, …y}
+// Object.assign
+// $.extend
+// _.extend
+// _.extendOwn
+// l.assign
+// l.assignIn
+// l.assignWith
+// l.assignInWith
+// l.merge
+// l.mergeWith
+
 
 
