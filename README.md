@@ -1,6 +1,8 @@
 > 不积跬步无以至千里.
 
 ### Words
+* '\r'是回车，前者使光标到行首，（carriage return）'\n'是换行，后者使光标下移一格，（line feed） 
+  \r 在 tty 里可以用来回到行首，屏幕类型的终端设备在回到行首后继续输出就能覆盖原行内容，通常用来做进度条一类的 GUI。但是 \n 就是单纯向下移动一行，不用 \r 你就只能在行半中间继续写。当然了，现代的终端通常已经不需要 \r\n 了。
 * REPL：Read-Eval-Print Loop，“读取-求值-输出” 循环。是一个简单的交互式的编程环境。
 * [GNU & GCC  - ](https://gcc.gnu.org/) GNU编译器套装（英语：GNU Compiler Collection，缩写为GCC），指一套编程语言编译器，以GPL及LGPL许可证所发行的自由软件，也是GNU计划的关键部分，也是GNU工具链的主要组成部分之一。 https://zh.wikipedia.org/wiki/GCC
 
