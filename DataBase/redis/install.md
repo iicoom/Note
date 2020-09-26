@@ -19,7 +19,14 @@ cd 到redis安装目录中 执行 redis-server
 ```
 brew install redis
 
+启动
+brew services start redis
 ```
+To have launchd start redis now and restart at login:
+  brew services start redis
+Or, if you don't want/need a background service you can just run:
+  redis-server /usr/local/etc/redis.conf
+
 Redis连接时报错：Could not connect to Redis at 127.0.0.1:6379: Connection refused
 
 ```
@@ -27,3 +34,10 @@ vi /etc/redis.conf
 
 ```
 找到redis.conf 并修改 daemonize no 为 daemonize yes ，这样就可以默认启动就后台运行
+或者
+```
+➜  redis redis-server --daemonize yes
+9233:C 26 Sep 21:56:10.035 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9233:C 26 Sep 21:56:10.038 # Redis version=4.0.1, bits=64, commit=00000000, modified=0, pid=9233, just started
+9233:C 26 Sep 21:56:10.038 # Configuration loaded
+```
