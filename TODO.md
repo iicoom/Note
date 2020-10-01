@@ -20,6 +20,7 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
       ➜ ~ you-get -o /Users/mxj/Downloads -O 大横按.mp4 'https://v.youku.com/v_show/id_XMTczNDY2NjAzMg\=\=.html'
       ```
     </details>
+3. [jsdelivr-A free, fast, and reliable Open Source CDN for npm and GitHub](https://cdn.jsdelivr.net/gh/iicoom/Note@1.0.5/RegExp/image/mobile.png)
 
 ## Go
 - leafserver
