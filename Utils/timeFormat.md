@@ -21,6 +21,17 @@ new Date('2018-09-12 23:34:20').getTime()
 
 new Date(1600099200000)
 Tue Sep 15 2020 00:00:00 GMT+0800 (中国标准时间)
+
+
+Zhong@LAPTOP-S26GFGQ7 MINGW64 /
+$ node
+Welcome to Node.js v12.18.3.
+Type ".help" for more information.
+> new Date()
+2020-10-14T07:21:19.342Z
+
+Date.parse('2020-10-14T07:21:19.342Z')
+1602518400000
 ```
 
 ## 时间戳格式化
