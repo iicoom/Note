@@ -1,5 +1,5 @@
-### $group (aggregation)¶
-// **例1 - 单纯使用$group计数文档 有点大材小用**
+## $group (aggregation)¶
+### **例1 - 单纯使用$group计数文档 有点大材小用**
 ```sql
 db.sales.insertMany([
   { "_id" : 1, "item" : "abc", "price" : NumberDecimal("10"), "quantity" : NumberInt("2"), "date" : ISODate("2014-03-01T08:00:00Z") },
@@ -31,7 +31,17 @@ SELECT COUNT(*) AS count FROM sales
 => 8
 ```
 
-// **例2 对文档原有字段进行拆分重组为新字段 并分组 本例实质是按date分组**
+### 根据文档的某个字段group
+```sql
+db.order.aggregate(
+  [
+      {$group:{_id:'$studentId',totalPaidFee:{$sum:'$totalPaidFee'},totalReceivedFee:{$sum:'$totalReceivedFee'}}}
+  ]
+)
+```
+文档按studentId分组, 相同的studentId文档把totalPaidFee，totalReceivedFee字段累加返回为 totalPaidFee， totalReceivedFee
+
+### **例2 对文档原有字段进行拆分重组为新字段 并分组 本例实质是按date分组**
 ```sql
 { "_id" : 1, "item" : "abc", "price" : 10, "quantity" : 2, "date" : ISODate("2014-03-01T08:00:00Z") }
 { "_id" : 2, "item" : "jkl", "price" : 20, "quantity" : 1, "date" : ISODate("2014-03-01T09:00:00Z") }
@@ -48,7 +58,7 @@ db.sales.aggregate(
            _id : { month: { $month: "$date" }, day: { $dayOfMonth: "$date" }, year: { $year: "$date" } },
            totalPrice: { $sum: { $multiply: [ "$price", "$quantity" ] } },
            averageQuantity: { $avg: "$quantity" },
-           count: { $sum: 1 }                                          // 相同文档类型 按1累加 count: { $sum: 2 } 结果数量就会翻倍
+           count: { $sum: 1 }    // 相同文档类型 按1累加 count: { $sum: 2 } 结果数量就会翻倍
         }
       }
    ]
