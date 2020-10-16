@@ -38,7 +38,7 @@ var j = schedule.scheduleJob('42 * * * *', function(){
 
 
 /*
-Linux Crontab 定时任务
+Linux Crontab 定时任务  使用root用户操作
 https://www.runoob.com/w3cnote/linux-crontab-tasks.html
 
 Usage:
@@ -57,14 +57,41 @@ Options:
  -s         selinux context
  -x <mask>  enable debugging
 
+1. View current user's Cronjob
+Just type the following command:
+crontab -l
+
+查看所有定时任务或某个用户的定时任务
+[maoxiaojie@stag-app-31 ~]$ crontab -u maoxiaojie -l
+must be privileged to use -u
+[maoxiaojie@stag-app-31 ~]$ sudo su
+[sudo] password for maoxiaojie: 
+[root@stag-app-31 maoxiaojie]# crontab -u maoxiaojie -l
+* * * * * maoxiaojie sh /home/maoxiaojie/my.sh << /home/maoxiaojie/my.log
+
+2. Remove all cron jobs
+If and only if you want to stop all cron jobs, you can remove them entirely with:
+
+crontab -r
+This removes the entire crontab file for current user so be careful if you've got other cron jobs listed in there!
+
+
+
+某个用户的定时任务往往不能执行成功，可能因为一些权限问题
 [maoxiaojie@stag-app-31 ~]$ ls
 my.log  my.sh   
-[maoxiaojie@stag-app-31 ~]$ chmod +x my.sh
 
+// my.sh
+#!bin/sh
+set -e
+now=$(date +"%Y-%m-%d %T")
+echo $now '=> mao is handsome!'
+
+[maoxiaojie@stag-app-31 ~]$ chmod +x my.sh
 */
 
-//       */1 * * * * maoxiaojie /honne/maoxiaojie/my.sh >> /home/maoxiaojie/my.log
-// 每分钟执行一下my.sh中的内容 maoxiaojie表示以maoxiaojie用户身份来运行
+//  */1 * * * * sh /home/maoxiaojie/my.sh << /home/maoxiaojie/my.log
+// 每分钟执行一下my.sh中的内容 可以在crontab -e 中写多行任务
 
 /** 需要开启服务
  * 
@@ -90,4 +117,7 @@ Password:
 ==== AUTHENTICATION COMPLETE ===
 [maoxiaojie@stag-app-31 ~]$ 
 
+
+参考链接
+https://askubuntu.com/questions/408611/how-to-remove-or-delete-single-cron-job-using-linux-command
  */
