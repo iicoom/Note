@@ -15,19 +15,20 @@
     form.onsubmit = function(){
         console.log('表单提交事件')
     }
-
+    
     function test() {
+        console.log("document.getElementById('uploadFileBtn')：", document.getElementById('uploadFileBtn'))
 		var fileList = document.getElementById('uploadFileBtn').files;
         var filePath = document.getElementById('uploadFileBtn').value;
         var fileSize = fileList[0].size; //B
         var size = Math.round( fileSize/(1024) ) //kb
-        console.log(fileList)
-        console.log(filePath)
+        console.log('fileList:', fileList)
+        console.log('filePath:', filePath)
         if(filePath) {
             var fileType = getFileType(filePath);
             // var fileSize = document.getElementById('uploadFileBtn').fileSize;
-            console.log(fileType);
-            console.log(size);
+            console.log('fileType:', fileType);
+            console.log('size:', size + 'kb');
             //判断上传的附件是否为图片 
             if (fileType != "xlsx") {
                 alert("请选择.xlsx格式的文件");
@@ -50,6 +51,7 @@
         else return "";
     }
 
+    // 导入: 获取本地文件信息
     function wrap (){
     	var fileList = document.getElementById('uploadFileBtn').files;
 	    importSheeps(fileList[0], '5aa0966dfebfb4fd4d14d4f1', function (err, data) {
@@ -63,7 +65,7 @@
 		});
     }
 
-	//导入羊
+	//导入羊：请求API
     function importSheeps (file,batchId,cb){
         var formData = new FormData();
         if(file){
