@@ -1,14 +1,3 @@
-5. 查看key数量及清空key
-```
-127.0.0.1:6379[5]> dbsize
-(integer) 27
-127.0.0.1:6379[5]> flushall
-OK
-127.0.0.1:6379[5]> dbsize
-(integer) 0
-127.0.0.1:6379[5]>
-```
-
 ### Set
 ```
 SADD myset "Hello"
