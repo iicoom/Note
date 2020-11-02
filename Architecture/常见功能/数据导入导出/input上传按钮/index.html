@@ -73,7 +73,7 @@
             formData.append('file', file);
             console.log(formData);
             // 向接口发送请求
-            axios.post(`http://localhost:8070/api/sheep/importSheep?batchId=${batchId}`,formData)
+            axios.post(`http://localhost:3004/api/importSheep?batchId=${batchId}`,formData)
               .then(function (response) {
                 //console.log(response);
                 cb && cb(null,response);
