@@ -120,6 +120,12 @@ scp work@192.168.0.10:/home/work/source.txt /home/work/ #把192.168.0.10机器�
 scp work@192.168.0.10:/home/work/source.txt work@192.168.0.11:/home/work/ #把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下
 
 scp -r /home/work/sourcedir work@192.168.0.10:/home/work/ #拷贝文件夹，加-r参数
+
+Windows 下可以在gitbash中运行，将47.y2.32.3x 用户maoxiaojie home下的my.sh 下载到桌面
+Zhong@LAPTOP-S26GFGQ7 MINGW64 /
+$ scp maoxiaojie@47.y2.32.3x:my.sh /c/Users/Zhong/Desktop
+maoxiaojie@47.y2.32.3x's password:
+my.sh                                                                                                               100%   75     2.6KB/s   00:00
 ```
 
 ### 实例
