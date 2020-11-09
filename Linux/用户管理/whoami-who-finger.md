@@ -18,7 +18,7 @@ There is NO WARRANTY, to the extent permitted by law.
 ```
 
 ## who 查看现在登录的用户
-查看最近登录的用户
+who命令是显示目前登录系统的用户信息
 ```
 ➜  ~ who
 mxj      console  Jan 29 09:47

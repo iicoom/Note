@@ -36,3 +36,24 @@ Re-enter new password:*******
 New password:******* 
 Re-enter new password:*******
 ```
+
+### 修改正在登录的用户shell
+添加一个不能登录的用户
+useradd -d /usr/local/apache -g apache -s /bin/false apache
+```
+1. usermod -s /sbin/false jack
+当jack再次登陆时,会一直提示密码错误，知道次数用完
+
+
+2. usermod -s /sbin/nologin jack
+
+当jack再次登陆时，会礼貌的向用户显示一条信息，并拒绝用户登录：
+Last login: Mon Nov  9 08:37:37 2020 from 123.xx4.46.184
+This account is currently not available.
+
+Connection closing...Socket close.
+
+Connection closed by foreign host.
+
+Disconnected from remote host(xx.11x.250.xx:22) at 17:18:02.
+```
