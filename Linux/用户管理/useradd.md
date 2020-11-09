@@ -2,6 +2,32 @@
 
 https://linuxize.com/post/create-a-sudo-user-on-centos/#conclusion
 
+```
+-c<备注>：加上备注文字。备注文字会保存在passwd的备注栏位中；
+-d<登入目录>：指定用户登入时的启始目录；
+-D：变更预设值；
+-e<有效期限>：指定帐号的有效期限；
+-f<缓冲天数>：指定在密码过期后多少天即关闭该帐号；
+-g<群组>：指定用户所属的群组；
+-G<群组>：指定用户所属的附加群组；
+-m：自动建立用户的登入目录；
+-M：不要自动建立用户的登入目录；
+-n：取消建立以用户名称为名的群组；
+-r：建立系统帐号；
+-s<shell>：指定用户登入后所使用的shell；
+-u<uid>：指定用户id。
+
+
+总结：1.root登录 2.添加用户 3.设置密码 4.设置组 wheel组才有使用sudo的权限
+ssh root@server_ip_address
+
+useradd username
+
+passwd username
+
+usermod -aG wheel username
+```
+
 1. Start by logging in to your CentOS server as the root user.
 ```
 ssh root@server_ip_address
@@ -25,18 +51,10 @@ usermod -aG wheel username
 ```
 
 
-Switch to the newly created user:
+### Switch to the newly created user:
 ```
 su - username
-```
 
-To use sudo, simply prefix the command with sudo and space.
-```
-sudo [COMMAND]
-```
-
-for example
-```
 [root@vultr ~]# su - xiaomao
 [xiaomao@vultr ~]$ ls -l /root
 ls: cannot open directory /root: Permission denied
@@ -58,26 +76,13 @@ drwxr-xr-x 3 root root  4096 Mar  6 14:34 prots
 -rwxr-xr-x 1 root root 13834 Mar  6 05:24 ssocks.sh
 ```
 
-https://www.runoob.com/linux/linux-comm-useradd.html
--c<备注> 　加上备注文字。备注文字会保存在passwd的备注栏位中。
--d<登入目录> 　指定用户登入时的启始目录。
--D 　变更预设值．
--e<有效期限> 　指定帐号的有效期限。
--f<缓冲天数> 　指定在密码过期后多少天即关闭该帐号。
--g<群组> 　指定用户所属的群组。
--G<群组> 　指定用户所属的附加群组。
--m 　自动建立用户的登入目录。
--M 　不要自动建立用户的登入目录。
--n 　取消建立以用户名称为名的群组．
--r 　建立系统帐号。
--s<shell>　 　指定用户登入后所使用的shell。
--u<uid> 　指定用户ID。
-
 ### 为CentOS添加 mongod用户
-**[root@f7881fcaf265 /]# useradd -u800 mongod**
+```
+[root@f7881fcaf265 /]# useradd -u800 mongod
 -u 指定uid 为800 
 
-**[root@f7881fcaf265 /]# echo 123456|passwd --stdin mongod**
+
+[root@f7881fcaf265 /]# echo 123456|passwd --stdin mongod
 Changing password for user mongod.
 passwd: all authentication tokens updated successfully.
 
@@ -90,6 +95,34 @@ This option is used to indicate that passwd should read the new password from st
 使用 echo 方式来重置Linux 系统用户密码：
 
 echo “新密码”|passwd --stdin 用户名
+```
+
+### 查看系统中存在的用户
+```
+[root@vultr home]# cat /etc/passwd | awk -F: '{ print $1}'
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+
+
+或者：
+[root@vultr home]# compgen -u
+root
+bin
+daemon
+adm
+lp
+sync
+shutdown
+halt
+mail
+```
 
 
 ## useradd Unbuntu
@@ -143,42 +176,6 @@ tommy   ALL=(ALL)     ALL
 ```
 修改完毕，现在可以用tommy帐号登录，然后用命令 su - ，即可获得root权限进行操作。
 
-### 删除用户
-如果一个用户的账号不再使用，可以从系统中删除。删除用户账号就是要将/etc/passwd等系统文件中的该用户记录删除，必要时还删除用户的主目录。
-
-删除一个已有的用户账号使用userdel命令，其格式如下：
-```
-userdel 选项 用户名
-```
-常用的选项是 -r，它的作用是把用户的主目录一起删除。
-```
-userdel -r sam
-```
-此命令删除用户sam在系统文件中（主要是/etc/passwd, /etc/shadow, /etc/group等）的记录，同时删除用户的主目录。
-
-
-### 用户口令的管理（修改用户密码）
-用户管理的一项重要内容是用户口令的管理。用户账号刚创建时没有口令，但是被系统锁定，无法使用，必须为其指定口令后才可以使用，即使是指定空口令。
-
-指定和修改用户口令的Shell命令是passwd。超级用户可以为自己和其他用户指定口令，普通用户只能用它修改自己的口令。命令的格式为：
-passwd 选项 用户名
--l 锁定口令，即禁用账号。
--u 口令解锁。
--d 使账号无口令。
--f 强迫用户下次登录时修改口令。
-例如，假设当前用户是sam，则下面的命令修改该用户自己的口令：
-```
-$ passwd 
-Old password:****** 
-New password:******* 
-Re-enter new password:*******
-```
-如果是超级用户，可以用下列形式指定任何用户的口令：
-```
-# passwd sam 
-New password:******* 
-Re-enter new password:*******
-```
 
 ### 新用户第一次使用sudo
 We trust you have received the usual lecture from the local System
@@ -191,16 +188,3 @@ Administrator. It usually boils down to these three things:
 [sudo] password for xiaojie:
 
 xiaojie is not in the sudoers file.  This incident will be reported.
-### 需要把用户添加到相关组中授权
-usermod可用来修改用户帐号的各项设定
--c<备注> 　修改用户帐号的备注文字。
--d登入目录> 　修改用户登入时的目录。
--e<有效期限> 　修改帐号的有效期限。
--f<缓冲天数> 　修改在密码过期后多少天即关闭该帐号。
--g<群组> 　修改用户所属的群组。
--G<群组> 　修改用户所属的附加群组。
--l<帐号名称> 　修改用户帐号名称。
--L 　锁定用户密码，使密码无效。
--s<shell> 　修改用户登入后所使用的shell。
--u<uid> 　修改用户ID。
--U 　解除密码锁定。
