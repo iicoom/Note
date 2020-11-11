@@ -1,3 +1,11 @@
+## type file
+```
+<form>
+  <input type="file" name="pic" id="pic" accept="image/gif, image/jpeg" />
+</form>
+```
+如果不限制图像的格式，可以写为：accept="image/*"。
+
 ## Form 中的radio问题
 ```html
 <tr style="text-align: center">
