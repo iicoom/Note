@@ -1,12 +1,15 @@
 // map 参数说明
 const array1 = [1, 4, 9, 16];
-array1.map((cur, index, self) => {console.log(cur, index, self); return cur+1})
-// 1 0 (4) [1, 4, 9, 16]
-// 4 1 (4) [1, 4, 9, 16]
-// 9 2 (4) [1, 4, 9, 16]
-// 16 3 (4) [1, 4, 9, 16]
+array1.map((cur, index, self) => {
+  console.log(cur, index, self); 
+  return cur+1
+})
+// 1 0  [1, 4, 9, 16]
+// 4 1  [1, 4, 9, 16]
+// 9 2  [1, 4, 9, 16]
+// 16 3  [1, 4, 9, 16]
 // return
-// (4) [2, 5, 10, 17]
+// [2, 5, 10, 17]
 
 
 /**
@@ -15,6 +18,17 @@ array1.map((cur, index, self) => {console.log(cur, index, self); return cur+1})
 var numbers = [1, 4, 9];
 var roots = numbers.map(Math.sqrt);
 // roots的值为[1, 2, 3], numbers的值仍为[1, 4, 9]
+
+// 结合Math.max 或Math.min   const arr = [2, 4, 8]   Math.max(2, 4, 8) 返回8    Math.max(...arr) 返回8
+// 处理二维数组 const twoDim = [[-1, 3, -5], [-9, 1, 4]]
+const twoDim = [[-1, 3, -5], [-9, 1, 4]]
+twoDim.map(arrItem => Math.max(...arrItem))  // [ 3, 4 ]
+twoDim.map(arrItem => Math.min(...arrItem))  // [ -5, -9 ]
+
+// 结合数组的pop shift 方法
+twoDim.map(arrItem => arrItem.pop()) // [ -5, 4 ]
+twoDim.map(arrItem => arrItem.shift()) // [ -1, -9 ]
+
 
 
 /**
