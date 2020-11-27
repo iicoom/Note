@@ -22,3 +22,11 @@ console.log(pets.includes('cat'));
 // expected output: true
 console.log(pets.includes('at'));
 // expected output: false
+
+
+['1','2','3'].includes('1')
+true
+['1','2','3'].includes(['1', '2'])
+false
+['1','2','3'].includes('1', '2')
+false

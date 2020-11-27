@@ -15,7 +15,7 @@ db.sales.insertMany([
 db.sales.aggregate( [
   {
     $group: {
-       _id: null,
+       _id: null,           //  specifies a group _id of null，统计所有文档
        count: { $sum: 1 }
     }
   }
@@ -31,7 +31,7 @@ SELECT COUNT(*) AS count FROM sales
 => 8
 ```
 
-### 根据文档的某个字段group
+### 根据文档的某个字段group 累计其他字段的值 => 有几种分组字段，就返回多少条
 ```sql
 db.order.aggregate(
   [
@@ -68,3 +68,18 @@ db.sales.aggregate(
 { "_id" : { "month" : 4, "day" : 4, "year" : 2014 }, "totalPrice" : 200, "averageQuantity" : 15, "count" : 2 }
 { "_id" : { "month" : 3, "day" : 1, "year" : 2014 }, "totalPrice" : 40, "averageQuantity" : 1.5, "count" : 2 }
 ```
+
+### 按嵌套文档字段分组
+```js
+db.serveRecords.aggregate([
+    { $group: {_id: '$headteacher.no',  count: { $sum: 1 }} }
+])
+```
+
+### $addToSet
+
+### $first $last
+
+### $push
+
+### $cond

@@ -1,6 +1,6 @@
 ### $project (aggregation)
 1. 基本特性 - **设置field 是否出现在文档最终结果 默认只有_id返回**
-```
+```js
 {
   "_id" : 1,
   title: "abc123",
@@ -23,6 +23,23 @@ db.books.aggregate( [ { $project : { _id: 0, title : 1 , author : 1 } } ] )
 
 The operation results in the following document:
 { "title" : "abc123", "author" : { "last" : "zzz", "first" : "aaa" } }
+
+
+// 返回嵌套类型的  'serviceman.no':
+db.firstVisit.aggregate([
+    { 
+        $project: 
+        { 
+            'serviceman.no': 1, 
+            status: { $cond: {if:{$eq:['$status', 'done']}, then: 1, else: 0 }}
+        }
+    }
+])
+
+{ "_id" : ObjectId("5fbdd44afcb1304d1485e25a"), "serviceman" : { "no" : 10000000 }, "status" : 0 }
+{ "_id" : ObjectId("5fbdd44efcb1304d1485e25e"), "serviceman" : { "no" : 10000001 }, "status" : 1 }
+{ "_id" : ObjectId("5fbdd8aaac3fe51b4009f191"), "serviceman" : { "no" : 11869 }, "status" : 0 }
+{ "_id" : ObjectId("5fbdd8deac3fe51b4009f1e4"), "serviceman" : { "no" : 10000001 }, "status" : 0 }
 ```
 
 2. 案例：计算每个item的平均值 - **在最终文档生成新的field**
@@ -105,8 +122,33 @@ db.orders2.aggregate( [
    { $out: "agg_alternative_3" }
 ] )
 ```
+3. 统计完成率
+```js
+> db.firstVisit.find()
+{ "_id" : ObjectId("123"), "tradeNo" : "sch-2233", "userId" : "22", "productId" : "22", "visitId" : null, "visitTime" : null, "status" : "pending", "type" : "headteacher", "serviceman" : { "no" : 10000000, "name" : "顾问1", "visitTimeLimit" : 1606362570336 }
+{ "_id" : ObjectId("232"), "tradeNo" : "233", "userId" : "22", "productId" : "22", "visitTime" : 1606276940081, "status" : "done", "type" : "headteacher", "serviceman" : { "no" : 10000001, "name" : "班主任2", "visitTimeLimit" : 1606362574469 }
+{ "_id" : ObjectId("211"), "tradeNo" : "233", "userId" : "444", "productId" : "44", "visitId" : null, "visitTime" : null, "status" : "pending", "type" : "consultant", "serviceman" : { "no" : 11869, "name" : "销专员", "department" : { "no" : 136, "name" : "用户运营部" }, "assignedType" : "assign", "updatedAt" : "2020-08-10T16:00:00.000Z" }, "visitTimeLimit" : 1606363690086 }
+{ "_id" : ObjectId("222"), "tradeNo" : "2222", "userId" : "11", "productId" : "22", "visitId" : null, "visitTime" : null, "status" : "pending", "type" : "headteacher", "serviceman" : { "no" : 10000001, "name" : "班主任2", "visitTimeLimit" : 1606363742882 }
 
-3. 其他玩法
+
+db.firstVisit.aggregate([
+    { 
+        $project: 
+        { 
+            serviceman: 1, 
+            status: { $cond: {if:{$eq:['$status', 'done']}, then: 1, else: 0 }}
+        }
+    },
+    {
+        $group: { _id: '$serviceman.no', count: {$sum: 1},  complete: {$sum: '$status'}}
+    }
+])
+{ "_id" : 10000001, "count" : 2, "complete" : 1 }
+{ "_id" : 11869, "count" : 1, "complete" : 0 }
+{ "_id" : 10000000, "count" : 1, "complete" : 0 }
+```
+
+4. 其他玩法
 ### $project 
 https://docs.mongodb.com/manual/reference/operator/aggregation/project/
 
