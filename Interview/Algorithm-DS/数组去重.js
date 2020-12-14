@@ -29,6 +29,9 @@ unique(arr1)
 Array.from(new Set(arr1))
 // [1, "abc", 34, null, undefined, ""]
 
+// 或者
+[...new Set(arr1)]
+
 // 方法3. lodash
 _.uniq([2, 1, 2]);
 // => [2, 1]

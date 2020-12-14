@@ -1,0 +1,2 @@
+'oooowe  ' .trim()
+"oooowe"

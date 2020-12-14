@@ -61,3 +61,9 @@ console.log(array1.unshift(4, 5));
 console.log(array1);
 // expected output: Array [4, 5, 1, 2, 3]
 
+
+// 去掉数组中的某个元素
+let arr = [1, 2, 3]
+arr = arr.filter(i => i !== 2)
+// arr = [1,3]
+

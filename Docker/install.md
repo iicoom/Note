@@ -7,11 +7,12 @@ $ sudo yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
 
-
 $ sudo yum install docker-ce docker-ce-cli containerd.io
 
 
 $ sudo systemctl start docker
+
+$ sudo systemctl restart docker       to restart docker.
 
 
 $ sudo docker run hello-world
@@ -74,8 +75,6 @@ Server: Docker Engine - Community
   Version:          0.18.0
   GitCommit:        fec3683
 ```
-
-
 
 
 

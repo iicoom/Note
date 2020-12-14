@@ -76,6 +76,14 @@ db.serveRecords.aggregate([
 ])
 ```
 
+### allowDiskUse
+分组的数据量过大会导致报错
+{ MongoError: Exceeded memory limit for $group, but didn't allow external sort. Pass allowDiskUse:true to opt in.
+
+```
+db.flowlog.aggregate([{$group:{_id:"$_id"}}], {allowDiskUse: true})
+```
+
 ### $addToSet
 
 ### $first $last
@@ -83,3 +91,33 @@ db.serveRecords.aggregate([
 ### $push
 
 ### $cond
+
+
+### group stage 的文档数过多超出限制 
+1. 使用 {allowDiskUse: true}
+2. 考虑优化缩小范围
+```
+db.userstudydetail.aggregate([
+  { $match: {type: 'studyProgress', date: {$gte: ISODate('2020-12-02T16:00:00.000Z'), $lte: ISODate('2020-12-03T15:59:59.999Z')}}},
+  { $group: {_id: '$courseId', studyProgressAvg: { $avg: 'progressStats' }, students: { $push: "$$ROOT" }}}
+],{allowDiskUse: true})
+
+assert: command failed: {
+	"ok" : 0,
+	"errmsg" : "Exceeded memory limit for $group, but didn't allow external sort. Pass allowDiskUse:true to opt in.",
+	"code" : 16945,
+	"codeName" : "Location16945"
+} : aggregate failed
+
+Error: getMore command failed: {
+	"ok" : 0,
+	"errmsg" : "BSONObj size: 43065860 (0x2912204) is invalid. Size must be between 0 and 16793600(16MB)",
+	"code" : 10334,
+	"codeName" : "Location10334"
+}
+
+db.serveRecords.aggregate([
+  { $match: query },
+  { $group: { _id: '$productId', studentCount: { $sum: 1 }}}
+])
+```

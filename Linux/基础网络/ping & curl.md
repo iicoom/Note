@@ -53,6 +53,22 @@ curl -O http://www.linux.com/dodo[1-5].JPG
 
 [Linux curl命令详解](https://www.cnblogs.com/duhuo/p/5695256.html)
 
+接口测试：
+```bash
+$ curl --request POST \
+  --url http://localhost:8000/test \
+  --header 'content-type: application/json' \
+  --data '{
+	"msg": "testing"
+}'
+
+{"code":"success","payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
+
+
+$ curl http://localhost:8000/test
+{"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
+```
+
 ### wget
 #### Mac 需要先安装
 ➜  ~ brew install wget

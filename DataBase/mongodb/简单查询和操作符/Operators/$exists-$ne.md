@@ -17,3 +17,25 @@ db.records.find( { b: { $exists: false } } )
 { a: 4 }
 { c: 6 }
 ```
+
+## headteacher
+```
+> db.serveRecords.count({
+...   platform: { '$in': [ 'school', 'zhuma', 'fx', 'crm' ] },
+...   serviceRole: 'headteacher',
+...   fullyPaidAt: { '$lte': ISODate('2020-12-04T15:59:59.999Z') },
+...   headteacher: { '$exists': true }
+... })
+4921
+
+> db.serveRecords.count({
+...   platform: { '$in': [ 'school', 'zhuma', 'fx', 'crm' ] },
+...   serviceRole: 'headteacher',
+...   fullyPaidAt: { '$lte': ISODate('2020-12-04T15:59:59.999Z') },
+...   headteacher: { $ne: null }
+... })
+8
+```
+headteacher: { $ne: null } 只查有headteacher 并且不等于null
+
+headteacher: { '$exists': true }  查有headteacher 包括等于null的
