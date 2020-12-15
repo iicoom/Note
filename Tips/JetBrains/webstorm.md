@@ -1,3 +1,6 @@
+## 试用重置
+Plugins: Eval Reset
+
 ## ts 编译为 js
 settings - Language&Framework - TypeScript - 
 
