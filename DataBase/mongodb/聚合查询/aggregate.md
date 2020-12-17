@@ -1,6 +1,27 @@
 ## Aggregation
 https://docs.mongodb.com/manual/aggregation/
 
+## 指定索引
+The following aggregation operation includes the hint option to force the usage of the specified index:
+```js
+db.foodColl.insert([
+   { _id: 1, category: "cake", type: "chocolate", qty: 10 },
+   { _id: 2, category: "cake", type: "ice cream", qty: 25 },
+   { _id: 3, category: "pie", type: "boston cream", qty: 20 },
+   { _id: 4, category: "pie", type: "blueberry", qty: 15 }
+])
+
+db.foodColl.createIndex( { qty: 1, type: 1 } );
+db.foodColl.createIndex( { qty: 1, category: 1 } );
+
+db.foodColl.aggregate(
+   [ { $sort: { qty: 1 }}, { $match: { category: "cake", qty: 10  } }, { $sort: { type: -1 } } ],
+   { hint: { qty: 1, category: 1 } }
+)
+```
+可见aggregate是可以使用索引的
+
+
 ## [SQL to Aggregation Mapping Chart对照表](https://docs.mongodb.com/manual/reference/sql-aggregation-comparison/)
 
 ## [Variables](https://docs.mongodb.com/manual/reference/aggregation-variables/)
@@ -43,9 +64,8 @@ The operation returns the following results:
 
 ### $project $group 使用特点
 
-visitdata 集合中有以下文档
-
-```
+访问数据 visitdata 集合中有以下文档
+```js
 { 
     "_id" : ObjectId("5cfdc67f21ff5db6df01c85e"), 
     "date" : "2019-06-10", 
@@ -75,16 +95,14 @@ visitdata 集合中有以下文档
 }
 ```
 
-想重命名返回字段
-```
-db.visitdatas.aggregate(
-[
+想要按日期统计每日访问量，并且修改文档字段使其适用于图形化展示，x 日期，y 数量
+```js
+db.visitdatas.aggregate([
  { $project: { visit_number: 1, date: 1, x: "$date", y: "$visit_number" } },
-]
-)
+])
 ```
 结果
-```
+```js
 { 
     "_id" : ObjectId("5cfdc67f21ff5db6df01c85e"), 
     "date" : "2019-06-10", 
@@ -115,8 +133,8 @@ db.visitdatas.aggregate(
 }
 ```
 
-想累加visit_number字段
-```
+统计出总访问量visit_number字段
+```js
 db.visitdatas.aggregate(
    [
      {
@@ -124,16 +142,12 @@ db.visitdatas.aggregate(
      }
    ]
 )
-
-```
-运行结果
-```
+// 运行结果
 { 
     "_id" : null, 
     "total" : NumberInt(47)
 }
 ```
-
 
 
 

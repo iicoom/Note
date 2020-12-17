@@ -1,7 +1,8 @@
 https://docs.mongodb.com/manual/meta/aggregation-quick-reference/#stages
 
-> In the db.collection.aggregate method, pipeline stages appear in an array. Documents pass through the stages in sequence. All except the $out, $merge, and $geoNear stages can appear multiple times in a pipeline.
-> 
+> In the db.collection.aggregate method, pipeline stages appear in an array. Documents pass through the stages in sequence.
+> All except the $out, $merge, and $geoNear stages can appear multiple times in a pipeline.
+>
 db.collection.aggregate pipeline stages 以数组的形式传入。Documents按顺序通过每个stage，$out, $merge, and $geoNear只能出现一次。
 
 ## $match (aggregation)
