@@ -22,6 +22,8 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
       ```
     </details>
 3. [jsdelivr-A free, fast, and reliable Open Source CDN for npm and GitHub](https://cdn.jsdelivr.net/gh/iicoom/Note@1.0.5/RegExp/image/mobile.png)
+4. [百度在线脑图](https://naotu.baidu.com/home)
+5. [Conflunce](https://github.com/cptactionhank/docker-atlassian-confluence)
 
 ## Go
 - leafserver
