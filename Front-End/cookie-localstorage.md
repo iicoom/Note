@@ -60,6 +60,8 @@ localStorage.setItem('user', JSON.stringify(updatedUser));
  
 // Delete 
 localStorage.removeItem('user');  
+
+localStorage.clear();
 ```
 Local Storage 的优点
 
