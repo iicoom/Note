@@ -21,6 +21,36 @@ MongoDB server version: 2.6.5
 WARNING: shell and server versions do not match
 ```
 
+### [权限认证](https://docs.mongodb.com/manual/tutorial/enable-authentication/)
+
+### 连接阿里云replica set
+```js
+mongo mongodb://dds-8vb20xxxxyyyzzss941.mongodb.zhaei.rds.aliyuncs.com:37007,dds-8vb20xxxxyyyzzss941.mongodb.zhaei.rds.aliyuncs.com:37007/crm?replicaSet=mgset-500004965
+
+
+mgset-500004965:PRIMARY> show dbs
+2020-12-29T13:39:27.576+0800 E QUERY    [thread1] Error: listDatabases failed:{
+	"ok" : 0,
+	"errmsg" : "not authorized on admin to execute command { listDatabases: 1.0 }",
+	"code" : 13,
+	"codeName" : "Unauthorized"
+} :
+
+mgset-500004965:PRIMARY> db
+crm
+
+mgset-500004965:PRIMARY> show tables
+2020-12-29T13:40:48.309+0800 E QUERY    [thread1] Error: listCollections failed: {
+	"ok" : 0,
+	"errmsg" : "not authorized on crm to execute command { listCollections: 1.0, filter: {} }",
+	"code" : 13,
+	"codeName" : "Unauthorized"
+} :
+
+// 没有权限，下面授权，注意可能使用不同的db授权，如admin
+use test
+db.auth("myTester", passwordPrompt())  // or cleartext password   Starting in version 4.2 of the mongo shell
+```
 
 ## 查看数据库和空间占用
 ```
