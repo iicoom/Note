@@ -1,6 +1,8 @@
 ## TEST :thumbsup:
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
+- Java for https://www.runoob.com/java/java-loop.html
+- Sign in with Single Sign-On (SSO)
 - Git查看远程提交状态的方法
 - moment 时间格式化工具
 - 钉钉接入gitlab jira机器人

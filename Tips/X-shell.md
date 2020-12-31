@@ -17,3 +17,6 @@ Ctrl+Q：解锁当前屏幕
 
 当解锁后，锁定期间的日志也会正常显示，所以不存在日志丢失的问题，可以放心的使用。
 
+## 设置屏幕展示代码行数
+https://www.xshellcn.com/xsh_column/xianshi-hangshu.html
+
