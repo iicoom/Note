@@ -1,6 +1,5 @@
 ## 创建数据库
-
-```
+```sql
 CREATE DATABASE database_name
 
 mysql> CREATE DATABASE Example;
@@ -18,8 +17,7 @@ mysql> show databases;
 | performance_schema |
 | sys                |
 +--------------------+
-7 rows in set (0.00 sec)
-
+7 rows in set (0.00 sec) 
 ```
 
 ## 使用数据库

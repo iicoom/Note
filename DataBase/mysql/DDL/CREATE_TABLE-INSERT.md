@@ -12,9 +12,10 @@
 ## table CHARSET 和 column CHARSET
 在设计数据表时，一定要注意该字段存储的内容，如果允许设置表情，则一定不能使用utf8，而是使用utf8mb4。
 
+[How to support full Unicode in MySQL databases](https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets)
 
 ## SQL CREATE TABLE 语法
-```
+```sql
 CREATE TABLE IF NOT EXISTS `runoob_tbl`(
    `runoob_id` INT UNSIGNED AUTO_INCREMENT,
    `runoob_title` VARCHAR(100) NOT NULL,
@@ -68,7 +69,7 @@ CREATE TABLE `qiushi` (
 
 且 服务器端也要相应配置
 
-https://mathiasbynens.be/notes/mysql-utf8mb4#character-sets
+
 mysql> SHOW VARIABLES WHERE Variable_name LIKE 'character\_set\_%' OR Variable_name LIKE 'collation%';
 +--------------------------+--------------------+
 | Variable_name            | Value              |

@@ -10,10 +10,11 @@ CREATE TABLE `model` (
   `type` smallint(2) DEFAULT NULL COMMENT '类型 1:qq 2:ww 3:ee 4:rr 5:tt',
   `target_id` int(11) NOT NULL DEFAULT '0' COMMENT '目标id',
   `questions` json DEFAULT NULL COMMENT '问题, ["1","2","3"] 或者  [{},{},{}]',   
-  `name` VARCHAR(20) DEFAULT NULL COMMENT '小组名称',
+  `name` varchar(20) DEFAULT NULL COMMENT '小组名称',
   `plan_date` date DEFAULT NULL COMMENT '计划学习时间',
   `power_score` int(11) NOT NULL DEFAULT '0' COMMENT '积分值',
   `extend` json DEFAULT NULL COMMENT '{ "pic_url": "图片地址", "activity_name":"活动名称" }',
+  `price` decimal(10,2) DEFAULT '0.00' COMMENT '秒杀价格',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -23,14 +24,64 @@ CREATE TABLE `model` (
 ### int(3)与int(11)的区别
 以前总是会误以为int(3)只能存储3个长度的数字，int(11)就会存储11个长度的数字，这是大错特错的。
 
-其实当我们在选择使用int的类型的时候，不论是int(3)还是int(11)，它在数据库里面存储的都是4个字节的长度，在使用int(3)的时候如果你输入的是10，会默认给你存储位010,也就是说这个3代表的是默认的一个长度，当你不足3位时，会帮你不全，当你超过3位时，就没有任何的影响。
+其实当我们在选择使用int的类型的时候，不论是int(3)还是int(11)，它在数据库里面存储的都是4个字节的长度，在使用int(3)的时候如果你输入的是10，会默认给你存储位010,也就是说这个3代表的是默认的一个长度，当你不足3位时，会帮你补全，当你超过3位时，就没有任何的影响。
 ![oo](https://s2.ax1x.com/2019/03/19/An8X3n.png)
 
-### char与varchar
+INT(5) or INT(11) 能够存储的最大值是相同的，如果你的列设置INT(20)也不意味着你可以存储20位，这个列仍然只能存储INT的最大值。
+
+An INT will always be 4 bytes no matter what length is specified.
+- TINYINT = 1 byte (8 bit)
+- SMALLINT = 2 bytes (16 bit)
+- MEDIUMINT = 3 bytes (24 bit)
+- INT = 4 bytes (32 bit)
+- BIGINT = 8 bytes (64 bit).
+
+指定的长度仅仅影响查询数据时的填充，12345 stored as int(3) will still show as 12345，but if it was stored as int(10) it would still display as 12345, but you would have the option to pad the first five digits. For example, if you added ZEROFILL it would display as 0000012345.
+
+
+### char与varchar与text
 比如char(255)和varchar(255)，在存储字符串"hello world"时，char会用一块255个字节的空间放那个11个字符；而varchar就不会用255个，它先计算字符串长度为11，然后再加上一个记录字符串长度的字节，一共用12个字节存储，这样varchar在存储不确定长度的字符串时会大大减少存储空间。
 
 [The CHAR and VARCHAR Types](https://dev.mysql.com/doc/refman/8.0/en/char.html)
 如果可以预知存储的column很小或者很可能为空，那么使用varchar要更省空间
+
+选择VARCHAR还是TEXT？
+MySQL version 5.0.3 版本的一个改进就是VARCHAR类型的列可以存储的字符从255变成65,535。
+
+TEXT：
+- fixed max size of 65535 characters (you cannot limit the max size)
+- takes 2 + c bytes of disk space, where c is the length of the stored string.
+- cannot be (fully) part of an index. One would need to specify a prefix length.
+
+VARCHAR(M)：
+- variable max size of M characters
+- M needs to be between 1 and 65535
+- takes 1 + c bytes (for M ≤ 255) or 2 + c (for 256 ≤ M ≤ 65535) bytes of disk space where c is the length of the stored string
+- can be part of an index
+
+key differences：
+TEXT has a fixed max size of 2¹⁶-1 = 65535 characters. 
+VARCHAR has a variable max size M up to M = 2¹⁶-1.
+选择TEXT就选择了固定大小，选择VARCHAR是可变大小，我们从中可以得出的结论是，对于255到65k之间的列，应该使用VARCHAR字段而不是文本(如果可能的话)。这可能会导致更少的磁盘读和写。
+
+如果希望在列上有索引，就必须使用VARCHAR。但是请注意，索引的长度也是有限的，因此如果VARCHAR列太长，则必须在索引中只使用VARCHAR列的前几个字符(请参阅创建索引的文档)。
+[source](https://stackoverflow.com/questions/25300821/difference-between-varchar-and-text-in-mysql)
+
+
+### decimal
+MySQL DECIMAL数据类型用于在数据库中存储精确的数值。我们经常将DECIMAL数据类型用于保留准确精确度的列，例如会计系统中的货币数据。
+
+要定义数据类型为DECIMAL的列，请使用以下语法：
+```
+column_name  DECIMAL(P,D);
+
+amount DECIMAL(6,2);
+```
+- P是表示有效数字数的精度。 P范围为1〜65。
+- D是表示小数点后的位数。 D的范围是0~30。MySQL要求D小于或等于(<=)P。
+
+在此示例中，amount列最多可以存储6位数字，小数位数为2位; 因此，amount列的范围是从-9999.99到9999.99。
+
 
 ### 日期类型
 * date:你直接就可以理解为2017-3-21 不带时分秒的
