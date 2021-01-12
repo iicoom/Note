@@ -69,6 +69,11 @@ moment().startOf('month').toDate().getTime()
 moment().startOf('day').toDate()
 Mon Jul 09 2018 00:00:00 GMT+0800 (中国标准时间)
 
+// 从当前时间点获取时间区段-获取前30天的开始时间点 => ISODate
+moment().subtract(30,'d').startOf('d').toDate()
+// Sun Dec 06 2020 00:00:00 GMT+0800 (中国标准时间)
+moment().add(30,'d').startOf('d').toDate()
+Thu Feb 04 2021 00:00:00 GMT+0800 (中国标准时间)
 
 // 获取当天某时的时间
 moment({hour: 5});  // today, 5:00:00.000
