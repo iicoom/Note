@@ -18,7 +18,7 @@ const clonedeep = require('lodash.clonedeep')
 
 const externalObject = {
   color: 'red'
-}
+} // 被original索引的外部对象
 
 const original = {
   a: new Date(),
@@ -38,7 +38,7 @@ externalObject.color = 'blue'
 
 
 console.info('⬇️ shallow cloning 🌈')
-console.info('✏️ Notice the i.color property we changed on original is also changed in the shallow copy')
+console.info('✏️ Notice the i.color property we changed on original is also changed in the shallow copy') // original 和浅拷贝对象都会随外部对象改变而改变
 console.log(original)
 console.log(cloned)
 /**
