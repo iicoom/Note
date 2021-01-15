@@ -138,7 +138,7 @@ Host alpha
     Port 31122
     User doraemon
 ```
-要下载的目标问价再 alpha 服务器的路径
+要下载的目标文件再 alpha 服务器的路径
 ```
 [doraemon@alpha server]$ pwd
 /doraemon/server/data.zip
