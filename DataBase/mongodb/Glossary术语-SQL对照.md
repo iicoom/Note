@@ -53,6 +53,16 @@ WHERE status = "A"
 db.people.find( { status: "A" } ).explain()
 ```
 
+### $in
+```sql
+用法：select * from where field in (value1,value2,value3,…)
+
+
+
+```
+
+### $inc
+
 
 > 装逼精粹
 ## 什么是MongoDB
