@@ -62,6 +62,12 @@ db.people.find( { status: "A" } ).explain()
 ```
 
 ### $inc
+```sql
+UPDATE member_profile 
+    SET points = points + 1
+    WHERE user_id = '".$userid."'
+
+```
 
 
 > 装逼精粹

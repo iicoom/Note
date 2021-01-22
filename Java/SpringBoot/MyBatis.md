@@ -100,3 +100,5 @@ public interface CrmOceanDropConfigDao {
 }
 ```
 得到的是操作数据库的接口
+
+## MyBatis Generator 生成的example 使用 and or 简单混合查询

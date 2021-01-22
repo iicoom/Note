@@ -42,3 +42,4 @@ mysql> SELECT `user`.*, `user_challenge`.challenge_id FROM `user` LEFT JOIN `use
 |  1 | Jack     |   18 | man |            1 |
 +----+----------+------+-----+--------------+
 1 row in set (2.03 sec)
+

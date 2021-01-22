@@ -108,11 +108,11 @@ ORDER BY Persons.LastName
 ```
 结果集：
 
-LastName	FirstName	OrderNo
-Adams	        John	22456
-Adams	        John	24562
-Carter	        Thomas	77895
-Carter	        Thomas	44678
+LastName	FirstName	  OrderNo
+Adams	        John	  22456
+Adams	        John	  24562
+Carter	      Thomas	77895
+Carter	      Thomas	44678
 
 ### SQL LEFT JOIN 关键字
 LEFT JOIN 关键字会从左表 (table_name1) 那里返回所有的行，即使在右表 (table_name2) 中没有匹配的行。
