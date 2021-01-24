@@ -71,6 +71,9 @@ Parallax effects are awesome. Having elements move in the different speed during
 * [CRM](https://baike.baidu.com/item/%E5%AE%A2%E6%88%B7%E5%85%B3%E7%B3%BB%E7%AE%A1%E7%90%86/254554?fromtitle=CRM&fromid=165070&fr=aladdin)  1999年，Gartner Group Inc公司提出了CRM概念（Customer Relationship Management 客户关系管理）。Gartner Group Inc在早些提出的ERP概念中，强调对供应链进行整体管理。而客户作为供应链中的一环，为什么要针对它单独提出一个CRM概念呢？
 原因之一在于，在ERP的实际应用中人们发现，由于ERP系统本身功能方面的局限性，也由于IT技术发展阶段的局限性，ERP系统并没有很好地实现对供应链下游（客户端）的管理，针对3C因素中的客户多样性，ERP并没有给出良好的解决办法。
 
+* [OA](https://baike.baidu.com/item/OA%E7%B3%BB%E7%BB%9F) 办公自动化（Office Automation，简称OA），是将计算机、通信等现代化技术运用到传统办公方式，进而形成的一种新型办公方式。办公自动化利用现代化设备和信息化技术，代替办公人员传统的部分手动或重复性业务活动，优质而高效地处理办公事务和业务信息，实现对信息资源的高效利用，进而达到提高生产率、辅助决策的目的，最大限度地提高工作效率和质量、改善工作环境。
+  
+
 *  邓氏编码（D-U-N-S® Number）是一种实时动态的企业身份标识。它源自于一个独一无二的9位数字全球编码系统DUNS，相当于企业的身份识别码 （就像是个人的身份证），被广泛应用于企业识别、商业信息的组织及整理。可以帮助识别和迅速定位全球2.4亿家企业的信息。
 https://baike.baidu.com/item/%E9%82%93%E6%B0%8F%E7%BC%96%E7%A0%81/10822659?fr=aladdin
 

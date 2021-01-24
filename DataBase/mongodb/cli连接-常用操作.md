@@ -49,7 +49,8 @@ mgset-500004965:PRIMARY> show tables
 
 // 没有权限，下面授权，注意可能使用不同的db授权，如admin
 use test
-db.auth("myTester", passwordPrompt())  // or cleartext password   Starting in version 4.2 of the mongo shell
+db.auth("username", "password") // cleartext password 
+db.auth("myTester", passwordPrompt())  // Starting in version 4.2 of the mongo shell
 ```
 
 ## 查看数据库和空间占用
