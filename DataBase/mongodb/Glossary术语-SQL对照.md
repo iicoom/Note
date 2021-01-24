@@ -69,6 +69,16 @@ UPDATE member_profile
 
 ```
 
+### $sort
+1	Sort ascending.
+-1	Sort descending.
+
+### distinct
+> SELECT DISTINCT 语句用于返回唯一不同的值。
+
+1. MySQL：SELECT DISTINCT country FROM Websites;
+2. MongoDB: db.Websites.distinct( "country" )
+   
 
 > 装逼精粹
 ## 什么是MongoDB
