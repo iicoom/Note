@@ -139,9 +139,15 @@ public interface CrmOceanDropConfigDao {
       <if test="nextContactTimeStart != null and nextContactTimeEnd != null">
         AND crm_follow.next_contact_time between #{nextContactTimeStart} and #{nextContactTimeEnd}
       </if>
+      <if test="createTimeEnd != null">
+        <![CDATA[
+        AND s.created_at <= #{createTimeEnd}
+        ]]>
+      </if>
     </where>
   </select>
 ```
+当if 中出现 <= 会报错，此处需要字符转义 使用xml 的 [CDATA](https://www.w3school.com.cn/xml/xml_cdata.asp)
 
 ## MyBatis Generator 生成的example 使用 and or 简单混合查询
 ```java

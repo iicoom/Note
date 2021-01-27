@@ -16,7 +16,7 @@ Windows users with Chocolatey can run
 choco install maven from an elevated (administrator) prompt.
 
 
-[Maven教程](https://www.yiibai.com/maven/)
+[Maven教程](https://maven.apache.org/)
 ## POM
 代表项目对象模型。它是 Maven 中工作的基本单位，这是一个 XML 文件。它始终保存在该项目基本目录中的 pom.xml 文件。
 POM 包含的项目是使用 Maven 来构建的，它用来包含各种配置信息。
