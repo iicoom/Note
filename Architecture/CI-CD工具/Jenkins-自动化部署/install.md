@@ -4,8 +4,8 @@ As an extensible automation server, Jenkins can be used as a simple CI server or
 ## Download
 jenkins.war
 
-## install
-### 常规安装
+> install
+## 常规安装
 https://jenkins.io/doc/book/installing/
 
 The Web application ARchive (WAR) file version of Jenkins can be installed on any operating system or platform that supports Java.
@@ -58,7 +58,7 @@ INFO: Jenkins is fully up and running
 
 /home/mxj/.jenkins/secrets/initialAdminPassword
 
-### 使用Docker安装
+## 使用Docker安装
 https://github.com/jenkinsci/docker/blob/master/README.md
 
 1. To use the latest LTS: 
@@ -70,12 +70,6 @@ https://github.com/jenkinsci/docker/blob/master/README.md
    docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
    ```
 
-## 选择推荐安装的插件
-需要等待一段时间
-
-## Create first admin User
-如果登录不了，重新启动服务
-
 ## install plugins
 系统管理-插件管理-可选插件
 * rebuilder
@@ -85,7 +79,48 @@ install without restart
 
 设置完第一个用户就可以登录了，mao 123   还会配置一下URL 默认http://localhost:8080
 
-## basic config
+## 出现的问题
+使用上边的容器启动方式，发现Jenkins执行shell会出现ssh 验证错误
+```
++ ssh root@209.250.250.181 cd /mnt/projects/s-server && git pull && pm2 reload all
+Host key verification failed.
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
+```
+
+所以需要调整容器的启动方式：
+```
+// 首先在宿主机上创建Jenkins工作目录 如： /Users/mxj/Jenkins
+
+docker run -itd -p 8080:8080 -p 50000:50000 --name jenkins --privileged=true -v /Users/mxj/Jenkins:/var/jenkins_home jenkins/jenkins:lts
+
+--privileged=true  让容器有root权限
+
+-v /home/jenkins:/var/jenkins_home 容器/var/jenkins_home路径映射到宿主机/home/jenkins
+```
+
+### 浏览器访问需要进入容器获取密码
+```
+➜  Jenkins docker exec -it jenkins /bin/bash
+jenkins@de15ec80f73a:/$ cat /var/jenkins_home/secrets/initialAdminPassword
+dce722cf2e2845999e45acde251f4c27
+```
+以后使用admin用户和上面的密码登录就可以了
+
+### Jenkins 插件安装
+查看可用插件首先需要更换源：插件管理-高级-升级站点 https://jenkins-zh.gitee.io/update-center-mirror/tsinghua/update-center.json
+
+实在不行就直接下载：http://updates.jenkins-ci.org/download/plugins/ 然后在插件管理中上传插件
+然后勾选-安装完成后重启Jenkins(空闲时)
+
+> 安装ssh插件才能在shell中使用ssh,需要安装如下插件
+- ssh
+- publish over ssh
+
+系统管理-系统配置-SSH remote hosts-新增：填写host user port pass 等，测试连接成功
+
+
+### [流水线配置](./note.md)
 
 
 ## 参考

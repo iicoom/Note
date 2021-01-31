@@ -5,31 +5,34 @@
 
 ### 新建Item
 1. 输入任务名
-2. 选择类型 - 多分支流水线 - 可以用构建时使用shell脚本的是 - 自由风格的软件项目
-   ```shell
-    #set -x
-    set -e
-    export PATH=/usr/local/node/v10.8.0/bin:$PATH
+2. 选择类型 - 可以用构建时使用shell脚本的是 - 自由风格的软件项目
+3. 构建-增加构建步骤-Execute shell script on remote host using ssh-SSH site选择提前配置好的ssh即可
+4. Command：填写要执行的shell命令
 
-    ENV=dev
-    APIWORKSAPCE=/var/lib/jenkins/jobs/crm-project-deploy-$ENV/workspace
-    JOB=crm-project-$ENV
-    FILE=$JOB.tar.bz
+```shell
+#set -x
+set -e
+export PATH=/usr/local/node/v10.8.0/bin:$PATH
 
-    HOST='47.92.3x.x1'
-    DISTDIR='.deploy/packages'
+ENV=dev
+APIWORKSAPCE=/var/lib/jenkins/jobs/crm-project-deploy-$ENV/workspace
+JOB=crm-project-$ENV
+FILE=$JOB.tar.bz
 
-    cd $APIWORKSAPCE/$JOB
-    rm -f package-lock.json
-    npm install --registry=https://support5.zhumaxxxvip.com
-    npm run doc
-    npm run compile
-    cd ..
-    echo $GIT_BRANCH:$DIST:$GIT_COMMIT > $JOB/INFO.txt
-    tar -zcf $FILE $JOB --exclude .git
+HOST='47.92.3x.x1'
+DISTDIR='.deploy/packages'
 
-    scp $FILE root@$HOST:$DISTDIR
-    ssh root@$HOST "cd .deploy && ./deploycrm_api $ENV"
+cd $APIWORKSAPCE/$JOB
+rm -f package-lock.json
+npm install --registry=https://support5.zhumaxxxvip.com
+npm run doc
+npm run compile
+cd ..
+echo $GIT_BRANCH:$DIST:$GIT_COMMIT > $JOB/INFO.txt
+tar -zcf $FILE $JOB --exclude .git
 
-    echo "success"
-   ```
+scp $FILE root@$HOST:$DISTDIR
+ssh root@$HOST "cd .deploy && ./deploycrm_api $ENV"
+
+echo "success"
+```

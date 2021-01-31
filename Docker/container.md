@@ -117,11 +117,10 @@ root@git:/# pwd
 
 
 ### restart Stop and remove containers and images
+```
 ➜  ~ docker rm be312539b4d3
 be312539b4d3
 
-
-```
 ➜  ~ docker stop webserver
 webserver
 
@@ -134,6 +133,8 @@ webserver
 ➜  ~ docker container restart 1fd572d3bc5f
 1fd572d3bc5f
 ```
+
+
 https://oapi.dingtalk.com/connect/qrconnect?appid=dingoaqubkmigjsqh8fdm1&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=https://www.maoshare.xyz/
 
 
