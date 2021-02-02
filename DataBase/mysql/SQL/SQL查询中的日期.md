@@ -11,9 +11,12 @@ OrderId	ProductName	    OrderDate
 SELECT * FROM Orders WHERE OrderDate > '2008-12-26 10:45:26'
 ```
 
+使用datetime的日期字段，使用时间戳比较是不准的，如下
+```sql
+SELECT * FROM Orders WHERE OrderDate > 1611629260000
+```
+
 ## 大于当前日期
-
-
 [MySQL Date 函数](https://www.w3school.com.cn/sql/func_now.asp)
 
 ```sql
