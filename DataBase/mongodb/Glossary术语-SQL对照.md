@@ -79,6 +79,21 @@ UPDATE member_profile
 1. MySQL：SELECT DISTINCT country FROM Websites;
 2. MongoDB: db.Websites.distinct( "country" )
    
+### mysql mongodb 删除一个table/collection 中的所有row/document
+mysql vs mongodb
+```sql
+DELETE FROM table1 WHERE 1;  /**可以在DELETE语句中加上永真的WHERE，如WHERE 1或WHERE true**/
+
+db.table1.deleteMany({})
+```
+
+### count
+mysql VS mongodb
+```sql
+SELECT COUNT(*) FORM TABEL2;
+
+db.TABEL2.count({})
+```
 
 > 装逼精粹
 ## 什么是MongoDB

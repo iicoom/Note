@@ -13,3 +13,10 @@ displays the first 6 lines of a file
 
 ### head&tail 事实证明这个是扯淡的。。。
 head -20 file | tail -10  结合了 head 与 tail 的指令，显示档案的第 11 行到第 20 行：
+
+
+https://www.cnblogs.com/qiaoyanlin/p/6706085.html
+
+
+### cat filename | grep keyword
+cat log-2021.log | grep traceId
