@@ -10,7 +10,7 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 - [✅]Gitlab 的tag
 - [✅]moment 时间格式化工具
 - [✅]钉钉接入gitlab jira机器人
-- [✅](https://juejin.im/post/6844903614800986120)
+- [✅网页消息推送通知机制](https://juejin.im/post/6844903614800986120)
 
 ### 日志管理
 1. log4js: 日志按天滚动压缩前一天，如何集中管理多台服务器的日志
