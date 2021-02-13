@@ -1,17 +1,16 @@
 ## TEST :thumbsup:
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
-- TypeScript-mongoose
 - [项目重构数据迁移带来的思考：](DataBase\MySQL和Mongodb的差异.md)
-- [完成]Java for https://www.runoob.com/java/java-loop.html
 - Sign in with Single Sign-On (SSO)
-- Git查看远程提交状态的方法
-- [完成]moment 时间格式化工具
-- [完成]钉钉接入gitlab jira机器人
 - index 分析
 - 给数量很大的order加platform
-- [完成]Gitlab 的tag
-- [Web push](https://juejin.im/post/6844903614800986120)
+- TypeScript相关资料-JavaScript/TypeScript/实例
+- [✅]Java for https://www.runoob.com/java/java-loop.html
+- [✅]Gitlab 的tag
+- [✅]moment 时间格式化工具
+- [✅]钉钉接入gitlab jira机器人
+- [✅](https://juejin.im/post/6844903614800986120)
 
 ### 日志管理
 1. log4js: 日志按天滚动压缩前一天，如何集中管理多台服务器的日志
