@@ -13,6 +13,11 @@ https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 - [完成]Gitlab 的tag
 - [Web push](https://juejin.im/post/6844903614800986120)
 
+### 日志管理
+1. log4js: 日志按天滚动压缩前一天，如何集中管理多台服务器的日志
+2. 日志处理工具logstash
+3. 日志处理架构[ELK](https://www.elastic.co/cn/what-is/elk-stack)
+
 ## tools
 1. [OmniPlan](https://www.macxin.com/archives/10616.html)
 2. [you-get](https://github.com/soimort/you-get) 
