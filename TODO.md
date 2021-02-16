@@ -1,15 +1,21 @@
 ## TEST :thumbsup:
 https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 
-- Java for https://www.runoob.com/java/java-loop.html
+- [项目重构数据迁移带来的思考：](DataBase\MySQL和Mongodb的差异.md)
 - Sign in with Single Sign-On (SSO)
-- Git查看远程提交状态的方法
-- moment 时间格式化工具
-- 钉钉接入gitlab jira机器人
 - index 分析
 - 给数量很大的order加platform
-- Gitlab 的tag
-- [Web push](https://juejin.im/post/6844903614800986120)
+- TypeScript相关资料-JavaScript/TypeScript/实例
+- ✅Java for https://www.runoob.com/java/java-loop.html
+- ✅Gitlab 的tag
+- ✅moment 时间格式化工具
+- ✅钉钉接入gitlab jira机器人
+- [✅网页消息推送通知机制](https://juejin.im/post/6844903614800986120)
+
+### 日志管理
+1. log4js: 日志按天滚动压缩前一天，如何集中管理多台服务器的日志
+2. 日志处理工具logstash
+3. 日志处理架构[ELK](https://www.elastic.co/cn/what-is/elk-stack)
 
 ## tools
 1. [OmniPlan](https://www.macxin.com/archives/10616.html)

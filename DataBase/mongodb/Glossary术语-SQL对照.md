@@ -79,6 +79,31 @@ UPDATE member_profile
 1. MySQL：SELECT DISTINCT country FROM Websites;
 2. MongoDB: db.Websites.distinct( "country" )
    
+### mysql mongodb 删除一个table/collection 中的所有row/document
+mysql vs mongodb
+```sql
+DELETE FROM table1 WHERE 1;  /**可以在DELETE语句中加上永真的WHERE，如WHERE 1或WHERE true**/
+
+db.table1.deleteMany({})
+```
+
+### count
+mysql VS mongodb
+```sql
+SELECT COUNT(*) FORM TABEL2;
+
+db.TABEL2.count({})
+```
+
+### 模糊查询
+1. [mysql](./mysql/SQL/LIKE.md)：like操作符 
+   ```sql
+   SELECT * FROM Websites WHERE name LIKE 'G%';
+   ```
+2. [mongodb](./mongodb/简单查询和操作符/Operators/regex-text-expr.md)：$regex 
+   ```sql
+   collection.find({name: { $regex: `${name}`, $options: 'i' }})
+   ```
 
 > 装逼精粹
 ## 什么是MongoDB
@@ -153,11 +178,3 @@ MongoDB支持存储过程，它是javascript写的，保存在db.system.js表中
 　　(数据量大用集群分片,数据量小用非集群)
 
 　　为开发便捷起见,我们建议以非集群分片(unsharded)方式开始一个 mongodb 环境,除非一台服务器不足以存放你的初始数据集.从非集群分片升级到集群分片(sharding)是无缝的,所以在你的数据集还不是很大的时候没必要考虑集群分片(sharding).
-
-
-## 常见问题
-### mysql错误：Column ‘id’ in field list is ambiguous：
-列’ID’在字段列表中重复，其实就是两张表有相同的字段，但是使用时表字段的名称前没有加表名，导致指代不明，前面加上前缀student就没问题了。
-```sql
-SELECT student.name, student.student_id, score.score FROM student INNER JOIN score ONstudent.student_id = score.student_id WHERE student.name='mio';
-```

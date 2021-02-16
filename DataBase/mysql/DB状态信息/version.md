@@ -41,3 +41,5 @@ mysqladmin  Ver 8.42 Distrib 5.7.21, for macos10.13 on x86_64
 ➜  ~ mysql -V
 mysql  Ver 14.14 Distrib 5.7.21, for macos10.13 (x86_64) using  EditLine wrapper
 ```
+
+### [Navicat都能完成上述操作](../Navicat使用技巧.md)

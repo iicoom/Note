@@ -81,14 +81,4 @@ MongoDB是用于各种用例的通用数据库。 MongoDB最常见的用例包�
 https://dev.to/jignesh_simform/comparing-mongodb--mysql-bfa
 
 
-## 特殊的查询功能
-### 模糊查询
-1. [mysql](./mysql/SQL/LIKE.md)：like操作符 
-   ```sql
-   SELECT * FROM Websites WHERE name LIKE 'G%';
-   ```
-2. [mongodb](./mongodb/简单查询和操作符/Operators/regex-text-expr.md)：$regex 
-   ```sql
-   collection.find({name: { $regex: `${name}`, $options: 'i' }})
-   ```
-
+## 项目重构数据迁移带来的思考：

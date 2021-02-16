@@ -1,3 +1,11 @@
+## 云主机无法通过ifconfig查看到ip
+可以借助curl   https://ifconfig.me/
+```
+curl ifconfig.me
+47.x2.x2.31[maoxiaojie@stag-app-31 ~]$
+```
+
+
 [ip command in Linux with examples](https://www.geeksforgeeks.org/ip-command-in-linux-with-examples/)
 
 This command is used to show or manipulate routing, devices, and tunnels. It is similar to ifconfig command but it is much more powerful with more functions and facilities attached to it.
