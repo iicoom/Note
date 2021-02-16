@@ -54,7 +54,9 @@ firewall-cmd --zone=public --permanent --add-service=https
 - Opening a Port for your Zones
 For instance, if our application runs on port 5000 and uses TCP, we could add this to the “public” zone for this session using the --add-port= parameter. Protocols can be either tcp or udp:
 ```
-firewall-cmd --zone=public --add-port=5000/tcp   注意：这个需要加--permanent 在reload后才会生效 firewall-cmd --zone=public --permanent --add-port=5000/tcp
+不要用这个！！！ firewall-cmd --zone=public --add-port=5000/tcp   
+注意：这个需要加--permanent 在reload后才会生效 
+firewall-cmd --zone=public --permanent --add-port=5000/tcp
 
 output
 success

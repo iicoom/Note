@@ -1,3 +1,5 @@
+## cat log.info | grep traceId
+
 ## cat file_name
 display contents of a text file on the terminal.
 
@@ -66,3 +68,34 @@ Linux more 命令类似 cat ，不过会以一页一页的形式显示，更方�
 # configures the configuration version (we support older styles for
 ```
 按q 退出
+
+## How does “cat << EOF” work in bash?
+```
+cat >>/mongodb/28017/conf/mongod.conf<<'EOF'
+systemLog:
+  destination: file
+  path: /mongodb/28017/log/mongodb.log
+  logAppend: true
+storage:
+  journal:
+    enabled: true
+  dbPath: /mongodb/28017/data
+  directoryPerDB: true
+  #engine: wiredTiger
+  wiredTiger:
+    engineConfig:
+      # cacheSizeGB: 1
+      directoryForIndexes: true
+    collectionConfig:
+      blockCompressor: zlib
+    indexConfig:
+      prefixCompression: true
+processManagement:
+  fork: true
+net:
+  port: 28017
+replication:
+  oplogSizeMB: 2048
+  replSetName: my_repl
+EOF
+```
