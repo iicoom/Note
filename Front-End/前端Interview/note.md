@@ -167,3 +167,47 @@ this.createFormRef.current.resetFields();
 ```
 
 [more](https://www.html.cn/interview/19355.html)
+
+db.order.insertOne({
+  platform: "school",
+  bu: "fakao",
+  studentName: "无",
+  userId: "5cc1d7bb156f51a2883fe6d3",
+  salesman: {
+		"no" : 10182,
+		"name" : "赵天翼",
+		"department" : {
+			"no" : 136,
+			"name" : "用户运营部"
+		}
+	},
+  productId: "5f84308c27ce46747a5a83c7",
+  tradeNo: "ZH5f8d83f7235146307024c56e",
+  class: {
+      _id: "5f84308c27ce46747a5a83c7",
+      title: "2021年法考旗舰全程班",
+      type: "wangshou",
+      specInfo: {
+          _id: "5f84308c27ce46747a5a83c6",
+          title: "法考旗舰全程班",
+          price: 828000,
+          onsalesInfo: {
+            "startTime" : "2020-10-18T16:00:00.000Z",
+            "endTime" : "2020-10-19T15:59:59.000Z",
+            "price" : 808000,
+            "labelPrice" : 1680000
+          },
+      }
+  },
+  productPrice: 808000,
+  status: "claim",
+  reviewStatus: "pending",
+  totalFee: 808000,
+  totalPaidFee: 808000,
+  totalReceivedFee: 808000,
+  fullyPaidAt: ISODate("2020-10-19T12:18:07.464Z"),
+  createdAt: ISODate("2020-10-19T12:18:07.464Z"),
+  originalUsOrder: "",
+  note: "",
+  images: ""
+});

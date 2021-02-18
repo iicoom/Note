@@ -24,12 +24,12 @@ time: 延迟响应时间，这个值的单位是毫秒
 300-1000 极慢.
 1000+  很有可能断.
 
-
+> 它的名字就是客户端（client）的 URL 工具的意思。它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。
 ### curl
-curl api测试接口返回
-
-➜ curl http://m.yunfarm.cn/shopapi/activity/gift-boxs/page\?count\=5\&hideLoading\=true\&start\=0
-{"start":0,"data":[],"count":0,"total":0}%
+1. curl api测试接口返回
+```shell
+➜ curl http://localhost:8000/test
+{"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
 
 使用linux的重定向功能保存
 ➜  ~ curl https://www.baidu.com/ >> baidu1.html
@@ -39,6 +39,25 @@ curl api测试接口返回
 
 可以使用curl的内置option:-o(小写)保存网页
 ➜  ~ curl -o linux.html https://www.linux.com
+
+测试POST method接口
+$ curl --request POST \
+  --url http://localhost:8000/test \
+  --header 'content-type: application/json' \
+  --data '{
+	"msg": "testing"
+}'
+
+{"code":"success","payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
+
+更简洁的写法
+➜  ~ curl -X POST http://127.0.0.1:10010/test -d '{"phoneId":"124nd","data":"data"}'
+{"phoneId":"124nd","data":"data"}%
+
+必要时设置请求头类型
+➜  ~ curl -H "Content-type: application/json" -X POST http://127.0.0.1:10010/test -d '{"phoneId":"124nd","data":"data"}'
+```
+
 
 指定proxy服务器以及其端口
 很多时候上网需要用到代理服务器(比如是使用代理服务器上网或者因为使用curl别人网站而被别人屏蔽IP地址的时候)，幸运的是curl通过使用内置option：-x来支持设置代理
@@ -52,22 +71,6 @@ curl api测试接口返回
 curl -O http://www.linux.com/dodo[1-5].JPG
 
 [Linux curl命令详解](https://www.cnblogs.com/duhuo/p/5695256.html)
-
-接口测试：
-```bash
-$ curl --request POST \
-  --url http://localhost:8000/test \
-  --header 'content-type: application/json' \
-  --data '{
-	"msg": "testing"
-}'
-
-{"code":"success","payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
-
-
-$ curl http://localhost:8000/test
-{"code":"success","meta":{"total":1,"count":1},"payload":[{"msg":"testing","id":"31f23305-f5d0-4b4f-a16f-6f4c8ec93cf1","createDate":"2020-08-28T21:53:07.157Z"}]}
-```
 
 ### wget
 #### Mac 需要先安装
