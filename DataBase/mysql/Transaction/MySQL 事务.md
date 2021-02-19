@@ -45,3 +45,17 @@ mysql> rollback;   # 回滚
 Query OK, 0 rows affected (0.00 sec)
  
 ```
+
+## [事务隔离级别](../../../Interview/DB/MySQL-transaction.md)
+
+查看当前数据库的事务隔离级别：
+```sql
+mysql> show variables like '%iso%';
++-----------------------+-----------------+
+| Variable_name         | Value           |
++-----------------------+-----------------+
+| transaction_isolation | REPEATABLE-READ |
+| tx_isolation          | REPEATABLE-READ |
++-----------------------+-----------------+
+2 rows in set (0.04 sec)
+```

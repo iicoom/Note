@@ -19,6 +19,21 @@
 ### Mac
 [Mac 安装 MySQL](https://blog.csdn.net/catstarxcode/article/details/78940385)
 
+连接异常
+```
+➜  ~ mysql -u root -p
+dyld: Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib
+  Referenced from: /usr/local/bin/mysql
+  Reason: image not found
+[1]    91927 abort      mysql -u root -p
+➜  ~ openssl version
+LibreSSL 2.6.5
+```
+[解决办法](https://blog.csdn.net/qq_42584411/article/details/103713815)
+```
+brew install https://github.com/tebelorg/Tump/releases/download/v1.0.0/openssl.rb
+```
+
 ### 命令行安装
 在命令行输入
 

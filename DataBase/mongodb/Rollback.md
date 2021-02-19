@@ -5,8 +5,8 @@
 
 https://blog.csdn.net/jianlong727/article/details/73321905
 
-## mongodb 复制及rollback
-步骤1: 客户端向Primary写入3笔数据 1、2、3, 经过oplog日志后同步到secondary节点上，此时各个节点数据一致
+## mongodb 复制集 rollback
+步骤1:  客户端向Primary 写入3笔数据 1、2、3, 经过oplog日志后同步到secondary节点上，此时各个节点数据一致
 步骤2： 但当Primary节点再次被写入一笔数据4的时候，发生宕机，此时 数据4 还没来得及同步到从节点上
 步骤3： 此时集群短时间关闭写操作开始竞选，经过一系列选举后有了新的primary节点，此时新Primary节点上是没有数据4的
 步骤4： 新的primary承接了客户端的write请求，写入新数据 5，此时新primary的数据状态为1，2，3，5
