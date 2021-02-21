@@ -1,3 +1,9 @@
+## 基本类型和包装类
+八种基本数据类型：int、short、float、double、long、boolean、byte、char。
+
+封装类分别是：Integer、Short、Float、Double、Long、Boolean、Byte、Character。
+
+
 基本类型：byte 二进制位数：8
 包装类：java.lang.Byte
 最小值：Byte.MIN_VALUE=-128
@@ -31,10 +37,6 @@
 基本类型：char 二进制位数：16
 包装类：java.lang.Character
 最小值：Character.MIN_VALUE=0
-
-八种基本数据类型：int、short、float、double、long、boolean、byte、char。
-
-封装类分别是：Integer、Short、Float、Double、Long、Boolean、Byte、Character。
 
 ## 基本语法
 * 大小写敏感：Java是大小写敏感的，这就意味着标识符Hello与hello是不同的。
