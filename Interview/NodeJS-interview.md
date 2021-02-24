@@ -1,4 +1,6 @@
 ## 开放型问题
+### 遇到过得有挑战性的问题，怎么解决的？
+
 ### 好的的代码是什么样的？
 1. lib/sdk/middleware/util/const目录结构清晰，代码注释清晰明了(api-doc)，代码层次划分清晰(api, controller, service) 各司其职
 2. 变量，常量 命名规范 驼峰命名便于识别
