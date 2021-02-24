@@ -1,11 +1,84 @@
 ## MVVM
 Model-View-ViewModel
 
+## 页面结构
+```js
+// App.js
+<template>
+  <div id="app">
+    <router-view/>
+  </div>
+</template>
+<script>
+  export default {
+    name: 'App',
+    created () {
+      if (!this.$route.name) {
+        return this.$router.replace({ name: 'Index' })
+      }
+    },
+    methods: {
+      handleMessage (event) {
+        const origin = event.origin
+        // 扫码事件
+        if (origin === 'https://login.dingtalk.com') {
+          const loginTmpCode = event.data
+          this.$listener.$emit('event-dingtalk-qr', loginTmpCode)
+        }
+        // todo more event message
+      }
+    }
+  }
+
+</script>
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+```
+
+## 编译
+```js
+// main.js
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import NetworkHandler from './lib/NetworkHandler'
+import ElementUI from 'element-ui'
+
+Vue.use(ElementUI)
+Vue.use(NetworkHandler, apiConfig)
+Vue.config.productionTip = false
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
+```
+
 ## Vue的两个核心
 数据驱动和组件化
 
 ## Vue实现双向数据绑定
 vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty（）来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应监听回调。
+
+## 全局API
+### Vue.nextTick( [callback, context] )
+Vue 在更新 DOM 时是异步执行的，只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更，这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。
+[为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 Vue.nextTick(callback)](https://cn.vuejs.org/v2/guide/reactivity.html#%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0%E9%98%9F%E5%88%97)
+
+### Vue.use( plugin )
+
+## CLI 服务是构建于 webpack 和 webpack-dev-server 之上的。它包含了：
+
+加载其它 CLI 插件的核心服务；
+一个针对绝大部分应用优化过的内部的 webpack 配置；
+项目内部的 vue-cli-service 命令，提供 serve、build 和 inspect 命令
+
+如果你熟悉 create-react-app 的话，@vue/cli-service 实际上大致等价于 react-scripts，尽管功能集合不一样。
 
 ## Vue组件的参数传递
 1. 父组件与子组件传值
