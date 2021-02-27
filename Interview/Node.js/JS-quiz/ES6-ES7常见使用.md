@@ -1,0 +1,75 @@
+## [let 和 const](var-let-const.js)
+1. const declarations are block scoped，const cannot be updated or re-declared 块级作用域钱不能重复声明，维护的是一个不变的；恒定的值
+2. let 声明变量，可以重复赋值，但不能重新声明同一个变量，块级作用域；var 可以重复声明，函数作用域或全局作用域
+```js
+// 3. JS 中 var let 声明变量的作用域
+
+// var 和 let 表现不一致的情况：
+var greetingV = "say Hi";
+let greetL = "out if block";
+if (true) {   // if 块结构
+    var greetingV = "say Hello instead";
+    let greetL = "in if block";
+    // console.log(greetingV); //"say Hello instead"
+    // console.log(greetL);    //"in if block"
+}
+console.log(greetingV);  //say Hello instead
+console.log(greetL);  // out if block
+// 总结：var 表现出的是一种全局作用域  let 表现出的是块级作用域
+```
+
+## [箭头函数](箭头函数和普通函数.js)
+1. 箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this
+2. 箭头函数表达式 更适用于 那些本来需要匿名函数的地方Array.map() Array.filter() Array.forEach()，并且它不能用作构造函数
+```js
+const arr = [{name:"jack mar", age: 58},{name:"jobs", age: 55}]
+
+const names = arr.map(function(item) {
+    return item.name
+})
+// names ["jack mar", "jobs"]
+arr.map(item => item.name)
+// ["jack mar", "jobs"]
+```
+
+## 模板字符串
+
+## Set
+
+## Promise & async/await
+### 首先需要知道知道Promise怎么用
+Promise 中有三个状态 分别是 成功（fulfilled）、失败（rejected）和等待（pending）
+
+pending -> fulfilled
+
+pending -> rejected
+状态一旦确定就不可更改
+
+resolve和reject函数是用来更改状态的
+
+resolve: fulfilled
+
+reject: rejected
+
+```js
+new Promise((resolve, reject) => {
+
+    if (false) {
+        resolve("data")
+    }
+    reject("error~~~~")
+
+}).then(res => {
+    console.log(res)
+}).catch(e => {
+    console.log(e);
+}).finally(() => {
+    console.log("done")
+})
+// Promise { <pending> }
+// > error~~~~
+// done
+```
+
+### [如何自己实现一个Promise](./myPromise.js)
+
