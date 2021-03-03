@@ -14,21 +14,18 @@ var : 变量可以多次声明
 
 ES6 新增了let命令，用来声明局部变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效，而且有暂时性死区的约束。
 
-```
+```js
 var a = 5;
-  var a = 3;
-  let b = 2;
-  let b = 4;  
-  console.log(a);
-  console.log(b);  // Identifier 'b' has already been declared
-
+var a = 3;
+let b = 2;
+let b = 4;  
+console.log(a);
+console.log(b);  // Identifier 'b' has already been declared
 ```
-
-ES6 新增了let命令，用来声明局部变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效，而且有暂时性死区的约束。
 
 在ES6之前，我们都是用var来声明变量，而且JS只有函数作用域和全局作用域，没有块级作用域，所以{}限定不了var声明变量的访问范围。
 例如：
-```
+```js
 { 
   var i = 9;
 } 
@@ -117,6 +114,7 @@ console.log(Object.keys(obj))
 
 ## 私有化
 Class和Symbol能否实现私有化，为什么要用闭包？
+
 ### 闭包的应用场景
 ```
 function aaa() {

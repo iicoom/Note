@@ -65,6 +65,13 @@ new Vue({
 ## Vue实现双向数据绑定
 vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty（）来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应监听回调。
 
+## vue-router
+### vue-router跳转和location.href有什么区别
+答：使用location.href='/url'来跳转，简单方便，但是刷新了页面；
+使用history.pushState('/url')，无刷新页面，静态跳转；
+引进router，然后使用router.push('/url')来跳转，使用了diff算法，实现了按需加载，减少了dom的消耗。
+其实使用router跳转和使用history.pushState()没什么差别的，因为vue-router就是用了history.pushState()，尤其是在history模式下
+
 ## 全局API
 ### Vue.nextTick( [callback, context] )
 Vue 在更新 DOM 时是异步执行的，只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更，这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。
@@ -172,8 +179,3 @@ Vue.use(Vuex) 方法执行的是 install 方法，它实现了 Vue 实例对象�
 ## 28.SPA首屏加载慢如何解决
 答：安装动态懒加载所需插件；使用CDN资源
 
-## 29.Vue-router跳转和location.href有什么区别
-答：使用location.href='/url'来跳转，简单方便，但是刷新了页面；
-使用history.pushState('/url')，无刷新页面，静态跳转；
-引进router，然后使用router.push('/url')来跳转，使用了diff算法，实现了按需加载，减少了dom的消耗。
-其实使用router跳转和使用history.pushState()没什么差别的，因为vue-router就是用了history.pushState()，尤其是在history模式下

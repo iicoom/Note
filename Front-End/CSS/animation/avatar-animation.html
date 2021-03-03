@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			color: pink;
+			box-shadow: 0 0 0 1000px, 0 0 0 5px purple inset;
+			position: absolute;
+			animation: rotate 3s infinite alternate;
+			transform: rotate3D(0, 1, 0.1 -30deg);
+		}
+		@keyframes rotate {
+			to {
+				transform: rotate3d(0, 1, 0.1, 30deg);
+			}
+		}
+		img {
+			width: 300px;
+			position: absolute;
+			transform: translateZ(-500px);
+			animation: move 5s infinite;
+		}
+		@keyframes move {
+			40% {
+				transform: translateZ(-100px);
+			}
+		}
+		body {
+			perspective: 1000px;
+			perspective-origin: 0 0;
+		}
+	</style>
+</head>
+<body>
+	<img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1950897221,3940311257&fm=26&gp=0.jpg" alt="">
+	<div></div>
+</body>
+</html>
