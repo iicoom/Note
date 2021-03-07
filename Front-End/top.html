@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回顶部</title>
+    <style>
+        body {
+            height: 5000px; 
+            background-color: aquamarine;
+        }
+        .top {
+            position: fixed;
+            right: 10px;
+            bottom: 30px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="top hide" id="top" onclick="returnTop()">返回顶部</button>
+    <input type="text" id="name">
+    <script>
+        // 展示button 打印滚动条位置
+        function showTop  () {
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        　　 console.log('滚动条位置：' + scrollTop);
+            if (scrollTop > 1000) {
+                document.getElementById('top').classList.remove('hide')
+            } else {
+                document.getElementById('top').classList.add('hide')
+            }
+        }
+        // 点击按钮返回顶鼓
+        function returnTop () {
+            document.body.scrollTop = document.documentElement.scrollTop = 0
+        }
+
+        // 防抖函数（无参数）
+        function debounce(fn, delay) {
+            let timer = null
+            return function (args) {
+                console.log('timer', timer)
+                // 每当高频事件触发，把前一个timer清除
+                clearTimeout(timer) 
+                timer = setTimeout(fn, delay)
+            }
+        }
+        // 防抖函数（传参）
+        function debounce1(fn, delay) {
+            let timer = null
+            return function (args) {
+                // 每当高频事件触发，把前一个timer清除
+                clearTimeout(timer) 
+                timer = setTimeout(fn.call(this, args), delay)
+            }
+        }
+
+        // window.onscroll  = showTop
+        window.onscroll  = debounce(showTop, 400)
+
+        window.onload = function () {
+            //模拟ajax请求
+            function ajax(content) {
+                console.log('ajax request ' + content)
+            }
+            let inputNormal = document.getElementById('name');
+            // 每次按键抬起都会触发，期望输入完成再触发 延时触发
+            // inputNormal.addEventListener('keyup', function (e) {
+            //     ajax(e.target.value)
+            // })
+            let debounceAjax = debounce1(ajax, 400)
+            inputNormal.addEventListener('keyup', function (e) {
+                debounceAjax(e.target.value)
+            })
+        }
+
+        // 节流函数
+        function throttle (fn, delay) {
+            let valid = true
+            let timer = null
+            return function(args) {
+                if(!valid) return
+                valid = false
+                timer = setTimeout(() => {
+                   fn.call(this, args) 
+                   valid = true
+                   console.log('timer:', timer)
+                   clearTimeout(timer)
+                }, delay)
+            }
+        }
+
+        function sayHi(e) {
+            console.log('节流：', e.target.innerWidth, e.target.innerHeight);
+        }
+        window.addEventListener('resize', throttle(sayHi,500));
+    </script>
+</body>
+</html>

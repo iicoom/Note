@@ -9,6 +9,7 @@ var b = [2, 4, 6, 8, 10]
  */
 function intersection(arr1, arr2) {
     return arr1.filter((item) => arr2.indexOf(item) > -1)
+    // 或者 return arr1.filter(item => arr2.includes(item))
 }
 // console.log(intersection(a, b))
 // [ 2, 4 ]
@@ -54,6 +55,27 @@ function union(arr1, arr2) {
 // console.log(union(a, b))
 // [ 1, 2, 3, 4, 5, 6, 8, 10 ]
 
+/**
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * 上面这些运算前提都是 a 和 b 中各自都没有重复元素，考虑下面有重复的情况
+ */
+let c = [1, 2, 2, 3]
+let d = [1, 2, 3, 5]
+// 求一下交集
+function inter(arr1, arr2) {
+    let result = []
+    for(let i =0; i < arr1.length; i++) {
+        if (arr2.includes(arr1[i])) {
+            result.push(arr1[i])
+        }
+    }
+    return result;
+}
+// inter(c,d)
+// [1, 2, 2, 3]
+// inter(d,c)
+// [1, 2, 3]
+// 传入参数的顺序不同导致得到的结果不同，c d 的交集应该是[1, 2, 3]，因c中有重复元素，导致出现了[1, 2, 2, 3]结果
 
 /**
  * 借助扩展运算符（...）以及 Set 的特性实现相关计算

@@ -24,31 +24,4 @@ undefined
 
 注：Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
 
-## typeof
-typeof String
-"function"
-
-typeof Number
-"function"
-
-typeof Boolean
-"function"
-
-typeof Null => "undefined"   --- ---    typeof null => "object"
-
-typeof Undefind => "undefined"  --- ---  typeof undefined => "undefined"
-
-typeof Symbol
-"function"
-
-typeof Array
-"function"
-
-typeof Object
-"function"
-
-typeof Number
-"function
-
-undefined == null => true   --- --- undefined === null => false
 

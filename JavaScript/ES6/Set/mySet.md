@@ -1,10 +1,14 @@
-// ECMAScript 2015 (6th Edition, ECMA-262)
+> ECMAScript 2015 (6th Edition, ECMA-262)
 
-// The Set object lets you store unique values of any type, whether primitive values or object references.
+> The Set object lets you store unique values of any type, whether primitive values or object references.
+Set 对象可以存储任何类型的唯一的值，无论是[原始数据类型还是引用类型](../../数据类型/JS数据类型.md)
 
-// Set objects are collections of values. You can iterate through the elements of a set in insertion order.
-//  A value in the Set may only occur once; it is unique in the Set's collection.
+Set objects are collections of values. You can iterate through the elements of a set in insertion order.
+A value in the Set may only occur once; it is unique in the Set's collection.
+Set对象是数据集，可以按照插入的顺序迭代set的元素，Set中的值只会出现一次，是唯一的。
 
+## 声明Set语法
+```js
 // Syntax
 // new Set([iterable]);
 
@@ -19,8 +23,13 @@ typeof set1
 const set2 = new Set([1,2,2,3,4])
 console.log(set2)
 // Set(4) {1, 2, 3, 4}
+```
 
-// Properties
+## Set 的属性
+```js
+/**
+// Properties 属性
+*/
 set1.size
 5
 
@@ -30,12 +39,6 @@ set1.add(6)
 
 set1.delete(1)
 // Set(5) {2, 3, 4, 5, 6}
-
-set1.entries()
-// SetIterator {2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6}
-
-set2.entries()
-// SetIterator {1 => 1, 2 => 2, 3 => 3, 4 => 4}
 
 set1.has(2)
 // true
@@ -48,11 +51,21 @@ set1.clear()
 set1.size
 0
 
-// ## Array.from
+set1.entries()
+// SetIterator {2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6}
+
+set2.entries()
+// SetIterator {1 => 1, 2 => 2, 3 => 3, 4 => 4}
+```
+
+## Array.from
+```js
 Array.from(set2)
 [1, 2, 3, 4]
+```
 
-
+## Array Set 的对比
+```js
 // ES6 — Set vs Array — What and when?
 // https://medium.com/front-end-weekly/es6-set-vs-array-what-and-when-efc055655e1a
 
@@ -73,7 +86,6 @@ console.log(set.has(0));     // boolean - false
 console.log(arr.indexOf(0)); // -1
 console.log(set.has(1));     //true
 console.log(arr.indexOf(1)); //0
-
 
 // Note: ES6 does provide Array.prototype.includes() which behaves similarly to has(), however, 
 // it is not supported widely — aka not in IE yet (surprise :)!).
@@ -97,5 +109,4 @@ set.add(4); //{1,2,3,4}
 
 
 // Delete(element) — remove a specific given element from Set.
-
-
+```

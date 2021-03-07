@@ -86,8 +86,14 @@ true
 ```
 
 ### 整数判断
-```
+```js
 Number.isInteger(0)
+true
+
+Number.isInteger(0.1)
+false
+
+Number.isInteger(-1)
 true
 ```
 
@@ -145,4 +151,44 @@ NaN === NaN;        // false
 Number.NaN === NaN; // false
 isNaN(NaN);         // true
 isNaN(Number.NaN);  // true
+```
+
+## 大写开头的对象
+```js
+typeof String
+"function"
+
+typeof Number
+"function"
+
+typeof Boolean
+"function"
+
+typeof Symbol
+"function"
+
+typeof Array
+"function"
+
+typeof Object
+"function"
+
+typeof Number
+"function"
+
+typeof Null
+"undefined"
+typeof null
+"object"
+
+typeof Undefind 
+"undefined" 
+typeof undefined 
+"undefined"
+
+undefined == null 
+true  
+
+undefined === null 
+false
 ```

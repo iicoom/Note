@@ -2,7 +2,7 @@ https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/
 
 ## What is the Event Loop?
 The event loop is what allows Node.js to perform non-blocking I/O operations
-Event loop 是 Node.js 实现异步非阻塞I/O操作的机制。
+Event loop 是 Node.js 实现异步非阻塞I/O操作的机制。[todo研究一下Java多线程处理并发的方法]
 
 Two types: events and event handlers：
 涉及到 事件 和 事件处理函数
@@ -51,34 +51,34 @@ Take this little bit of JavaScript:
 ```js
 console.log('script start');
 
-setTimeout(function() {
-  console.log('setTimeout');
-}, 0);
-
+// 异步
 Promise.resolve().then(function() {
-  console.log('promise1');
+  console.log('promise');
 }).then(function() {
-  console.log('promise2');
+  console.log('promise-then');
 });
 
-console.log('script end');
-
-console.log('script start');
-
-Promise.resolve().then(function() {
-  console.log('promise1');
-}).then(function() {
-  console.log('promise2');
-});
-
+// 异步
 setImmediate(function() {
     console.log('setImmediate')
 })
 
+// 异步
 setTimeout(function() {
     console.log('setTimeout 0')
 }, 0)
 
+// 异步
+setTimeout(function() {
+    return new Promise(resolve => {
+        console.log('setTimeout-delay 100ms promise')
+        resolve()
+    }).then(res => {
+        console.log('setTimeout-delay 100ms promise.then')
+    })
+}, 100)
+
+// 在所有异步任务之前执行，官方认为在递归中用process.nextTick会造成饥饿event loop，因为nextTick没有给其他异步事件执行的机会，递归中推荐用setImmediate
 process.nextTick(function() {
     console.log('process.nextTick')
 })
@@ -89,26 +89,27 @@ console.log('script end');
 script start
 script end
 process.nextTick
-promise1
-promise2
+promise
+promise-then
 setTimeout 0
 setImmediate
+setTimeout-delay 100ms promise
+setTimeout-delay 100ms promise.then
 */
 ```
 
 如果想要了解为什么是这个顺序，就要知道event loop是如何处理 宏任务 和 微任务
 
-### 任务队列
+### [任务队列](https://segmentfault.com/a/1190000011198232 反而是这篇文章给出了一个清晰的划分)
 Js 中，有两类任务队列：宏任务队列（macro tasks）和微任务队列（micro tasks）。宏任务队列可以有多个，微任务队列只有一个。
 那么什么任务，会分到哪个队列呢？
 
 - 宏任务：script（全局任务）, setTimeout, setInterval, setImmediate, I/O, UI rendering.
 - 微任务：process.nextTick, Promise, Object.observer, MutationObserver.
 
-process.nextTick()方法可以在当前"执行栈"的尾部-->下一次Event Loop（主线程读取"任务队列"）之前-->触发process指定的回调函数。也就是说，它指定的任务总是发生在所有异步任务之前，当前主线程的末尾。
-
-https://segmentfault.com/a/1190000011198232 反而是这篇文章给出了一个清晰的划分
-
+process.nextTick()方法可以在当前"执行栈"的尾部-->
+下一次Event Loop（主线程读取"任务队列"）之前-->
+触发process指定的回调函数。也就是说，它指定的任务总是发生在所有异步任务之前，当前主线程的末尾。
 
 ### 浏览器的 Event Loop
 浏览器的 Event Loop 遵循的是 HTML5 标准，而 NodeJs 的 Event Loop 遵循的是 libuv。 区别较大，分开讲。
@@ -123,9 +124,6 @@ Event Loop 会无限循环执行上面3步，这就是Event Loop的主要控制�
 
 
 1. 
-setImmediate 与 process.nextTick 的区别
-
-2. 
 实现一个防抖函数
 
 const func = debounce(() => { console.log('call') }, 500)
