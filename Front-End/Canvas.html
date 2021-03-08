@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mosaic</title>
+    <style>
+        body {
+            background-color: beige;
+        }
+        #msk{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate3d(-50%,-50%,0);
+				background: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas id="msk"></canvas>
+    <script>
+        var canvas = document.querySelector("#msk")
+        if(canvas.getContext) {
+            var ctx =canvas.getContext("2d")
+            
+            var img = new Image()
+            img.src ="../RegExp/image/mobile.png"+'?time=' + new Date().valueOf()
+            img.onload = function() {
+                //画布的宽为图片的2倍
+                console.log('img.src', img.width)
+                canvas.width = img.width*2
+                canvas.height = img.height
+                console.log('canvas', canvas)
+                draw();
+            }
+
+            function draw () {
+                ctx.drawImage(img,0,0)
+                //oldImagedata是获取原画布上的ImageData
+                //newImagedata是新建的ImageData
+                var oldImgdata = ctx.getImageData(0,0,img.width,img.height)
+                var newImgdata = ctx.createImageData(img.width,img.height)			
+                
+               //马赛克
+               /*
+                * 	1.选取一个马赛克矩形
+                * 	2.从马赛克矩形中随机抽出一个像素点的信息（rgba）
+                * 	3.将整个马赛克矩形中的像素点信息统一调成随机抽出的那个
+                */
+
+                var size =5;   //这里设置的马赛克的大小为5
+                for(var i=0;i<oldImgdata.width/size;i++){
+                    for(var j=0;j<oldImgdata.height/size;j++){
+                    //(i,j)每一个马赛克矩形的坐标
+                    //Math.random() 随机生成[0,1)的数
+                    var color = getPxInfo(oldImgdata,i*size+Math.floor((Math.random()*size)),j*size+Math.floor((Math.random()*size)))
+                    
+                    for(var a =0;a<size;a++){
+                        for(var b=0;b<size;b++){
+                            setPxInfo(newImgdata,i*size+a,j*size+b,color)
+                        }
+                        
+                    }
+                    }
+                }
+                ctx.putImageData(newImgdata,img.width,0)
+        }
+
+            //getPxInfo函数是获取单个像素的颜色
+            function getPxInfo(imgdata,x,y){
+                var w =imgdata.width
+                var h =imgdata.height
+                    
+                var color = [] ;
+                var data =imgdata.data;
+                color[0] = data[(y*w+x)*4];
+                color[1] = data[(y*w+x)*4+1];
+                color[2] = data[(y*w+x)*4+2];
+                color[3] = data[(y*w+x)*4+3];
+                return color;
+            }
+				
+            //setPxInfo是修改单个像素的颜色
+            function setPxInfo(imgdata,x,y,color){
+                var w =imgdata.width
+                var h =imgdata.height
+                    
+                var data =imgdata.data;
+                    data[(y*w+x)*4] =color[0];
+                    data[(y*w+x)*4+1] =color[1];
+                    data[(y*w+x)*4+2] =color[2] ;
+                    data[(y*w+x)*4+3] = color[3] ;
+            }
+        }
+
+    </script>
+</body>
+</html>
