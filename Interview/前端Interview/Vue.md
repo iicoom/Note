@@ -1,9 +1,86 @@
-## MVVM
-Model-View-ViewModel
+## Vue 全家桶
+vue-cli + vue2.0 + vuex + vue-router + axios + element-ui
 
-## 页面结构
+### vue-cli
+vue-cli：是vue官方提供的快速搭建项目的工具，react，anguer也有类似的工具
+
+CLI 服务是构建于 webpack 和 webpack-dev-server 之上的。它包含了：
+- 加载其它 CLI 插件的核心服务；
+- 一个针对绝大部分应用优化过的内部的 webpack 配置；
+项目内部的 vue-cli-service 命令，提供 serve、build 和 inspect 命令
+
+如果你熟悉 create-react-app 的话，@vue/cli-service 实际上大致等价于 react-scripts，尽管功能集合不一样。
+
+### vuex
+vuex:是vue提供的状态管理工具，简单解释就是vue各个组件直接的变量是不能直接共享的，组件直接的参数传递才多层的时候变得异常复杂，所以就诞生了vuex的状态管理工具，保证了状态的统一和可追踪
+
+### vue-router
+vue-router:是vue生态里面的路由工具，采用路由能轻松实现单页面程序
+
+vue两个核心：数据驱动和组件化
+
+## MVVM
+![Model-View-ViewModel](https://upload-images.jianshu.io/upload_images/15932532-2b985ed5ebaed386.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+
 ```js
-// App.js
+<body>
+<input id="in"/>
+<span id="sp"></span>
+<script type="text/javascript">
+    let obj = {}
+    let value = "hello"
+    Object.defineProperty(obj,"inputValue",{
+        get: function() {
+                return value
+        },
+        set: function(val) {
+            console.log('obj.inputValue propery changed', val)
+            document.getElementById("sp").innerText = val
+        }
+    })
+    
+    // 监听input输入事件，赋值给事先监听的obj.inputValue属性，在set方法中可以获取到当前赋值，进而可以赋值给其他dom元素，完成数据绑定
+    document.getElementById("in").oninput = function () {
+        obj.inputValue = this.value
+    }
+</script>
+</body>
+```
+MVVM模式是通过以下三个核心组件组成，每个都有它自己独特的角色：
+
+- Model - 包含了业务和验证逻辑的数据模型
+
+- View - 定义屏幕中View的结构，布局和外观
+
+- ViewModel - 扮演“View”和“Model”之间的使者，帮忙处理 View 的全部业务逻辑
+
+> 每个 Vue 应用都是通过用 createApp 函数创建一个新的应用实例开始的：一个应用需要被挂载到一个 DOM 元素中。例如，如果我们想把一个 Vue 应用挂载到 <div id="app"></div>，我们应该传递 #app：
+```js
+// 官方例子
+const RootComponent = { /* 选项 */ }
+const app = Vue.createApp(RootComponent)
+const vm = app.mount('#app')
+
+// 因此在文档中经常会使用 vm (ViewModel 的缩写) 这个变量名表示组件实例。
+
+
+// 项目实例
+// main.js
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+
+Vue.use(ElementUI)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
+
+
+// 上面的App.vue
 <template>
   <div id="app">
     <router-view/>
@@ -13,57 +90,87 @@ Model-View-ViewModel
   export default {
     name: 'App',
     created () {
-      if (!this.$route.name) {
-        return this.$router.replace({ name: 'Index' })
-      }
+      this.$store.commit('initAuth')
     },
     methods: {
       handleMessage (event) {
-        const origin = event.origin
-        // 扫码事件
-        if (origin === 'https://login.dingtalk.com') {
-          const loginTmpCode = event.data
-          this.$listener.$emit('event-dingtalk-qr', loginTmpCode)
-        }
-        // todo more event message
+        
       }
     }
   }
 
 </script>
-<style>
-  body {
-    margin: 0;
-  }
-</style>
+
+// <router-view/>
+
 ```
 
-## 编译
+### Observer
 ```js
-// main.js
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import NetworkHandler from './lib/NetworkHandler'
-import ElementUI from 'element-ui'
+/**
+ * Observer class that is attached to each observed
+ * object. Once attached, the observer converts the target
+ * object's property keys into getter/setters that
+ * collect dependencies and dispatch updates.
+ */
+var Observer = function Observer (value) {
+  this.value = value;
+  this.dep = new Dep();
+  this.vmCount = 0;
+  def(value, '__ob__', this);
+  if (Array.isArray(value)) {
+    if (hasProto) {
+      protoAugment(value, arrayMethods);
+    } else {
+      copyAugment(value, arrayMethods, arrayKeys);
+    }
+    this.observeArray(value);
+  } else {
+    this.walk(value);
+  }
+};
 
-Vue.use(ElementUI)
-Vue.use(NetworkHandler, apiConfig)
-Vue.config.productionTip = false
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+/**
+ * Define a property.
+ */
+function def (obj, key, val, enumerable) {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true
+  });
+}
 ```
 
-## Vue的两个核心
-数据驱动和组件化
+### Dep
+```js
+/**
+ * A dep is an observable that can have multiple
+ * directives subscribing to it.
+ */
+var Dep = function Dep () {
+  this.id = uid++;
+  this.subs = [];
+};
 
-## Vue实现双向数据绑定
-vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty（）来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应监听回调。
+Dep.prototype.addSub = function addSub (sub) {
+  this.subs.push(sub);
+};
+Dep.prototype.notify = function notify () {
+  // stabilize the subscriber list first
+  var subs = this.subs.slice();
+  if (process.env.NODE_ENV !== 'production' && !config.async) {
+    // subs aren't sorted in scheduler if not running async
+    // we need to sort them now to make sure they fire in correct
+    // order
+    subs.sort(function (a, b) { return a.id - b.id; });
+  }
+  for (var i = 0, l = subs.length; i < l; i++) {
+    subs[i].update();
+  }
+};
+```
 
 ## vue-router
 ### vue-router跳转和location.href有什么区别
@@ -72,20 +179,6 @@ vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅�
 引进router，然后使用router.push('/url')来跳转，使用了diff算法，实现了按需加载，减少了dom的消耗。
 其实使用router跳转和使用history.pushState()没什么差别的，因为vue-router就是用了history.pushState()，尤其是在history模式下
 
-## 全局API
-### Vue.nextTick( [callback, context] )
-Vue 在更新 DOM 时是异步执行的，只要侦听到数据变化，Vue 将开启一个队列，并缓冲在同一事件循环中发生的所有数据变更，这种在缓冲时去除重复数据对于避免不必要的计算和 DOM 操作是非常重要的。
-[为了在数据变化之后等待 Vue 完成更新 DOM，可以在数据变化之后立即使用 Vue.nextTick(callback)](https://cn.vuejs.org/v2/guide/reactivity.html#%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0%E9%98%9F%E5%88%97)
-
-### Vue.use( plugin )
-
-## CLI 服务是构建于 webpack 和 webpack-dev-server 之上的。它包含了：
-
-加载其它 CLI 插件的核心服务；
-一个针对绝大部分应用优化过的内部的 webpack 配置；
-项目内部的 vue-cli-service 命令，提供 serve、build 和 inspect 命令
-
-如果你熟悉 create-react-app 的话，@vue/cli-service 实际上大致等价于 react-scripts，尽管功能集合不一样。
 
 ## Vue组件的参数传递
 1. 父组件与子组件传值

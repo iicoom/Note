@@ -16,16 +16,15 @@ const otto = new Person('Otto');
 
 otto.introduce();
 
-// If you don't provide your own constructor, then a default constructor will be supplied for you. 
-// If your class is a base class, the default constructor is empty:
+// 如果没有指定构造器，则会默认初始化为下面的结构
 // constructor() {}
+
 
 // If your class is a derived class, the default constructor calls the parent constructor, passing along any arguments that were provided:
 // constructor(...args) {
 //   super(...args);
 // }
 // 如果是派生类默认的constructor调用父类的constructor
-
 class ValidationError extends Error {
 
   constructor(message) {

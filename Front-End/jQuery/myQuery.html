@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="p1"></div>
+    <script>
+        /*
+        function foo(selector) {
+            return function() {
+                this.$this = document.getElementById(`${selector}`);
+                console.log(this.$this)
+            }
+        }
+        let $ = new foo()
+
+        foo.prototype.addClass = function(name) {
+            console.log('addClass', name)
+            // Dom operation
+            console.log($this)
+            return this;
+        }
+
+        foo.prototype.css = function(prop, value) {
+            console.log('set css', prop, value)
+            return this;
+        }
+
+        foo.prototype.fadeOut = function(time) {
+            // animation
+        } 
+
+        // $("#p1").css("color", "red").fadeOut(2000); 
+        */
+       class Foo {
+            constructor() {
+                this.selected = null
+            }
+            
+            $(selector) {
+                this.selected = document.getElementById(selector)
+                return this
+            }
+            addClass(className) {
+                // Dom
+                console.log('addClass method')
+                this.selected.classList.add(className)
+                return this;
+            }
+
+            css(prop, value) {
+                // Dom
+                console.log('css method')
+                this.selected.style[prop] = value
+                return this;
+            }
+       }
+       let O = new Foo()
+       O.$('p1').addClass('show').css('height', '10px').css('background-color', 'blue')
+    </script>
+</body>
+</html>

@@ -27,13 +27,11 @@
             var ctx =canvas.getContext("2d")
             
             var img = new Image()
-            img.src ="../RegExp/image/mobile.png"+'?time=' + new Date().valueOf()
+            img.src ="../RegExp/image/mobile.png"
             img.onload = function() {
                 //画布的宽为图片的2倍
-                console.log('img.src', img.width)
                 canvas.width = img.width*2
                 canvas.height = img.height
-                console.log('canvas', canvas)
                 draw();
             }
 

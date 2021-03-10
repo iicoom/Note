@@ -20,6 +20,7 @@ Shape.prototype.move = function(x, y) {
   this.y += y;
 }
 
+
 /**
  * 一个叫 Circle的衍生类 // Circle - subclass
  * @param {*} x 
@@ -43,7 +44,6 @@ Circle.prototype.constructor = Circle;
 Circle.prototype.area = function() {
   return this.r * 2 * Math.PI;
 }
-
 
 // The most interesting part here, the one that actually performs the feat of inheritance is these two lines,
 // so I'll explain them a bit:

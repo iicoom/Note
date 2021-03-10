@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input id="in"/>
+<span id="sp"></span>
+<script type="text/javascript">
+    let obj = {}
+    let value = "hello"
+    Object.defineProperty(obj,"inputValue",{
+        get: function() {
+                return value
+        },
+        set: function(val) {
+            console.log('obj.inputValue propery changed', val)
+            document.getElementById("sp").innerText = val
+        }
+    })
+    
+    // 监听input输入时间，赋值给事先监听的obj.inputValue属性，在set方法中可以获取到当前赋值，进而可以赋值给其他dom元素，完成数据绑定
+    document.getElementById("in").oninput = function () {
+        obj.inputValue = this.value
+    }
+</script>
+</body>
+</html>

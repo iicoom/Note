@@ -28,16 +28,21 @@ class Square extends Polygon {
   }
 
   set area(value) {
-		// this.area = value;
+		// this.area = value; // 自身递归调用,RangeError: Maximum call stack size exceeded
+    this._area = value;
 		console.log('set method', value)
+    console.log('this._area', this._area)
   }
 }
 
 let s = new Square(5);
 
 s.sayName();  // 继承自基类的sayName方法this.name已经由Polygon => Square
-// Hi, I am a  Square.
 console.log('The area of this square is ' + s.area);
-// The area of this square is 25
 s.area = 36
 console.log('The set area of this square is ' + s.area);
+// Hi, I am a  Square.
+// The area of this square is 25
+// set method 36
+// this._area 36
+// The set area of this square is 25

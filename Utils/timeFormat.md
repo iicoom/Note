@@ -32,6 +32,12 @@ Type ".help" for more information.
 
 Date.parse('2020-10-14T07:21:19.342Z')
 1602518400000
+
+// 使用js Date对象转换ISODate
+new Date("2021-03-09T01:25:36.553Z")
+Tue Mar 09 2021 09:25:36 GMT+0800 (中国标准时间)
+new Date("2021-03-09T02:25:36.560Z")
+Tue Mar 09 2021 10:25:36 GMT+0800 (中国标准时间)
 ```
 
 ## 时间戳格式化
