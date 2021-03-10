@@ -45,7 +45,7 @@ Mac OS
 AwesomeProject          Express-api             React-news-front        dva                     gs-rest-service         my-app
 Download                MERN-Stack              Server                  front-end               iicoom.github.io        react-music-player
 Eslint                  Note                    antPro                  gs-accessing-data-mysql msg_client              redux-saga
-➜  ~ scp -r Repo root@10.101.111.190:/root/
+➜  ~ scp -r Repo root@10.101.111.190:/root/      ip后必须加:
 root@10.101.111.190's password:
 .DS_Store                                                                                                                                        100%   16KB   1.2MB/s   00:00
 .DS_Store                                                                                                                                        100% 8196     2.2MB/s   00:00
