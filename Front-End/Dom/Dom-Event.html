@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM0-DOM1</title>
+</head>
+<body>
+    <div style="height: 20px; background-color: bisque;" onclick="divHandler()"></div>
+    <input type="text" id="input">
+    <script>
+        function divHandler() {
+            console.log("div clicked")
+        }
+
+        const obj = document.getElementById("input")
+        obj.addEventListener("input", function(e){
+            console.log(e.target.value)
+            console.log("method1")
+        })
+        obj.addEventListener("input", function(e){
+            console.log("method2")
+        })
+    </script>
+</body>
+</html>
+<!-- 
+    dom0的绑定是使用元素的某一个「私有属性onxxx赋值的过程」，赋值前这个属性是null，
+赋值后具备这个属性，建立dom元素的行为监听，然后当用户触发，会把赋值的函数执行 
+
+dom2的绑定是使用ddEventListener/attachEvent方法都是在eventTarget这个内置类的原型上定义的 ，「通过原型链找到方法，完成时间绑定」，
+「事件池」是dom2才有的浏览器给当前元素某个事件行为开辟一个事件池，也就是事件的队列，把绑定的方法放进这里，
+当事件触发，事件池里的方法依次排序执行，所以dom2可以一个事件绑定多个方法，而dom0,后来的事件会覆盖前面的事件
+
+1.DOM0级事件处理方式：
+    btn.onclick = func;
+    btn.onclick = null;
+2.DOM2级事件处理方式：
+    btn.addEventListener('click', func, false);
+    btn.removeEventListener('click', func, false);
+    btn.attachEvent("onclick", func);//IE
+    btn.detachEvent("onclick", func);//IE
+-->

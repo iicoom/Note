@@ -8,6 +8,8 @@ This release focus on the following:
 - Clean up internal structures that were left in a weird state while implementing features in v4 without - introducing any breaking changes.
 - Prepare for future features by introducing breaking changes now, allowing us to stay on v5 for as long - as possible.
 
+## webpack了解多少，自己做了哪些配置
+### loader和plugins的区别，有没有手写过loader
 
 ## page.html
 ```html

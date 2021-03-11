@@ -172,12 +172,86 @@ Dep.prototype.notify = function notify () {
 };
 ```
 
+### vue 组件 data为什么必须是函数?
+
 ## vue-router
 ### vue-router跳转和location.href有什么区别
 答：使用location.href='/url'来跳转，简单方便，但是刷新了页面；
 使用history.pushState('/url')，无刷新页面，静态跳转；
 引进router，然后使用router.push('/url')来跳转，使用了diff算法，实现了按需加载，减少了dom的消耗。
 其实使用router跳转和使用history.pushState()没什么差别的，因为vue-router就是用了history.pushState()，尤其是在history模式下
+
+https://www.cnblogs.com/everlose/p/12608978.html
+https://segmentfault.com/a/1190000018227116
+```js
+// 源码index.js
+export default class VueRouter {
+  ...
+  constructor (options: RouterOptions = {}) {
+    this.app = null
+    this.apps = []
+    this.options = options
+    this.beforeHooks = []
+    this.resolveHooks = []
+    this.afterHooks = []
+    this.matcher = createMatcher(options.routes || [], this)
+
+    let mode = options.mode || 'hash'   // 不选择模式会默认使用hash模式
+    this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false
+    if (this.fallback) {
+      mode = 'hash'
+    }
+    if (!inBrowser) {         // 非浏览器环境默认nodejs环境
+      mode = 'abstract'
+    }
+    this.mode = mode
+
+    switch (mode) { // 根据参数选择三种模式的一种
+      case 'history':
+        this.history = new HTML5History(this, options.base) // 根据HTML5版History的方法和属性实现的模式
+        break
+      case 'hash':
+        this.history = new HashHistory(this, options.base, this.fallback) // 利用url中的hash特性实现
+        break
+      case 'abstract':
+        this.history = new AbstractHistory(this, options.base) // 这种模式原理暂不清楚
+        break
+      default:
+        if (process.env.NODE_ENV !== 'production') {
+          assert(false, `invalid mode: ${mode}`)
+        }
+    }
+  }
+  ...
+  // 一些api方法，你应该很熟悉，$router.push(...)
+  push (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.history.push(location, onComplete, onAbort)
+  }
+
+  replace (location: RawLocation, onComplete?: Function, onAbort?: Function) {
+    this.history.replace(location, onComplete, onAbort)
+  }
+
+  go (n: number) {
+    this.history.go(n)
+  }
+
+  back () {
+    this.go(-1)
+  }
+
+  forward () {
+    this.go(1)
+  }
+  ...
+}
+```
+我们创建的路由都是VueRouter类的实例化，用来管理我们的【key-components-view】，一个key（代码中的path）对应一个组件
+
+vue-router是作为插件加入使用的，通过mixin（混合）来影响每一个Vue实例化，在beforeCreate 钩子的时候就会完成router的初始化
+
+1. 第一种：hashHistory模式 url中#号后面的参数，别名哈希值，关于hash的一些特性
+2. 第二种：HTML5History模式
 
 
 ## Vue组件的参数传递

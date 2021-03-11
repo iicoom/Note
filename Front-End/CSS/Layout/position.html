@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+    <style>
+        body {
+            background-color: darkseagreen;
+            height: 800px;
+        }
+        .parent {
+            width: 80%;
+            height: 500px;
+            background-color: deepskyblue;
+        }
+        .child1 {
+            width: 50px;
+            height: 50px;
+            background-color: firebrick;
+            position: relative;
+            top: 50px;
+            left: 50px;
+        }
+        .child2 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(34, 178, 41);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .child3 {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(178, 176, 34);
+            position: fixed;
+            left: 50%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child1">child1</div>
+        <div class="child2">child2</div>
+        <div class="child3">child3</div>
+    </div>
+    <!-- position属性指定一个元素（静态的，相对的，绝对或固定）的定位方法的类型。
+    static 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）
+    relative 生成相对定位的元素，相对于其正常位置进行定位。因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。
+    absolute 生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+    fixed 生成固定定位的元素，相对于浏览器窗口进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
+    sticky 粘性定位，该定位基于用户滚动的位置。它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed;，它会固定在目标位置。
+    -->
+</body>
+</html>

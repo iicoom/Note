@@ -7,7 +7,7 @@
 			background-color: #112234;
 			color: #ff0000;
 			height: 100px;
-			width: 50%;
+			width: 57%;
 			margin: auto;		/*这个属性可以使当前box在父容器中随浏览缩放居中显示*/
 		}
 
@@ -20,23 +20,25 @@
 		}
 		.child {
 			background-color: #775566;
-			height: 100%;
+			height: 80%;
 			width: 100%;
-			margin: auto;  
+			margin: 0 auto;  
 		}
 
 		.flex-parent {
 			background-color: #992211;
 			height: 100px;
 			margin-top: 10px;
+			
 			display: flex;
-			align-items: center;       /* 垂直方向居中 */
-			justify-content: center;
-			padding: 0 100px 0 100px;  
+			/* align-items: center;       垂直方向居中 */
+			/* justify-content: center; */
+			padding: 0 300px 0 300px;  
 		}
 
 		.flex-child {
 			background-color: #ff2211;
+			height: 30%;
 			/* width: 50%; */
 			width: 100%;
 
@@ -60,14 +62,24 @@
 	</style>
 </head>
 <body>
-	<div class="box">1. margin: auto; Div在body中居中</div>
+	<div class="box">
+		1.当前div.box在body中居中
+		.box { height: 100px; width: 57%; margin: auto; }
+	</div>
+
 	<div class="parent">
 		<div class="child">2. 父子布局，2侧固定宽，中间child自适应</div>
 	</div>
+
 	<div class="flex-parent">
-		<div class="flex-child">3. flex自适应居中布局</div>
+		<div class="flex-child">
+			3. flex自适应居中布局
+			flex-child 两侧定宽300px 
+		</div>
 	</div>
-	<div class="calc">css-cacl()函数动态计算居中- margin-left: calc(50% - 25%)</div>
+
+	<div class="calc">css-cacl()函数动态计算居中- margin-left: calc(50% - 25%) 自身宽度必须是父级宽度的50%</div>
+
 	<div class="img_layout">
 		<h4>img在父容器中自适应水平居中对齐</h4>
 		<img src="http://pic3.nipic.com/20090702/918855_174429094_2.jpg" width="30%">

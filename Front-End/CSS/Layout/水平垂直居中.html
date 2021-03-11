@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>layout</title>
+	<style type="text/css">
+
+	.wrap {
+		  	text-align: center;
+      		line-height: 100px; /*任意高度都可以*/
+			border: 2px solid blueviolet;
+	}
+
+	.parent {
+			height: 250px;
+			display: table-cell;
+			text-align: center;
+			vertical-align: middle;
+			border: 2px solid blue;
+	}
+	.child {
+			background-color: rgb(48, 245, 245);
+			width: 80%;
+			margin: 0 auto;
+	}
+
+	.parent1 {
+			height: 300px;
+			border: 2px solid #222;
+			background-color: darkgoldenrod;
+			text-align: center;
+			display: flex;
+			align-items: center;
+	}
+	.child1 {
+			width: 250px;
+			height: 150px;
+			background-color: darkmagenta;
+			margin: 0 auto;
+	}
+	</style>
+</head>
+<body>
+	
+<div class="wrap">
+	<b>div中的单行文本</b> 水平垂直居中
+	.wrap {
+		text-align: center;
+    	line-height: 100px; /*任意高度都可以*/
+	}	
+</div>
+
+
+<div class="parent">
+	parent
+	<div class="child"> parent中的child 在父元素设置text-align和vertical-align，并将父元素设置为table-cell元素，子元素设置为inline-block元素。</div>
+</div>
+
+<div class="parent1">
+	<div class="child1">
+		.parent1 { display: flex; align-items: center;}
+		.child1 {
+			margin: 0 auto;
+		}
+	</div>
+</div>
+</body>
+</html>
+

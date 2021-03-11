@@ -56,4 +56,22 @@ others
 类似这样的 meta 标签可能对于进入搜索引擎的索引有帮助：
 <meta name="keywords" content="HTML,ASP,PHP,SQL">
 
+## 总结
+### TDK完善，包括title、description、keywords，前端页面和后台推送都要添加，如下
+```html
+<meta name="baidu-site-verification" content="TI4ZF9Ar4h" />
+<meta name="keywords" content="北京治疗近视眼医院,北京近视眼矫正,北京好的眼科医院,北京朝阳区眼科医院">
+<meta name="description" content="北京眼科医院,北京治疗近视眼科医院,北京近视矫正,北京朝阳区眼科医院,北京***医院是北京好的眼科医院,我院采用先进的飞秒手术,国内外专家就诊.治疗近视选择北京眼科.24小时咨询电话****">
+```
+### 栏目页旁边要加推荐文章，10条左右
+文章详情页下面加本栏目的相关文章
+旁边加其他栏目的推荐文章
+
+### 每个页面都要加h1 h2内容，h1标题，要惟一；h2其他栏目名
+
+### 首页的图片上，加title，把想加的关键词均匀分布在图片的title上
+
+### sitemap生成
+生成sitemap（Sitemap 可方便网站管理员通知搜索引擎他们网站上有哪些可供抓取的网页）生成的链接页面里，内容是网站的静态路径，用于每天百度收录。
+
 
