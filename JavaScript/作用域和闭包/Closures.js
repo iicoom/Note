@@ -93,12 +93,9 @@ function log(i) {
     }
 }
 
-function newClosure() {
-    for(var i = 0; i < 5; i++) {
-        setTimeout(log(i));
-    }
-}
-newClosure(); // 0 1 2 3 4
+for(var i = 0; i < 5; i++) {
+    setTimeout(log(i),0);
+} // 0 1 2 3 4
 
 // 另一种做法就是使用自执行函数，外部的匿名函数会立即执行，并把 i 作为它的参数，此时函数内 e 变量就拥有了 i 的一个拷贝。
 // 当传递给 setTimeout 的匿名函数执行时，它就拥有了对 e 的引用，而这个值是不会被循环改变的。写法如下：
@@ -112,40 +109,6 @@ function newClosure() {
     }
 }
 newClosure(); // 0 1 2 3 4
-
-
-/*
-A Note on Closures
-JavaScript’s support for closures allow you to register callbacks that, 
-when executed, maintain access to the environment in which they were created even though the execution of 
-the callback creates a new call stack entirely. 
-This is particularly of interest knowing that our callbacks are called as part of a different message 
-than the one in which they were created. Consider the following example:
-*/
-function changeHeaderDeferred() {
-  var header = document.getElementById("header");
-  
-  setTimeout(function changeHeader() {
-    header.style.color = "red";
-
-    return false;
-  }, 100);
-
-  return false;
-}
-
-changeHeaderDeferred();
-/*
-In this example, the changeHeaderDeferred function is executed which includes variable header. 
-The function setTimeout is invoked, which causes a message (plus the changeHeader callback) 
-to be added to the message queue approximately 100 milliseconds in the future. 
-The changeHeaderDeferred function then returns false, ending the processing of the 
-first message – but the header variable is still referenced via a closure and is not garbage collected.
- When the second message is processed (the changeHeader function) it maintains access to the header 
- variable declared in the outer function’s scope. 
- Once the second message (the changeHeader function) is processed, 
- the header variable can be garbage collected.
- */
 
 
 for(var i=1; i<10;i++) {
