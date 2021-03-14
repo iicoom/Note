@@ -135,7 +135,4 @@ webserver
 ```
 
 
-https://oapi.dingtalk.com/connect/qrconnect?appid=dingoaqubkmigjsqh8fdm1&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=https://www.maoshare.xyz/
-
-
 
