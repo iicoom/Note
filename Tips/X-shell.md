@@ -20,3 +20,4 @@ Ctrl+Q：解锁当前屏幕
 ## 设置屏幕展示代码行数
 https://www.xshellcn.com/xsh_column/xianshi-hangshu.html
 
+文件-属性-终端-缓冲区大小
